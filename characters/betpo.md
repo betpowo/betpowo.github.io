@@ -1,4 +1,7 @@
-# <img src="https://static.wikia.nocookie.net/fridaynightfunking/images/6/62/Betpo_Visuals_Remake_Icon.gif/revision/latest" width="75"/> <span style="color:#ff6633;font-family:Comic Sans MS">Betpo</span> ~ absolute memelord
+<img src="https://cdn.discordapp.com/attachments/985729434164297748/1178141834594234368/betpo.gif?ex=65751116" width="100"/>
+
+<font size="4"><span style="color:#ff6633;font-family:Comic Sans MS">**Betpo**</span> ~ absolute memelord</font>
+
 ---
 ![you want to squish him don't you](https://cdn.discordapp.com/attachments/985729434164297748/1178118331266498620/betpo.png)
 ```json
