@@ -3,7 +3,7 @@
 <font size="4"><span style="color:#ff3366;font-family:Comic Sans MS">**Josephine**</span> ~ love bun</font>
 
 ---
-![uwu](https://cdn.discordapp.com/attachments/985729434164297748/1178118330960326706/josephine.png)
+![uwu](https://cdn.discordapp.com/attachments/985729434164297748/1178153144115544105/josephine.png)
 ```json
 {
     "nicknames": ["Josie", "Jojo"],
