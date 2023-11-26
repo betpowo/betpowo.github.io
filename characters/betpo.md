@@ -17,7 +17,7 @@
 ---
 <details>
 <summary style="color:#ff6633"><font size="4"><b>Appearance</b></font></summary>
-He... he's just a stick figure. He also has black shiny hair I guess.
+He... he's just a stick figure. He also has black shiny hair I guess. Not really notably black since my art style doesn't use pure #000000.
 </details>
 ­
 <details>
