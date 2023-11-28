@@ -3,7 +3,7 @@
 <font size="4"><span style="color:#ff3366;font-family:Comic Sans MS">**Josephine**</span> ~ love bun</font>
 
 ---
-![uwu](https://cdn.discordapp.com/attachments/985729434164297748/1178118330960326706/josephine.png)
+![uwu](https://cdn.discordapp.com/attachments/985729434164297748/1178153144115544105/josephine.png)
 ```json
 {
     "nicknames": ["Josie", "Jojo"],
@@ -34,5 +34,9 @@ No, she's never gonna wear brown contacts.
 - She runs a *teeny tiny* bit faster than the average human. She can also jump a bit higher. Don't blame me, blame [Geometry Dash](https://store.steampowered.com/app/322170/).
 <img src="https://cdn.discordapp.com/attachments/985729434164297748/1178826056266940437/fuck.png" width="20"/>
 - She's a bit shy, and doesn't talk much; doesn't mean she doesn't like you though.
+<<<<<<< HEAD
 - She got her eye symbols from ██████████████████████████████████████████████████████████████████ (will be explained in the future)
 </details>
+=======
+</details>
+>>>>>>> 0754ec255d12a76bb646448b57b0ffa8e3b708a3
