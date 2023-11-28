@@ -37,6 +37,7 @@ No, I'm not gonna wear brown contacts either.
 
 - She doesn't really talk much. She's shy, y'know?
 - She can get flustered so easily; like just call her cute once and she's already covering her face in embarrassment. She can't really take compliments that well.
+- She's sleepy sometimes, she might just lay anywhere she wants so she can take a rest.
 - Can she fit inside your pocket?
 </details>
 </details>
