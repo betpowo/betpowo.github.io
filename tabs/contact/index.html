@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style type="text/css">
+.board {
+background: #966;
+margin: 20px;
+box-shadow: 0px 7px 0 #2b0021;
+border-radius: 20px;
+overflow-y: clip;
+text-align: center;
+}
+body {
+	font-family: 'Nexa';
+	color: #ffc;
+	font-size: 24px;
+	margin: 40px;
+	background-color: #999;
+	line-height: 1.3;
+}
+a:link {
+  color: #633;
+  font-weight: bold;
+  background-color: transparent;
+  text-decoration: none;
+}
+a:visited {
+  color: #633;
+  background-color: transparent;
+  text-decoration: none;
+}
+a:hover {
+  color: #ffc;
+  background-color: transparent;
+  text-decoration: none;
+  font-weight: bold;
+}
+a:active {
+  color: #fff;
+  background-color: transparent;
+  text-decoration: none;
+}
+::selection {
+  color: #966;
+  background: #ffc;
+}
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.shaker {
+	transform: scale(0.9)
+}
+.shaker:hover {
+  animation: shake 0.25s;
+  animation-fill-mode: both;
+}
+@keyframes shake {
+  0% { transform: scale(0.9) }
+  50% { transform: scale(1) }
+  66% { transform: scale(0.98) }
+  67% { transform: scale(0.96) }
+  100% { transform: scale(0.95) }
+}
+</style>
+<title>Betopia's Location</title>
+<link rel="icon" href=
+"../../images/icons/betty.gif"
+type="image/x-icon">
+</head>
+
+<div style="display: flex;align-items: center;text-align: center;">
+<a href="../../index.html"><img src="../../images/logo.gif" width="300"></a>
+<div class="board" style="line-height: 4px;">
+<p>&nbsp;	<a href="../characters/index.html">characters</a>­<span>&nbsp;//&nbsp;­</span><span style="font-weight:bold; color: #fc9; background-color: transparent;">contact</span>&nbsp;//&nbsp;­</span><a href="https://github.com/probablynotbetopia/character-info-n-stuff">source</a>  &nbsp;
+</p>
+</div>
+</div>
+
+<hr color="#966">
+<div class="container">
+<div class="board" style="width: 500px;padding: 23px;">
+<body>
+	<p style="
+	color: #ffc; 
+	font-weight: bolder; 
+	font-size: 275%; 
+	text-align: center; 
+	text-shadow: 0px 4px 0 #2b0021;
+	margin-top: 7px; margin-bottom: 2px;">
+		Contact
+	</p>
+	This is where you can find me. Don't worry, none of them are fake.
+	<br>
+	<br>
+
+	<!-- first row -->
+	<div class="container">
+		<img class="shaker" src="../../images/socials/git.png" title="GitHub" onclick="
+			var output = document.getElementById('output');
+			output.innerHTML = output.href = 'https://github.com/probablynotbetopia';
+		" />
+		<img class="shaker" src="../../images/socials/twit.png" title="Twitter / X" onclick="
+			var output = document.getElementById('output');
+			output.innerHTML = output.href = 'https://twitter.com/probablynotbetopia';
+		" />
+		<img class="shaker" src="../../images/socials/jolt.png" title="Game Jolt" onclick="
+			var output = document.getElementById('output');
+			output.innerHTML = output.href = 'https://gamejolt.com/@probablynotbetopia';
+		" />
+	</div>
+
+	<!-- second row -->
+	<div class="container">
+		<img class="shaker" src="../../images/socials/disc.png" title="Discord" onclick="
+			var output = document.getElementById('output');
+			output.innerHTML = 'betpowo';
+			output.href = '';
+		" />
+		<img class="shaker" src="../../images/socials/mail.png" title="Mail (will not check)" onclick="
+			var output = document.getElementById('output');
+			output.innerHTML = 'betopiachannel@gmail.com';
+			output.href = '';
+		" />
+		<img class="shaker" src="../../images/socials/banana.png" title="GameBanana" onclick="
+			var output = document.getElementById('output');
+			output.innerHTML = output.href = 'https://gamejolt.com/@probablynotbetopia';
+		" />
+	</div>
+
+	<!-- third row -->
+	<div class="container">
+		<img class="shaker" src="../../images/socials/tumb.png" title="Tumblr (inactive)" onclick="
+			var output = document.getElementById('output');
+			output.innerHTML = output.href = 'https://tumblr.com/betpowo';
+		" />
+		<img class="shaker" src="../../images/socials/tube.png" title="YouTube" onclick="
+			var output = document.getElementById('output');
+			output.innerHTML = output.href = 'https://youtube.com/c/Betopia_';
+		" />
+		<img class="shaker" src="../../images/socials/ground.png" title="Newgrounds" onclick="
+			var output = document.getElementById('output');
+			output.innerHTML = output.href = 'https://betopiang.newgrounds.com';
+		" />
+	</div>
+	
+	<br>
+	<a id="output" href="">---</a>
+</body>
+</div>
+</div>
+<p style="text-align: center;margin: 4px;font-size: 17px;color:#ccc"><i>TODO: make this look better</i></p>
+<br>
+</html>
