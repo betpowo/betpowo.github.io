@@ -49,10 +49,10 @@ a:active {
   align-items: center;
   justify-content: center;
 }
-.shaker {
+.appicon {
 	transform: scale(0.9)
 }
-.shaker:hover {
+.appicon:hover {
   animation: shake 0.25s;
   animation-fill-mode: both;
 }
@@ -73,14 +73,14 @@ type="image/x-icon">
 <div style="display: flex;align-items: center;text-align: center;">
 <a href="../../index.html"><img src="../../images/logo.gif" width="300"></a>
 <div class="board" style="line-height: 4px;">
-<p>&nbsp;	<a href="../characters/index.html">characters</a>­<span>&nbsp;//&nbsp;­</span><span style="font-weight:bold; color: #fc9; background-color: transparent;">contact</span>&nbsp;//&nbsp;­</span><a href="https://github.com/probablynotbetopia/character-info-n-stuff">source</a>  &nbsp;
+<p>&nbsp;	<a href="../characters/index.html">characters</a>­<span>&nbsp;//&nbsp;­</span><span style="font-weight:bold; color: #fc9; background-color: transparent;">contact</span>&nbsp;//&nbsp;­</span><a href="https://github.com/betpowo/betpowo.github.io">source</a>  &nbsp;
 </p>
 </div>
 </div>
 
 <hr color="#966">
 <div class="container">
-<div class="board" style="width: 500px;padding: 23px;">
+<div class="board" style="padding: 23px;">
 <body>
 	<p style="
 	color: #ffc; 
@@ -97,56 +97,63 @@ type="image/x-icon">
 
 	<!-- first row -->
 	<div class="container">
-		<img class="shaker" src="../../images/socials/git.png" title="GitHub" onclick="
-			var output = document.getElementById('output');
-			output.innerHTML = output.href = 'https://github.com/probablynotbetopia';
-		" />
-		<img class="shaker" src="../../images/socials/twit.png" title="Twitter / X" onclick="
-			var output = document.getElementById('output');
-			output.innerHTML = output.href = 'https://twitter.com/betpowo';
-		" />
-		<img class="shaker" src="../../images/socials/jolt.png" title="Game Jolt" onclick="
-			var output = document.getElementById('output');
-			output.innerHTML = output.href = 'https://gamejolt.com/@probablynotbetopia';
-		" />
-	</div>
-
-	<!-- second row -->
-	<div class="container">
-		<img class="shaker" src="../../images/socials/disc.png" title="Discord" onclick="
-			var output = document.getElementById('output');
-			output.innerHTML = 'betpowo';
-			output.href = '';
-		" />
-		<img class="shaker" src="../../images/socials/mail.png" title="Mail (will not check)" onclick="
+		<div class="board" style="width:490px;padding: 23px 0px 10px 0px;box-shadow: 0px; background-color: #633;">
+		<img class="appicon" src="../../images/socials/mail.png" title="Mail (will not check)" onclick="
 			var output = document.getElementById('output');
 			output.innerHTML = 'betopiachannel@gmail.com';
 			output.href = '';
 		" />
-		<img class="shaker" src="../../images/socials/banana.png" title="GameBanana" onclick="
+		<img class="appicon" src="../../images/socials/disc.png" title="Discord" onclick="
 			var output = document.getElementById('output');
-			output.innerHTML = output.href = 'https://gamebanana.com/members/1830099';
+			output.innerHTML = 'betpowo';
+			output.href = '';
 		" />
-	</div>
-
-	<!-- third row -->
-	<div class="container">
-		<img class="shaker" src="../../images/socials/tumb.png" title="Tumblr (inactive)" onclick="
+		<img class="appicon" src="../../images/socials/twit.png" title="Twitter / X" onclick="
 			var output = document.getElementById('output');
-			output.innerHTML = output.href = 'https://tumblr.com/betpowo';
+			output.innerHTML = output.href = 'https://twitter.com/betpowo';
 		" />
-		<img class="shaker" src="../../images/socials/tube.png" title="YouTube" onclick="
+		<img class="appicon" src="../../images/socials/bsky.png" title="BlueSky" onclick="
 			var output = document.getElementById('output');
-			output.innerHTML = output.href = 'https://youtube.com/c/Betopia_';
+			output.innerHTML = output.href = 'https://bsky.app/profile/betpowo.bsky.social';
 		" />
-		<img class="shaker" src="../../images/socials/ground.png" title="Newgrounds" onclick="
+		<img class="appicon" src="../../images/socials/tube.png" title="YouTube" onclick="
+			var output = document.getElementById('output');
+		output.innerHTML = output.href = 'https://youtube.com/c/Betopia_';
+		" />
+		<img class="appicon" src="../../images/socials/ground.png" title="Newgrounds" onclick="
 			var output = document.getElementById('output');
 			output.innerHTML = output.href = 'https://betopiang.newgrounds.com';
 		" />
+		<img class="appicon" src="../../images/socials/banana.png" title="GameBanana" onclick="
+			var output = document.getElementById('output');
+			output.innerHTML = output.href = 'https://gamebanana.com/members/1830099';
+		" />
+		<img class="appicon" src="../../images/socials/jolt.png" title="Game Jolt" onclick="
+			var output = document.getElementById('output');
+			output.innerHTML = output.href = 'https://gamejolt.com/@probablynotbetopia';
+		" />	
+		<img class="appicon" src="../../images/socials/tumb.png" title="Tumblr (inactive)" onclick="
+			var output = document.getElementById('output');
+			output.innerHTML = output.href = 'https://tumblr.com/betpowo';
+		" />
+		<img class="appicon" src="../../images/socials/prnn.png" title="Pronouns.page" onclick="
+			var output = document.getElementById('output');
+			output.innerHTML = output.href = 'https://en.pronouns.page/@betopia_awesome';
+		" />
+		<img class="appicon" src="../../images/socials/gd.png" title="Geometry Dash" onclick="
+			var output = document.getElementById('output');
+			output.innerHTML = 'BetopiaGD';
+			output.href = '';
+		" />
+		<img class="appicon" src="../../images/socials/rbl.png" title="Roblox" onclick="
+			var output = document.getElementById('output');
+			output.innerHTML = output.href = 'https://www.roblox.com/users/1758832943/profile';
+		" />
+		<br>
+		<a id="output" href="" style="padding:15px; color: #ffc;word-wrap: break-word;">- - -</a>		
+		</div>
 	</div>
 	
-	<br>
-	<a id="output" href="">---</a>
 </body>
 </div>
 </div>
