@@ -2,8 +2,12 @@
 <html>
 <head>
 <style>
+@font-face {
+  font-family: 'sillyfont';
+  src: url('sillyfont.ttf') format('truetype');
+}
 body {
-	font-family: 'Nexa';
+  font-family: 'sillyfont';
 	color: #ffc;
 	font-size: 24px;
 	margin: 40px;
@@ -37,15 +41,14 @@ a:active {
   background: #ffc;
 }
 .shaker:hover {
-  animation: shake 0.125s;
+  animation: shake 0.4s;
   animation-iteration-count: infinite;
 }
 
 @keyframes shake {
-  0% { transform: translate(-1px, 0px) }
-  33% { transform: translate(1px, 0px) }
-  66% { transform: translate(-1px, 0px) }
-  100% { transform: translate(1px, 0px) }
+  0% { transform: translate(0px, 0px) }
+  50% { transform: translate(0px, -5px) }
+  100% { transform: translate(0px, 0px) }
 }
 .board {
 background: #966;
@@ -67,14 +70,14 @@ type="image/x-icon">
 <div style="display: flex;align-items: center;">
 <img src="images/logo.gif" width="300">
 <div class="board" style="line-height: 4px;">
-<p>&nbsp;	<a href="tabs/characters/index.html">characters</a>­<span>&nbsp;//&nbsp;­</span><a href="tabs/contact/index.html">contact</a>&nbsp;//&nbsp;­</span><a href="https://github.com/betpowo/betpowo.github.io">source</a>  &nbsp;
+<p>&nbsp;	<a href="characters.html">characters</a>­<span>&nbsp;//&nbsp;­</span><a href="contact.html">contact</a>&nbsp;//&nbsp;­</span><a href="https://github.com/betpowo/betpowo.github.io">source</a>  &nbsp;
 </p>
 </div>
 </div>
 
 <hr color="#966">
 
-<div class="board" style="margin: auto; width: 999px; margin-top: 24px; margin-bottom: 24px;">
+<div class="board" style="margin: auto; width: 99%; margin-top: 24px; margin-bottom: 24px;">
   <div style="padding: 23px;">
     <p style="
 	  color: #ffc; 
@@ -85,13 +88,16 @@ type="image/x-icon">
 	  &nbsp;alright let's do this one last time 
 	</p><br>
   My name is Betty. I was given unrestricted internet access; and for 7 years, I've been the one and only, <b>Betopia</b>. I’m pretty sure you know the rest.
+  <br><br>
   <hr color="#633">
-  I met so many people through the internet, learned to draw, made weird things, and then I made weird things again, and again and again, and again.
+  <br>
+  I met friends through the internet, learned to draw, made weird things, and then I made weird things again, and again and again, and again.
   <br><br>And I did, uh... I did this.
   <br> <a href="https://gamebanana.com/mods/378548">
     <img src="images/modnameherelogo.png" width="400" class="shaker"> 
     </a>  
   <br>We don’t really talk about this.
+  <br><br>
   <hr color="#633">
   <br>Look, I'm an "artist", I'm a beginner musician, also somewhat of a Haxe coder;
   <br><br>
@@ -99,19 +105,21 @@ type="image/x-icon">
   <p style="text-align: left;">I have an excellent character...</p>
   <div style="align-items: center;margin: auto;">
     <a href="tabs/characters/pages/betpo.html">
-    <img src="images/charshowcase1.png" title="Betpo" style="margin-right: 100px;">
+    <img src="images/charshowcase1.png" title="Betpo" style="margin-right: 100px;" class="shaker">
     </a>
     <a href="tabs/characters/pages/josephine.html">
-    <img src="images/charshowcase2.png" title="Josephine" style="margin-left: 100px;">
+    <img src="images/charshowcase2.png" title="Josephine" style="margin-left: 100px;" class="shaker">
     </a>
   </div>
   <br>
   <br>I mean, I've made worse.
-  <br><br>But after everything, I still love being Betopia. I mean, who wouldn't? So no matter how many times I feel down, I always find a way to get back up.
+  <br><br>
+  <hr color="#633">
+  <br>But after everything, I still love being Betopia. I mean, who wouldn't? So no matter how many times I feel down, I always find a way to get back up.
   <br>Because the only thing standing between myself and oblivion are my goals. There's only one Betopia, and you're looking at her.
   </div>
 </div>
-<p style="text-align: center;font-weight: bold;color: #633; background-color: #fc3;max-width: 330px;margin: auto;">[ UNDER CONSTRUCTION ]</p>
+<span style="max-width:33%;display: block;text-align: center;margin: auto;font-weight: bold;color: #633; background-color: #fc3;">&nbsp;[ UNDER CONSTRUCTION ]&nbsp;</span>
 <br>
 <br>
 <br>
