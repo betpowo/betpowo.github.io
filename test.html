@@ -23,7 +23,6 @@ html * {
 }
 body {
     font-family: 'sillyfont';
-    color: var(--char-color);
 }
 pre code {
     background-color: var(--char-color);
@@ -33,6 +32,9 @@ pre code {
     color: #fff;
     overflow-x: auto;
     font-weight: bold;
+}
+li::marker {
+    color: var(--char-color);
 }
 ::selection {
 color: #fff;
@@ -50,17 +52,69 @@ background: var(--char-color);
 }
 </style>
 <title>Unknown - Betopia's Character Storage</title>
-<link rel="icon" href=
+<link id="favicon" rel="icon" href=
 "images/chars/betty/icon.gif"
 type="image/x-icon">
 </head>
 </iframe>
 <div id="mainboard" class="bgbox">
 <body style="background-color: var(--char-color);">
+<div id="brah" style="margin:23px">
+    <button style="font-family:'sillyfont';background-color: var(--char-color);color: #fff;border: 0px" onclick="window.location.href = 'characters.html'">
+		←
+	</button>
+    <br>
+    <div class="container">
+    <img id="icon" src="images/chars/betpo/icon.gif" width="100"/>
+    <p id="charheader" style="
+    color: #000;
+	font-size: 200%; 
+    font-weight: 400;
+	text-align: center; 
+	margin-top: 17px; margin-bottom: 7px;
+    float:inline-start;">
+		­ <font style="color: var(--char-color); font-weight: bolder; font-size:100%">Unknown</font> ~ what are you looking for?
+	</p>
+    </div>
+    <br>
+    <details open>
+    <summary style="color: var(--char-color);"><font style="background-color: var(--char-color);color:#fff;">­ <b>Image</b> ­</font></summary>
+    <img id="image" src="images/chars/betpo/ref.png" title="alt text" class="centeredimage75"/>
+    <p id="image-sub" style="text-align: center;
+    margin: 4px;
+    font-size: 17px;
+    color: rgb(from var(--char-color) r g b / 50%)"><i>image subtitle here</i></p>
+    </details>
+    <br>
+    <details>
+    <summary style="color: var(--char-color);"><font style="background-color: var(--char-color);color:#fff">­ <b>Who the hell is this?</b> ­</font></summary>
+    <p id="description" style="color:#000">description here
+    </details>
+    <br>
+    <details>
+    <summary style="color: var(--char-color)"><b>Appearance</b></summary>
+    <p id="appearance" style="color:#000">apperance here
+    </details>
+    <br>
+    <details open>
+    <summary style="color: var(--char-color)"><b>Other Information</b></summary>
+    <div class="box">
+        <pre>
+        <code id="jsonthing" class="language-js">json shit here</code>
+        </pre>
+    </div>
+    <ul>
+    <p id="list">
+        <li>list here</li>
+    </p>
+    </p>
+    </ul>
+    </details>
+­</div>
 <script>
-    var root = document.documentElement;
-    root.style.setProperty('--char-color', 'rgb(100, 100, 253)');
+    document.getElementById('brah').style.setProperty('display', 'none');
     var guh = '';
+    var json = {};
     var request = new XMLHttpRequest();
     request.open('GET', 'https://betpowo.github.io/char-pages/betpo.json', true);
     request.send(null);
@@ -69,72 +123,33 @@ type="image/x-icon">
             var type = request.getResponseHeader('Content-Type');
             if (type.indexOf("text") !== 1) {
                 guh = request.responseText;
+                console.log(guh);
+                json = JSON.parse(guh);
+                console.log(json);
+
+                doShit(json);
+
+                document.getElementById('whatthehell').innerHTML = '<b>Hey!</b> Press the [←] button to go back to the main page';
+                document.getElementById('brah').style.setProperty('display', '');
             }
         }
     }
-    console.log(guh);
-    var json = JSON.parse(guh);
-    console.log(json);
+
+    function doShit(json) {
+        var root = document.documentElement;
+        root.style.setProperty('--char-color', 'rgb(' + json.color.toString() + ')');
+        console.log(json.color.toString());
+
+        document.title = json.display + ' - Betopia\'s Character Storage';
+        document.getElementById('favicon').href = 'images/chars/' + json.name + '/icon.gif';
+        document.getElementById('charheader').innerHTML = '<font style="color: var(--char-color); font-weight: bolder; font-size:100%">' + json.display + '</font> ~ ' + json.tag;
+        document.getElementById('image').src = 'images/chars/' + json.name + '/ref.png';
+        document.getElementById('image').alt = json.image_alt;
+    }
 </script>
-<div style="margin:23px">
-    <button style="font-family:'sillyfont';background-color: var(--char-color);color: #fff;border: 0px" onclick="window.location.href = 'characters.html'">
-		←
-	</button>
-    <br>
-    <div class="container">
-    <img src="images/chars/betpo/icon.gif" width="100"/>
-    <p style="
-    color: #000;
-	font-size: 200%; 
-    font-weight: 400;
-	text-align: center; 
-	margin-top: 17px; margin-bottom: 7px;
-    float:inline-start;">
-		­ <font style="color: var(--char-color); font-weight: bolder; font-size:100%">Betpo</font> ~ absolute memelord
-	</p>
-    </div>
-    <br>
-    <details open>
-    <summary style="color: var(--char-color);"><font style="background-color: var(--char-color);color:#fff">­ <b>Image</b> ­</font></summary>
-    <img src="images/chars/betpo/ref.png" title="he can also be thrown around. kinda cool if you ask me" class="centeredimage75"/>
-    <p style="text-align: center;margin: 4px;font-size: 17px;color: rgb(from var(--char-color) r g b / 50%);"><i>He may look small, but don't let his size fool you; he could beat you to death.</i></p>
-    </details>
-    <br>
-    <details>
-    <summary style="color: var(--char-color);"><font style="background-color: var(--char-color);color:#fff">­ <b>Who the hell is this?</b> ­</font></summary>
-    <p style="color:#000"><b>Betpo</b> is a... somewhat small stick figure friend you can have around that is NOT serious at all (well, only when needed).
-    </details>
-    <br>
-    <details>
-    <summary style="color:--char-color"><b>Appearance</b></summary>
-    <p style="color:#000">He... he's just a stick figure. He also has black shiny hair I guess.<br>Not really notably black since my art style doesn't use pure <b>#000000</b>.
-    </details>
-    <br>
-    <details>
-    <summary style="color:--char-color"><b>Other Information</b></summary>
-    <div class="box">
-        <pre>
-        <code class="language-js">{
-    "nicknames": ["Bep", "Bet", "Betopia Liam Olivia Noah Emma Oliver Charlotte Elijah Amelia James Ava William Sophia Benjamin Isabella Lucas Mia Henry Evelyn Theodore Harper zippyfourmeal jr the 60th"],
-    "age": "unknown",
-    "pronouns": ["he"],
-    "sexuality": "asexual",
-    "favorites": ["memes", "funny sounds", "loud reverb fart sound effect"]
-}</code>
-        </pre>
-    </div>
-    <ul>
-    <li><p style="color:#000">He does not have gender/sex, he is just a drawing but refers to himself with <b>he/him</b> pronouns</p></li>
-    <li><p style="color:#000">He can quite literally say any meme sound whenever he wants, he's like a soundboard of some sorts. It makes sense because he comes from ███████████</p></li>
-    <li><p style="color:#000">He is somewhat elastic, so he can sorta change height or the length of his limbs</p></li>
-    <li><p style="color:#000">He does not</p></li>
-    <li><p style="color:#000">As said before, he's not serious/mature most of the time, only when it's necessary</p></li>
-    </li></ul>
-    </details>
-­</div>
 </body>
 </div>
 <br>
-<p style="text-align: center;margin: 4px;font-size: 17px;color:#fff"><b>Hey!</b> Press the [←] button to go back to the main page</p>
+<p id="whatthehell" style="text-align: center;margin: 4px;font-size: 17px;color:#fff">Loading...</p>
 <br>
 </html>
