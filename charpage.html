@@ -18,7 +18,7 @@
     overflow-y: auto;
 }
 html * {
-    font-size: 17px;
+    font-size: 20px;
     line-height: 1.625;
 }
 body {
@@ -32,6 +32,8 @@ pre code {
     color: #fff;
     overflow-x: auto;
     font-weight: bold;
+    font-size: 16px;
+    font-family: 'Courier New', Courier, monospace;
 }
 li::marker {
     color: var(--char-color);
@@ -56,12 +58,12 @@ background: var(--char-color);
 "images/chars/betty/icon.gif"
 type="image/x-icon">
 </head>
-</iframe>
-<div id="mainboard" class="bgbox">
+<br>
+<div id="mainboard" class="bgbox" style="width: 85%;margin: auto;">
 <body style="background-color: var(--char-color);">
-<div id="brah" style="margin:23px">
-    <button style="font-family:'sillyfont';background-color: var(--char-color);color: #fff;border: 0px" onclick="window.location.href = 'characters.html'">
-		←
+<div id="brah" style="margin:23px;padding: 23px;">
+    <button style="font-family:'sillyfont';background-color: var(--char-color);color: #fff;border: 0px;border-radius: 10px;font-size: 30px;width: 45px;height: 45px;text-align: center;" onclick="window.location.href = 'characters.html'">
+    <font style="font-size: 3px;">&nbsp;</font>←
 	</button>
     <br>
     <div class="container">
@@ -86,7 +88,7 @@ type="image/x-icon">
     color: rgb(from var(--char-color) r g b / 50%)"><i>image subtitle here</i></p>
     </details>
     <br>
-    <details>
+    <details open>
     <summary style="color: var(--char-color);"><font style="background-color: var(--char-color);color:#fff">­ <b>Who the hell is this?</b> ­</font></summary>
     <p id="description" style="color:#000">description here
     </details>
@@ -96,34 +98,41 @@ type="image/x-icon">
     <p id="appearance" style="color:#000">apperance here
     </details>
     <br>
-    <details open>
+    <details>
     <summary style="color: var(--char-color)"><b>Other Information</b></summary>
+    <details style="margin: 23px;padding: 23px;">
+    <summary style="color: var(--char-color)"><b>Misc.</b></summary>
     <div class="box">
         <pre>
         <code id="jsonthing" class="language-js">json shit here</code>
         </pre>
     </div>
-    <ul>
-    <p id="list">
-        <li>list here</li>
-    </p>
+    </summary>
+    </details>
+    <ul id="listthing">
     </p>
     </ul>
+    </summary>
     </details>
 ­</div>
 <script>
     document.getElementById('brah').style.setProperty('display', 'none');
+
+    var url = window.location.href;
+    var searchParams = new URL(url).searchParams;     
+    var urlSearchParams = new URLSearchParams(searchParams);
+    var char = urlSearchParams.get('char');
+    console.log(char);
     var guh = '';
     var json = {};
     var request = new XMLHttpRequest();
-    request.open('GET', 'https://betpowo.github.io/char-pages/betpo.json', true);
+    request.open('GET', 'https://betpowo.github.io/char-pages/' + char + '.json', true);
     request.send(null);
     request.onreadystatechange = function () {
         if (request.readyState === 4 && request.status === 200) {
             var type = request.getResponseHeader('Content-Type');
             if (type.indexOf("text") !== 1) {
                 guh = request.responseText;
-                console.log(guh);
                 json = JSON.parse(guh);
                 console.log(json);
 
@@ -138,13 +147,25 @@ type="image/x-icon">
     function doShit(json) {
         var root = document.documentElement;
         root.style.setProperty('--char-color', 'rgb(' + json.color.toString() + ')');
-        console.log(json.color.toString());
 
         document.title = json.display + ' - Betopia\'s Character Storage';
         document.getElementById('favicon').href = 'images/chars/' + json.name + '/icon.gif';
-        document.getElementById('charheader').innerHTML = '<font style="color: var(--char-color); font-weight: bolder; font-size:100%">' + json.display + '</font> ~ ' + json.tag;
+        document.getElementById('charheader').innerHTML = '	­ <font style="color: var(--char-color); font-weight: bolder; font-size:100%">' + json.display + '</font> ~ ' + json.tag;
         document.getElementById('image').src = 'images/chars/' + json.name + '/ref.png';
-        document.getElementById('image').alt = json.image_alt;
+        document.getElementById('image').title = json.image_alt;
+        document.getElementById('image-sub').innerHTML = json.image_sub;
+        document.getElementById('description').innerHTML = json.who;
+        document.getElementById('appearance').innerHTML = json.look;
+        document.getElementById('jsonthing').innerHTML = JSON.stringify(json.other, null, 4);
+        var list = document.getElementById('listthing');
+        var brauthem = 0;
+        json.info.forEach((item) => {
+            if (brauthem != 0) list.appendChild(document.createElement("br"));
+            let li = document.createElement("li");
+            li.innerText = item;
+            list.appendChild(li);
+            brauthem += 1;
+        });
     }
 </script>
 </body>

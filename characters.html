@@ -58,6 +58,24 @@ a:active {
   align-items: baseline;
   justify-content: center;
 }
+.shaker:hover {
+  animation: shake 0.2s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes shake {
+  0% { transform: translate(0px, 0px) }
+  10% { transform: translate(1px, -2px) }
+  20% { transform: translate(2px, 0.5px) }
+  30% { transform: translate(3px, 1px) }
+  40% { transform: translate(1px, 0.4px) }
+  50% { transform: translate(0px, 2px) }
+  60% { transform: translate(2px, 0px) }
+  70% { transform: translate(0px, 0.23px) }
+  80% { transform: translate(0.7px, 0px) }
+  90% { transform: translate(1px, 2px) }
+  100% { transform: translate(0px, 3px) }
+}
 </style>
 <title>Betopia's Character Storage</title>
 <link rel="icon" href=
@@ -75,7 +93,7 @@ type="image/x-icon">
 
 <hr color="#966">
 <div class="container">
-<div class="board" style="width: 75%;padding: 23px;">
+<div class="board" style="width: 75%;padding: 50px;">
 <body>
 	<p style="
 	color: #ffc; 
@@ -89,7 +107,7 @@ type="image/x-icon">
 	Heya. this is where I keep my <b>original character information</b>; now with the ability to update anytime I want, without having to delete and remake the same tweet over and over again. Cool, am I right?
 	<br>
 	<br>
-	<div class="board" style="box-shadow: none;padding: 23px; background-color: #633;outline: #fc6 solid 5px;">
+	<div class="board" style="box-shadow: none;padding: 23px; background-color: #633;outline: #fc6 solid 5px;width: fit-content;margin: auto;">
 	<p style="
 	color: #ffc; 
 	font-weight: bolder; 
@@ -107,17 +125,17 @@ type="image/x-icon">
 	<br>
 	<br>
 	<div class="container2">
-		<a href="char-pages/betpo.html">
-		<img src="images/chars/betpo/art.png" width="75%" title="Betpo"/>
+		<a href="charpage.html?char=betpo">
+		<img class="shaker" src="images/chars/betpo/art.png" width="75%" title="Betpo"/>
 		</a>
-		<a href="char-pages/josephine.html">
-		<img src="images/chars/josephine/art.png" width="75%" title="Josephine"/>
+		<a href="charpage.html?char=josephine">
+		<img class="shaker" src="images/chars/josephine/art.png" width="75%" title="Josephine"/>
 		</a>
 	</div>
 	</div>
 
 	<br>
-	<div class="board" style="box-shadow: none;padding: 23px; background-color: #200;background-image: 
+	<div class="board" style="width: fit-content;box-shadow: none;padding: 23px; background-color: #200;margin: auto;background-image: 
 	linear-gradient(#930, #603)">
 	<a href="https://gamebanana.com/mods/378548">
 	<p style="
@@ -135,15 +153,15 @@ type="image/x-icon">
 	<br>
 	<br>
 	<div class="container2">
-		<a href="char-pages/carlos.html">
-		<img src="images/chars/carlos/art.png" width="75%" title="carlos"/>
+		<a href="charpage.html?char=carlos">
+		<img class="shaker" src="images/chars/carlos/art.png" width="75%" title="carlos"/>
 		</a>
 	</div>
 	</div>
 	
 	<br>
 
-	<div class="board" style="box-shadow: none;padding: 23px; background-color: #633;">
+	<div class="board" style="margin: auto;box-shadow: none;padding: 23px; background-color: #633;width: fit-content;">
 	<p style="
 	color: #ffc; 
 	font-weight: bolder; 
@@ -154,8 +172,8 @@ type="image/x-icon">
 		Me!
 	</p>
 	<div class="container2">
-		<a href="char-pages/betty.html">
-		<img src="images/chars/betty/art.png" width="75%" title="Betty"/>
+		<a href="charpage.html?char=betty">
+		<img class="shaker" src="images/chars/betty/art.png" width="75%" title="Betty"/>
 		</a>
 	</div>
 	</div>
