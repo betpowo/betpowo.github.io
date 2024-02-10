@@ -101,7 +101,7 @@ type="image/x-icon">
 
 	<!-- first row -->
 	<div class="container">
-		<div class="board" style="width:490px;padding: 23px 0px 10px 0px;box-shadow: 0px; background-color: #633;">
+		<div class="board" style="width:fit-content;min-width: 512px;padding: 23px 0px 10px 0px;box-shadow: 0px; background-color: #633;">
 		<img class="appicon" src="images/socials/mail.png" title="Mail (will not check)" onclick="
 			var output = document.getElementById('output');
 			output.innerHTML = 'betopiachannel@gmail.com';
@@ -120,6 +120,7 @@ type="image/x-icon">
 			var output = document.getElementById('output');
 			output.innerHTML = output.href = 'https://bsky.app/profile/betpowo.bsky.social';
 		" />
+		<br>
 		<img class="appicon" src="images/socials/tube.png" title="YouTube" onclick="
 			var output = document.getElementById('output');
 		output.innerHTML = output.href = 'https://youtube.com/c/Betopia_';
@@ -135,7 +136,8 @@ type="image/x-icon">
 		<img class="appicon" src="images/socials/jolt.png" title="Game Jolt" onclick="
 			var output = document.getElementById('output');
 			output.innerHTML = output.href = 'https://gamejolt.com/@probablynotbetopia';
-		" />	
+		" />
+		<br>
 		<img class="appicon" src="images/socials/tumb.png" title="Tumblr (inactive)" onclick="
 			var output = document.getElementById('output');
 			output.innerHTML = output.href = 'https://tumblr.com/betpowo';
@@ -155,7 +157,8 @@ type="image/x-icon">
 		" />
 		<br>
 		<a id="output" href="" style="padding:15px; color: #ffc;word-wrap: break-word;">- - -</a>		
-		</div>
+		<br>
+	</div>
 	</div>
 	
 </body>
