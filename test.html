@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style type="text/css">
+@font-face {
+  font-family: 'sillyfont';
+  src: url('sillyfont.ttf') format('truetype');
+}
+:root {
+    --char-color: #555;
+}
+#mainboard {
+    background: #fff;
+    box-shadow: 0px 7px 0 rgba(0, 0, 0, 40%);
+}
+.bgbox {
+    border-radius: 20px;
+    overflow-y: auto;
+}
+html * {
+    font-size: 17px;
+    line-height: 1.625;
+}
+body {
+    font-family: 'sillyfont';
+    color: var(--char-color);
+}
+pre code {
+    background-color: var(--char-color);
+    display: block;
+    padding: 20px;
+    border-radius: 10px;
+    color: #fff;
+    overflow-x: auto;
+    font-weight: bold;
+}
+::selection {
+color: #fff;
+background: var(--char-color);
+}
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.centeredimage75 {
+    display: block;
+    width: 75%;
+    margin: auto;
+}
+</style>
+<title>Unknown - Betopia's Character Storage</title>
+<link rel="icon" href=
+"images/chars/betty/icon.gif"
+type="image/x-icon">
+</head>
+</iframe>
+<div id="mainboard" class="bgbox">
+<body style="background-color: var(--char-color);">
+<script>
+    var root = document.documentElement;
+    root.style.setProperty('--char-color', 'rgb(100, 100, 253)');
+    var guh = '';
+    var request = new XMLHttpRequest();
+    request.open('GET', 'https://betpowo.github.io/char-pages/betpo.json', true);
+    request.send(null);
+    request.onreadystatechange = function () {
+        if (request.readyState === 4 && request.status === 200) {
+            var type = request.getResponseHeader('Content-Type');
+            if (type.indexOf("text") !== 1) {
+                guh = request.responseText;
+            }
+        }
+    }
+    console.log(guh);
+    var json = JSON.parse(guh);
+    console.log(json);
+</script>
+<div style="margin:23px">
+    <button style="font-family:'sillyfont';background-color: var(--char-color);color: #fff;border: 0px" onclick="window.location.href = 'characters.html'">
+		←
+	</button>
+    <br>
+    <div class="container">
+    <img src="images/chars/betpo/icon.gif" width="100"/>
+    <p style="
+    color: #000;
+	font-size: 200%; 
+    font-weight: 400;
+	text-align: center; 
+	margin-top: 17px; margin-bottom: 7px;
+    float:inline-start;">
+		­ <font style="color: var(--char-color); font-weight: bolder; font-size:100%">Betpo</font> ~ absolute memelord
+	</p>
+    </div>
+    <br>
+    <details open>
+    <summary style="color: var(--char-color);"><font style="background-color: var(--char-color);color:#fff">­ <b>Image</b> ­</font></summary>
+    <img src="images/chars/betpo/ref.png" title="he can also be thrown around. kinda cool if you ask me" class="centeredimage75"/>
+    <p style="text-align: center;margin: 4px;font-size: 17px;color: rgb(from var(--char-color) r g b / 50%);"><i>He may look small, but don't let his size fool you; he could beat you to death.</i></p>
+    </details>
+    <br>
+    <details>
+    <summary style="color: var(--char-color);"><font style="background-color: var(--char-color);color:#fff">­ <b>Who the hell is this?</b> ­</font></summary>
+    <p style="color:#000"><b>Betpo</b> is a... somewhat small stick figure friend you can have around that is NOT serious at all (well, only when needed).
+    </details>
+    <br>
+    <details>
+    <summary style="color:--char-color"><b>Appearance</b></summary>
+    <p style="color:#000">He... he's just a stick figure. He also has black shiny hair I guess.<br>Not really notably black since my art style doesn't use pure <b>#000000</b>.
+    </details>
+    <br>
+    <details>
+    <summary style="color:--char-color"><b>Other Information</b></summary>
+    <div class="box">
+        <pre>
+        <code class="language-js">{
+    "nicknames": ["Bep", "Bet", "Betopia Liam Olivia Noah Emma Oliver Charlotte Elijah Amelia James Ava William Sophia Benjamin Isabella Lucas Mia Henry Evelyn Theodore Harper zippyfourmeal jr the 60th"],
+    "age": "unknown",
+    "pronouns": ["he"],
+    "sexuality": "asexual",
+    "favorites": ["memes", "funny sounds", "loud reverb fart sound effect"]
+}</code>
+        </pre>
+    </div>
+    <ul>
+    <li><p style="color:#000">He does not have gender/sex, he is just a drawing but refers to himself with <b>he/him</b> pronouns</p></li>
+    <li><p style="color:#000">He can quite literally say any meme sound whenever he wants, he's like a soundboard of some sorts. It makes sense because he comes from ███████████</p></li>
+    <li><p style="color:#000">He is somewhat elastic, so he can sorta change height or the length of his limbs</p></li>
+    <li><p style="color:#000">He does not</p></li>
+    <li><p style="color:#000">As said before, he's not serious/mature most of the time, only when it's necessary</p></li>
+    </li></ul>
+    </details>
+­</div>
+</body>
+</div>
+<br>
+<p style="text-align: center;margin: 4px;font-size: 17px;color:#fff"><b>Hey!</b> Press the [←] button to go back to the main page</p>
+<br>
+</html>
