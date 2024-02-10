@@ -149,7 +149,7 @@ type="image/x-icon">
         root.style.setProperty('--char-color', 'rgb(' + json.color.toString() + ')');
 
         document.title = json.display + ' - Betopia\'s Character Storage';
-        document.getElementById('favicon').href = 'images/chars/' + json.name + '/icon.gif';
+        document.getElementById('favicon').href = document.getElementById('icon').src = 'images/chars/' + json.name + '/icon.gif';
         document.getElementById('charheader').innerHTML = '	­ <font style="color: var(--char-color); font-weight: bolder; font-size:100%">' + json.display + '</font> ~ ' + json.tag;
         document.getElementById('image').src = 'images/chars/' + json.name + '/ref.png';
         document.getElementById('image').title = json.image_alt;
@@ -162,7 +162,7 @@ type="image/x-icon">
         json.info.forEach((item) => {
             if (brauthem != 0) list.appendChild(document.createElement("br"));
             let li = document.createElement("li");
-            li.innerText = item;
+            li.innerHTML = item;
             list.appendChild(li);
             brauthem += 1;
         });
