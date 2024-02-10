@@ -126,7 +126,7 @@ type="image/x-icon">
     var guh = '';
     var json = {};
     var request = new XMLHttpRequest();
-    request.open('GET', 'https://betpowo.github.io/char-pages/' + char + '.json', true);
+    request.open('GET', 'https://raw.githubusercontent.com/betpowo/betpowo.github.io/main/char-pages/' + char + '.json', true);
     request.send(null);
     request.onreadystatechange = function () {
         if (request.readyState === 4 && request.status === 200) {
