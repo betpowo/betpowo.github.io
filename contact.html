@@ -70,14 +70,15 @@ a:active {
 </style>
 <title>Betopia's Location</title>
 <link rel="icon" href=
-"images/chars/betty/icon.gif"
+"chars/betty/icon.gif"
 type="image/x-icon">
 </head>
 
-<div style="display: flex;align-items: center;text-align: center;">
+<div style="display: flex;align-items: center;">
 <a href="index.html"><img src="images/logo.gif" width="300"></a>
-<div class="board" style="line-height: 4px;">
-<p>&nbsp;	<a href="characters.html">characters</a>­<span>&nbsp;//&nbsp;­</span><span style="font-weight:bold; color: #fc9; background-color: transparent;">contact</span>&nbsp;//&nbsp;­</span><a href="https://github.com/betpowo/betpowo.github.io">source</a>  &nbsp;
+<div class="board" style="text-align: center; min-width: fit-content; line-height: 6px; padding-left: 23px;padding-right: 23px; display: inline-block;">
+<p>
+<a href="characters.html">characters</a>­&nbsp;//&nbsp;­<a href="contact.html">contact</a>&nbsp;//&nbsp;­<a href="changelog.html">changelog</a>&nbsp;//&nbsp;­<a href="https://github.com/betpowo/betpowo.github.io">source</a>
 </p>
 </div>
 </div>
@@ -93,7 +94,7 @@ type="image/x-icon">
 	text-align: center; 
 	text-shadow: 0px 4px 0 #633;
 	margin-top: 7px; margin-bottom: 2px;">
-		Contact
+		contact
 	</p>
 	This is where you can find me. Don't worry, none of them are fake.
 	<br>
@@ -146,14 +147,23 @@ type="image/x-icon">
 			var output = document.getElementById('output');
 			output.innerHTML = output.href = 'https://en.pronouns.page/@betopia_awesome';
 		" />
+		<img class="appicon" src="images/socials/steam.png" title="Steam" onclick="
+			var output = document.getElementById('output');
+			output.innerHTML = output.href = 'https://steamcommunity.com/id/probablynotbetopia/';
+		" />
 		<img class="appicon" src="images/socials/gd.png" title="Geometry Dash" onclick="
 			var output = document.getElementById('output');
 			output.innerHTML = 'BetopiaGD';
 			output.href = '';
 		" />
+		<br>
 		<img class="appicon" src="images/socials/rbl.png" title="Roblox" onclick="
 			var output = document.getElementById('output');
 			output.innerHTML = output.href = 'https://www.roblox.com/users/1758832943/profile';
+		" />
+		<img class="appicon" src="images/socials/panzoid.png" title="Panzoid (<3)" onclick="
+			var output = document.getElementById('output');
+			output.innerHTML = output.href = 'https://panzoid.com/users/im_a_piece_of_garbage';
 		" />
 		<br>
 		<a id="output" href="" style="padding:15px; color: #ffc;word-wrap: break-word;">- - -</a>		

@@ -1,0 +1,21 @@
+{
+    "display": "Glib",
+    "name": "glib",
+    "tag": "an awesome experiment",
+    "color": [153, 0, 255],
+
+    "image_sub": "(from <a href=\"https://twitter.com/betpowo/status/1748079459830202740/\">betpowo/status/1748079459830202740/</a>)",
+    "image_alt": "lmfao",
+    "who": "<b>Glib</b> was an experiment; to see how different people around Twitter would interpret goober woman characters like her",
+    "look": "She has <span style=\"color:#fff;-webkit-text-fill-color: #ffc;-webkit-text-stroke: 0.75px black;\"><b>white</b></span> skin and <span color=\"#90f\"><b>purple</b></span> hair and a <span color=\"#f6c\"><b>pink</b></span> dress. That's literally it.",
+    "other": {
+        "nicknames": ["Lab-Rat", "Woman"],
+        "age": "unknown",
+        "pronouns": ["she"],
+        "sexuality": "unknown",
+        "favorites": []
+    },
+    "info": [
+        "She's right behind you"
+    ]
+}

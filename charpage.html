@@ -55,7 +55,7 @@ background: var(--char-color);
 </style>
 <title>Unknown - Betopia's Character Storage</title>
 <link id="favicon" rel="icon" href=
-"images/chars/betty/icon.gif"
+"chars/betty/icon.gif"
 type="image/x-icon">
 </head>
 <br>
@@ -67,7 +67,7 @@ type="image/x-icon">
 	</button>
     <br>
     <div class="container">
-    <img id="icon" src="images/chars/betpo/icon.gif" width="100"/>
+    <img id="icon" src="chars/betpo/icon.gif" width="100"/>
     <p id="charheader" style="
     color: #000;
 	font-size: 200%; 
@@ -81,7 +81,7 @@ type="image/x-icon">
     <br>
     <details open>
     <summary style="color: var(--char-color);"><font style="background-color: var(--char-color);color:#fff;">­ <b>Image</b> ­</font></summary>
-    <img id="image" src="images/chars/betpo/ref.png" title="alt text" class="centeredimage75"/>
+    <img id="image" src="chars/default-ref.png" title="alt text" class="centeredimage75"/>
     <p id="image-sub" style="text-align: center;
     margin: 4px;
     font-size: 17px;
@@ -126,7 +126,7 @@ type="image/x-icon">
     var guh = '';
     var json = {};
     var request = new XMLHttpRequest();
-    request.open('GET', 'https://raw.githubusercontent.com/betpowo/betpowo.github.io/main/char-pages/' + char + '.json', true);
+    request.open('GET', 'https://raw.githubusercontent.com/betpowo/betpowo.github.io/main/chars/' + char + '/data.json', true);
     request.send(null);
     request.onreadystatechange = function () {
         if (request.readyState === 4 && request.status === 200) {
@@ -149,9 +149,9 @@ type="image/x-icon">
         root.style.setProperty('--char-color', 'rgb(' + json.color.toString() + ')');
 
         document.title = json.display + ' - Betopia\'s Character Storage';
-        document.getElementById('favicon').href = document.getElementById('icon').src = 'images/chars/' + json.name + '/icon.gif';
+        document.getElementById('favicon').href = document.getElementById('icon').src = 'chars/' + json.name + '/icon.gif';
         document.getElementById('charheader').innerHTML = '	­ <font style="color: var(--char-color); font-weight: bolder; font-size:100%">' + json.display + '</font> ~ ' + json.tag;
-        document.getElementById('image').src = 'images/chars/' + json.name + '/ref.png';
+        try { document.getElementById('image').src = 'chars/' + json.name + '/ref.png'; } catch(err) { console.log(err); }
         document.getElementById('image').title = json.image_alt;
         document.getElementById('image-sub').innerHTML = json.image_sub;
         document.getElementById('description').innerHTML = json.who;
