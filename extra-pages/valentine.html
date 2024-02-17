@@ -55,6 +55,14 @@ a:active {
   align-items: center;
   justify-content: center;
 }
+.what {
+  margin: 34px;
+  border: 17px solid #ffc;
+  border-radius: 34px;
+}
+.what:hover {
+  border-color: #fff;
+}
 
 </style>
 <title>Betopia's got no rizz!</title>
@@ -86,23 +94,24 @@ margin-top: 7px; margin-bottom: 2px;">
 	valentine cards
 </p>
 Yes, I know Valentine's Day is over, but I wanted to do this anyway.
-<br><br><br><br><br>
+<br><br><br>
 <script type="text/javascript">
     var index = 1;
     function addImage(alt) {
       let img = document.createElement('img');
       img.src = '../images/valentines/' + index + '.png';
+      img.onclick = function() {
+        window.location.href = img.src;
+      }
       img.alt = img.title = alt;
-      img.style.setProperty('border', '17px solid #ffc');
-      img.style.setProperty('border-radius', '17px');
-      img.style.setProperty('margin', '34px');
+      img.className = 'what';
       img.style.setProperty('transform', 'rotate(' + (Math.random() * 7) + 'deg)');
       document.getElementById('body').appendChild(img);
       index += 1;
     }
     addImage("betpo says: i think you're swag and cool and i wanna be more than friends with you");
 </script>
-<br><br><br><br><br>
+<br><br><br>
 [ more soon ]
 </body>
 </div>
