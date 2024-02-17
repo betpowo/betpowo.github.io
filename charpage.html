@@ -52,6 +52,22 @@ background: var(--char-color);
     width: 75%;
     margin: auto;
 }
+
+a {
+    color: var(--char-color);
+    background-color: transparent;
+    text-decoration: none;
+    font-weight: bold;
+}
+a:visited {
+    color: var(--char-color);
+}
+a:hover {
+    filter: brightness(1.65);
+}
+a:active {
+    filter: brightness(0.45);
+}
 </style>
 <title>Unknown - Betopia's Character Storage</title>
 <link id="favicon" rel="icon" href=
@@ -151,7 +167,6 @@ type="image/x-icon">
         document.title = json.display + ' - Betopia\'s Character Storage';
         document.getElementById('favicon').href = document.getElementById('icon').src = 'chars/' + json.name + '/icon.gif';
         document.getElementById('charheader').innerHTML = '	­ <font style="color: var(--char-color); font-weight: bolder; font-size:100%">' + json.display + '</font> ~ ' + json.tag;
-        try { document.getElementById('image').src = 'chars/' + json.name + '/ref.png'; } catch(err) { console.log(err); }
         document.getElementById('image').title = json.image_alt;
         document.getElementById('image-sub').innerHTML = json.image_sub;
         document.getElementById('description').innerHTML = json.who;
@@ -166,6 +181,11 @@ type="image/x-icon">
             list.appendChild(li);
             brauthem += 1;
         });
+
+        document.getElementById('image').src = 'chars/' + json.name + '/ref.png';
+        document.getElementById('image').onerror = function() {
+            document.getElementById('image').src = 'chars/default-ref.png'
+        }
     }
 </script>
 </body>
