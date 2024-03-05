@@ -78,26 +78,26 @@ type="image/x-icon">
 </div>
 
 <hr color="#966">
-<div class="board" style="margin: auto; width: fit-content; margin-top: 24px; margin-bottom: 24px;padding:23px;background-color: #ffc;width: 300px;">
-<p id="countdown" style="color: #633;font-size: 30px;line-height: 50%;">--:--:--</p>
+<div class="board" id="rainboard" style="margin: auto; width: fit-content; margin-top: 24px; margin-bottom: 24px;padding:23px;">
+<p style="color: #633;">it's my birthday today !!! <font size="2%">(march 5)</font>
+<br><br>
+<a href="https://vxtwitter.com/betpowo/status/1765104476543689144">
+  <img src="images/birthday.png" class="shaker"> 
+</a>
+<br>
+send some support to my <a href="contact.html" style="background-color: #633;border-radius: 10px; padding: 4px;" id="socialstext">socials</a> if you want :<font size="3%">3</font>
+</p>
 </div>
 <script>
-  // thanks w3schools
-  var countDownDate = new Date("Mar 5, 2024 12:30:00").getTime();
-  var x = setInterval(function() {
-    
-      var now = new Date().getTime();
-      var distance = countDownDate - now;
+var hue = 0;
+var idk = setInterval(function() {
+  hue += 1;
+  document.getElementById('rainboard').style.setProperty('background-color', 'hsl(' + hue + ', 100%, 80%)');
+  document.getElementById('rainboard').style.setProperty('box-shadow', '0px 7px 0px hsl(' + (hue + 30) + ', 100%, 20%)');
 
-      var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-      var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-      var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-      document.getElementById("countdown").innerHTML = hours + ":" + String(minutes).padStart(2, '0') + ":" + String(seconds).padStart(2, '0');
-      
-  }, 1000);
-  </script>
-  
+  document.getElementById('socialstext').style.setProperty('color', 'hsl(' + (hue + 180) + ', 100%, 80%)');
+}, 5);
+</script>
 <div class="board" style="margin: auto; width: fit-content; margin-top: 24px; margin-bottom: 24px;">
   <div style="padding: 23px;">
     <p style="
