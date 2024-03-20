@@ -75,6 +75,48 @@ a:active {
 "chars/betty/icon.gif"
 type="image/x-icon">
 </head>
+<script>
+    var url = window.location.href;
+    var searchParams = new URL(url).searchParams;     
+    var urlSearchParams = new URLSearchParams(searchParams);
+    var char = urlSearchParams.get('char');
+
+    var guh = '';
+    var json = {};
+    var request = new XMLHttpRequest();
+    request.open('GET', 'https://raw.githubusercontent.com/betpowo/betpowo.github.io/main/chars/' + char + '/data.json', true);
+    request.send(null);
+    request.onreadystatechange = function () {
+        if (request.readyState === 4 && request.status === 200) {
+            var type = request.getResponseHeader('Content-Type');
+            if (type.indexOf("text") !== 1) {
+                guh = request.responseText;
+                json = JSON.parse(guh);
+                console.log(json);
+
+                doShit(json);
+            }
+        }
+    }
+
+    function doShit(json) {
+        var color = document.createElement('meta');
+        color.setAttribute('property', 'theme-color');
+        color.content = 'rgb(' + json.color.toString() + ')';
+        document.getElementsByTagName('head')[0].appendChild(color);
+
+        var image = document.createElement('meta');
+        image.setAttribute('property', 'og:image');
+        image.content = 'https://raw.githubusercontent.com/betpowo/betpowo.github.io/main/chars/' + char + '/art.json';
+        document.getElementsByTagName('head')[0].appendChild(image);
+
+        var name = document.createElement('meta');
+        name.setAttribute('property', 'og:title');
+        name.content = json.display;
+        document.getElementsByTagName('head')[0].appendChild(name);
+    }
+
+</script>
 <br>
 <div id="mainboard" class="bgbox" style="width: 85%;margin: auto;">
 <body style="background-color: var(--char-color);">
