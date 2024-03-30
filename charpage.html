@@ -35,7 +35,7 @@ pre code {
     display: block;
     padding: 20px;
     border-radius: 10px;
-    color: #fff;
+    color: var(--bg-color);
     overflow-x: auto;
     font-weight: bold;
     font-size: 16px;
@@ -116,9 +116,13 @@ type="image/x-icon">
 
             root.style.setProperty('--char-color', checked ? '#000' : ogcharcolor);
 
-            document.getElementById('icon').style.setProperty('opacity', checked ? 0 : 100);
-
             document.getElementById('image').src = 'chars/' + ogchar + '/ref' + (checked ? '-dark' : '') + '.png';
+
+            var fuckinghell = ['icon', 'description', 'appearance', 'listthing'];
+            for (let ugh = 0; ugh < fuckinghell.length; ugh++) {
+                const augh = fuckinghell[ugh];
+                document.getElementById(augh).style.setProperty('opacity', checked ? 0 : 100);
+            }
         };
     </script>
     <div class="container">
