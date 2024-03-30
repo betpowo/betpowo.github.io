@@ -12,9 +12,10 @@
 }
 :root {
     --char-color: #555;
+    --bg-color: #fff;
 }
 #mainboard {
-    background: #fff;
+    background: var(--bg-color);
     box-shadow: 0px 7px 0 rgba(0, 0, 0, 40%);
 }
 .bgbox {
@@ -86,7 +87,40 @@ type="image/x-icon">
     <button style="font-family:'sillyfont';background-color: var(--char-color);color: #fff;border: 0px;border-radius: 10px;-webkit-border-radius: 10px;font-size: 30px;width: 45px;height: 45px;text-align: center;" onclick="window.location.href = 'characters'">
     <font style="font-size: 3px;">&nbsp;</font>←
 	</button>
+    <button style="font-family:'sillyfont';background-color: black;color: #fff;border: 0px;border-radius: 10px;-webkit-border-radius: 10px;font-size: 30px;width: 45px;height: 45px;text-align: center;" id="die">
+        <font style="font-size: 3px;">&nbsp;</font>&plus;
+        </button>
     <br>
+    <p id="charthingy" style="display: none;"></p>
+    <script>
+        const bleh = document.getElementById('die');
+        var checked = false;
+        var firstClick = true;
+        var ogcharcolor = null;
+        var ogchar = null;
+        bleh.onclick = function() {
+            checked = !checked;
+            bleh.innerHTML = '<font style="font-size: 3px;">&nbsp;</font>&' + (checked ? 'times' : 'plus') + ';';
+            bleh.style.setProperty('color', checked ? 'black' : 'white');
+            bleh.style.setProperty('background-color', checked ? 'white' : 'black');
+
+            var root = document.documentElement;
+            root.style.setProperty('--bg-color', checked ? '#000' : '#fff');
+
+            if (firstClick) {
+                ogcharcolor = getComputedStyle(root).getPropertyValue('--char-color');
+                ogchar = document.getElementById('charthingy').innerHTML;
+                console.log(ogchar);
+                firstClick = false;
+            }
+
+            root.style.setProperty('--char-color', checked ? '#000' : ogcharcolor);
+
+            document.getElementById('icon').style.setProperty('opacity', checked ? 0 : 100);
+
+            document.getElementById('image').src = 'chars/' + ogchar + '/ref' + (checked ? '-dark' : '') + '.png';
+        };
+    </script>
     <div class="container">
     <img id="icon" src="chars/betpo/icon.gif" width="100"/>
     <p id="charheader" style="
@@ -101,7 +135,7 @@ type="image/x-icon">
     </div>
     <br>
     <details open>
-    <summary style="color: var(--char-color);"><font style="background-color: var(--char-color);color:#fff;">­ <b>Image</b> ­</font></summary>
+    <summary style="color: var(--char-color);"><font style="background-color: var(--char-color);color:var(--bg-color);">­ <b>Image</b> ­</font></summary>
     <img id="image" src="chars/default-ref.png" title="alt text" class="centeredimage75"/>
     <p id="image-sub" style="text-align: center;
     margin: 4px;
@@ -110,7 +144,7 @@ type="image/x-icon">
     </details>
     <br>
     <details open>
-    <summary style="color: var(--char-color);"><font style="background-color: var(--char-color);color:#fff">­ <b>Who the hell is this?</b> ­</font></summary>
+    <summary style="color: var(--char-color);"><font style="background-color: var(--char-color);color:var(--bg-color);">­ <b>Who the hell is this?</b> ­</font></summary>
     <p id="description" style="color:#000">description here
     </details>
     <br>
@@ -191,6 +225,8 @@ type="image/x-icon">
         document.getElementById('image').onerror = function() {
             document.getElementById('image').src = 'chars/default-ref.png'
         }
+
+        document.getElementById('charthingy').innerHTML = json.name;
     }
 </script>
 </body>
