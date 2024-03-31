@@ -87,9 +87,9 @@ type="image/x-icon">
     <button style="font-family:'sillyfont';background-color: var(--char-color);color: #fff;border: 0px;border-radius: 10px;-webkit-border-radius: 10px;font-size: 30px;width: 45px;height: 45px;text-align: center;" onclick="window.location.href = 'characters'">
     <font style="font-size: 3px;">&nbsp;</font>←
 	</button>
-    <button style="font-family:'sillyfont';background-color: black;color: #fff;border: 0px;border-radius: 10px;-webkit-border-radius: 10px;font-size: 30px;width: 45px;height: 45px;text-align: center;" id="die">
-        <font style="font-size: 3px;">&nbsp;</font>&plus;
-        </button>
+    <button style="display:block;float:right;background-color: black;color: #fff;border: 0px;border-radius: 10px;-webkit-border-radius: 10px;font-size: 25px;width: fit-content;height: 1.9em;text-align: center;" id="die">
+    🌚
+    </button>
     <br>
     <p id="charthingy" style="display: none;"></p>
     <script>
@@ -100,7 +100,7 @@ type="image/x-icon">
         var ogchar = null;
         bleh.onclick = function() {
             checked = !checked;
-            bleh.innerHTML = '<font style="font-size: 3px;">&nbsp;</font>&' + (checked ? 'times' : 'plus') + ';';
+            bleh.innerHTML = '' + (checked ? '🌞' : '🌚');
             bleh.style.setProperty('color', checked ? 'black' : 'white');
             bleh.style.setProperty('background-color', checked ? 'white' : 'black');
 
