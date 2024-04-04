@@ -1,0 +1,21 @@
+{
+    "display": "Luigi",
+    "name": "luigi",
+    "tag": "number one",
+    "color": [51, 204, 153],
+
+    "image_sub": "(he is property of Nintendo !!!!)",
+    "image_alt": "coño",
+    "who": "<b>Luigi</b> is an awesome plumber who works with his brother Mario to do plumbing things plumbers do. He's kind of a coward though.",
+    "look": "He wears a <span style=\"color: rgb(51, 204, 153);\">green</span> shirt and hat (with an <b>L</b> on it), dark blue overalls and brown shoes. He has dark brown hair and a dark brown mustache that is attached to his <span style=\"transform: scaleX(1.2)\">BIG ASS NOSE</span><br><br>It is not seen here but he also has blue eyes. DO NOT tell him to wear brown contacts.",
+    "other": {
+        "nicknames": ["Lu", "Green Mario"],
+        "age": "unknown",
+        "pronouns": ["he"],
+        "sexuality": "straight (?)",
+        "favorites": ["idk"]
+    },
+    "info": [
+        "He owns a mansion"
+    ]
+}
