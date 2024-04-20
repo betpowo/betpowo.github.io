@@ -80,7 +80,64 @@ a:active {
 "chars/betty/icon.gif"
 type="image/x-icon">
 </head>
-<br>
+
+
+<style>
+    .board {
+        background: rgba(0, 0, 0, 40%);
+        margin: 20px;
+        border-radius: 20px;
+        -webkit-border-radius: 20px;
+        overflow-y: clip;
+        text-align: center;
+    }
+    @font-face {
+        font-family: 'sillyfont';
+        src: url('sillyfont.ttf') format('truetype');
+    }
+    p {
+        font-family: 'sillyfont';
+        color: #fff;
+	    font-size: 24px;
+    }
+
+    .logo {
+      transform: translateY(4px);
+    }
+    .logo::before {
+      background-color:    var(--char-color);
+      bottom:              0;
+      content:             '';
+      height:              100%;
+      left:                0;
+      mix-blend-mode:      lighten;
+      position:            absolute;
+      right:               0;
+      top:                 -6%;
+      width:               100%;
+      z-index:             1;
+
+      -webkit-mask-image: url('https://raw.githubusercontent.com/betpowo/betpowo.github.io/main/logo.svg');
+      -webkit-mask-size: contain;
+      -webkit-mask-repeat: no-repeat;
+      -webkit-mask-position: center
+    }
+</style>
+<div style="display: box;align-items: center;">
+    <div class="board" style="text-align: center; height: fit-content; padding: 23px; display: flex;">
+        <a href="/" target="_parent">
+            <div class="logo">
+                <img src="logo.svg" width="200px">
+            </div>
+        </a>
+        <p style="padding-left: 9px;"><nobr>
+            &nbsp; &bullet; &nbsp;<a href="characters" target="_parent">characters</a>­&nbsp; &bullet; &nbsp;­<a href="contact" target="_parent">contact</a>&nbsp; &bullet; &nbsp;­<a href="changelog" target="_parent">changelog</a></nobr></p>
+        </p>
+        <img src="images/qstn.png" alt="" height="69px" style="float: right;margin-left: auto; align-content: center; margin-top: auto; margin-bottom: auto;">
+    </div>
+</div>
+
+<hr color="#fff" width="91%">
 <div id="mainboard" class="bgbox" style="width: 85%;margin: auto;">
 <body style="background-color: var(--char-color);">
 <div id="brah" style="margin:23px;padding: 23px;">
