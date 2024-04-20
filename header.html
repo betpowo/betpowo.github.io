@@ -39,9 +39,38 @@
         background-color: transparent;
         text-decoration: none;
     }
+
+    .logo {
+      transform: translateY(4px);
+    }
+    .logo img {
+        filter: invert(8%) sepia(37%) saturate(296%) hue-rotate(346deg) brightness(106%) contrast(103%);
+    }
+    .logo::before {
+      background-color:    #996666;
+      bottom:              0;
+      content:             '';
+      height:              100%;
+      left:                0;
+      mix-blend-mode:      lighten;
+      position:            absolute;
+      right:               0;
+      top:                 0;
+      width:               100%;
+      z-index:             1;
+
+      -webkit-mask-image: url('https://raw.githubusercontent.com/betpowo/betpowo.github.io/main/logo.svg');
+      -webkit-mask-size: 100vmin;
+      -webkit-mask-repeat: no-repeat;
+      -webkit-mask-position: center
+    }
 </style>
 <div style="display: flex;align-items: center;">
-    <a href="/" target="_parent"><img src="images/logo.gif" width="300"></a>
+    <a href="/" target="_parent">
+        <div class="logo">
+            <img src="logo.svg" width="300">
+        </div>
+    </a>
         <div class="board" style="text-align: center; min-width: fit-content; line-height: 6px; padding-left: 23px;padding-right: 23px; display: inline-block;height: 52px;">
         <p><nobr>
         <a href="characters" target="_parent">characters</a>­&nbsp;//&nbsp;­<a href="contact" target="_parent">contact</a>&nbsp;//&nbsp;­<a href="changelog" target="_parent">changelog</a>
