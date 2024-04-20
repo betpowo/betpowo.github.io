@@ -123,7 +123,7 @@ type="image/x-icon">
       -webkit-mask-position: center
     }
 </style>
-<div style="display: box;align-items: center;">
+<div style="display: box;align-items: center;" id="header">
     <div class="board" style="text-align: center; height: fit-content; padding: 23px; display: flex;">
         <a href="/" target="_parent">
             <div class="logo">
@@ -137,7 +137,8 @@ type="image/x-icon">
     </div>
 </div>
 
-<hr color="#fff" width="91%">
+<hr color="#fff" width="95%" id="barshit">
+<br>
 <div id="mainboard" class="bgbox" style="width: 85%;margin: auto;">
 <body style="background-color: var(--char-color);">
 <div id="brah" style="margin:23px;padding: 23px;">
@@ -175,7 +176,7 @@ type="image/x-icon">
 
             document.getElementById('image').src = 'chars/' + ogchar + '/ref' + (checked ? '-dark' : '') + '.png';
 
-            var fuckinghell = ['icon', 'description', 'appearance', 'listthing'];
+            var fuckinghell = ['icon', 'description', 'appearance', 'listthing', 'header', 'barshit'];
             for (let ugh = 0; ugh < fuckinghell.length; ugh++) {
                 const augh = fuckinghell[ugh];
                 document.getElementById(augh).style.setProperty('opacity', checked ? 0 : 100);
