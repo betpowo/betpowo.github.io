@@ -1,0 +1,22 @@
+{
+    "display": "Carlos",
+    "name": "carlos",
+    "tag": "fattest thing alive",
+    "color": [102, 153, 255],
+
+    "image_sub": "He's a fast guy.",
+    "image_alt": "be careful !! don't step on him",
+    "who": "<b>Carlos</b> is... um... he's really fast. He comes from a parody game of the infamous little guy called \"Sonic the Hedgehog\", I think you've heard of them.",
+    "look": "So, imagine this; Sonic the Hedgehog, but comically small, with dot eyes, and without the skin colored circle in his chest, and also really simplified, and with <span style=\"color: #69f;font-weight: bold;\">cornflower blue</span> fur. That's carlos.",
+    "other": {
+        "nicknames": ["Carl", "Blue Fuck"],
+        "age": "carlos",
+        "pronouns": ["carlos"],
+        "sexuality": "carlos",
+        "favorites": ["crouton"]
+    },
+    "info": [
+        "He does not really... speak. He just has one specific voiceline:<br><br><audio controls><source src=\"audio/angry guy.mp3\" type=\"audio/mp3\"></audio>",
+        "Yes, he has friends: <dd>    <li style=\"color: rgb(255, 172, 78);\"><p style=\"color:#000\">Samuel (Tails)</p></li>    <li style=\"color: rgb(255, 78, 78);\"><p style=\"color:#000\">Santiago (Knuckles)</p></li>    <li style=\"color: rgb(197, 27, 36);\"><p style=\"color:#000\">Antonio (Dr. Robotnik)</p></li>    <li><p style=\"color:#000\">...and more which I'm too lazy to list.</p></li></dd>"
+    ]
+}
