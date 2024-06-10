@@ -1,0 +1,59 @@
+---
+// Component Imports
+import CharButton from '../components/CharButton.astro';
+import ContactButton from '../components/ContactButton.astro';
+import Footer from '../components/Footer.astro';
+import Header from '../components/Header.astro';
+import '../styles/global.css';
+
+// Full Astro Component Syntax:
+// https://docs.astro.build/basics/astro-components/
+---
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<title>Betopia's Location</title>
+		<style>
+			.container {
+				display: flex;
+				align-items: baseline;
+				margin: auto;
+				justify-content: center;
+			}
+		</style>
+	</head>
+	<Header />
+	<body>
+	<div style="margin: 23px;">
+		<div class="board">
+			<h1>contact</h1>
+			my real, totally not fake accounts
+			<br>
+			<br>
+			<div class="sub-board">
+			<ContactButton link='https://twitter.com/betpowo' name='Twitter' image='twit' />
+			<ContactButton link='https://youtube.com/c/Betopia_' name='YouTube' image='tube' />
+			<ContactButton link='https://en.pronouns.page/@betopia_awesome' name='Pronouns.page' image='prnn' />
+			<ContactButton name='Discord (betpowo)' image='disc' />
+			<ContactButton link='https://bsky.app/profile/betpowo.bsky.social' name='Bluesky' image='bsky' />
+			<br>
+			<ContactButton link='https://tumblr.com/betpowo' name='Tumblr' image='tumb' size='50' />
+			<ContactButton link='https://gamebanana.com/members/1830099' name='GameBanana' image='banana' size='50' />
+			<ContactButton link='https://gamejolt.com/@probablynotbetopia' name='Game Jolt' image='jolt' size='50' />
+			<ContactButton link='https://betopiang.newgrounds.com' name='Newgrounds' image='ground' size='50' />
+			<ContactButton link='https://steamcommunity.com/id/probablynotbetopia/' name='Steam' image='steam' size='50' />
+			<ContactButton link='https://gdbrowser.com/u/BetopiaGD' name='Geometry Dash' image='gd' size='50' />
+			<ContactButton link='https://www.roblox.com/users/1758832943/profile' name='Roblox' image='rbl' size='50'/>
+			<ContactButton link='https://www.panzoid.com/users/im_a_piece_of_garbage' name='Panzoid <3' image='panzoid' size='50'/>
+		</div>
+		<br>
+		please follow them all......i need to take over the world
+		</div>
+	</div>
+	</body>
+	<Footer />
+</html>

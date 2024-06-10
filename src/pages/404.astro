@@ -1,0 +1,37 @@
+---
+import '../styles/global.css';
+---
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<title>Betopia is missing!!!</title>
+	</head>
+	<body style="background-color: #303;">
+        <div style="
+		margin: 0;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		-ms-transform: translate(-50%, -50%);
+		transform: translate(-50%, -50%);
+		" x-data="{pats:0}">
+		<p x-show="pats > 0" x-text="'pats: ' + pats.toString()"></p>
+		<p x-show="pats > 99" style="color: #966;">just... go back already</p>
+		<img src="/src/content/svgs/404.svg" width="500px" alt="404: not found! sorry..."/>
+		<div style="background-color: rgba(0, 0, 0, 0%); position: absolute; width: 111px; height: 50px; translate: 222px -200px; cursor: grab;"
+			x-on:click="pats++; new Audio('/src/content/audio/squeak.mp3').play();">
+		</div>
+		<br> <br>
+		<span id="lame" style="color: #f36; cursor: help;"></span> isn't real. go home
+		<br>
+		<script>
+			document.getElementById('lame').innerHTML = document.URL;
+		</script>
+		<br>
+		<button onclick="javascript:history.back()">[←] go back</button>
+		</div>
+	</body>
+</html>

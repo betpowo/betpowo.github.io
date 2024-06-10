@@ -1,0 +1,95 @@
+---
+// Component Imports
+import CharButton from '../components/CharButton.astro';
+import Footer from '../components/Footer.astro';
+import Header from '../components/Header.astro';
+import '../styles/global.css';
+
+// Full Astro Component Syntax:
+// https://docs.astro.build/basics/astro-components/
+---
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<title>Betopia</title>
+		<style>
+			.container {
+				display: flex;
+				align-items: baseline;
+				margin: auto;
+				justify-content: center;
+			}
+		</style>
+	</head>
+	<Header />
+	<body>
+	<div style="margin: 23px;">
+		<div class="board" style="text-align: left;">
+		<a href="/characters/betty">
+			<img style="float: right;" src="/src/content/images/eepy.png" width="150"/>
+		</a>
+		<h1>betopia</h1>
+		<br>
+		<p style="color:#633;
+		margin-top: -2%;
+		font-size: 78%;
+		font-weight: bolder;
+		font-family: 'Helvetica';">
+		/ bət oʊ piə / - noun
+		</p>
+		<br>
+		<li>a very lazy, sleepy girl wandering around on the internet</li> <br>
+		<li>a stupid fucking person who doesn't deserve anything</li>
+		<br>
+		<p style="margin: auto; text-align: center;color:#633;">
+		the awesome
+		<br>↓<br>
+		<a href="https://skruyo.com">
+		  <img src="/src/content/images/dnl.png" width="49" alt="daniel" title="daniel"></img>
+		</a>
+		</p>
+	  	</div>
+		<br>
+		<div class="board" style="text-align: right; max-width: 70%">
+			<a href="/characters/betty">
+			<img src="src/content/characters/betty/art.png" width="150" style="float: left;"/>
+			</a>
+			<h1>hi !!!</h1>
+			<br>
+			my name is betty, or betopia, if you prefer.
+			<br>i mainly draw and stuff, i'm bad at it, but i still have fun with it.
+			<br><br>i can kinda code too... i just don't have any examples near me right now, but trust me i am so good at <a href="https://haxeflixel.com" target="_blank">haxeflixel</a>, and i'm currently learning <a href="https://godotengine.org" target="_blank">godot</a>!
+		</div>
+		<br>
+		<div class="board" style="max-width: 60%">
+			<h1>projects</h1>
+			<br>
+			here's most of the stuff i made, that i'm kinda proud of, even if it's like the worst thing ever
+			<br><br>
+			<div class="container" style="align-items: center;">
+				<button style="max-width: 150px; box-shadow: 0px 4px 0px #523; align-items: center;" onclick="window.location.href = '/characters'">
+					<img src="src/content/characters/betty/icon.gif" width="80"/> <br> Character Storage
+				</button>
+				<a href="https://gamebanana.com/mods/378548" target="_blank">
+					<img src="src/content/images/modnameherelogo.png" width="300" title="Mod Name Here" alt="Mod Name Here"/>
+				</a>
+				<a href="https://gdbrowser.com/103424659" target="_blank">
+					<img src="src/content/images/epiccalclogo.png" width="300" title="Epic Calculator" alt="Epic Calculator"/>
+				</a>
+			</div>
+			more soon...
+		</div>
+		<br>
+		<div>
+			<video controls src="/geoetry das.mp4" style="border-radius: 20px;"></video>
+			<br>
+			<a href="https://www.youtube.com/watch?v=wkN4sc0hfeU" target="_blank"><button>original video</button></a>
+		</div>
+	</div>
+	</body>
+	<Footer />
+</html>

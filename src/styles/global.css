@@ -1,0 +1,152 @@
+@font-face {
+    font-family: 'sillyfont';
+    src: url('/src/sillyfont.ttf');
+}
+
+:root {
+    --header-color: #303;
+    --header-logo-color-1: #ffc;
+    --header-logo-color-2: #966;
+}
+
+html {
+    font-family: 'sillyfont';
+    font-size: 22px;
+    color: #ffc;
+    text-align: center;
+}
+
+body {
+    background-color: #999;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    text-shadow: 0px 5px 0 #634;
+    margin-top: -10px;
+    margin-bottom: 5px;
+}
+
+hr {
+    background-color: #634;
+    height: 7px;
+    border: none;
+    border-radius: 7px;
+}
+
+table, th, td {
+    padding: 16px;
+    background-color: #634;
+    border-radius: 10px;
+    margin: 14px;
+}
+
+th {
+    background-color: #303;
+    font-size: 130%;
+    font-weight: bold;
+}
+
+.board {
+    background: #966;
+    box-shadow: 0px 7px 0 #634;
+    border-radius: 20px;
+    -webkit-border-radius: 20px;
+    overflow-y: clip;
+    padding: 40px;
+    width: fit-content;
+    margin: auto;
+}
+
+.sub-board {
+    background: #634;
+    box-shadow: 0px 7px 0 #303 inset;
+    border-radius: 20px;
+    -webkit-border-radius: 20px;
+    overflow-y: clip;
+    padding: 40px;
+    width: fit-content;
+    margin: auto;
+}
+
+a:link {
+    color: #fc9;
+    font-weight: bold;
+    background-color: transparent;
+    text-decoration: none;
+}
+a:visited {
+    color: #fc9;
+    background-color: transparent;
+    text-decoration: none;
+}
+a:hover {
+    color: #ffc;
+    background-color: transparent;
+    text-decoration: none;
+    font-weight: bold;
+}
+a:active {
+    color: #fff;
+    background-color: transparent;
+    text-decoration: none;
+}
+
+button, input {
+    margin: 8px;
+    border: none;
+    color: #ffc;
+    background-color: #634;
+    font-size: 20px;
+    border-radius: 10px;
+    padding: 14px;
+    font-family: 'sillyfont';
+    cursor: pointer;
+}
+
+button:hover {
+    color: #634;
+    background-color: #ffc;
+}
+
+input::placeholder {
+    color: #966;
+}
+
+input[type=text] {
+    cursor: text;
+}
+
+input[type=checkbox] {
+    scale: 1.5;
+    accent-color: #634;
+    color: #ffc;
+    border: none;
+    background-color: #ffc;
+    cursor: pointer;
+}
+
+input[type=file], select {
+    accent-color: #634;
+    color: #634;
+    border: none;
+    background-color: #ffc;
+    cursor: pointer;
+}
+
+select {
+    border-radius: 10px;
+    font-family: 'sillyfont';
+    font-size: 20px;
+    padding: 4px;
+    box-shadow: none;
+}
+
+select:focus {
+    color: #ffc;
+    background-color: #634;
+}

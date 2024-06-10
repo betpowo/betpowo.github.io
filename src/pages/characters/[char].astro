@@ -1,0 +1,276 @@
+---
+import { getCollection } from 'astro:content';
+import CharButton from '../../components/CharButton.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+// import '../../styles/charpage.css';
+
+export async function getStaticPaths() {
+	const posts = await getCollection('characters');
+	var bleh = posts.map(data => (
+	{
+		params: {
+			char: data.data.name
+		},
+		props: { data: data.data }
+	}));
+	// console.log(bleh);
+	return bleh;
+}
+
+const { data } = Astro.props;
+const char_color = data.color;
+---
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/svg+xml" href={'/src/content/characters/' + data.name + '/icon.gif'} />
+		<title>{data.display} | Betopia's Basement</title>
+		<!-- how do i make it grab the text fom the css file grah -->
+		<style define:vars={{ char_color }} is:global>
+			@font-face {
+			    font-family: 'sillyfont';
+			    src: url('/src/sillyfont.ttf');
+			}
+
+			:root {
+				--header-color: #000;
+				--header-logo-color-1: #fff;
+				--header-logo-color-2: var(--char_color);
+			}
+
+			html {
+			    font-family: 'sillyfont';
+			    font-size: 22px;
+			    color: #fff;
+			    text-align: center;
+			}
+
+			body {
+			    background-color: var(--char_color);
+				margin: 0;
+				padding: 0;
+				min-height: 100vh;
+    			display: grid;
+    			grid-template-rows: auto 1fr auto;
+			}
+
+			h1, h2, h3, h4, h5, h6 {
+			    color: var(--char_color);
+				margin-top: -10px;
+			    margin-bottom: 5px;
+			}
+
+			hr {
+    			background-color: var(--char_color);
+				height: 7px;
+				border: none;
+				border-radius: 7px;
+			}
+
+			.board {
+			    background: #fff;
+			    box-shadow: 0px 7px 0 rgba(0, 0, 0, 40%);
+			    border-radius: 20px;
+			    -webkit-border-radius: 20px;
+			    overflow-y: clip;
+			    padding: 40px;
+			    width: fit-content;
+			    margin: auto;
+			    color: #000;
+			}
+
+			a:link {
+			    color: var(--char_color);
+			    font-weight: bold;
+			    background-color: transparent;
+			    text-decoration: none;
+			}
+			a:visited {
+			    color: var(--char_color);
+			    background-color: transparent;
+			    text-decoration: none;
+			}
+			a:hover {
+				color: rgb(from var(--char_color) calc(r * 2) calc(g * 2) calc(b * 2));
+			    background-color: transparent;
+			    text-decoration: none;
+			    font-weight: bold;
+			}
+			a:active {
+			    background-color: transparent;
+			    text-decoration: none;
+			}
+
+			button, input {
+			    margin: 8px;
+			    border: none;
+			    color: #fff;
+			    background-color: var(--char_color);
+			    font-size: 20px;
+			    border-radius: 10px;
+			    padding: 14px;
+			    font-family: 'sillyfont';
+			    cursor: pointer;
+			}
+
+			button:hover, summary:hover {
+				filter: brightness(1.25);
+			}
+
+			input::placeholder {
+			    color: rgba(255, 255, 255, 50%);
+			}
+
+			input[type=text] {
+			    cursor: text;
+			}
+
+			input[type=checkbox] {
+			    scale: 1.5;
+			    accent-color: var(--char_color);
+			    border: none;
+			    cursor: pointer;
+			}
+
+			input[type=file], select {
+			    accent-color: var(--char_color);
+			    color: var(--char_color);
+			    border: solid 2px var(--char_color);
+			    background-color: #fff;
+			    cursor: pointer;
+			}
+
+			select {
+			    border-radius: 10px;
+			    font-family: 'sillyfont';
+			    font-size: 20px;
+			    padding: 4px;
+			    box-shadow: none;
+			}
+
+			select:focus {
+			    color: #fff;
+			    background-color: var(--char_color);
+			}
+
+			summary {
+				cursor: pointer;
+				color: #fff;
+				background-color: var(--char_color);
+				padding: 15px;
+				margin: auto;
+				margin-top: 8px;
+				margin-bottom: 8px;
+				border-radius: 10px;
+				width: fit-content;
+			}
+
+			details[open] summary {
+				background-color: #fff;
+				color: var(--char_color);
+				border: solid 5px var(--char_color);
+			}
+
+			.le-ref {
+				width: 75%;
+				height: 75%;
+				margin: auto;
+				border-radius: 10px;
+			}
+
+			.color-text {
+				color: var(--char_color);
+			}
+
+			li::marker {
+				color: var(--char_color);
+			}
+
+			pre code {
+			   background-color: var(--char_color);
+			   display: block;
+			   padding: 20px;
+			   border-radius: 10px;
+			   color: #fff;
+			   font-weight: bold;
+			   font-size: 16px;
+			   font-family: 'Courier New', Courier, monospace;
+			   margin: auto;
+			   text-align: left;
+			}
+		</style>
+	</head>
+	<Header />
+	<body>
+		<!-- welcome to div land -->
+		<div style="margin: 23px">
+		<div class="board" style="text-align: left; display: flex; max-width: 70%; align-items: center;">
+			<div><img src={'/src/content/characters/' + data.name + '/art.png'} alt=""/></div>
+			<br>
+			<div style="margin-left: 23px;">
+			<div style="display: flex; align-items: center;">
+				<img src={'/src/content/characters/' + data.name + '/icon.gif'} alt="" width="15%" style="margin-right: 6px;"/>
+				<h1>{data.display}</h1>
+				<p style="font-size: 75%; padding-left: 12px;">{data.tag}</p>
+			</div>
+			<hr>
+			<p id="bro"></p>
+			<script define:vars={{data}}>
+				document.getElementById('bro').innerHTML = data.who;
+			</script>
+			</div>
+		</div>
+		<br>
+		<div class="board" style="max-width: 80%;">
+			<details open>
+			<summary>Reference and Appearance</summary>
+			<br>
+			<img class="le-ref" src={'/src/content/characters/' + data.name + '/ref.png'} title={data.image_alt} alt={data.image_alt} />
+			<p id="bro2" class="color-text"></p>
+			<script define:vars={{data}}>
+				document.getElementById('bro2').innerHTML = data.image_sub;
+			</script>
+			<br>
+			<!-- <button id="dark-mode" style="background-color: #000;">🌚</button>  -->
+			<br>
+			<p id="bro3" style="text-align: left;"></p>
+			<script define:vars={{data}}>
+				document.getElementById('bro3').innerHTML = data.look;
+			</script>
+			</details>	
+		</div>
+		<br>
+		<div class="board" style="max-width: 80%;">
+			<details>
+			<summary>Misc. Information</summary>
+					<details>
+					<summary>General</summary>
+					<pre>
+					<code id="jsonthing" class="language-js">{JSON.stringify(data.other, null, 4)}</code>
+					</pre>				
+					</details>
+
+					<br>
+
+					<details open>
+					<summary>Fun Facts</summary>
+					<ul>
+						{data.info.map(wawa => <li style="text-align: left;">{wawa}</li><br>)}
+					<script>
+						const ae = document.getElementsByTagName('li');
+						for (let index = 0; index < ae.length; index++) {
+							const element = ae[index];
+							element.innerHTML = element.textContent;
+						}
+					</script>
+					</ul>
+					</details>		
+			</details>		
+		</div>
+		<br>
+		<button style="border: solid 5px #fff;" onclick="window.location.href = '/characters'">[&LeftArrow;] go back</button>
+	</div>
+	</body>
+	<Footer />
+</html>

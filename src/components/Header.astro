@@ -1,0 +1,22 @@
+---
+import HeaderLogo from './HeaderLogo.astro'
+// import '/src/styles/global.css'
+---
+
+<div style="background-color: var(--header-color); height: fit-content; margin-top: 0;">
+    <div style="align-items: center; display: flex; padding: 15px;">
+        <a href="/" target="_parent">
+            <div style="translate: 0px 4px;">
+                <!-- yes I KNOW ITS STUpid but this is just so i can have an easier way to control its colors -->
+                <HeaderLogo />
+            </div>
+        </a>
+        <p style="padding-left: 9px;"><nobr>
+        &nbsp;&bullet; &nbsp;<a href="/characters" target="_parent">characters</a>
+        &nbsp;&bullet; &nbsp;<a href="/comms" target="_parent">comms</a>
+        ­&nbsp;&bullet; &nbsp;­<a href="/contact" target="_parent">contact</a>
+        </nobr></p>
+        </p>
+        <img src="/src/content/images/qstn.png" alt="" height="69px" style="float: right; cursor: help; margin-left: auto;">
+    </div>
+</div>

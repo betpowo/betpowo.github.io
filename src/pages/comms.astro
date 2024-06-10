@@ -1,0 +1,105 @@
+---
+// Component Imports
+import CharButton from '../components/CharButton.astro';
+import ContactButton from '../components/ContactButton.astro';
+import Footer from '../components/Footer.astro';
+import Header from '../components/Header.astro';
+import '../styles/global.css';
+
+// Full Astro Component Syntax:
+// https://docs.astro.build/basics/astro-components/
+---
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<title>Betopia's Stand</title>
+		<style lang="scss">
+			.container {
+				display: flex;
+				align-items: baseline;
+				margin: auto;
+				justify-content: center;
+			}
+
+			.dollar {
+				background-color: #3f9;
+				color: #066;
+				padding: 7px;
+				border-radius: 7px;
+				text-align: right;
+				float: right;
+			}
+
+			.nope {
+				color: #966;
+				text-decoration: line-through;
+			}
+		</style>
+	</head>
+	<Header />
+	<body>
+	<div style="margin: 23px;">
+		<div class="board">
+			<h1>commission info</h1>
+			<div style="margin: auto; padding: 16px; background-color: #ffc; color: #966; border-radius: 10px; width:fit-content;">
+				<div class="container" style="font-size: 40px;">
+					status:&nbsp;<span style="padding: 9px; background-color: #99a; color: #ffc; border-radius: 10px;">
+						not open yet
+					</span>
+				</div>
+				<br>
+				tryna open commissions soon... just give me a bit...
+				</div>
+			<br>
+			<div class="sub-board">
+				<h1>prices</h1>
+				<p style="color: #966;">(subject to change)</p>
+				<div>
+					<img src="/src/content/images/commstuff.png" width="600" alt="insert commission price sheet here" style="background-color: #966; padding: 25px; border-radius: 15px; box-shadow: 0px 7px 0px #303;">
+					<div style="position: absolute; translate: 375px -260px;">
+						<span style="" class="dollar">$1</span>
+						<span style="translate: 35px 175px;" class="dollar">$2</span>
+						<span style="translate: 325px 0px;" class="dollar">$3</span>
+						<span style="translate: 365px 175px;" class="dollar">$4</span>
+					</div>
+				</div>
+				<br>
+				yes i know my art sucks, but i still wanna do this just because it's fun and awesome,
+				<br>and my family's not really in a good financial situation so what else can i do?
+			</div>
+			<br><br>
+			<h1>rules</h1>
+			<table style="margin: auto;">
+				<tr>
+					<th style="color: #3f9">yuh uh</th>
+					<th style="color: #fc6">maybe?</th>
+					<th style="color: #f36">nuh uh</th>
+				</tr>
+				<tr>
+					<td>human<br><p style="font-size: 50%;">(any body type allowed i think)</p></td>
+					<td>backgrounds<br><p style="font-size: 50%;">(in my style)</p></td>
+					<td class="nope">nsfw</td>
+				</tr>
+				<tr>
+					<td>furry<br><p style="font-size: 50%;">(kinda)</p></td>
+					<td>food</td>
+					<td class="nope">fetish shit</td>
+				</tr>
+				<tr>
+					<td>ocs</td>
+					<td>different style<p style="font-size: 50%;">(depends)</p></td>
+					<td class="nope" style="max-width: 100px; word-break: break-all;">humongous hungolomghononoloughongous</td>
+				</tr>
+				<tr>
+					<td>not ocs<br><p style="font-size: 50%;">(chars from games, toons, etc)</p></td>
+				</tr>
+			</table>			  
+		</div>
+	</div>
+	</body>
+	<Footer />
+</html>
