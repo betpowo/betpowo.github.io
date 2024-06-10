@@ -21,7 +21,7 @@ const char_color = data.color;
 <html>
 	<head>
 		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href={'@content/characters/' + data.name + '/icon.gif'} />
+		<link rel="icon" type="image/svg+xml" href={'../content/characters/' + data.name + '/icon.gif'} />
 		<title>{data.display} | Betopia's Basement</title>
 		<!-- how do i make it grab the text fom the css file grah -->
 		<style define:vars={{ char_color }} is:global>
@@ -203,11 +203,11 @@ const char_color = data.color;
 		<!-- welcome to div land -->
 		<div style="margin: 23px">
 		<div class="board" style="text-align: left; display: flex; max-width: 70%; align-items: center;">
-			<div><img src={'@content/characters/' + data.name + '/art.png'} alt=""/></div>
+			<div><img src={'../content/characters/' + data.name + '/art.png'} alt=""/></div>
 			<br>
 			<div style="margin-left: 23px;">
 			<div style="display: flex; align-items: center;">
-				<img src={'@content/characters/' + data.name + '/icon.gif'} alt="" width="15%" style="margin-right: 6px;"/>
+				<img src={'../content/characters/' + data.name + '/icon.gif'} alt="" width="15%" style="margin-right: 6px;"/>
 				<h1>{data.display}</h1>
 				<p style="font-size: 75%; padding-left: 12px;">{data.tag}</p>
 			</div>
@@ -223,7 +223,7 @@ const char_color = data.color;
 			<details open>
 			<summary>Reference and Appearance</summary>
 			<br>
-			<img class="le-ref" src={'@content/characters/' + data.name + '/ref.png'} title={data.image_alt} alt={data.image_alt} />
+			<img class="le-ref" src={'../content/characters/' + data.name + '/ref.png'} title={data.image_alt} alt={data.image_alt} />
 			<p id="bro2" class="color-text"></p>
 			<script define:vars={{data}}>
 				document.getElementById('bro2').innerHTML = data.image_sub;
