@@ -224,10 +224,13 @@ console.log(data);
 			<details open>
 			<summary>Reference and Appearance</summary>
 			<br>
-			<img class="le-ref" src={'/characters/' + data.name + '/ref.png'} title={data.image_alt} alt={data.image_alt} />
+			<img class="le-ref" src={'/characters/' + data.name + '/ref.png'} title={data.image_alt} alt={data.image_alt} id="ref"/>
 			<p id="bro2" class="color-text"></p>
 			<script define:vars={{data}}>
 				document.getElementById('bro2').innerHTML = data.image_sub;
+				document.getElementById('ref').onerror = function() {
+					document.getElementById('ref').src = '/characters/default-ref.png';
+				};
 			</script>
 			<br>
 			<!-- <button id="dark-mode" style="background-color: #000;">🌚</button>  -->
