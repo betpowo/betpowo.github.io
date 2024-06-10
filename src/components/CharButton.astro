@@ -6,7 +6,7 @@ interface Props {
 const { char = 'Betpo' } = Astro.props;
 ---
 <a href={`/characters/${char.toLowerCase()}`} style="max-width: fit-content;">
-    <img class="bleh" src={`@content/characters/${char.toLowerCase()}/art.png`} alt={char} title={char}/>
+    <img class="bleh" src={`/characters/${char.toLowerCase()}/art.png`} alt={char} title={char}/>
 </a>
 
 <style lang="scss">
