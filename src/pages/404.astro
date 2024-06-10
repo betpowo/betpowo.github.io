@@ -20,9 +20,9 @@ import '../styles/global.css';
 		" x-data="{pats:0}">
 		<p x-show="pats > 0" x-text="'pats: ' + pats.toString()"></p>
 		<p x-show="pats > 99" style="color: #966;">just... go back already</p>
-		<img src="/src/content/svgs/404.svg" width="500px" alt="404: not found! sorry..."/>
+		<img src="@content/svgs/404.svg" width="500px" alt="404: not found! sorry..."/>
 		<div style="background-color: rgba(0, 0, 0, 0%); position: absolute; width: 111px; height: 50px; translate: 222px -200px; cursor: grab;"
-			x-on:click="pats++; new Audio('/src/content/audio/squeak.mp3').play();">
+			x-on:click="pats++; new Audio('@content/audio/squeak.mp3').play();">
 		</div>
 		<br> <br>
 		<span id="lame" style="color: #f36; cursor: help;"></span> isn't real. go home

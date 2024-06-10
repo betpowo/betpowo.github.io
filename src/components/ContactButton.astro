@@ -8,7 +8,7 @@ interface Props {
 const { link = 'https://google.com', name = 'Google', image = 'mail', size = '100' } = Astro.props;
 ---
 <a href={link} target="_blank">
-    <img class="blehh" src={'/src/content/images/socials/' + image + '.png'} alt={name + ': ' + link} title={name} width={size} style="margin: 4px;">
+    <img class="blehh" src={'@content/images/socials/' + image + '.png'} alt={name + ': ' + link} title={name} width={size} style="margin: 4px;">
 </a>
 
 <style lang="scss">

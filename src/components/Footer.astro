@@ -1,7 +1,7 @@
 ---
 import ContactButton from './ContactButton.astro'
 import HeaderLogo from './HeaderLogo.astro'
-// import '/src/styles/global.css'
+// import '@styles/global.css'
 ---
 
 <footer>
@@ -11,7 +11,7 @@ import HeaderLogo from './HeaderLogo.astro'
         <ContactButton link="https://youtube.com/c/Betopia_" name="YouTube" image="tube" size="40"/>
         &nbsp;   &copy; {new Date().getFullYear()} me......this is not a real copyright   
         <div style="float: right; margin-left: auto; align-items: center;">   
-            <img src="/src/content/svgs/builtwith.svg" width="300px" alt="built with astro plus alpine dot j s"/>
+            <img src="@content/svgs/builtwith.svg" width="300px" alt="built with astro plus alpine dot j s"/>
             <a href="https://astro.build" target="_blank">
                 <div style="background-color: rgba(0, 0, 0, 0%); position: absolute; float: right; width: 125px; height: 50px; translate: -3px -55px;">
                 </div>

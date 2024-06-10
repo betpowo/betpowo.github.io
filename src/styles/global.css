@@ -1,6 +1,6 @@
 @font-face {
     font-family: 'sillyfont';
-    src: url('/src/sillyfont.ttf');
+    src: url('@sillyfont.ttf');
 }
 
 :root {

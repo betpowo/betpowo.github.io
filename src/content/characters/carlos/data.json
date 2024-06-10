@@ -16,7 +16,7 @@
         "favorites": ["crouton"]
     },
     "info": [
-        "He does not really... speak. He just has one specific voiceline:<br><br><audio controls><source src=\"/src/content/audio/angry guy.mp3\" type=\"audio/mp3\"></audio>",
+        "He does not really... speak. He just has one specific voiceline:<br><br><audio controls><source src=\"@content/audio/angry guy.mp3\" type=\"audio/mp3\"></audio>",
         "Yes, he has friends: <dd>    <li style=\"color: rgb(255, 172, 78);\"><p style=\"color:#000\">Samuel (Tails)</p></li>    <li style=\"color: rgb(255, 78, 78);\"><p style=\"color:#000\">Santiago (Knuckles)</p></li>    <li style=\"color: rgb(197, 27, 36);\"><p style=\"color:#000\">Antonio (Dr. Robotnik)</p></li>    <li><p style=\"color:#000\">...and more which I'm too lazy to list.</p></li></dd>"
     ]
 }
