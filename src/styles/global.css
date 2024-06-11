@@ -10,7 +10,7 @@
 }
 
 html {
-    font-family: 'sillyfont';
+    font-family: 'sillyfont', 'Comic Sans MS';
     font-size: 22px;
     color: #ffc;
     text-align: center;
@@ -41,8 +41,16 @@ hr {
 table, th, td {
     padding: 16px;
     background-color: #634;
-    border-radius: 10px;
+    border-radius: 20px;
     margin: 14px;
+    box-shadow: 0px 7px 0 #303;
+}
+
+table {
+    margin: auto;
+    box-shadow: 0px 7px 0 #303 inset;
+    border-collapse: separate;
+    border-spacing: 6px;
 }
 
 th {
@@ -50,7 +58,6 @@ th {
     font-size: 130%;
     font-weight: bold;
 }
-
 .board {
     background: #966;
     box-shadow: 0px 7px 0 #634;
@@ -71,6 +78,7 @@ th {
     padding: 40px;
     width: fit-content;
     margin: auto;
+    padding-bottom: 33px;
 }
 
 a:link {

@@ -34,6 +34,26 @@ import '../styles/global.css';
 			.nope {
 				color: #966;
 				text-decoration: line-through;
+				cursor: not-allowed;
+			}
+
+			.shake {
+        		animation: shake 0.2s;
+        		animation-iteration-count: infinite;
+    		}
+
+			@keyframes shake {
+			    0% { translate: 0px 0px }
+			    10% { translate: 1px -2px }
+			    20% { translate: 2px 0.5px }
+			    30% { translate: -1px 1px}
+			    40% { translate: 1px 0.4px }
+			    50% { translate: 0px 2px }
+			    60% { translate: 2px 0px }
+			    70% { translate: 0px 0.2px }
+			    80% { translate: 0.7px 0px }
+			    90% { translate: 1px 2px }
+			    100% { translate: 0px -1px }
 			}
 		</style>
 	</head>
@@ -42,6 +62,7 @@ import '../styles/global.css';
 	<div style="margin: 23px;">
 		<div class="board">
 			<h1>commission info</h1>
+			<br>
 			<div style="margin: auto; padding: 16px; background-color: #ffc; color: #966; border-radius: 10px; width:fit-content;">
 				<div class="container" style="font-size: 40px;">
 					status:&nbsp;<span style="padding: 9px; background-color: #99a; color: #ffc; border-radius: 10px;">
@@ -52,6 +73,13 @@ import '../styles/global.css';
 				tryna open commissions soon... just give me a bit...
 				</div>
 			<br>
+			<nobr>
+			<p id="blehh" class="sub-board shake" style="background-color: #fc6; color: #966;">
+				READ BELOW FOR INFO !!!
+			</p>
+			</nobr>
+			<br>
+			<br>
 			<div class="sub-board">
 				<h1>prices !!!</h1>
 				<p style="color: #966;">(subject to change)</p>
@@ -60,8 +88,8 @@ import '../styles/global.css';
 					<div style="position: absolute; translate: 375px -260px;">
 						<span style="" class="dollar">$1</span>
 						<span style="translate: 35px 175px;" class="dollar">$2</span>
-						<span style="translate: 325px 0px;" class="dollar">$3</span>
-						<span style="translate: 365px 175px;" class="dollar">$4</span>
+						<span style="translate: 325px 0px;" class="dollar">$2</span>
+						<span style="translate: 365px 175px;" class="dollar">$3</span>
 					</div>
 				</div>
 				<br>
@@ -70,31 +98,33 @@ import '../styles/global.css';
 			</div>
 			<br><br>
 			<h1>rules</h1>
-			<table style="margin: auto;">
+			<br>
+			<table>
 				<tr>
-					<th style="color: #3f9">yuh uh</th>
+					<th style="background-color: #3f9; color: #303;">yuh uh</th>
 					<th style="color: #fc6">maybe?</th>
 					<th style="color: #f36">nuh uh</th>
 				</tr>
 				<tr>
-					<td>human<br><p style="font-size: 50%;">(any body type allowed i think)</p></td>
+					<td style="background-color: #966;">human<br><p style="font-size: 50%;">(any body type allowed i think)</p></td>
 					<td>backgrounds<br><p style="font-size: 50%;">(in my style)</p></td>
 					<td class="nope">nsfw</td>
 				</tr>
 				<tr>
-					<td>furry<br><p style="font-size: 50%;">(kinda)</p></td>
+					<td style="background-color: #966;">furry<br><p style="font-size: 50%;">(kinda)</p></td>
 					<td>food</td>
 					<td class="nope">fetish shit</td>
 				</tr>
 				<tr>
-					<td>ocs</td>
+					<td style="background-color: #966;">ocs<br><p style="font-size: 50%;color:#fc6;">(if design feels too complex<br>i might simplify it !!)</p></td>
 					<td>different style<p style="font-size: 50%;">(depends)</p></td>
 					<td class="nope" style="max-width: 100px; word-break: break-all;">humongous hungolomghononoloughongous</td>
 				</tr>
 				<tr>
-					<td>not ocs<br><p style="font-size: 50%;">(chars from games, toons, etc)</p></td>
+					<td style="background-color: #966;">not ocs<br><p style="font-size: 50%;">(chars from games, toons, etc)</p></td>
 				</tr>
-			</table>			  
+			</table>
+			<button style="float: right; translate: 0px -54px; height:54px; font-size:30px;" onclick="globalThis.scrollTo({ top: 0, left: 0, behavior: 'smooth' });">↑</button>
 		</div>
 	</div>
 	</body>
