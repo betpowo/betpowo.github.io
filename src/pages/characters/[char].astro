@@ -2,7 +2,6 @@
 import { getCollection } from 'astro:content';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
-import { isInputError } from 'astro:actions';
 
 export async function getStaticPaths() {
 	const posts = await getCollection('characters');
@@ -18,6 +17,7 @@ export async function getStaticPaths() {
 
 const { data } = Astro.props;
 const char_color = data.color;
+const __dark = Astro.url.searchParams.get('dark') || 'false';
 ---
 <html>
 	<head>
@@ -26,9 +26,9 @@ const char_color = data.color;
 		<title>{data.display} | Betopia's Basement</title>
 
 		<meta content={data.display + " - Betopia's Character Storage"} property="og:title" />
-		<meta content={data.image_sub} property="og:description" />
-		<meta content={"/characters/" + data.name + "/ref.png"} property="og:image" />
-		<meta content={char_color} data-react-helmet="true" name="theme-color" />
+		<meta content={data.who} property="og:description" />
+		<meta content={"/characters/" + data.name + "/ref" + (__dark.toString().toLowerCase() == 'true' ? "-dark" : "") + ".png"} property="og:image" />
+		<meta content={(__dark.toString().toLowerCase() == 'true' ? "#000000" : char_color)} data-react-helmet="true" name="theme-color" />
 		<meta name="twitter:card" content="summary_large_image">
 
 		<!-- how do i make it grab the text fom the css file grah -->
@@ -45,6 +45,7 @@ const char_color = data.color;
 
 				--__opac: 1;
 				--__glowcol: #fff;
+				--__bgcol: var(--char_color);
 			}
 
 			html {
@@ -55,7 +56,7 @@ const char_color = data.color;
 			}
 
 			body {
-			    background-color: rgb(from var(--char_color) calc(r * var(--__opac)) calc(g * var(--__opac)) calc(b * var(--__opac)));
+			    background-color: var(--__bgcol);
 				margin: 0;
 				padding: 0;
 				min-height: 100vh;
@@ -285,28 +286,71 @@ const char_color = data.color;
 					document.getElementById('ref').src = '/characters/default-ref.png';
 				};
 			</script>
+			<img id="freddy" src="/characters/freddy.png" height="60" style="margin-top: -100%; translate: 0px -15px; opacity: 0%; pointer-events: none;"/>
+			<br>
 			<button id="dark-mode" style="background-color: #000;" class="opaque glowy-text">🌚 super dark mode: off</button>
 			<script define:vars={{data}}>
 				var is_dark = false;
 				var butt = document.getElementById('dark-mode');
 				var ogtext = butt.innerHTML;
+
+				var firstEntry = true;
+				var time = 0;
+				var ms = 37;
+				var freddying = false;
+
+				var fnaf = new Audio('/audio/fnaf.mp3');
+				fnaf.loop = true;
+				fnaf.id = 'fnaf';
+				fnaf.volume = 0.5;
+
 				function toggleDark() {
 					is_dark = !is_dark;
 					if (is_dark) {
 						document.documentElement.style.setProperty('--__opac', '0');
 						document.documentElement.style.setProperty('--__glowcol', '#000');
+						document.documentElement.style.setProperty('--__bgcol', '#000');
 						butt.style.setProperty('background-color', '#fff');
 						butt.innerHTML = '🌞 super dark mode: on';
 
 						document.getElementById('ref').src = '/characters/' + data.name + '/ref-dark.png';
+
+						if (freddying) {
+							fnaf.play();
+							document.getElementById('freddy').style.setProperty('scale', '1');
+						}
+						
 					} else {
 						document.documentElement.style.setProperty('--__opac', '1');
 						document.documentElement.style.setProperty('--__glowcol', '#fff');
+						document.documentElement.style.setProperty('--__bgcol', 'var(--char_color)');
 						butt.style.setProperty('background-color', '#000');
 						butt.innerHTML = ogtext;
 
 						document.getElementById('ref').src = '/characters/' + data.name + '/ref.png';
+
+						fnaf.pause();
+						document.getElementById('freddy').style.setProperty('scale', '0');
 					}
+
+					if (firstEntry) {
+						setInterval(function() {
+							if (is_dark) {
+								time += 1 / ms;
+
+								if (time > 9 && !freddying) {
+									freddying = true;
+									fnaf.play();
+								}
+
+								if (freddying) {
+									document.getElementById('freddy').style.setProperty('opacity', (Math.random() * 100).toString() + '%');
+								}
+							}
+						}, ms);
+					}
+
+					firstEntry = false;
 				}
 				butt.onclick = toggleDark;
 			</script>
