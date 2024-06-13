@@ -2,7 +2,13 @@
 import HeaderLogo from './HeaderLogo.astro'
 // import '@styles/global.css'
 ---
-
+<style>
+    .eminem {
+        float: right;
+        cursor: help;
+        margin-left: auto;
+    }
+</style>
 <div style="background-color: var(--header-color); height: fit-content; margin-top: 0;">
     <div style="align-items: center; display: flex; padding: 15px;">
         <a href="/" target="_parent">
@@ -17,6 +23,6 @@ import HeaderLogo from './HeaderLogo.astro'
         ­&nbsp;&bullet; &nbsp;­<a href="/contact" target="_parent">contact</a>
         </nobr></p>
         </p>
-        <img src="/images/qstn.png" alt="" height="69px" style="float: right; cursor: help; margin-left: auto;">
+        <img src="/images/qstn.png" alt="" height="69px" class="eminem">
     </div>
 </div>

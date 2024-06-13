@@ -10,7 +10,7 @@ import '../styles/global.css';
 <html lang="en">
 	<head>
 		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<meta name="generator" content={Astro.generator} />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<title>Betopia's Stand</title>
@@ -32,7 +32,7 @@ import '../styles/global.css';
 			}
 
 			.nope {
-				color: #966;
+				color: var(--col-main);
 				text-decoration: line-through;
 				cursor: not-allowed;
 			}
@@ -63,9 +63,9 @@ import '../styles/global.css';
 		<div class="board">
 			<h1>commission info</h1>
 			<br>
-			<div style="margin: auto; padding: 16px; background-color: #ffc; color: #966; border-radius: 10px; width:fit-content;">
+			<div style="margin: auto; padding: 16px; background-color: var(--col-bright); color: var(--col-main); border-radius: 10px; width:fit-content;">
 				<div class="container" style="font-size: 40px;">
-					status:&nbsp;<span style="padding: 9px; background-color: #99a; color: #ffc; border-radius: 10px;">
+					status:&nbsp;<span style="padding: 9px; background-color: #99a; color: var(--col-bright); border-radius: 10px;">
 						not open yet
 					</span>
 				</div>
@@ -74,7 +74,7 @@ import '../styles/global.css';
 				</div>
 			<br>
 			<nobr>
-			<p id="blehh" class="sub-board shake" style="background-color: #fc6; color: #966;">
+			<p id="blehh" class="sub-board shake" style="background-color: var(--col-light); color: var(--col-main);">
 				READ BELOW FOR INFO !!!
 			</p>
 			</nobr>
@@ -82,9 +82,9 @@ import '../styles/global.css';
 			<br>
 			<div class="sub-board">
 				<h1>prices !!!</h1>
-				<p style="color: #966;">(subject to change)</p>
+				<p style="color: var(--col-main);">(subject to change)</p>
 				<div>
-					<img src="/images/commstuff.png" width="600" alt="insert commission price sheet here" style="background-color: #966; padding: 25px; border-radius: 15px; box-shadow: 0px 7px 0px #303;">
+					<img src="/images/commstuff.png" width="600" alt="insert commission price sheet here" style="background-color: var(--col-main); padding: 25px; border-radius: 15px; box-shadow: 0px 7px 0px var(--col-dark);">
 					<div style="position: absolute; translate: 375px -260px;">
 						<span style="" class="dollar">$1</span>
 						<span style="translate: 35px 175px;" class="dollar">$2</span>
@@ -101,27 +101,27 @@ import '../styles/global.css';
 			<br>
 			<table>
 				<tr>
-					<th style="background-color: #3f9; color: #303;">yuh uh</th>
+					<th style="background-color: #3f9; color: var(--col-dark);">yuh uh</th>
 					<th style="color: #fc6">maybe?</th>
 					<th style="color: #f36">nuh uh</th>
 				</tr>
 				<tr>
-					<td style="background-color: #966;">human<br><p style="font-size: 50%;">(any body type allowed i think)</p></td>
+					<td style="background-color: var(--col-main);">human<br><p style="font-size: 50%;">(any body type allowed i think)</p></td>
 					<td>backgrounds<br><p style="font-size: 50%;">(in my style)</p></td>
 					<td class="nope">nsfw</td>
 				</tr>
 				<tr>
-					<td style="background-color: #966;">furry<br><p style="font-size: 50%;">(kinda)</p></td>
+					<td style="background-color: var(--col-main);">furry<br><p style="font-size: 50%;">(kinda)</p></td>
 					<td>food</td>
 					<td class="nope">fetish shit</td>
 				</tr>
 				<tr>
-					<td style="background-color: #966;">ocs<br><p style="font-size: 50%;color:#fc6;">(if design feels too complex<br>i might simplify it !!)</p></td>
+					<td style="background-color: var(--col-main);">ocs<br><p style="font-size: 50%;color:var(--col-light);">(if design feels too complex<br>i might simplify it !!)</p></td>
 					<td>different style<p style="font-size: 50%;">(depends)</p></td>
 					<td class="nope" style="max-width: 100px; word-break: break-all;">humongous hungolomghononoloughongous</td>
 				</tr>
 				<tr>
-					<td style="background-color: #966;">not ocs<br><p style="font-size: 50%;">(chars from games, toons, etc)</p></td>
+					<td style="background-color: var(--col-main);">not ocs<br><p style="font-size: 50%;">(chars from games, toons, etc)</p></td>
 				</tr>
 			</table>
 			<button style="float: right; translate: 0px -54px; height:54px; font-size:30px;" onclick="globalThis.scrollTo({ top: 0, left: 0, behavior: 'smooth' });">↑</button>

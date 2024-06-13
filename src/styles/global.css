@@ -7,17 +7,25 @@
     --header-color: #303;
     --header-logo-color-1: #ffc;
     --header-logo-color-2: #966;
+
+    --col-bright: #ffc;
+    --col-light: #fc6;
+    --col-main: #966;
+    --col-dim: #634;
+    --col-dark: #303;
+
+    --col-bg: #999;
 }
 
 html {
     font-family: 'sillyfont', 'Comic Sans MS';
     font-size: 22px;
-    color: #ffc;
+    color: var(--col-bright);
     text-align: center;
 }
 
 body {
-    background-color: #999;
+    background-color: var(--col-bg);
     margin: 0;
     padding: 0;
     min-height: 100vh;
@@ -26,13 +34,13 @@ body {
 }
 
 h1, h2, h3, h4, h5, h6 {
-    text-shadow: 0px 5px 0 #634;
+    text-shadow: 0px 5px 0 var(--col-dim);
     margin-top: -10px;
     margin-bottom: 5px;
 }
 
 hr {
-    background-color: #634;
+    background-color: var(--col-dim);
     height: 7px;
     border: none;
     border-radius: 7px;
@@ -40,27 +48,27 @@ hr {
 
 table, th, td {
     padding: 16px;
-    background-color: #634;
+    background-color: var(--col-dim);
     border-radius: 20px;
     margin: 14px;
-    box-shadow: 0px 7px 0 #303;
+    box-shadow: 0px 7px 0 var(--col-dark);
 }
 
 table {
     margin: auto;
-    box-shadow: 0px 7px 0 #303 inset;
+    box-shadow: 0px 7px 0 var(--col-dark) inset;
     border-collapse: separate;
     border-spacing: 6px;
 }
 
 th {
-    background-color: #303;
+    background-color: var(--col-dark);
     font-size: 130%;
     font-weight: bold;
 }
 .board {
-    background: #966;
-    box-shadow: 0px 7px 0 #634;
+    background: var(--col-main);
+    box-shadow: 0px 7px 0 var(--col-dim);
     border-radius: 20px;
     -webkit-border-radius: 20px;
     overflow-y: clip;
@@ -70,8 +78,8 @@ th {
 }
 
 .sub-board {
-    background: #634;
-    box-shadow: 0px 7px 0 #303 inset;
+    background: var(--col-dim);
+    box-shadow: 0px 7px 0 var(--col-dark) inset;
     border-radius: 20px;
     -webkit-border-radius: 20px;
     overflow-y: clip;
@@ -82,24 +90,24 @@ th {
 }
 
 a:link {
-    color: #fc9;
+    color: var(--col-light);
     font-weight: bold;
     background-color: transparent;
     text-decoration: none;
 }
 a:visited {
-    color: #fc9;
+    color: var(--col-light);
     background-color: transparent;
     text-decoration: none;
 }
 a:hover {
-    color: #ffc;
+    color: var(--col-bright);
     background-color: transparent;
     text-decoration: none;
     font-weight: bold;
 }
 a:active {
-    color: #fff;
+    color: var(--col-bright);
     background-color: transparent;
     text-decoration: none;
 }
@@ -107,8 +115,8 @@ a:active {
 button, input {
     margin: 8px;
     border: none;
-    color: #ffc;
-    background-color: #634;
+    color: var(--col-bright);
+    background-color: var(--col-dim);
     font-size: 20px;
     border-radius: 10px;
     padding: 14px;
@@ -117,12 +125,12 @@ button, input {
 }
 
 button:hover {
-    color: #634;
-    background-color: #ffc;
+    color: var(--col-dim);
+    background-color: var(--col-bright);
 }
 
 input::placeholder {
-    color: #966;
+    color: var(--col-main);
 }
 
 input[type=text] {
@@ -131,18 +139,18 @@ input[type=text] {
 
 input[type=checkbox] {
     scale: 1.5;
-    accent-color: #634;
-    color: #ffc;
+    accent-color: var(--col-dim);
+    color: var(--col-bright);
     border: none;
-    background-color: #ffc;
+    background-color: var(--col-bright);
     cursor: pointer;
 }
 
 input[type=file], select {
-    accent-color: #634;
-    color: #634;
+    accent-color: var(--col-dim);
+    color: var(--col-dim);
     border: none;
-    background-color: #ffc;
+    background-color: var(--col-bright);
     cursor: pointer;
 }
 
@@ -155,6 +163,6 @@ select {
 }
 
 select:focus {
-    color: #ffc;
-    background-color: #634;
+    color: var(--col-bright);
+    background-color: var(--col-dim);
 }

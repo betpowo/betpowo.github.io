@@ -4,12 +4,12 @@ import '../styles/global.css';
 <html lang="en">
 	<head>
 		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<meta name="generator" content={Astro.generator} />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<title>Betopia is missing!!!</title>
 	</head>
-	<body style="background-color: #303;">
+	<body style="background-color: var(--col-dark);">
         <div style="
 		margin: 0;
 		position: absolute;
@@ -19,7 +19,7 @@ import '../styles/global.css';
 		transform: translate(-50%, -50%);
 		" x-data="{pats:0}">
 		<p x-show="pats > 0" x-text="'pats: ' + pats.toString()"></p>
-		<p x-show="pats > 99" style="color: #966;">just... go back already</p>
+		<p x-show="pats > 99" style="color: var(--col-main);">just... go back already</p>
 		<div>
 		<img src="/svgs/404.svg" width="500px" alt="404: not found! sorry..."/>
 		<div style="background-color: rgba(0, 0, 0, 0%); width: 111px; height: 50px; translate: 0px -190px; margin-left: auto; margin-right: auto; margin-bottom: -12%; cursor: grab;"

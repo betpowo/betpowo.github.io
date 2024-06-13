@@ -9,7 +9,7 @@ import '../../styles/global.css';
 <html lang="en">
 	<head>
 		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<meta name="generator" content={Astro.generator} />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<style>
@@ -25,7 +25,7 @@ import '../../styles/global.css';
 	<Header />
 	<body>
 	<div style="margin: 23px">
-		<div class="board" style="max-width: 60%;" x-data="{women:false}">
+		<div class="board" style="max-width: 60%;" x-data="{women:true}">
 			<h1>character storage</h1>
 			<br>
 			ahh... the page that started it all... it's so awesome...
@@ -37,14 +37,14 @@ import '../../styles/global.css';
 			<br><br>
 			or choose from here:
 			<br><br>
-			<div style="color: #634; text-align: left; margin-bottom: 5px;">
-				<input type="checkbox" x-on:click="women = !women">include women</input>
+			<div style="color: var(--col-dim); text-align: left; margin-bottom: 5px;">
+				<input type="checkbox" x-on:click="women = !women" checked>include women</input>
 			</div>
-			<div class="sub-board" style="border: #fc6 8px double;">
-				<h1 style="text-shadow: 0px 4px 0px #303;">main characters</h1>
+			<div class="sub-board" style="border: var(--col-light) 8px double;">
+				<h1 style="text-shadow: 0px 4px 0px var(--col-dark);">main characters</h1>
 				the characters i'll probably put on the spotlight often, expect a lot of content with them.
 				<br>
-				<span style="font-size: 17px; color: #634;">
+				<span style="font-size: 17px; color: var(--col-dim);">
 				and with a lot, i mean, a <i>lot.</i> :3
 				<br> <br>
 				<div class="container">
@@ -54,8 +54,8 @@ import '../../styles/global.css';
 			</div>
 			<br><br>
 			<div class="sub-board">
-				<h1 style="text-shadow: 0px 4px 0px #303;">
-					<a href="https://gamebanana.com/mods/378548" style="color: #ffc; padding: 14px; border-radius: 14px; background-image: linear-gradient(#f63, #f36);">
+				<h1 style="text-shadow: 0px 4px 0px var(--col-dark);">
+					<a href="https://gamebanana.com/mods/378548" style="color: var(--col-bright); padding: 14px; border-radius: 14px; background-image: linear-gradient(#f63, #f36);">
 						mod name here
 					</a>
 				</h1>
@@ -69,7 +69,7 @@ import '../../styles/global.css';
 			</div>
 			<br><br>
 			<div class="sub-board">
-				<h1 style="text-shadow: 0px 4px 0px #303;">throwaways</h1>
+				<h1 style="text-shadow: 0px 4px 0px var(--col-dark);">throwaways</h1>
 				characters i will most likely not use anymore.
 				<br>
 				permission to own these is probably discouraged

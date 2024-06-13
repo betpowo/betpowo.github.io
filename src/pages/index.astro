@@ -8,16 +8,17 @@ import '../styles/global.css';
 <html lang="en">
 	<head>
 		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<meta name="generator" content={Astro.generator} />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<title>Betopia</title>
 		<style>
 			.container {
 				display: flex;
-				align-items: baseline;
+				align-items: center;
 				margin: auto;
 				justify-content: center;
+				max-width: fit-content;
 			}
 		</style>
 	</head>
@@ -66,7 +67,7 @@ import '../styles/global.css';
 			<br>
 			here's most of the stuff i made, that i'm kinda proud of, even if it's like the worst thing ever
 			<br><br>
-			<div class="container" style="align-items: center;">
+			<div class="container">
 				<button style="max-width: 150px; box-shadow: 0px 4px 0px #523; align-items: center;" onclick="window.location.href = '/characters'">
 					<img src="/characters/betty/icon.gif" width="80"/> <br> Character Storage
 				</button>

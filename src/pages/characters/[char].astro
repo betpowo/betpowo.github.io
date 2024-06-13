@@ -2,6 +2,7 @@
 import { getCollection } from 'astro:content';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
+import { isInputError } from 'astro:actions';
 
 export async function getStaticPaths() {
 	const posts = await getCollection('characters');
@@ -34,17 +35,20 @@ const char_color = data.color;
 				--header-color: #000;
 				--header-logo-color-1: #fff;
 				--header-logo-color-2: var(--char_color);
+
+				--__opac: 1;
+				--__glowcol: #fff;
 			}
 
 			html {
 			    font-family: 'sillyfont';
 			    font-size: 22px;
-			    color: #fff;
+			    color: rgba(255, 255, 255, var(--__opac));
 			    text-align: center;
 			}
 
 			body {
-			    background-color: var(--char_color);
+			    background-color: rgb(from var(--char_color) calc(r * var(--__opac)) calc(g * var(--__opac)) calc(b * var(--__opac)));
 				margin: 0;
 				padding: 0;
 				min-height: 100vh;
@@ -56,6 +60,7 @@ const char_color = data.color;
 			    color: var(--char_color);
 				margin-top: -10px;
 			    margin-bottom: 5px;
+				opacity: var(--__opac);
 			}
 
 			hr {
@@ -63,10 +68,11 @@ const char_color = data.color;
 				height: 7px;
 				border: none;
 				border-radius: 7px;
+				opacity: var(--__opac);
 			}
 
 			.board {
-			    background: #fff;
+			    background: rgba(255, 255, 255, var(--__opac));
 			    box-shadow: 0px 7px 0 rgba(0, 0, 0, 40%);
 			    border-radius: 20px;
 			    -webkit-border-radius: 20px;
@@ -77,6 +83,21 @@ const char_color = data.color;
 			    color: #000;
 			}
 
+			.sub-board {
+			    background: var(--char_color);
+			    box-shadow: 0px 7px 0 rgba(0, 0, 0, 40%) inset;
+			    border-radius: 20px;
+			    -webkit-border-radius: 20px;
+			    color: #fff;
+				padding: 40px;
+    			width: fit-content;
+    			margin: auto;
+    			padding-bottom: 33px;
+			}
+
+			a {
+				opacity: var(--__opac);
+			}
 			a:link {
 			    color: var(--char_color);
 			    font-weight: bold;
@@ -109,6 +130,7 @@ const char_color = data.color;
 			    padding: 14px;
 			    font-family: 'sillyfont';
 			    cursor: pointer;
+				opacity: var(--__opac);
 			}
 
 			button:hover, summary:hover {
@@ -144,6 +166,7 @@ const char_color = data.color;
 			    font-size: 20px;
 			    padding: 4px;
 			    box-shadow: none;
+				opacity: var(--__opac);
 			}
 
 			select:focus {
@@ -161,12 +184,14 @@ const char_color = data.color;
 				margin-bottom: 8px;
 				border-radius: 10px;
 				width: fit-content;
+				opacity: var(--__opac);
 			}
 
 			details[open] summary {
 				background-color: #fff;
 				color: var(--char_color);
 				border: solid 5px var(--char_color);
+				opacity: var(--__opac);
 			}
 
 			.le-ref {
@@ -178,10 +203,12 @@ const char_color = data.color;
 
 			.color-text {
 				color: var(--char_color);
+				opacity: var(--__opac);
 			}
 
 			li::marker {
 				color: var(--char_color);
+				opacity: var(--__opac);
 			}
 
 			pre code {
@@ -195,7 +222,27 @@ const char_color = data.color;
 			   font-family: 'Courier New', Courier, monospace;
 			   margin: auto;
 			   text-align: left;
+			   opacity: var(--__opac);
 			}
+
+			.opac, .eminem, p, span {
+				opacity: var(--__opac);
+			}
+
+			.opaque {
+				opacity: 100%;
+			}
+
+			.glowy-text {
+				color: var(--__glowcol);
+				text-shadow:
+				0px 0px 17px var(--__glowcol),
+				0px 0px 14px var(--__glowcol),
+				0px 0px 5px  var(--__glowcol),
+				0px 0px 3px  var(--__glowcol),
+				0px 0px 1px  var(--__glowcol);
+			}
+
 		</style>
 	</head>
 	<Header />
@@ -203,11 +250,11 @@ const char_color = data.color;
 		<!-- welcome to div land -->
 		<div style="margin: 23px">
 		<div class="board" style="text-align: left; display: flex; max-width: 70%; align-items: center;">
-			<div><img src={'/characters/' + data.name + '/art.png'} alt=""/></div>
+			<div><img src={'/characters/' + data.name + '/art.png'} alt="" class="opac"/></div>
 			<br>
 			<div style="margin-left: 23px;">
 			<div style="display: flex; align-items: center;">
-				<img src={'/characters/' + data.name + '/icon.gif'} alt="" width="15%" style="margin-right: 6px;"/>
+				<img src={'/characters/' + data.name + '/icon.gif'} alt="" width="15%" class="opac" style="margin-right: 6px;"/>
 				<h1>{data.display}</h1>
 				<p style="font-size: 75%; padding-left: 12px;">{data.tag}</p>
 			</div>
@@ -231,8 +278,31 @@ const char_color = data.color;
 					document.getElementById('ref').src = '/characters/default-ref.png';
 				};
 			</script>
-			<br>
-			<!-- <button id="dark-mode" style="background-color: #000;">🌚</button>  -->
+			<button id="dark-mode" style="background-color: #000;" class="opaque glowy-text">🌚 super dark mode: off</button>
+			<script define:vars={{data}}>
+				var is_dark = false;
+				var butt = document.getElementById('dark-mode');
+				var ogtext = butt.innerHTML;
+				function toggleDark() {
+					is_dark = !is_dark;
+					if (is_dark) {
+						document.documentElement.style.setProperty('--__opac', '0');
+						document.documentElement.style.setProperty('--__glowcol', '#000');
+						butt.style.setProperty('background-color', '#fff');
+						butt.innerHTML = '🌞 super dark mode: on';
+
+						document.getElementById('ref').src = '/characters/' + data.name + '/ref-dark.png';
+					} else {
+						document.documentElement.style.setProperty('--__opac', '1');
+						document.documentElement.style.setProperty('--__glowcol', '#fff');
+						butt.style.setProperty('background-color', '#000');
+						butt.innerHTML = ogtext;
+
+						document.getElementById('ref').src = '/characters/' + data.name + '/ref.png';
+					}
+				}
+				butt.onclick = toggleDark;
+			</script>
 			<br>
 			<p id="bro3" style="text-align: left;"></p>
 			<script define:vars={{data}}>
