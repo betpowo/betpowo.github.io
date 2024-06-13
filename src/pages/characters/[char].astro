@@ -24,6 +24,13 @@ const char_color = data.color;
 		<meta charset="utf-8" />
 		<link rel="icon" type="image/svg+xml" href={'/characters/' + data.name + '/icon.gif'} />
 		<title>{data.display} | Betopia's Basement</title>
+
+		<meta content={data.display + " - Betopia's Character Storage"} property="og:title" />
+		<meta content={data.image_sub} property="og:description" />
+		<meta content={"/characters/" + data.name + "/ref.png"} property="og:image" />
+		<meta content={char_color} data-react-helmet="true" name="theme-color" />
+		<meta name="twitter:card" content="summary_large_image">
+
 		<!-- how do i make it grab the text fom the css file grah -->
 		<style define:vars={{ char_color }} is:global>
 			@font-face {
