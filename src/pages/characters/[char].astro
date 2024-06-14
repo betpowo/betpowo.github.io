@@ -17,7 +17,6 @@ export async function getStaticPaths() {
 
 const { data } = Astro.props;
 const char_color = data.color;
-const __dark = Astro.url.searchParams.get('dark') || 'false';
 ---
 <html>
 	<head>
@@ -27,8 +26,8 @@ const __dark = Astro.url.searchParams.get('dark') || 'false';
 
 		<meta content={data.display + " - Betopia's Character Storage"} property="og:title" />
 		<meta content={data.who} property="og:description" />
-		<meta content={"/characters/" + data.name + "/ref" + (__dark.toString().toLowerCase() == 'true' ? "-dark" : "") + ".png"} property="og:image" />
-		<meta content={(__dark.toString().toLowerCase() == 'true' ? "#000000" : char_color)} data-react-helmet="true" name="theme-color" />
+		<meta content={"/characters/" + data.name + "/ref.png"} property="og:image" />
+		<meta content={char_color} data-react-helmet="true" name="theme-color" />
 		<meta name="twitter:card" content="summary_large_image">
 
 		<!-- how do i make it grab the text fom the css file grah -->
