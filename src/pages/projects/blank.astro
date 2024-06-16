@@ -1,0 +1,42 @@
+---
+// Component Imports
+import Footer from '../../components/Footer.astro';
+import Header from '../../components/Header.astro';
+import '../../styles/global.css';
+
+const { frontmatter } = Astro.props;
+---
+<!-- blehhh -->
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="generator" content={Astro.generator} />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<title>{frontmatter.display + " - betopia's projects"}</title>
+
+		<meta content={frontmatter.display + " - betopia's projects"} property="og:title" />
+		<meta content={frontmatter.embed.desc} property="og:description" />
+		<meta content={frontmatter.embed.image} property="og:image" />
+		<meta content={frontmatter.embed.color} data-react-helmet="true" name="theme-color" />
+		<meta name="twitter:card" content="summary_large_image">
+
+		<style>
+			.container {
+				display: flex;
+				align-items: center;
+				margin: auto;
+				justify-content: center;
+				max-width: fit-content;
+			}
+		</style>
+	</head>
+	<Header />
+	<body>
+	<div style="margin: 23px;">
+		<div class="board">
+			<slot />
+		</div>
+	</div>
+	</body>
+	<Footer />
+</html>

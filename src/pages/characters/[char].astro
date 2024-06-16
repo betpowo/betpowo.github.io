@@ -22,9 +22,9 @@ const char_color = data.color;
 	<head>
 		<meta charset="utf-8" />
 		<link rel="icon" type="image/svg+xml" href={'/characters/' + data.name + '/icon.gif'} />
-		<title>{data.display} | Betopia's Basement</title>
+		<title>{data.display} | betopia's basement</title>
 
-		<meta content={data.display + " - Betopia's Character Storage"} property="og:title" />
+		<meta content={data.display + " - betopia's character storage"} property="og:title" />
 		<meta content={data.who} property="og:description" />
 		<meta content={"/characters/" + data.name + "/ref.png"} property="og:image" />
 		<meta content={char_color} data-react-helmet="true" name="theme-color" />
@@ -205,7 +205,7 @@ const char_color = data.color;
 				width: 75%;
 				height: 75%;
 				margin: auto;
-				border-radius: 10px;
+				border-radius: 20px;
 			}
 
 			.color-text {
@@ -275,7 +275,7 @@ const char_color = data.color;
 		<br>
 		<div class="board" style="max-width: 80%;">
 			<details open>
-			<summary>Reference and Appearance</summary>
+			<summary>reference, appearance & more</summary>
 			<br>
 			<img class="le-ref" src={'/characters/' + data.name + '/ref.png'} title={data.image_alt} alt={data.image_alt} id="ref"/>
 			<p id="bro2" class="color-text"></p>
@@ -344,6 +344,7 @@ const char_color = data.color;
 
 								if (freddying) {
 									document.getElementById('freddy').style.setProperty('opacity', (Math.random() * 100).toString() + '%');
+									document.getElementById('freddy').style.setProperty('scale', '1');
 								}
 							}
 						}, ms);
@@ -358,14 +359,14 @@ const char_color = data.color;
 			<script define:vars={{data}}>
 				document.getElementById('bro3').innerHTML = data.look;
 			</script>
-			</details>	
+			<br>
 		</div>
 		<br>
 		<div class="board" style="max-width: 80%;">
 			<details>
-			<summary>Misc. Information</summary>
+			<summary>other information</summary>
 					<details>
-					<summary>General</summary>
+					<summary>general</summary>
 					<pre>
 					<code id="jsonthing" class="language-js">{JSON.stringify(data.other, null, 4)}</code>
 					</pre>				
@@ -374,20 +375,20 @@ const char_color = data.color;
 					<br>
 
 					<details open>
-					<summary>Fun Facts</summary>
+					<summary>fun facts</summary>
 					<ul>
-						{data.info.map(wawa => <li style="text-align: left;">{wawa}</li><br>)}
-					<script>
-						const ae = document.getElementsByTagName('li');
-						for (let index = 0; index < ae.length; index++) {
-							const element = ae[index];
-							element.innerHTML = element.textContent;
-						}
-					</script>
+						{data.info.map(wawa => <li style="text-align: left; margin-bottom: 25px;">{wawa}</li>)}
 					</ul>
 					</details>		
 			</details>		
 		</div>
+		<script>
+			const ae = document.getElementsByTagName('li');
+			for (let index = 0; index < ae.length; index++) {
+				const element = ae[index];
+				element.innerHTML = element.textContent;
+			}
+		</script>
 		<br>
 		<button style="border: solid 5px #fff;" onclick="window.location.href = '/characters'">[&LeftArrow;] go back</button>
 	</div>

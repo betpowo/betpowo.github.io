@@ -1,0 +1,54 @@
+---
+// Component Imports
+import Footer from '../../components/Footer.astro';
+import Header from '../../components/Header.astro';
+import '../../styles/global.css';
+---
+<!-- blehhh -->
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="generator" content={Astro.generator} />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<title>betopia's projects</title>
+
+		<meta content="projects - betopia" property="og:title" />
+		<meta content="stuff that i'm trying to do for my own enjoyment." property="og:description" />
+		<meta content="/images/qstn.png" property="og:image" />
+		<meta content="#ffffff" data-react-helmet="true" name="theme-color" />
+
+		<style>
+			.container {
+				display: flex;
+				align-items: center;
+				margin: auto;
+				justify-content: center;
+				max-width: fit-content;
+			}
+		</style>
+	</head>
+	<Header />
+	<body>
+	<div style="margin: 23px;">
+		<div class="board" style="max-width: 80%">
+			<h1>projects</h1>
+			<br>
+			here's most of the stuff i made, that i'm kinda proud of, even if it's like the worst thing ever
+			<br><br>
+			<div class="container">
+				<button style="max-width: 150px; box-shadow: 0px 4px 0px #523; align-items: center;" onclick="window.location.href = '/characters'">
+					<img src="/characters/betty/icon.gif" width="80"/> <br> character storage
+				</button>
+				<a href="/projects/mod-name-here">
+					<img src="/images/modnameherelogo.png" width="300" title="Mod Name Here" alt="Mod Name Here"/>
+				</a>
+				<a href="/projects/calculator">
+					<img src="/images/epiccalclogo.png" width="300" title="Epic Calculator" alt="Epic Calculator"/>
+				</a>
+			</div>
+			more soon...
+		</div>
+	</div>
+	</body>
+	<Footer />
+</html>
