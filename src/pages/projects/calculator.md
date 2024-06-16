@@ -1,5 +1,5 @@
 ---
-layout: 'blank.astro'
+layout: '../../layouts/blank.astro'
 display: 'epic calculator'
 embed: {
     desc: '"2.2 is nuts" - someone out there, probably',

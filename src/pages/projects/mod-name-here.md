@@ -1,5 +1,5 @@
 ---
-layout: 'blank.astro'
+layout: '../../layouts/blank.astro'
 display: 'mod name here'
 embed: {
     desc: 'my friday funk funny mod',
