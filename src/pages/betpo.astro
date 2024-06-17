@@ -20,10 +20,14 @@ import '../styles/global.css';
 		transform: translate(-50%, -50%);
 		">
 		<img src="/characters/betpo/walk.gif" alt="look at him go"/>
-        <script>
-            var fnaf = new Audio('/audio/bubble-beat-box.mp3');
-			fnaf.loop = true;
-            fnaf.play();
-        </script>
+		<br>
+		<audio id="blehh" src="/audio/bubble-beat-box.mp3" controls></audio>
+		<script>
+			window.addEventListener("DOMContentLoaded", event => {
+				const audio = document.querySelector("audio");
+				audio.loop = true;
+				audio.play();
+			});
+		</script>
 	</body>
 </html>

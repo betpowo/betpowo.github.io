@@ -166,3 +166,12 @@ select:focus {
     color: var(--col-bright);
     background-color: var(--col-dim);
 }
+
+audio::-webkit-media-controls-panel {
+    background-color: #afa;
+}
+
+audio {
+    filter: invert(100%) sepia(60%) saturate(200%) brightness(104%) contrast(115%);
+    width: 500px;
+}

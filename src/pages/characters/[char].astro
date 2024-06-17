@@ -232,6 +232,15 @@ const char_color = data.color;
 			   opacity: var(--__opac);
 			}
 
+			audio::-webkit-media-controls-panel {
+			    background-color: var(--char_color);
+				filter: hue-rotate(180deg);
+			}
+
+			audio {
+			    filter: invert(100%) saturate(300%) brightness(100%) contrast(300%);
+			}
+
 			.opac, .eminem, p, span {
 				opacity: var(--__opac);
 			}
