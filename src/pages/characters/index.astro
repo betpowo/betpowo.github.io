@@ -30,7 +30,7 @@ import '../../styles/global.css';
 	<Header />
 	<body>
 	<div style="margin: 23px">
-		<div class="board" style="max-width: 60%;" x-data="{women:true}">
+		<div class="board" style="max-width: 75%;" x-data="{women:true}">
 			<h1>character storage</h1>
 			<br>
 			ahh... the page that started it all... it's so awesome...
@@ -38,7 +38,7 @@ import '../../styles/global.css';
 			anyways, this is where i keep my <b>original character information</b>; now with the ability to update anytime i want, without having to delete and remake the same tweet over and over again. cool, am i right?
 			<br><br>
 			search for a character:
-			<input type="text" placeholder="betty" id="iput"></input><button onclick="window.location.href = '/characters/' + document.getElementById('iput').value">go</button>
+			<input type="text" placeholder="betty" id="iput"></input><button onclick="window.location.href = '/characters/' + document.getElementById('iput').value.toLowerCase();">go</button>
 			<br><br>
 			or choose from here:
 			<br><br>
@@ -51,11 +51,22 @@ import '../../styles/global.css';
 				<br>
 				<span style="font-size: 17px; color: var(--col-dim);">
 				and with a lot, i mean, a <i>lot.</i> :3
+				</span>
 				<br> <br>
 				<div class="container">
 					<CharButton char='Betpo'/> <div x-show="women"><CharButton char='Josephine'/></div>
 				</div>
-				</span>
+			</div>
+			<br><br>
+			<div class="sub-board">
+				<h1 style="text-shadow: 0px 4px 0px var(--col-dark);">side characters</h1>
+				the characters i have that i don't use a lot,
+				<br>
+				and/or have little to no importance or whatever.
+				<br> <br>
+				<div class="container">
+					<div x-show="women"><CharButton char='Glib'/></div>
+				</div>
 			</div>
 			<br><br>
 			<div class="sub-board">
@@ -71,7 +82,6 @@ import '../../styles/global.css';
 				<div class="container">
 					<CharButton char='carlos'/>
 				</div>
-				</span>
 			</div>
 			<br><br>
 			<div class="sub-board">
@@ -81,9 +91,8 @@ import '../../styles/global.css';
 				permission to own these is probably discouraged
 				<br> <br>
 				<div class="container">
-					<div x-show="women"><CharButton char='Glib'/></div>
+					<p style="color: var(--col-main);">[ nothing yet ]</p>
 				</div>
-				</span>
 			</div>
 		</div>
 	</div>
