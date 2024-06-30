@@ -1,5 +1,6 @@
 ---
 import HeaderLogo from './HeaderLogo.astro'
+import * as banner from '../pages/banner.md'
 // import '@styles/global.css'
 ---
 <style>
@@ -14,7 +15,7 @@ import HeaderLogo from './HeaderLogo.astro'
         <a href="/" target="_parent">
             <div style="translate: 0px 4px;">
                 <!-- yes I KNOW ITS STUpid but this is just so i can have an easier way to control its colors -->
-                <HeaderLogo />
+                <HeaderLogo data={'{ show_warn: ' + banner.frontmatter.show_warn + '}'}/>
             </div>
         </a>
         <p style="padding-left: 9px;"><nobr>

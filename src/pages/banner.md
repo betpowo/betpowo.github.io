@@ -1,5 +1,6 @@
 ---
 layout: '../layouts/trueblank.astro'
+show_warn: true
 ---
 <div class="board" style="
     width: fit-content;
