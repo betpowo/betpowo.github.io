@@ -30,6 +30,25 @@ import '../styles/global.css';
 	<Header />
 	<body>
 	<div style="margin: 23px;">
+		<div>
+			<iframe id="fuckframe" src="/banner" style="border: none;" width="100%">
+				[ banner shit here ]
+			</iframe>
+			<script>
+				// Selecting the iframe element 
+				var frame = document.getElementById("fuckframe"); 
+          
+		  		// Adjusting the iframe height onload event 
+		  		frame.onload = function() 
+		  		// function execute while load the iframe 
+		  		{ 
+					// set the height of the iframe as  
+					// the height of the iframe content 
+					frame.style.height =  
+					frame.contentWindow.document.body.scrollHeight + 'px'; 
+		  		}			
+			</script>
+		</div>
 		<div class="board" style="text-align: left;">
 		<a href="/characters/betty">
 			<img style="float: right;" src="/images/eepy.png" width="150"/>
