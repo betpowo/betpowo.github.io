@@ -33,21 +33,21 @@ margin: 0px;
     padding-top: 0px;
     margin-top: -20px;
 ">
-<a href="https://artfight.net/~betpowo" target="_parent">
+<a href="https://artfight.net/~betpowo" target="_blank">
     <img class="blehh" src="/images/socials/art.png" alt="Art Fight: https://artfight.net/~betpowo" title="Art Fight" width="150" style="margin: 4px; margin-left: 30px; margin-right: 30px">
 </a>
 <div style="max-width: 555px; text-align: left">
 
 <h1 style="text-shadow: 0px 7px 0px #033;">i'm going to war!</h1>
 
-that's right... i will be attending <a href="https://artfight.net" target="_parent">art fight</a> this year...
+that's right... i will be attending <a href="https://artfight.net" target="_blank">art fight</a> this year...
 this is my second year... please be nice...
 <br><br>
-<a href="https://artfight.net/~betpowo" target="_parent">
+<a href="https://artfight.net/~betpowo" target="_blank">
 <button style="margin: 0px">hell yeah... let me attack you vro....</button>
 </a>
 </div>
-<a href="/characters/betty" target="_parent">
+<a href="/characters/betty" target="_blank">
     <img src="/images/military.png" alt="insert image of betty in mliltary suit here" />
 </a>
 
