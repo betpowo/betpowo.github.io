@@ -3,6 +3,7 @@
 import Footer from '../components/Footer.astro';
 import Header from '../components/Header.astro';
 import '../styles/global.css';
+import { Content as Bruh } from '../pages/banner.md';
 ---
 <!-- blehhh -->
 <html lang="en">
@@ -31,23 +32,7 @@ import '../styles/global.css';
 	<body>
 	<div style="margin: 23px;">
 		<div>
-			<iframe id="fuckframe" src="/banner" style="border: none;" width="100%">
-				[ banner shit here ]
-			</iframe>
-			<script>
-				// Selecting the iframe element 
-				var frame = document.getElementById("fuckframe"); 
-          
-		  		// Adjusting the iframe height onload event 
-		  		frame.onload = function() 
-		  		// function execute while load the iframe 
-		  		{ 
-					// set the height of the iframe as  
-					// the height of the iframe content 
-					frame.style.height =  
-					frame.contentWindow.document.body.scrollHeight + 'px'; 
-		  		}			
-			</script>
+			<Bruh />
 		</div>
 		<div class="board" style="text-align: left;">
 		<a href="/characters/betty">

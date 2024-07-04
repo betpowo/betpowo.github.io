@@ -1,5 +1,4 @@
 ---
-layout: '../layouts/trueblank.astro'
 show_warn: true
 ---
 <div class="board" style="
@@ -54,3 +53,4 @@ this is my second year... please be nice...
 
 </div>
 </div>
+<br>
