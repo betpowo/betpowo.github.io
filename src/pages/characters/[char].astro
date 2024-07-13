@@ -8,7 +8,7 @@ export async function getStaticPaths() {
 	var bleh = posts.map(data => (
 	{
 		params: {
-			char: data.data.name
+			char: data.id
 		},
 		props: { data: data.data }
 	}));
@@ -16,17 +16,18 @@ export async function getStaticPaths() {
 }
 
 const { data } = Astro.props;
+const { char } = Astro.params;
 const char_color = data.color;
 ---
 <html>
 	<head>
 		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href={'/characters/' + data.name + '/icon.gif'} />
+		<link rel="icon" type="image/svg+xml" href={'/characters/' + char + '/icon.gif'} />
 		<title>{data.display} | betopia's basement</title>
 
 		<meta content={data.display + " - betopia's character storage"} property="og:title" />
 		<meta content={data.who} property="og:description" />
-		<meta content={"/characters/" + data.name + "/ref.png"} property="og:image" />
+		<meta content={"/characters/" + char + "/ref.png"} property="og:image" />
 		<meta content={char_color} data-react-helmet="true" name="theme-color" />
 		<meta name="twitter:card" content="summary_large_image">
 
@@ -266,11 +267,11 @@ const char_color = data.color;
 		<!-- welcome to div land -->
 		<div style="margin: 23px">
 		<div class="board" style="text-align: left; display: flex; max-width: 70%; align-items: center;">
-			<div><img src={'/characters/' + data.name + '/art.png'} alt="" class="opac"/></div>
+			<div><img src={'/characters/' + char + '/art.png'} alt="" class="opac"/></div>
 			<br>
 			<div style="margin-left: 23px;">
 			<div style="display: flex; align-items: center;">
-				<img src={'/characters/' + data.name + '/icon.gif'} alt="" width="15%" class="opac" style="margin-right: 6px;"/>
+				<img src={'/characters/' + char + '/icon.gif'} alt="" width="15%" class="opac" style="margin-right: 6px;"/>
 				<h1>{data.display}</h1>
 				<p style="font-size: 75%; padding-left: 12px;">{data.tag}</p>
 			</div>
@@ -286,7 +287,7 @@ const char_color = data.color;
 			<details open>
 			<summary>reference, appearance & more</summary>
 			<br>
-			<img class="le-ref" src={'/characters/' + data.name + '/ref.png'} title={data.image_alt} alt={data.image_alt} id="ref"/>
+			<img class="le-ref" src={'/characters/' + char + '/ref.png'} title={data.image_alt} alt={data.image_alt} id="ref"/>
 			<p id="bro2" class="color-text"></p>
 			<script define:vars={{data}}>
 				document.getElementById('bro2').innerHTML = data.image_sub;
@@ -321,7 +322,7 @@ const char_color = data.color;
 						butt.style.setProperty('background-color', '#fff');
 						butt.innerHTML = '🌞 super dark mode: on';
 
-						document.getElementById('ref').src = '/characters/' + data.name + '/ref-dark.png';
+						document.getElementById('ref').src = '/characters/' + char + '/ref-dark.png';
 
 						if (freddying) {
 							fnaf.play();
@@ -335,7 +336,7 @@ const char_color = data.color;
 						butt.style.setProperty('background-color', '#000');
 						butt.innerHTML = ogtext;
 
-						document.getElementById('ref').src = '/characters/' + data.name + '/ref.png';
+						document.getElementById('ref').src = '/characters/' + char + '/ref.png';
 
 						fnaf.pause();
 						document.getElementById('freddy').style.setProperty('scale', '0');

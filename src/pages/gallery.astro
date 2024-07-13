@@ -1,0 +1,54 @@
+---
+// Component Imports
+import { getCollection } from 'astro:content';
+import Footer from '../components/Footer.astro';
+import GalleryImage from '../components/GalleryImage.astro';
+import Header from '../components/Header.astro';
+import '../styles/global.css';
+
+const posts = await getCollection('gallery');
+const bleh = posts.map(data => (
+[data.id, data.data]
+));
+---
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="generator" content={Astro.generator} />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<title>betopia's museum</title>
+
+		<meta content="gallery - betopia" property="og:title" />
+		<meta content="the hall of shame" property="og:description" />
+		<meta content="/images/gallery.png" property="og:image" />
+		<meta content="#0699a2" data-react-helmet="true" name="theme-color" />
+
+		<style>
+			.container {
+				display: flex;
+				align-items: baseline;
+				margin: auto;
+				justify-content: center;
+			}
+		</style>
+	</head>
+	<Header />
+	<body>
+	<div style="margin: 23px;">
+		<div class="board">
+			<h1>gallery</h1>
+            <br>
+            my best works of art that i like will be here. <br>
+            this is kinda like a portfolio but also not
+            <br><br>
+
+            {
+                bleh.map(bruh => (<GalleryImage name={[bruh[0]]} data={[JSON.stringify(bruh[1])]} />))
+            }
+			more soon...
+        </div>
+	</div>
+	</body>
+	<Footer />
+</html>

@@ -1,0 +1,35 @@
+---
+import '../styles/global.css';
+
+const { data = '{ title: "???", desc: "no description provided... sigh......" }', name = '???' } = Astro.props;
+---
+<style>
+    .container {
+	    display: flex;
+		align-items: start;
+		margin: auto;
+		justify-content: center;
+		max-width: fit-content;
+	}
+</style>
+<div class="sub-board container" x-data={data} style="text-align: left;">
+    <div>
+        <a href={'/images/gallery/' + name + '.png'} target="_blank">
+            <img src={'/images/gallery/' + name + '.png'} style="
+                display: grid;
+                max-width: 400px;
+                max-height: 400px;
+                border-radius: 20px;
+                box-shadow: 0px 7px 0px var(--col-dark);
+            " />
+        </a>
+    </div>
+    <br>
+    <div style="margin-left: 23px;">
+    <h1 x-text="title" style="text-shadow: 0px 7px 0px var(--col-dark);" />
+    <p x-text="from" style="color: var(--col-dark); font-size: 16px;" />
+    <hr style="background-color: var(--col-dark);">
+    <p x-text="desc" style="max-width: 600px;" />
+    </div>
+</div>
+<br>

@@ -112,7 +112,7 @@ a:active {
     text-decoration: none;
 }
 
-button, input {
+button, input, textarea {
     margin: 8px;
     border: none;
     color: var(--col-bright);
@@ -129,11 +129,11 @@ button:hover {
     background-color: var(--col-bright);
 }
 
-input::placeholder {
+input::placeholder, textarea::placeholder {
     color: var(--col-main);
 }
 
-input[type=text] {
+input[type=text], textarea {
     cursor: text;
 }
 
