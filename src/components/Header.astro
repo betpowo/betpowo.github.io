@@ -67,14 +67,12 @@ pageIcons.set('contact', 8);
             </div>
         </div>
         </p>
-        <script define:vars={{ic: pageIcons.entries()}}>
+        <script>
             var _div = document.getElementById('FUCK');
 
             for (const child of _div.children) {
                 child.innerHTML = child.innerHTML.replace('&amp;', '&');
             }
-
-            console.log(ic);
 
             var url = window.location.pathname;
             var urls = url.split('/');
@@ -85,8 +83,9 @@ pageIcons.set('contact', 8);
 
             if (urls[1] == '') urls[1] = 'home';
             if (urls.at(-1) == '') urls.pop();
-
             urln.innerHTML = '';
+
+            console.log(urls);
 
             urls.map(a => {
                 if (a != '') {
