@@ -4,8 +4,8 @@ show_warn: true
 <div class="board" style="
     width: fit-content;
     height: fit-content;
-    background-color: #0699a2;
-    box-shadow: 0px 7px 0px #033;
+    background-color: var(--col-dim);
+    box-shadow: 0px 7px 0px var(--col-dark);
     padding: 0;
 ">
 <div>
@@ -29,28 +29,24 @@ margin: 0px;
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 23px;
+    padding: 46px;
     padding-top: 0px;
     margin-top: -20px;
+    text-align: left;
 ">
-<a href="https://artfight.net/~betpowo" target="_blank">
-    <img class="blehh" src="/images/socials/art.png" alt="Art Fight: https://artfight.net/~betpowo" title="Art Fight" width="150" style="margin: 4px; margin-left: 30px; margin-right: 30px">
-</a>
-<div style="max-width: 555px; text-align: left">
+<div style="padding-top: 23px;">
 
-<h1 style="text-shadow: 0px 7px 0px #033;">i'm going to war!</h1>
+# peter. the gallery is here
+it's like an art museum, except it's not
 
-that's right... i will be attending <a href="https://artfight.net" target="_blank">art fight</a> this year...
-this is my second year... please be nice...
-<br><br>
-<a href="https://artfight.net/~betpowo" target="_blank">
-<button style="margin: 0px">hell yeah... let me attack you vro....</button>
-</a>
+i still have to add more to it but maybe when <a href="https://artfight.net/~betpowo" target="_blank">art fight</a> ends
+
 </div>
-<a href="/characters/betty" target="_blank">
-    <img src="/images/military.png" alt="insert image of betty in mliltary suit here" />
-</a>
+<a href="/gallery" style="padding-left: 23px;">
 
+![gallery](/images/gallery.png)
+
+</a>
 </div>
 </div>
 <br>

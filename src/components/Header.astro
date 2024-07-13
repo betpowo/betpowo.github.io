@@ -2,6 +2,15 @@
 import HeaderLogo from './HeaderLogo.astro'
 import * as banner from '../pages/banner.md'
 // import '@styles/global.css'
+
+const pageIcons = new Map();
+pageIcons.set('', 3);
+pageIcons.set('home', 3);
+pageIcons.set('characters', 4);
+pageIcons.set('gallery', 5);
+pageIcons.set('projects', 6);
+pageIcons.set('comms', 7);
+pageIcons.set('contact', 8);
 ---
 <style>
     .eminem {
@@ -9,8 +18,22 @@ import * as banner from '../pages/banner.md'
         cursor: help;
         margin-left: auto;
     }
+    .container {
+	    display: flex;
+		align-items: start;
+		justify-content: left;
+		max-width: fit-content;
+	}
+    [x-cloak] { display: none !important; }
 </style>
-<div style="background-color: var(--header-color); height: fit-content; margin-top: 0;">
+<div id="__header" style="
+    background-color: var(--header-color);
+    height: fit-content;
+    margin-top: 0;
+    top: 0;
+    text-align: left;
+    z-index: 100000;
+    "> <!-- one thousillion -->
     <div style="align-items: center; display: flex; padding: 15px;">
         <a href="/" target="_parent">
             <div style="translate: 0px 4px;">
@@ -18,14 +41,71 @@ import * as banner from '../pages/banner.md'
                 <HeaderLogo data={'{ show_warn: ' + banner.frontmatter.show_warn + '}'}/>
             </div>
         </a>
-        <p style="padding-left: 9px;"><nobr>
-        &nbsp;&bullet; &nbsp;<a href="/characters" target="_parent">characters</a>
-        &nbsp;&bullet; &nbsp;<a href="/gallery" target="_parent">gallery</a>
-        &nbsp;&bullet; &nbsp;<a href="/projects" target="_parent">projects</a>
-        &nbsp;&bullet; &nbsp;<a href="/comms" target="_parent">comms</a>
-        ­&nbsp;&bullet; &nbsp;­<a href="/contact" target="_parent">contact</a>
-        </nobr></p>
+        <div id="kill" class="container" style="padding-left: 19px; display: none;" x-data="{ open: false }">
+            <button style="font-size: 36px; width: 60px; height: 60px; margin: 0;" x-on:click="open = !open;">
+                <span style="translate: 0px 15px;" x-text="open ? '&#2' : '&#1'"></span>
+            </button>
+            <!-- span abuse -->
+            <div style="display:flex; translate: 0px 9px; font-size: 25px; padding-left: 25px; align-items: center;">
+                <span id="url-icon" style="color: var(--header-logo-color-2); font-size: 40px; padding-right: 20px;">
+                    {'&#' + pageIcons.get(Astro.url.toString().split('://')[1].split('/')[1]) + ';'}            
+                </span><span id="url-name">home</span>
+            </div>
+            <div id="FUCK" x-show="open" x-cloak style="opacity: 0%; width: min-content; display: block; position: absolute; background-color: var(--header-color); padding: 8px; border-radius: 20px; translate: 0px 60px;">
+            {
+                ['projects', 'characters', 'gallery', 'comms', 'contact'].map(a => (
+                    <a href={'/' + a}><button style="
+                        width: 200px; 
+                        margin:0; 
+                        margin-top: 3px; 
+                        text-align: left;
+                    " onclick="console.log(window.location.pathname.split('/'))">
+                        {'&#' + pageIcons.get(a) + '; ' + a} 
+                    </button></a>
+                ))
+            }
+            </div>
+        </div>
         </p>
+        <script define:vars={{ic: pageIcons.entries()}}>
+            var _div = document.getElementById('FUCK');
+
+            for (const child of _div.children) {
+                child.innerHTML = child.innerHTML.replace('&amp;', '&');
+            }
+
+            console.log(ic);
+
+            var url = window.location.pathname;
+            var urls = url.split('/');
+            var urln = document.getElementById('url-name');
+
+            var urli = document.getElementById('url-icon');
+            urli.innerHTML = urli.innerHTML.replace('&amp;', '&');
+
+            if (urls[1] == '') urls[1] = 'home';
+
+            urln.innerHTML = '';
+
+            urls.map(a => {
+                if (a != '') {
+                    urln.innerHTML += '<span style="color: var(--header-logo-color-2)">'+ a +' &gt </span>';
+                }
+            });
+
+            var index = 0;
+            for (const child of urln.children) {
+                index += 1;
+                if (index == urls.length - 1) {
+                    child.innerHTML = child.innerHTML.replace(' &gt; ', '');
+                    child.style.setProperty('color', 'var(--header-logo-color-1)');
+                    child.style.setProperty('font-weight', 'bold');
+                }
+            }
+
+            document.getElementById('kill').style.setProperty('display', 'inherit');
+            _div.style.setProperty('opacity', '100%');
+        </script>
         <img src="/images/qstn.png" alt="" height="69px" class="eminem">
     </div>
 </div>

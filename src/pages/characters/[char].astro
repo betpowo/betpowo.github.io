@@ -128,7 +128,7 @@ const char_color = data.color;
 			    text-decoration: none;
 			}
 
-			button, input {
+			button, input, textarea {
 			    margin: 8px;
 			    border: none;
 			    color: #fff;
@@ -142,14 +142,15 @@ const char_color = data.color;
 			}
 
 			button:hover, summary:hover {
-				filter: brightness(1.25);
+				color: var(--char_color);
+				background-color: #fff;
 			}
 
-			input::placeholder {
+			input::placeholder, textarea {
 			    color: rgba(255, 255, 255, 50%);
 			}
 
-			input[type=text] {
+			input[type=text], textarea {
 			    cursor: text;
 			}
 
