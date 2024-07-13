@@ -83,9 +83,8 @@ pageIcons.set('contact', 8);
             var urli = document.getElementById('url-icon');
             urli.innerHTML = urli.innerHTML.replace('&amp;', '&');
 
-            if (urls.at(-1) == '') urls.pop();
-
             if (urls[1] == '') urls[1] = 'home';
+            if (urls.at(-1) == '') urls.pop();
 
             urln.innerHTML = '';
 
