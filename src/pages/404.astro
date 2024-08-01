@@ -26,11 +26,8 @@ import '../styles/global.css';
 		</div>
 		</div>
 		<br> <br>
-		<span id="lame" style="color: #f36; cursor: help;"></span> isn't real. go home
+		<span id="lame" style="color: #f36; cursor: help;">{Astro.url.pathname}</span> isn't real. go home
 		<br>
-		<script>
-			document.getElementById('lame').innerHTML = document.URL;
-		</script>
 		<br>
 		<button onclick="javascript:history.back()">[←] go back</button>
 		</div>

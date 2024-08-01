@@ -15,6 +15,10 @@
     --col-dark: #303;
 
     --col-bg: #999;
+    --col-char-bg: #966;
+
+    --col-link: #fc9;
+    --col-link-hover: #ffc;
 }
 
 html {
@@ -90,24 +94,24 @@ th {
 }
 
 a:link {
-    color: var(--col-light);
+    color: var(--col-link);
     font-weight: bold;
     background-color: transparent;
     text-decoration: none;
 }
 a:visited {
-    color: var(--col-light);
+    color: var(--col-link);
     background-color: transparent;
     text-decoration: none;
 }
 a:hover {
-    color: var(--col-bright);
+    color: var(--col-link-hover);
     background-color: transparent;
     text-decoration: none;
     font-weight: bold;
 }
 a:active {
-    color: var(--col-bright);
+    color: var(--col-link-hover);
     background-color: transparent;
     text-decoration: none;
 }

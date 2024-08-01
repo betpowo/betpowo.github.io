@@ -1,5 +1,5 @@
 ---
-show_warn: true
+show_warn: false
 ---
 <div class="board" style="
     width: fit-content;
