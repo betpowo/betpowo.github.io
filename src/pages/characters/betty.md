@@ -133,7 +133,6 @@ y'know... since this is my sona i'm gonna take the chance to take this field as 
 - bee
 - beep
 - bethany <i>(???)</i>
-- boo
 
 </td>
 </tr>
