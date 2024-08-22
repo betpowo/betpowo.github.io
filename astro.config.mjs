@@ -12,5 +12,5 @@ export default defineConfig({
 		'/carlos': '/characters/carlos',
 	},
 	integrations: [alpine(), mdx()],
-	site: 'https://retiredarchive.github.io'
+	site: 'https://betpowo.github.io'
 });
