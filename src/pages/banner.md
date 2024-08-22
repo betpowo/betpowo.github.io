@@ -35,18 +35,4 @@ margin: 0px;
     text-align: left;
 ">
 <div style="padding-top: 23px;">
-
-# peter. the gallery is here
-it's like an art museum, except it's not
-
-i still have to add more to it but maybe when <a href="https://artfight.net/~betpowo" target="_blank">art fight</a> ends
-
-</div>
-<a href="/gallery" style="padding-left: 23px;">
-
-![gallery](/images/gallery.png)
-
-</a>
-</div>
-</div>
-<br>
+no news :&lt;

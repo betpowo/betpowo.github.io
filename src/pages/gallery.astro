@@ -47,8 +47,14 @@ bleh.sort((a, b) => {
             <br><br>
 
             {
-                bleh.map(bruh => (<GalleryImage name={[bruh[0]]} data={[JSON.stringify(bruh[1])]} />))
-            }
+				() => {
+					bleh.map(bruh => (console.log(bruh[1].link)));
+
+					return bleh.map(bruh => (
+						<GalleryImage link={[bruh[1].link]} name={[bruh[0]]} data={[JSON.stringify(bruh[1])]} />
+					));
+				}
+			}
 			more soon...
         </div>
 	</div>
