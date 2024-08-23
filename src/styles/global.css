@@ -22,7 +22,8 @@
 }
 
 html {
-    font-family: 'sillyfont', 'Comic Sans MS';
+    font-family: 'sillyfont', 'Comic Sans MS', Times;
+    font-display: swap;
     font-size: 22px;
     color: var(--col-bright);
     text-align: center;
@@ -93,34 +94,41 @@ th {
     padding-bottom: 33px;
 }
 
+a {
+    --col: var(--col-link);
+    --col-hover: var(--col-link-hover);
+}
 a:link {
-    color: var(--col-link);
+    color: var(--col);
     font-weight: bold;
     background-color: transparent;
     text-decoration: none;
 }
 a:visited {
-    color: var(--col-link);
+    color: var(--col);
     background-color: transparent;
     text-decoration: none;
 }
 a:hover {
-    color: var(--col-link-hover);
+    color: var(--col-hover);
     background-color: transparent;
     text-decoration: none;
     font-weight: bold;
 }
 a:active {
-    color: var(--col-link-hover);
+    color: var(--col-hover);
     background-color: transparent;
     text-decoration: none;
 }
 
 button, input, textarea {
+    --col: var(--col-dim);
+    --col-hover: var(--col-bright);
+
     margin: 8px;
     border: none;
-    color: var(--col-bright);
-    background-color: var(--col-dim);
+    color: var(--col-hover);
+    background-color: var(--col);
     font-size: 20px;
     border-radius: 10px;
     padding: 14px;
@@ -128,9 +136,9 @@ button, input, textarea {
     cursor: pointer;
 }
 
-button:hover {
-    color: var(--col-dim);
-    background-color: var(--col-bright);
+button:hover, input:not(input[type=text]):hover {
+    color: var(--col);
+    background-color: var(--col-hover);
 }
 
 input::placeholder, textarea::placeholder {
@@ -151,24 +159,27 @@ input[type=checkbox] {
 }
 
 input[type=file], select {
-    accent-color: var(--col-dim);
-    color: var(--col-dim);
+    --col: var(--col-dim);
+    --col-hover: var(--col-bright);
+
+    font-family: 'sillyfont';
+    font-size: 20px;
+    accent-color: var(--col-hover);
+    color: var(--col-hover);
     border: none;
-    background-color: var(--col-bright);
+    background-color: var(--col);
     cursor: pointer;
 }
 
 select {
     border-radius: 10px;
-    font-family: 'sillyfont';
-    font-size: 20px;
     padding: 4px;
     box-shadow: none;
 }
 
 select:focus {
-    color: var(--col-bright);
-    background-color: var(--col-dim);
+    color: var(--col);
+    background-color: var(--col-hover);
 }
 
 audio::-webkit-media-controls-panel {

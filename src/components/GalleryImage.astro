@@ -34,7 +34,7 @@ const { link = undefined, data = '{ title: "???", desc: "no description provided
             if (link == '') {
                 return <button style="cursor: not-allowed; margin: 0; background-color: var(--col-dark); color: var(--col-dim);">no link</button>
             } else {
-                return <a href={link} target="_blank"><button style="margin: 0; background-color: var(--col-main);">link</button></a>
+                return <a href={link} target="_blank"><button style="margin: 0; --col: var(--col-main);">link</button></a>
             }
         }
     }
