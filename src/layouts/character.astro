@@ -21,16 +21,15 @@ const { frontmatter } = Astro.props;
     <Header />
 	<body style="background-color: var(--col-bg);">
         <div style="margin: 23px;">
+            <div style="margin: auto; text-align: left; max-width: 95%;">
+                <span style="margin: 0; font-size: 80px; color: var(--col-main); font-weight: bolder;">
+                    {frontmatter.display}
+                    <span style="margin-left: -20px; font-weight: bolder; font-size: 30px; color: var(--col-light);">{frontmatter.sub}</span>
+                </span>
+                <hr style="margin-top: 20px;">
+                <p style="margin: 17px;">{frontmatter.desc}</p>
+            </div>
             <div style="width: fit-content; height: fit-content; overflow: visible; margin: auto;">
-                <div style="margin: auto; text-align: left; max-width: 80%;">
-                    <span style="margin: 0; font-size: 80px; color: var(--col-main); font-weight: bolder;">
-                        {frontmatter.display}
-                        <span style="margin-left: -20px; font-weight: bolder; font-size: 30px; color: var(--col-light);">{frontmatter.sub}</span>
-                    </span>
-                    <hr style="margin-top: 20px;">
-                    <p style="margin: 17px;">{frontmatter.desc}</p>
-                </div>
-
                 <div style="margin: 40px; display: flex;">
                     <CharSheet char={frontmatter.id} data={
                         "imgsub: `" + frontmatter.imgsub +
@@ -38,14 +37,13 @@ const { frontmatter } = Astro.props;
                     }/>
                 </div>
             </div>
-            <hr>
-            <div style="width: fit-content; height: fit-content; max-width: 90%; margin: auto;">
+            <div style="height: fit-content; max-width: 95%; margin: auto;">
                 <slot>no info LMFAOOO</slot>
             </div>
         </div>
         <div style="margin: auto; display: flex;">        
-            <button onclick="window.location.href = '/characters'">&#4; home</button>
-            <button onclick="globalThis.scrollTo({ top: 0, left: 0, behavior: 'smooth' });">&#2; top</button>
+            <button style="--col-hover: var(--col-light);" onclick="window.location.href = '/characters'">&#4; home</button>
+            <button style="--col-hover: var(--col-light);" onclick="globalThis.scrollTo({ top: 0, left: 0, behavior: 'smooth' });">&#2; top</button>
         </div>
         <br>
     </body>

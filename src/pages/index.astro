@@ -1,9 +1,9 @@
 ---
 // Component Imports
+import CharButton from '../components/CharButton.astro';
 import Footer from '../components/Footer.astro';
 import Header from '../components/Header.astro';
 import '../styles/global.css';
-import { Content as Bruh } from '../pages/banner.md';
 ---
 <!-- blehhh -->
 <html lang="en">
@@ -18,30 +18,72 @@ import { Content as Bruh } from '../pages/banner.md';
 		<meta content="/images/eepy.png" property="og:image" />
 		<meta content="#996666" data-react-helmet="true" name="theme-color" />
 
-		<style>
+		<style lang="scss">
 			.container {
 				display: flex;
 				align-items: center;
 				margin: auto;
 				justify-content: center;
 				max-width: fit-content;
+				gap: 24px;
+			}
+			.awesome-grid {
+				display: grid;
+				gap: 24px;
+				grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+				min-width: 200px;
+			}
+
+			.board {
+				animation: 1s appear;
+				animation-fill-mode: forwards;
+				animation-timing-function: cubic-bezier(0.19, 1, 0.22, 1);
+				animation-delay: 1s;
+				opacity: 0;
+				visibility: hidden;
+			}
+
+			@for $i from 1 through 10 {
+    			.board:nth-child(#{$i}n) {
+        			animation-delay: #{0.3 + ($i * 0.1)}s;
+    			}
+			}
+
+			@keyframes appear {
+				0% {
+					translate: 0px 30px;
+				}
+				1% {
+					opacity: 1;
+					visibility:visible;
+				}
+				100% {
+					opacity: 1;
+					visibility:visible;
+					translate: 0px 0px;
+				}
+			}
+
+			@media screen and (max-width: 1111px) {
+				.awesome-grid {
+					display: block;
+				}
+				.board {
+					margin-bottom: 24px;
+				}
 			}
 		</style>
 	</head>
 	<Header />
 	<body>
-	<div style="margin: 23px;">
-		<div>
-			<Bruh />
-		</div>
-		<br>
-		<div class="board" style="text-align: left;">
+	<div style="margin: 23px;" class="awesome-grid">
+		<div class="board" style="grid-column: 1 / 4; grid-row: 1 / 1; background-color: var(--col-bright); color: var(--col-dark);">
 		<a href="/characters/betty">
 			<img style="float: right;" src="/images/eepy.png" width="150"/>
 		</a>
 		<h1>betopia</h1>
-		<br>
-		<p style="color:#633;
+		<br><br>
+		<p style="color:var(--col-main);
 		margin-top: -2%;
 		font-size: 78%;
 		font-weight: bolder;
@@ -50,34 +92,93 @@ import { Content as Bruh } from '../pages/banner.md';
 		</p>
 		<br>
 		<li>a very lazy, sleepy girl wandering around on the internet</li> <br>
-		<li>a stupid fucking person who doesn't deserve anything</li>
+		<li>a stupid person who doesn't deserve anything</li>
 		<br>
-		<p style="margin: auto; text-align: center;color:#633;">
-		the awesome
-		<br>↓<br>
-		<a href="https://skruyo.com">
-		  <img src="/images/dnl.png" width="49" alt="daniel" loading="lazy" title="daniel"></img>
-		</a>
+		<div style="align-items: baseline;">
+		<p style="color:var(--col-main); text-align: center;">
+			visit my silly's website Now. Immediately.
 		</p>
+		<a href="https://skruyo.com" class="container">
+			<img src="/images/dnl.png" width="49" alt="daniel" loading="lazy" title="daniel" />
+			<img src="/images/dnl.png" width="49" alt="daniel" loading="lazy" title="daniel" />
+			<img src="/images/dnl.png" width="49" alt="daniel" loading="lazy" title="daniel" />
+		</a>
+		</div>
 	  	</div>
-		<br>
-		<div class="board" style="text-align: right; max-width: 70%">
-			<a href="/characters/betty">
-			<img src="/characters/betty/art.png" width="150" style="float: left;"/>
-			</a>
+		<div class="board" style="grid-column: 4 / 6; grid-row: 1 / 3; overflow-x: hidden;">
 			<h1>hi !!!</h1>
 			<br>
 			my name is betty, or betopia, if you prefer.
 			<br>i mainly draw and stuff, i'm bad at it, but i still have fun with it.
-			<br><br>i can kinda code too... i just don't have any examples near me right now, but trust me i am so good at <a href="https://haxeflixel.com" target="_blank">haxeflixel</a>, and i'm currently learning <a href="https://godotengine.org" target="_blank">godot</a>!
-		</div>
-		<br>
-		<div>
-			<video controls src="/geoetry das.mp4" style="border-radius: 20px;"></video>
 			<br>
-			<a href="https://www.youtube.com/watch?v=wkN4sc0hfeU" target="_blank">
-				<button style="--col: #f33;">original video</button>
-			</a>
+			<br>
+			i can kinda code too... i just don't have any examples near me right now, but trust me i have alot of
+			<a href="https://haxeflixel.com" target="_blank" style="--col: #f96; --col-hover: #3f9;">haxeflixel</a>
+			knowledge, and i'm currently learning <a href="https://godotengine.org" target="_blank" style="--col: #3cf; --col-hover: #cff;">godot</a>!
+			<br>
+			<br>
+			<br>
+			<div style="
+			position: relative;
+			bottom: 0px;
+			transform: translateX(-25%);
+			max-width: 300px;
+			margin:auto;
+			">
+				<div style="float: inline-end; width: 100%; margin: auto; position: absolute; translate: 30px 60px;">
+					{
+						['godot', 'medibang', 'haxeflixel', 'fl', 'animate'].map((a, idx) => (
+							<marquee style="position: absolute;" behavior="alternate" scrollamount={((0.5 + (idx * .3) - Math.random()) * 20).toString()} width="400">
+								<marquee behavior="alternate" direction="down" scrollamount={((0.5 + (idx * .5) - Math.random()) * 30).toString()} height="199">
+									<img src={"/images/icons/" + a + ".png"} width="75" style="pointer-events: none;"/>
+								</marquee>
+							</marquee>
+						))
+					}
+				</div>
+				<img src="/images/think.png" width="450"/>
+			</div>
+		</div>
+		<div class="board" style="grid-column: 1 / 4; grid-row: 2 / 2;">
+			<h1>i have characters !</h1>
+			<br>
+			i love character design, and i rlly want to get good at it, take a look:
+			<br><br>
+			<div class="container" style="gap: 48px;">
+				<CharButton size="130"/>
+				<CharButton size="130" char='betpo' color='#f63' outline='#fffaf4' />
+				<CharButton size="130" char='josephine' color='#f36' outline='#e5f7eb' />
+			</div>
+			<button style="font-size: 36px; width: 100%; padding: 20px; border-radius: 40px;" onclick="window.location.href = '/characters'">
+				&#4; + and more !
+			</button>
+		</div>
+		
+		<div class="board" style="grid-column: 1 / 6; grid-row: 3 / 3;">
+			<h1>i make stuff !</h1>
+			<br>
+			...when i'm not lazy.
+			<br>
+			i've got like 5 personal projects unfinished, you can see which ones i have finished here:
+			<button style="padding: 20px; font-size: 30px; border-radius: 40px;" onclick="window.location.href = '/projects'">
+				&#6; projects
+			</button>
+		</div>
+
+		<div class="board" style="grid-column: 1 / 3; grid-row: 4 / 4;">
+			<h1>everyone says i draw good ! i don't draw good !</h1>
+			<br>
+			proof: 
+			<button style="padding: 20px; font-size: 30px; border-radius: 40px;" onclick="window.location.href = '/gallery'">
+				&#5; gallery
+			</button>
+		</div>
+
+		<div class="board" style="grid-column: 3 / 6; grid-row: 4 / 4; background-color: #60f;">
+			<h1 style="color: #cff;">I LOVE MY SILLY !!!</h1>
+			<div style="text-align: center;">
+				<a href="https://skruyo.com"><img alt="kiss" src="/images/kiss.gif" /></a>
+			</div>
 		</div>
 	</div>
 	</body>

@@ -6,7 +6,7 @@ sub: 'awesome experiment'
 desc: 'glib was an experiment; to see how different people around twitter would interpret goober woman characters like her'
 embed_color: '#9900ff'
 
-imgsub: 'he can also be thrown around. kinda cool if you ask me'
+imgsub: 'tiny'
 colors: [
     '#330066',
     '#9900ff',
@@ -32,38 +32,7 @@ id: 'glib'
 
         --col-link: #60f;
         --col-link-hover: #f6c
-    }
-
-    html {
-        color: var(--col-bright);
-    }
-
-    i {
-        text-decoration: italic;
-        color: var(--col-dim);
-    }
-
-    .white {
-        color: var(--col-bright);
-        background-color: var(--col-dark);
-        padding: 3px;
-        border-radius: 5px;
-    }
-
-    .black {
-        color: var(--col-dark);
-        background-color: var(--col-bright);
-        padding: 3px;
-        border-radius: 5px;
-    }
-
-    li::marker {
-        color: var(--col-dim);  
-    }
-
-    table {
-        color: var(--col-bright);
-    }
+    }    
 
     td {
         background-color: var(--col-main);
@@ -73,8 +42,8 @@ id: 'glib'
         background-color: var(--col-dark);
         color: var(--col-main);
         box-shadow: unset;
+        align-content: start;
     }
-
 </style>
 
 she comes from [this tweet](https://twitter.com/betpowo/status/1748079459830202740/)

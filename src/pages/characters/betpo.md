@@ -8,7 +8,7 @@ embed_color: '#ff6633'
 
 imgsub: 'he can also be thrown around. kinda cool if you ask me'
 colors: [
-    '#3f082f',
+    '#2b0021',
     '#68152e',
     '#ff6633',
     '#fffaf4',
@@ -73,6 +73,7 @@ id: 'betpo'
         background-color: var(--col-dark);
         color: var(--col-main);
         box-shadow: unset;
+        align-content: start;
     }
 
 </style>

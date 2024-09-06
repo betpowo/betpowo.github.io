@@ -25,7 +25,7 @@ id: 'josephine'
         --header-logo-color-2: #f36;
 
         --col-bright: #d9eee5;
-        --col-light: #ff90c4;
+        --col-light: #f795b6;
         --col-main: #f36;
         --col-dim: #c06;
         --col-dark: #303;
@@ -34,7 +34,7 @@ id: 'josephine'
         --col-char-bg: #117f9a;
 
         --col-link: #f36;
-        --col-link-hover: #ff90c4
+        --col-link-hover: #f795b6
     }
 
     html {
@@ -76,6 +76,7 @@ id: 'josephine'
         background-color: var(--col-dark);
         color: var(--col-main);
         box-shadow: unset;
+        align-content: start;
     }
 </style>
 

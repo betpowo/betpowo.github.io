@@ -4,19 +4,39 @@ import HeaderLogo from './HeaderLogo.astro'
 // import '@styles/global.css'
 ---
 
+<style>
+    .__footer {
+        align-items: start; display: flex; padding: 15px;
+    }
+    @media screen and (max-width: 1111px) {
+        .__footer {
+            align-items: start; display: block; padding: 15px;
+        }
+    }
+</style>
 <footer>
-<div style="background-color: var(--header-color); height: fit-content; color: var(--header-logo-color-1)">
-    <div style="align-items: center; display: flex; padding: 15px;">
-        <ContactButton link="https://twitter.com/betpowo" name="Twitter" image="twit" size="40"/>
-        <ContactButton link="https://youtube.com/c/Betopia_" name="YouTube" image="tube" size="40"/>
-        &nbsp;   &copy; {new Date().getFullYear()} me......this is not a real copyright   
+<div style="border-top: 3px solid var(--header-logo-color-2); background-color: var(--header-color); height: fit-content; color: var(--header-logo-color-1)">
+    <div class="__footer">
+        <div style="align-items: center;">
+            <div style="display: flex;">
+            <div style="display: flex;">
+                <ContactButton link="https://twitter.com/betpowo" name="twitter" image="twit" size="40"/>
+                <ContactButton link="https://youtube.com/c/Betopia_" name="youtube" image="tube" size="40"/>
+                <ContactButton link="https://github.com/betpowo" name="github" image="git" size="40"/>
+            </div>
+            <a href="/contact">
+                <button style="--col: var(--header-logo-color-2); border-radius: 30px; padding: 5px; font-size: 30px; font-weight: normal;">&#8;+</button>
+            </a>
+            </div>
+            &copy; {new Date().getFullYear()} me......this is not a real copyright   
+        </div>
         <div style="float: right; margin-left: auto; align-items: center;">   
             <img src="/svgs/builtwith.svg" width="300px" loading="lazy" alt="built with astro plus alpine dot j s"/>
             <a href="https://astro.build" target="_blank">
                 <div style="background-color: rgba(0, 0, 0, 0%); position: absolute; float: right; width: 125px; height: 50px; translate: -3px -55px;">
                 </div>
             </a>
-            <a href="https://alpinejs.dev" loading="lazy" target="_blank">
+            <a href="https://alpinejs.dev" target="_blank">
                 <div style="background-color: rgba(0, 0, 0, 0%); position: absolute; float: right; width: 155px; height: 50px; translate: 145px -53px;">
                 </div>
             </a>

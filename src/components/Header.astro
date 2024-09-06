@@ -1,6 +1,5 @@
 ---
 import HeaderLogo from './HeaderLogo.astro'
-import * as banner from '../pages/banner.md'
 // import '@styles/global.css'
 
 const pageIcons = new Map();
@@ -28,6 +27,7 @@ pageIcons.set('contact', 8);
 </style>
 <div id="__header" style="
     background-color: var(--header-color);
+    border-bottom: 3px solid var(--header-logo-color-1);
     height: fit-content;
     margin-top: 0;
     top: 0;
@@ -38,11 +38,11 @@ pageIcons.set('contact', 8);
         <a href="/" target="_parent">
             <div style="translate: 0px 4px;">
                 <!-- yes I KNOW ITS STUpid but this is just so i can have an easier way to control its colors -->
-                <HeaderLogo data={'{ show_warn: ' + banner.frontmatter.show_warn + '}'}/>
+                <HeaderLogo />
             </div>
         </a>
         <div id="kill" class="container" style="padding-left: 19px; display: none;" x-data="{ open: false }">
-            <button style="font-size: 36px; width: 60px; height: 60px; margin: 0;" x-on:click="open = !open;">
+            <button style="--col: var(--header-logo-color-2); font-size: 36px; width: 60px; height: 60px; margin: 0;" x-on:click="open = !open;">
                 <span style="translate: 0px 15px;" x-text="open ? '&#2' : '&#1'"></span>
             </button>
             <!-- span abuse -->
@@ -51,16 +51,22 @@ pageIcons.set('contact', 8);
                     {'&#' + pageIcons.get(Astro.url.toString().split('://')[1].split('/')[1]) + ';'}            
                 </span><span id="url-name">home</span>
             </div>
-            <div id="FUCK" x-show="open" x-cloak style="opacity: 0%; width: min-content; display: block; position: absolute; background-color: var(--header-color); padding: 8px; border-radius: 20px; translate: 0px 60px;">
+            <div id="FUCK" x-show="open" x-cloak style="
+            opacity: 0%;
+            width: max-content;
+            display: flex;
+            position: absolute;
+            background-color: var(--header-logo-color-2);
+            border: 7px solid var(--header-color);
+            border-top: none;
+            padding: 10px;
+            border-radius: 30px;
+            border-top-left-radius: 0px;
+            translate: -7px 50px;">
             {
-                ['projects', 'characters', 'gallery', 'comms', 'contact'].map(a => (
-                    <a href={'/' + a}><button style="
-                        width: 200px; 
-                        margin:0; 
-                        margin-top: 3px; 
-                        text-align: left;
-                    " onclick="console.log(window.location.pathname.split('/'))">
-                        {'&#' + pageIcons.get(a) + '; ' + a} 
+                ['characters', 'projects', 'gallery', 'comms', 'contact'].map((a, idx) => (
+                    <a href={'/' + a}><button title={a} style='width: 48px; height: 48px; margin:0; margin-right: 5px; text-align: left; border-radius: 25px'>
+                        {'&#' + pageIcons.get(a) + ';'} 
                     </button></a>
                 ))
             }

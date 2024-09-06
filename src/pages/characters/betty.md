@@ -8,19 +8,19 @@ embed_color: '#996666'
 
 imgsub: '>w<'
 colors: [
-    '#2b0021',
-    '#340329',
+    '#1f0028',
+    '#260630',
     '#996666',
-    '#ffcc99',
+    '#ffd5aa',
     '#ffffcc',
-    '#0699a2'
+    '#4d647d'
 ]
 id: 'betty'
 ---
 <style>
     :root {
         --col-bg: #ffc;
-        --col-char-bg: #634;
+        --col-char-bg: #624;
 
         --col-link: #966;
         --col-link-hover: #fc9;
@@ -65,15 +65,12 @@ id: 'betty'
         background-color: var(--col-dark);
         color: var(--col-main);
         box-shadow: unset;
-    }
-
-    h1.on-light {
-        text-shadow: 0px 7px 0px var(--col-light);
+        align-content: start;
     }
 
 </style>
 <br>
-<h1 class="on-light">i'm taken. i'm a real person. pls don't be weird</h1>
+<h1 class="on-light" style="text-align: center;">i'm taken. this character represents me, a real person. pls don't be weird</h1>
 
 with that out of the way uhh yeah, that's what i look like. at least how i draw myself, i guess.
 
@@ -94,13 +91,11 @@ appearance
 
 she was meant to be unlikeable, that's why she looks so... questionable.
 
-she has <span class="black">**black**</span> hair with a heart-shaped bit floating above it<a href="#references"><sup>[1]</sup></a>, <span style="color:#0699a2;">**blue**</span> eyes and uhh... <span style="color:#fc9;">**skin-colored**</span> skin, i don't know how to describe it.
-
-she wears this <span style="color:#966;">**coffee**</span> colored... "cold shoulder top" thingy with a cute drawing of a bunny sleeping on it...
+she has <span class="black">**black**</span> hair with a heart-shaped bit floating above it<a href="#references"><sup>[1]</sup></a>, <span style="color:#4d647d;">**blue**</span> eyes and uhh... <span style="color:#ffd5aa;">**skin-colored**</span> skin, i don't know how to describe it. she wears this <span style="color:#966;">**coffee**</span> colored... "cold shoulder top" thingy with a cute drawing of a bunny sleeping on it...
 
 <i>(or is it a dog? we will never know...)</i>
 
-...some <span style="color:#0699a2;">**blue**</span> shorts with <span class="white">**white**</span> strings on them, socks are also <span class="white">**white**</span>, i guess.
+...some <span style="color:#4d647d;">**blue**</span> shorts with <span class="white">**white**</span> strings on them, socks are also <span class="white">**white**</span>, i guess.
 
 she has 2 pockets on the back of her shorts, i am not gonna show them because of certain reasons.
 
@@ -120,7 +115,7 @@ other
 </a>
 </div>
 
-y'know... since this is my sona i'm gonna take the chance to take this field as some sort of "about me" >:3c
+<p>y'know... since this is my sona i'm gonna take the chance to take this field as some sort of "about me" >:3c</p>
 
 <table>
 
@@ -172,7 +167,7 @@ var idk = setInterval(function() {
 -------------------
 <br>
 
-# some of my interests!
+<h2 style="color: var(--col-bright);">some of my interests!</h2>
 
 - music (i suck at it)
 - ART !!!!!!!!!! (i also suck at it but less)

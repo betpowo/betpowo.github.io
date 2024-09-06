@@ -20,19 +20,18 @@ const { link = undefined, data = '{ title: "???", desc: "no description provided
                 max-width: 400px;
                 max-height: 400px;
                 border-radius: 20px;
-                box-shadow: 0px 7px 0px var(--col-dark);
             " />
         </a>
     </div>
     <br>
     <div style="margin-left: 23px;">
-    <h1 x-text="title" style="text-shadow: 0px 7px 0px var(--col-dark); max-width: 600px;" />
+    <h2 x-text="title" style="color: var(--col-bright);" />
     <nobr>
     <span x-text="from" style="color: var(--col-light);" />
     {
         () => {
             if (link == '') {
-                return <button style="cursor: not-allowed; margin: 0; background-color: var(--col-dark); color: var(--col-dim);">no link</button>
+                return <button disabled style="margin: 0;">no link</button>
             } else {
                 return <a href={link} target="_blank"><button style="margin: 0; --col: var(--col-main);">link</button></a>
             }
@@ -40,7 +39,7 @@ const { link = undefined, data = '{ title: "???", desc: "no description provided
     }
     </nobr>
     <hr style="background-color: var(--col-dark); width: 100%;">
-    <p id="description" x-html="desc" style="max-width: 600px;" />
+    <p id="description" x-html="desc" />
     </div>
 </div>
 <br>

@@ -4,6 +4,26 @@ import CharButton from '../../components/CharButton.astro';
 import Footer from '../../components/Footer.astro';
 import Header from '../../components/Header.astro';
 import '../../styles/global.css';
+
+
+const categories = [
+	{
+		name: "main characters",
+		desc: 'the characters i\'ll probably put on the spotlight often, expect a lot of content with them.\n<br>\n<span style="font-size: 17px; color: var(--col-dim);">and with a lot, i mean, a <i>lot.</i> :3</span>',
+		chars: [
+			{ name: 'betpo', color: '#f63', outline: '#fffaf4' },
+			{ name: 'josephine', color: '#f36', outline: '#e5f7eb' }
+		]
+	},
+	{
+		name: "other characters",
+		desc: "the characters i have that i don't use a lot, and/or have little to no importance or whatever.",
+		chars: [
+			{ name: 'glib', color: '#90f', outline: '#ffc' },
+			{ name: 'carlos', color: '#69f', outline: '#cff' }
+		]
+	}
+];
 ---
 
 <html lang="en">
@@ -20,80 +40,54 @@ import '../../styles/global.css';
 		<style>
 			.container {
   				display: flex;
-  				align-items: baseline;
   				justify-content: center;
-				width: 100%;
+				gap: 24px;
+				max-width: 100%;
+				overflow-x: auto;
 			}
 		</style>
 		<title>betopia's basement</title>
 	</head>
 	<Header />
 	<body>
-	<div style="margin: 23px">
-		<div class="board" style="max-width: 75%;" x-data="{women:true}">
-			<h1>character storage</h1>
+	<div style="margin: 23px; overflow-x: hidden">
+		<div class="board">
+			<h1><span style="font-weight: normal;">&#4;</span> character storage</h1>
 			<br>
 			ahh... the page that started it all... it's so awesome...
 			<br><br>
 			anyways, this is where i keep my <b>original character information</b>; now with the ability to update anytime i want, without having to delete and remake the same tweet over and over again. cool, am i right?
-			<br><br>
-			search for a character:
-			<input type="text" placeholder="betty" id="iput"></input><button onclick="var char = document.getElementById('iput').value.toLowerCase(); window.location.href = char != '' ? '/characters/' + char : '/characters/betty'">go</button>
-			<br><br>
-			or choose from here:
-			<br><br>
-			<div style="color: var(--col-dim); text-align: left; margin-bottom: 5px;">
-				<input type="checkbox" x-on:click="women = !women" checked>include women</input>
-			</div>
-			<div class="sub-board" style="border: var(--col-light) 8px double;">
-				<h1 style="text-shadow: 0px 4px 0px var(--col-dark);">main characters</h1>
-				the characters i'll probably put on the spotlight often, expect a lot of content with them.
-				<br>
-				<span style="font-size: 17px; color: var(--col-dim);">
-				and with a lot, i mean, a <i>lot.</i> :3
-				</span>
-				<br> <br>
-				<div class="container">
-					<CharButton char='Betpo'/> <div x-show="women"><CharButton char='Josephine'/></div>
-				</div>
+			<br><br><br>
+			<div style="text-align: center;">
+				<h3 style="color: var(--col-bright);">search for a character:</h3>
+				<input type="text" placeholder="betty" id="iput"></input><button onclick="var char = document.getElementById('iput').value.toLowerCase(); window.location.href = char != '' ? '/characters/' + char : '/characters/betty'">go</button>
+				<br><br>
+				or choose from below:	
 			</div>
 			<br><br>
-			<div class="sub-board">
-				<h1 style="text-shadow: 0px 4px 0px var(--col-dark);">side characters</h1>
-				the characters i have that i don't use a lot,
-				<br>
-				and/or have little to no importance or whatever.
-				<br> <br>
-				<div class="container">
-					<div x-show="women"><CharButton char='Glib'/></div>
-				</div>
-			</div>
-			<br><br>
-			<div class="sub-board">
-				<h1 style="text-shadow: 0px 4px 0px var(--col-dark);">
-					<a href="/projects/mod-name-here" style="color: var(--col-bright); padding: 14px; border-radius: 14px; background-image: linear-gradient(#f63, #f36);">
-						mod name here
-					</a>
-				</h1>
-				<br>
-				the characters (mostly) exclusive to the hit friday night funkin' mod
-				<br>
-				<br> <br>
-				<div class="container">
-					<CharButton char='carlos'/>
-				</div>
-			</div>
-			<br><br>
-			<div class="sub-board">
-				<h1 style="text-shadow: 0px 4px 0px var(--col-dark);">throwaways</h1>
-				characters i will most likely not use anymore.
-				<br>
-				permission to own these is probably discouraged
-				<br> <br>
-				<div class="container">
-					<p style="color: var(--col-main);">[ nothing yet ]</p>
-				</div>
-			</div>
+
+
+			{
+				categories.map(a => (
+					<div class="sub-board" style="margin-bottom: 23px; width: calc(100% - 80px);">
+						<h1 style="color: var(--col-bright);">{a.name}</h1>
+						<p id="bru">{a.desc}</p>
+						<br>
+						<div class="container">
+							{
+								a.chars.map(b => (
+									<CharButton char={b.name} color={b.color} outline={b.outline}/>
+								))
+							}
+						</div>
+						<script>
+							document.getElementById("bru").innerHTML = document.getElementById("bru").textContent.replace("&lt;", "<").replace("&gt;", ">");
+						</script>
+					</div>
+				))
+			}
+			i'll add more eventually...
+
 		</div>
 	</div>
 	</body>

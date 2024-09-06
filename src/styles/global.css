@@ -11,10 +11,10 @@
     --col-bright: #ffc;
     --col-light: #fc9;
     --col-main: #966;
-    --col-dim: #634;
+    --col-dim: #624;
     --col-dark: #303;
 
-    --col-bg: #999;
+    --col-bg: #303;
     --col-char-bg: #966;
 
     --col-link: #fc9;
@@ -26,7 +26,6 @@ html {
     font-display: swap;
     font-size: 22px;
     color: var(--col-bright);
-    text-align: center;
 }
 
 body {
@@ -38,8 +37,13 @@ body {
     grid-template-rows: auto 1fr auto;
 }
 
+h1 { font-size: 3rem; }
+h2 { font-size: 2rem; }
+h3 { font-size: 1.5rem; }
+
 h1, h2, h3, h4, h5, h6 {
-    text-shadow: 0px 5px 0 var(--col-dim);
+    /*text-shadow: 0px 7px 0 var(--col-dim);*/
+    color: var(--col-dark);
     margin-top: -10px;
     margin-bottom: 5px;
 }
@@ -61,7 +65,7 @@ table, th, td {
 
 table {
     margin: auto;
-    box-shadow: 0px 7px 0 var(--col-dark) inset;
+    box-shadow: none;
     border-collapse: separate;
     border-spacing: 6px;
 }
@@ -73,25 +77,24 @@ th {
 }
 .board {
     background: var(--col-main);
-    box-shadow: 0px 7px 0 var(--col-dim);
+    /*box-shadow: 0px 7px 0 var(--col-dark);*/
     border-radius: 20px;
     -webkit-border-radius: 20px;
     overflow-y: clip;
     padding: 40px;
-    width: fit-content;
-    margin: auto;
+    /*min-width: fit-content;*/
+    /*margin: auto;*/
 }
 
 .sub-board {
     background: var(--col-dim);
-    box-shadow: 0px 7px 0 var(--col-dark) inset;
+    /*box-shadow: 0px 7px 0 var(--col-dark) inset;*/
     border-radius: 20px;
     -webkit-border-radius: 20px;
     overflow-y: clip;
     padding: 40px;
     width: fit-content;
     margin: auto;
-    padding-bottom: 33px;
 }
 
 a {
@@ -121,6 +124,22 @@ a:active {
     text-decoration: none;
 }
 
+button {
+    box-shadow: 0px 4px 0px var(--col-dark);
+}
+
+button:disabled {
+    --col: var(--col-dark);
+    --col-hover: var(--col-dim);
+    cursor: not-allowed;
+    box-shadow: none;
+}
+
+button:active:not(:disabled) {
+    box-shadow: none;
+    translate: 0px 4px; 
+}
+
 button, input, textarea {
     --col: var(--col-dim);
     --col-hover: var(--col-bright);
@@ -136,7 +155,7 @@ button, input, textarea {
     cursor: pointer;
 }
 
-button:hover, input:not(input[type=text]):hover {
+button:hover:not(:disabled), input:not(input[type=text]):hover {
     color: var(--col);
     background-color: var(--col-hover);
 }
@@ -147,6 +166,16 @@ input::placeholder, textarea::placeholder {
 
 input[type=text], textarea {
     cursor: text;
+}
+
+/* wip */
+input[type=range] {
+    background-color: var(--col-dim);
+    appearance: none;
+    accent-color: var(--col-light);
+    height: 1em;
+    cursor: e-resize;
+    border-radius: 40px;
 }
 
 input[type=checkbox] {
@@ -186,7 +215,7 @@ audio::-webkit-media-controls-panel {
     background-color: #afa;
 }
 
-audio {
+audio[controls] {
     filter: invert(100%) sepia(60%) saturate(200%) brightness(104%) contrast(115%);
     width: 500px;
 }

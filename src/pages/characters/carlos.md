@@ -11,12 +11,11 @@
 		<meta content="/characters/carlos/sheet.png" property="og:image" />
 		<meta content="#6699ff" data-react-helmet="true" name="theme-color" />
 		<meta name="twitter:card" content="summary_large_image">
-        <link rel="stylesheet" href="../styles/global.css">
 	</head>
 	<body style="background-color: var(--col-bg);">
         <h1>carlos</h1>
         <img src="/characters/carlos/sheet.png" />
-        <button onclick="window.location.href = '/characters'">&#4; home</button>
+        <button onclick="window.location.href = '/characters'">🏚 home</button>
         <br>
     </body>
 </html>

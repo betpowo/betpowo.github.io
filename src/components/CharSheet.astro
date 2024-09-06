@@ -45,7 +45,7 @@ const { char = 'betty', data = 'imgsub: "what ???", colors: ["#000000"]'} = Astr
 <div>
     <div class="sheet-container">
     <div>
-        <img id="burp" src={`/characters/${char.toLowerCase()}/sheet.png`} x-bind:alt="imgsub" x-bind:title="imgsub" style="max-width: 800px;"/>
+        <img id="burp" src={`/characters/${char.toLowerCase()}/sheet.png`} x-bind:alt="imgsub" x-bind:title="imgsub" style="max-width: 700px;"/>
         <script>
             document.getElementById('burp').onerror = function() {
                 document.getElementById('burp').setAttribute('src', '/characters/default-sheet.png');
