@@ -2,5 +2,10 @@
     "from": "aug / 21 / 2024",
     "title": "draw this in your style!",
     "desc": "funny twitter meme because i was bored",
-    "link": "https://twitter.com/betpowo/status/1826307256587034686"
+    "link": [
+        [
+            "twit",
+            "https://twitter.com/betpowo/status/1826307256587034686"
+        ]
+    ]
 }

@@ -1,9 +1,9 @@
 ---
 // Component Imports
-import ContactButton from '../components/ContactButton.astro';
-import Footer from '../components/Footer.astro';
-import Header from '../components/Header.astro';
-import '../styles/global.css';
+import ContactButton from "../components/ContactButton.astro";
+import Footer from "../components/Footer.astro";
+import Header from "../components/Header.astro";
+import "../styles/global.css";
 ---
 
 <html lang="en">
@@ -14,7 +14,10 @@ import '../styles/global.css';
 		<title>betopia's location</title>
 
 		<meta content="contact - betopia" property="og:title" />
-		<meta content="go scream at me or whatever you want. [more info on full page]" property="og:description" />
+		<meta
+			content="go scream at me or whatever you want. [more info on full page]"
+			property="og:description"
+		/>
 		<meta content="/images/socials/disc.png" property="og:image" />
 		<meta content="#6633ff" data-react-helmet="true" name="theme-color" />
 
@@ -29,33 +32,85 @@ import '../styles/global.css';
 	</head>
 	<Header />
 	<body>
-	<div style="margin: 23px;">
-		<div class="board">
-			<h1><span style="font-weight: normal;">&#8;</span> contact</h1>
-			<br>
-			my real, totally not fake accounts
-			<br>
-			<br>
-			<div class="sub-board" style="max-width: 590px;">
-			<ContactButton link='https://twitter.com/betpowo' name='twitter' image='twit' />
-			<ContactButton link='https://youtube.com/c/Betopia_' name='youtube' image='tube' />
-			<ContactButton link='https://github.com/betpowo' name='github' image='git' />
-			<ContactButton name='discord (betpowo)' image='disc' />
-			<ContactButton link='https://bsky.app/profile/betpowo.skruyo.dev' name='bluesky' image='bsky' />
-			<ContactButton link='https://tumblr.com/betpowo' name='tumblr (inactive)' image='tumb' />
-			<ContactButton link='https://artfight.net/~betpowo' name='art fight' image='art'/>
-			<ContactButton link='https://gamebanana.com/members/1830099' name='gamebanana' image='banana' />
-			<ContactButton link='https://gamejolt.com/@probablynotbetopia' name='game jolt' image='jolt' />
-			<ContactButton link='https://betopiang.newgrounds.com' name='newgrounds' image='ground' />
-			<ContactButton link='https://steamcommunity.com/id/probablynotbetopia/' name='steam' image='steam' />
-			<ContactButton link='https://gdbrowser.com/u/BetopiaGD' name='geometry dash' image='gd' />
-			<ContactButton link='https://www.roblox.com/users/1758832943/profile' name='roblox (inactive)' image='rbl'/>
-			<ContactButton link='https://www.panzoid.com/users/im_a_piece_of_garbage' name='panzoid <3' image='panzoid'/>
+		<div style="margin: 23px;">
+			<div class="board">
+				<h1><span style="font-weight: normal;">📨</span> contact</h1>
+				<br />
+				my real, totally not fake accounts
+				<br />
+				<br />
+				<div class="sub-board" style="max-width: 590px;">
+					<ContactButton
+						link="https://twitter.com/betpowo"
+						name="twitter"
+						image="twit"
+					/>
+					<ContactButton
+						link="https://youtube.com/c/Betopia_"
+						name="youtube"
+						image="tube"
+					/>
+					<ContactButton
+						link="https://github.com/betpowo"
+						name="github"
+						image="git"
+					/>
+					<ContactButton name="discord (betpowo)" image="disc" />
+					<ContactButton
+						link="https://bsky.app/profile/betpowo.skruyo.dev"
+						name="bluesky"
+						image="bsky"
+					/>
+					<ContactButton
+						link="https://tumblr.com/betpowo"
+						name="tumblr (inactive)"
+						image="tumb"
+					/>
+					<ContactButton
+						link="https://artfight.net/~betpowo"
+						name="art fight"
+						image="art"
+					/>
+					<ContactButton
+						link="https://gamebanana.com/members/1830099"
+						name="gamebanana"
+						image="banana"
+					/>
+					<ContactButton
+						link="https://gamejolt.com/@probablynotbetopia"
+						name="game jolt"
+						image="jolt"
+					/>
+					<ContactButton
+						link="https://betopiang.newgrounds.com"
+						name="newgrounds"
+						image="ground"
+					/>
+					<ContactButton
+						link="https://steamcommunity.com/id/probablynotbetopia/"
+						name="steam"
+						image="steam"
+					/>
+					<ContactButton
+						link="https://gdbrowser.com/u/BetopiaGD"
+						name="geometry dash"
+						image="gd"
+					/>
+					<ContactButton
+						link="https://www.roblox.com/users/1758832943/profile"
+						name="roblox (inactive)"
+						image="rbl"
+					/>
+					<ContactButton
+						link="https://www.panzoid.com/users/im_a_piece_of_garbage"
+						name="panzoid <3"
+						image="panzoid"
+					/>
+				</div>
+				<br />
+				please follow them all......i need to take over the world
+			</div>
 		</div>
-		<br>
-		please follow them all......i need to take over the world
-		</div>
-	</div>
 	</body>
 	<Footer />
 </html>

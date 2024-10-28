@@ -1,10 +1,11 @@
 ---
 // Component Imports
-import Counter from '../../components/Counter.astro';
-import Footer from '../../components/Footer.astro';
-import Header from '../../components/Header.astro';
-import '../../styles/global.css';
+import Counter from "../../components/Counter.astro";
+import Footer from "../../components/Footer.astro";
+import Header from "../../components/Header.astro";
+import "../../styles/global.css";
 ---
+
 <!-- blehhh -->
 <html lang="en">
 	<head>
@@ -14,7 +15,10 @@ import '../../styles/global.css';
 		<title>betopia's projects</title>
 
 		<meta content="projects - betopia" property="og:title" />
-		<meta content="stuff that i'm trying to do for my own enjoyment." property="og:description" />
+		<meta
+			content="stuff that i'm trying to do for my own enjoyment."
+			property="og:description"
+		/>
 		<meta content="/images/qstn.png" property="og:image" />
 		<meta content="#ffffff" data-react-helmet="true" name="theme-color" />
 
@@ -33,26 +37,37 @@ import '../../styles/global.css';
 	</head>
 	<Header />
 	<body>
-	<div style="margin: 23px;">
-		<div class="board">
-			<h1><span style="font-weight: normal;">&#6;</span> projects</h1>
-			<br>
-			here's most of the stuff i made, that i'm kinda proud of, even if it's like the worst thing ever
-			<br><br>
-			<div class="container">
-				<button onclick="window.location.href = '/characters'">
-					&#4; character storage
-				</button>
-				<a href="/projects/mod-name-here">
-					<img src="/images/modnameherelogo.png" width="300" title="mod name here" alt="mod name here"/>
-				</a>
-				<a href="/projects/calculator">
-					<img src="/images/epiccalclogo.png" width="300" title="epic calculator" alt="epic calculator"/>
-				</a>
+		<div style="margin: 23px;">
+			<div class="board">
+				<h1><span style="font-weight: normal;">📦</span> projects</h1>
+				<br />
+				here's most of the stuff i made, that i'm kinda proud of, even if
+				it's like the worst thing ever
+				<br /><br />
+				<div class="container">
+					<button onclick="window.location.href = '/characters'">
+						👥 character storage
+					</button>
+					<a href="/projects/mod-name-here">
+						<img
+							src="/images/modnameherelogo.png"
+							width="300"
+							title="mod name here"
+							alt="mod name here"
+						/>
+					</a>
+					<a href="/projects/calculator">
+						<img
+							src="/images/epiccalclogo.png"
+							width="300"
+							title="epic calculator"
+							alt="epic calculator"
+						/>
+					</a>
+				</div>
+				more soon...
 			</div>
-			more soon...
 		</div>
-	</div>
 	</body>
 	<Footer />
 </html>

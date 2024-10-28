@@ -1,15 +1,13 @@
 ---
 // Component Imports
-import { getCollection } from 'astro:content';
-import Footer from '../components/Footer.astro';
-import GalleryImage from '../components/GalleryImage.astro';
-import Header from '../components/Header.astro';
-import '../styles/global.css';
+import { getCollection } from "astro:content";
+import Footer from "../components/Footer.astro";
+import GalleryImage from "../components/GalleryImage.astro";
+import Header from "../components/Header.astro";
+import "../styles/global.css";
 
-const posts = await getCollection('gallery');
-const bleh = posts.map(data => (
-[data.id, data.data]
-));
+const posts = await getCollection("gallery");
+const bleh = posts.map((data) => [data.id, data.data]);
 bleh.sort((a, b) => {
 	return Date.parse(b[1].from) - Date.parse(a[1].from);
 });
@@ -38,20 +36,27 @@ bleh.sort((a, b) => {
 	</head>
 	<Header />
 	<body>
-	<div style="margin: 23px;">
-		<div class="board">
-			<h1><span style="font-weight: normal;">&#5;</span> gallery</h1>
-            <br>
-            my best works of art that i like will be here. <br>
-            this is kinda like a portfolio but also not
-            <br><br>
+		<div style="margin: 23px;">
+			<div class="board">
+				<h1><span style="font-weight: normal;">🖼️</span> gallery</h1>
+				<br />
+				my best works of art that i like will be here. <br />
+				this is kinda like a portfolio but also not
+				<br /><br />
 
-            {
-				bleh.map(bruh => (<GalleryImage link={[bruh[1].link]} name={[bruh[0]]} data={[JSON.stringify(bruh[1])]} />))
-			}
-			more soon...
-        </div>
-	</div>
+				{
+					bleh.map((bruh) => (
+						<GalleryImage
+							link={[bruh[1].link]}
+							name={[bruh[0]]}
+							data={[JSON.stringify(bruh[1])]}
+							extension={[bruh[1].extension ?? "png"]}
+						/>
+					))
+				}
+				more soon...
+			</div>
+		</div>
 	</body>
 	<Footer />
 </html>

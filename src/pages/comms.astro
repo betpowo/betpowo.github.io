@@ -1,10 +1,10 @@
 ---
 // Component Imports
-import CharButton from '../components/CharButton.astro';
-import ContactButton from '../components/ContactButton.astro';
-import Footer from '../components/Footer.astro';
-import Header from '../components/Header.astro';
-import '../styles/global.css';
+import CharButton from "../components/CharButton.astro";
+import ContactButton from "../components/ContactButton.astro";
+import Footer from "../components/Footer.astro";
+import Header from "../components/Header.astro";
+import "../styles/global.css";
 ---
 
 <html lang="en">
@@ -15,9 +15,12 @@ import '../styles/global.css';
 		<title>betopia's lemonade stand</title>
 
 		<meta content="🖤 commissions - betopia" property="og:title" />
-		<meta content="yeah i really need to start doing these things if i wanna live. [more info on full page]" property="og:description" />
+		<meta
+			content="yeah i really need to start doing these things if i wanna live. [more info on full page]"
+			property="og:description"
+		/>
 		<meta content="/images/commstuff.png" property="og:image" />
-		<meta name="twitter:card" content="summary_large_image">
+		<meta name="twitter:card" content="summary_large_image" />
 		<meta content="#996666" data-react-helmet="true" name="theme-color" />
 
 		<style lang="scss">
@@ -39,6 +42,7 @@ import '../styles/global.css';
 
 			.nope {
 				color: var(--col-main);
+				background-color: var(--col-dark);
 				text-decoration: line-through;
 				cursor: not-allowed;
 			}
@@ -48,100 +52,188 @@ import '../styles/global.css';
 			}
 
 			.shake {
-        		animation: shake 0.2s;
-        		animation-iteration-count: infinite;
-    		}
+				animation: shake 0.2s;
+				animation-iteration-count: infinite;
+			}
 
 			@keyframes shake {
-			    0% { translate: 0px 0px }
-			    10% { translate: 1px -2px }
-			    20% { translate: 2px 0.5px }
-			    30% { translate: -1px 1px}
-			    40% { translate: 1px 0.4px }
-			    50% { translate: 0px 2px }
-			    60% { translate: 2px 0px }
-			    70% { translate: 0px 0.2px }
-			    80% { translate: 0.7px 0px }
-			    90% { translate: 1px 2px }
-			    100% { translate: 0px -1px }
+				0% {
+					translate: 0px 0px;
+				}
+				10% {
+					translate: 1px -2px;
+				}
+				20% {
+					translate: 2px 0.5px;
+				}
+				30% {
+					translate: -1px 1px;
+				}
+				40% {
+					translate: 1px 0.4px;
+				}
+				50% {
+					translate: 0px 2px;
+				}
+				60% {
+					translate: 2px 0px;
+				}
+				70% {
+					translate: 0px 0.2px;
+				}
+				80% {
+					translate: 0.7px 0px;
+				}
+				90% {
+					translate: 1px 2px;
+				}
+				100% {
+					translate: 0px -1px;
+				}
 			}
 		</style>
 	</head>
 	<Header />
 	<body>
-	<div style="margin: 23px;">
-		<div class="board">
-			<h1><span style="font-weight: normal;">&#7;</span> commissions</h1>
-			<br>
-			<div style="margin: auto; padding: 24px; background-color: var(--col-bright); color: var(--col-main); border-radius: 20px; width:fit-content;">
-				<div style="font-size: 40px;">
-					status: 
-					<span style="padding: 13px; background-color: #99a; color: var(--col-bright); border-radius: 20px;">not open yet</span>
+		<div style="margin: 23px;">
+			<div class="board">
+				<h1>
+					<span style="font-weight: normal;">🖌️</span> commissions
+				</h1>
+				<br />
+				<div
+					style="margin: auto; padding: 24px; background-color: var(--col-bright); color: var(--col-main); border-radius: 20px; width:fit-content;"
+				>
+					<div style="font-size: 40px;">
+						status:
+						<span
+							style="padding: 13px; background-color: #77a; color: var(--col-bright); border-radius: 20px;"
+							>not open yet</span
+						>
+					</div>
+					<br />
+					tryna open commissions soon... just give me a bit...
+					<br />idk how to do comms still tbh... it's my first time
+					<br />doing this thing and idk where to start... i am
+					screwed
 				</div>
-				<br>
-				tryna open commissions soon... just give me a bit...
-				<br>idk how to do comms still tbh... it's my first time
-				<br>doing this thing and idk where to start... i am screwed
+				<br />
+				<nobr>
+					<p
+						id="blehh"
+						class="sub-board shake"
+						style="background-color: #f36; color: var(--col-dark); border: 7px solid var(--col-dark);"
+					>
+						READ BELOW FOR INFO !!!
+					</p>
+				</nobr>
+				<br />
+				<br />
+				<div class="sub-board">
+					<h1 style="color: var(--col-bright);">
+						prices !!!
+						<span style="color: var(--col-main); font-size: 50%;"
+							>(subject to change)</span
+						>
+					</h1>
+					<br />
+					<div style="text-align: center;">
+						<img
+							src="/images/commstuff.png"
+							width="700"
+							alt="insert commission price sheet here"
+							style="background-color: var(--col-main); padding: 25px; border-radius: 15px; box-shadow: 0px 7px 0px var(--col-dark);"
+						/>
+					</div>
+					<br />
+					<p
+						style="color: var(--col-main); font-size: 70%; text-align: center;"
+					>
+						(this is old art, don't count on it, i'm just lazy to
+						redraw it)
+					</p>
+					<br />
+					yes i know my art sucks, but i still wanna do this just because
+					it's fun and awesome,
+					<br />and my family's not really in a good financial
+					situation so what else can i do?
 				</div>
-			<br>
-			<nobr>
-			<p id="blehh" class="sub-board shake" style="background-color: #f36; color: var(--col-dark);">
-				READ BELOW FOR INFO !!!
-			</p>
-			</nobr>
-			<br>
-			<br>
-			<div class="sub-board">
-				<h1 style="color: var(--col-bright);">prices !!!
-				<span style="color: var(--col-main); font-size: 50%;">(subject to change)</span></h1>
-				<br>
-				<div style="text-align: center;">
-					<img src="/images/commstuff.png" width="700" alt="insert commission price sheet here" style="background-color: var(--col-main); padding: 25px; border-radius: 15px; box-shadow: 0px 7px 0px var(--col-dark);">
-				</div>
-				<br>
-				<p style="color: var(--col-main); font-size: 70%; text-align: center;">
-					(this is old art, don't count on it, i'm just lazy to redraw it)
-				</p>
-				<br>
-				yes i know my art sucks, but i still wanna do this just because it's fun and awesome,
-				<br>and my family's not really in a good financial situation so what else can i do?
+				<br /><br />
+				<h1 style="text-align: center;">rules</h1>
+				<br />
+				<table style="min-width: 80%;">
+					<tr>
+						<th
+							style="background-color: #3f9; color: var(--col-dark);
+					 border-top-right-radius: 0; border-bottom-right-radius: 0; border-bottom-left-radius: 0;"
+							>yuh uh</th
+						>
+						<th style="color: #fc6; border-radius: 0;">maybe?</th>
+						<th
+							style="color: #f36;
+					border-top-left-radius: 0; border-bottom-right-radius: 0; border-bottom-left-radius: 0;"
+							>nuh uh</th
+						>
+					</tr>
+					<tr>
+						<td style="background-color: var(--col-main);"
+							>human<br /><p style="font-size: 50%;">
+								(any body type allowed i think)
+							</p></td
+						>
+						<td
+							>backgrounds<br /><p style="font-size: 50%;">
+								(in my style)
+							</p></td
+						>
+						<td class="nope">nsfw</td>
+					</tr>
+					<tr>
+						<td style="background-color: var(--col-main);"
+							>furry<br /><p style="font-size: 50%;">
+								(kinda)
+							</p></td
+						>
+						<td>food</td>
+						<td class="nope">fetish shit</td>
+					</tr>
+					<tr>
+						<td style="background-color: var(--col-main);"
+							>ocs<br /><p
+								style="font-size: 50%;color:var(--col-light);"
+							>
+								(if design feels too complex i might simplify it
+								!!)
+							</p></td
+						>
+						<td>
+							shading
+							<p style="font-size: 50%;">
+								(depends, i don't rlly like doing it)
+							</p>
+						</td>
+						<td
+							class="nope"
+							style="max-width: 100px; word-break: break-all;border-bottom-right-radius: 20px"
+							>humongous hungolomghononoloughongous</td
+						>
+					</tr>
+					<tr>
+						<td
+							style="background-color: var(--col-main); border-radius: 0px 0px 20px 20px;"
+							>not ocs<br /><p style="font-size: 50%;">
+								(chars from games, toons, etc)
+							</p></td
+						>
+					</tr>
+				</table>
+				<button
+					style="float: right; translate: 24px -54px; font-size:30px;"
+					onclick="globalThis.scrollTo({ top: 0, left: 0, behavior: 'smooth' });"
+					>↑ top</button
+				>
 			</div>
-			<br><br>
-			<h1 style="text-align: center;">rules</h1>
-			<br>
-			<table style="min-width: 80%;">
-				<tr>
-					<th style="background-color: #3f9; color: var(--col-dark);
-					 border-top-right-radius: 0; border-bottom-right-radius: 0; border-bottom-left-radius: 0;">yuh uh</th>
-					<th style="color: #fc6; border-radius: 0;">maybe?</th>
-					<th style="color: #f36;
-					border-top-left-radius: 0; border-bottom-right-radius: 0; border-bottom-left-radius: 0;">nuh uh</th>
-				</tr>
-				<tr>
-					<td style="background-color: var(--col-main);">human<br><p style="font-size: 50%;">(any body type allowed i think)</p></td>
-					<td>backgrounds<br><p style="font-size: 50%;">(in my style)</p></td>
-					<td class="nope">nsfw</td>
-				</tr>
-				<tr>
-					<td style="background-color: var(--col-main);">furry<br><p style="font-size: 50%;">(kinda)</p></td>
-					<td>food</td>
-					<td class="nope">fetish shit</td>
-				</tr>
-				<tr>
-					<td style="background-color: var(--col-main);">ocs<br><p style="font-size: 50%;color:var(--col-light);">(if design feels too complex i might simplify it !!)</p></td>
-					<td>
-						shading
-						<p style="font-size: 50%;">(depends, i don't rlly like doing it)</p>
-					</td>
-					<td class="nope" style="max-width: 100px; word-break: break-all;border-bottom-right-radius: 20px">humongous hungolomghononoloughongous</td>
-				</tr>
-				<tr>
-					<td style="background-color: var(--col-main); border-radius: 0px 0px 20px 20px;">not ocs<br><p style="font-size: 50%;">(chars from games, toons, etc)</p></td>
-				</tr>
-			</table>
-			<button style="float: right; translate: 24px -54px; font-size:30px;" onclick="globalThis.scrollTo({ top: 0, left: 0, behavior: 'smooth' });">&#2; top</button>
 		</div>
-	</div>
 	</body>
 	<Footer />
 </html>

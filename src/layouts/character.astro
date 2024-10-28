@@ -1,51 +1,81 @@
 ---
-import CharSheet from '../components/CharSheet.astro';
-import Footer from '../components/Footer.astro';
-import Header from '../components/Header.astro';
-import '../styles/global.css';
+import CharSheet from "../components/CharSheet.astro";
+import Footer from "../components/Footer.astro";
+import Header from "../components/Header.astro";
+import "../styles/global.css";
 const { frontmatter } = Astro.props;
 ---
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<meta name="generator" content={Astro.generator} />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<title>{frontmatter.display} - betopia's basement</title>
 
-        <meta content={frontmatter.display + " - betopia's character storage"} property="og:title" />
-		<meta content={frontmatter.desc} property="og:description" />
-		<meta content={"/characters/" + frontmatter.id + "/sheet.png"} property="og:image" />
-		<meta content={frontmatter.embed_color} data-react-helmet="true" name="theme-color" />
-		<meta name="twitter:card" content="summary_large_image">
-	</head>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="generator" content={Astro.generator} />
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <title>{frontmatter.display} - betopia's basement</title>
+
+        <meta
+            content={frontmatter.display + " - betopia's character storage"}
+            property="og:title"
+        />
+        <meta content={frontmatter.desc} property="og:description" />
+        <meta
+            content={"/characters/" + frontmatter.id + "/sheet.png"}
+            property="og:image"
+        />
+        <meta
+            content={frontmatter.embed_color}
+            data-react-helmet="true"
+            name="theme-color"
+        />
+        <meta name="twitter:card" content="summary_large_image" />
+    </head>
     <Header />
-	<body style="background-color: var(--col-bg);">
+    <body style="background-color: var(--col-bg);">
         <div style="margin: 23px;">
             <div style="margin: auto; text-align: left; max-width: 95%;">
-                <span style="margin: 0; font-size: 80px; color: var(--col-main); font-weight: bolder;">
+                <span
+                    style="margin: 0; font-size: 80px; color: var(--col-main); font-weight: bolder;"
+                >
                     {frontmatter.display}
-                    <span style="margin-left: -20px; font-weight: bolder; font-size: 30px; color: var(--col-light);">{frontmatter.sub}</span>
+                    <span
+                        style="margin-left: -20px; font-weight: bolder; font-size: 30px; color: var(--col-light);"
+                        >{frontmatter.sub}</span
+                    >
                 </span>
-                <hr style="margin-top: 20px;">
+                <hr style="margin-top: 20px;" />
                 <p style="margin: 17px;">{frontmatter.desc}</p>
             </div>
-            <div style="width: fit-content; height: fit-content; overflow: visible; margin: auto;">
+            <div
+                style="width: fit-content; height: fit-content; overflow: visible; margin: auto;"
+            >
                 <div style="margin: 40px; display: flex;">
-                    <CharSheet char={frontmatter.id} data={
-                        "imgsub: `" + frontmatter.imgsub +
-                        "`, colors: [`" + frontmatter.colors.join("`, `") + "`]"
-                    }/>
+                    <CharSheet
+                        char={frontmatter.id}
+                        data={"imgsub: `" +
+                            frontmatter.imgsub +
+                            "`, colors: [`" +
+                            frontmatter.colors.join("`, `") +
+                            "`]"}
+                    />
                 </div>
             </div>
             <div style="height: fit-content; max-width: 95%; margin: auto;">
                 <slot>no info LMFAOOO</slot>
             </div>
         </div>
-        <div style="margin: auto; display: flex;">        
-            <button style="--col-hover: var(--col-light);" onclick="window.location.href = '/characters'">&#4; home</button>
-            <button style="--col-hover: var(--col-light);" onclick="globalThis.scrollTo({ top: 0, left: 0, behavior: 'smooth' });">&#2; top</button>
+        <div style="margin: auto; display: flex;">
+            <button
+                style="--col-hover: var(--col-light);"
+                onclick="window.location.href = '/characters'">👥 home</button
+            >
+            <button
+                style="--col-hover: var(--col-light);"
+                onclick="globalThis.scrollTo({ top: 0, left: 0, behavior: 'smooth' });"
+                >↑ top</button
+            >
         </div>
-        <br>
+        <br />
     </body>
     <Footer />
+
 </html>

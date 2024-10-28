@@ -1,6 +1,7 @@
 ---
-import '../styles/global.css';
+import "../styles/global.css";
 ---
+
 <html lang="en">
 	<head>
 		<meta charset="utf-8" />
@@ -8,34 +9,58 @@ import '../styles/global.css';
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<title>betopia is missing!!!</title>
 		<style>
-			[x-cloak] { display: none !important; }
+			[x-cloak] {
+				display: none !important;
+			}
 		</style>
 	</head>
-	<body id="body" style="background-color: var(--col-dark); text-align: center;" x-data="{score:0}">
-        <div style="
+	<body
+		id="body"
+		style="background-color: var(--col-dark); text-align: center;"
+		x-data="{score:0}"
+	>
+		<div
+			style="
 		margin: 0;
 		position: absolute;
 		top: 50%;
 		left: 50%;
 		-ms-transform: translate(-50%, -50%);
 		transform: translate(-50%, -50%);
-		" x-data="{pats:0}">
-		<p x-show="pats > 0" x-text="'pats: ' + pats.toString()"></p>
-		<p x-show="pats > 99" style="color: var(--col-main);">just... go back already</p>
-		<div>
-		<img src="/svgs/404.svg" width="500px" alt="404: not found! sorry..."/>
-		<div style="background-color: rgba(0, 0, 0, 0%); width: 111px; height: 50px; translate: 0px -190px; margin-left: auto; margin-right: auto; margin-bottom: -12%; cursor: grab;"
-			x-on:click="pats++; new Audio('/audio/squeak.mp3').play();">
-		</div>
-		</div>
-		<br> <br>
-		<span id="lame" style="color: #f36; cursor: help;">{Astro.url.href}</span> isn't real. go home
-		<br><br>
-		<div x-cloak x-show="Math.random() > 0.5;">
-			<a href="/fun/stickers" @click="document.getElementById('body').animate([{opacity: '100%'},{opacity: '0%'}], {duration:500});">do you wanna play a game instead?</a>
-			<br><br>
-		</div>
-		<button onclick="javascript:history.back()">&#3; go back</button>
+		"
+			x-data="{pats:0}"
+		>
+			<p x-show="pats > 0" x-text="'pats: ' + pats.toString()"></p>
+			<p x-show="pats > 99" style="color: var(--col-main);">
+				just... go back already
+			</p>
+			<div>
+				<img
+					src="/svgs/404.svg"
+					width="500px"
+					alt="404: not found! sorry..."
+				/>
+				<div
+					style="background-color: rgba(0, 0, 0, 0%); width: 111px; height: 50px; translate: 0px -190px; margin-left: auto; margin-right: auto; margin-bottom: -12%; cursor: grab;"
+					x-on:click="pats++; new Audio('/audio/squeak.mp3').play();"
+				>
+				</div>
+			</div>
+			<br />
+			<br />
+			<span id="lame" style="color: #f36; cursor: help;"
+				>{Astro.url.href}</span
+			> isn't real. go home
+			<br /><br />
+			<div x-cloak x-show="Math.random() > 0.5;">
+				<a
+					href="/fun/stickers"
+					@click="document.getElementById('body').animate([{opacity: '100%'},{opacity: '0%'}], {duration:500});"
+					>do you wanna play a game instead?</a
+				>
+				<br /><br />
+			</div>
+			<button onclick="javascript:history.back()">🏠 go back</button>
 		</div>
 	</body>
 </html>
