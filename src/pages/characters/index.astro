@@ -1,28 +1,30 @@
 ---
 // Component Imports
-import CharButton from '../../components/CharButton.astro';
-import Footer from '../../components/Footer.astro';
-import Header from '../../components/Header.astro';
-import '../../styles/global.css';
+import CharButton from "../../components/CharButton.astro";
+import Footer from "../../components/Footer.astro";
+import Header from "../../components/Header.astro";
+import "../../styles/global.css";
 
-
+const buttonsize = 222;
+const columns = 5;
 const categories = [
 	{
 		name: "main characters",
 		desc: 'the characters i\'ll probably put on the spotlight often, expect a lot of content with them.\n<br>\n<span style="font-size: 17px; color: var(--col-dim);">and with a lot, i mean, a <i>lot.</i> :3</span>',
 		chars: [
-			{ name: 'betpo', color: '#f63', outline: '#fffaf4' },
-			{ name: 'josephine', color: '#f36', outline: '#e5f7eb' }
-		]
+			{ name: "betpo", color: "#f63", outline: "#fffaf4" },
+			{ name: "josephine", color: "#f36", outline: "#e5f7eb" },
+		],
 	},
 	{
 		name: "other characters",
-		desc: "the characters i have that i don't use a lot, and/or have little to no importance or whatever.",
+		desc: "the characters i have that i don't use a lot, and/or have little to no importance or whatever.<br>characters i have designed will also appear here i think",
 		chars: [
-			{ name: 'glib', color: '#90f', outline: '#ffc' },
-			{ name: 'carlos', color: '#69f', outline: '#cff' }
-		]
-	}
+			{ name: "glib", color: "#90f", outline: "#ffc" },
+			{ name: "carlos", color: "#69f", outline: "#cff" },
+			{ name: "betty" },
+		],
+	},
 ];
 ---
 
@@ -33,63 +35,95 @@ const categories = [
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 
 		<meta content="characters - betopia" property="og:title" />
-		<meta content="the characters i own, if you wanna see them. [more info on full page]" property="og:description" />
+		<meta
+			content="the characters i own, if you wanna see them. [more info on full page]"
+			property="og:description"
+		/>
 		<meta content="/characters/betty/art.png" property="og:image" />
 		<meta content="#996666" data-react-helmet="true" name="theme-color" />
 
 		<style>
 			.container {
-  				display: flex;
-  				justify-content: center;
-				gap: 24px;
-				max-width: 100%;
-				overflow-x: auto;
+				align-items: center;
+				justify-content: center;
+				text-align: center;
+				display: inline-block;
 			}
 		</style>
 		<title>betopia's basement</title>
 	</head>
 	<Header />
 	<body>
-	<div style="margin: 23px; overflow-x: hidden">
-		<div class="board">
-			<h1><span style="font-weight: normal;">👥</span> character storage</h1>
-			<br>
-			ahh... the page that started it all... it's so awesome...
-			<br><br>
-			anyways, this is where i keep my <b>original character information</b>; now with the ability to update anytime i want, without having to delete and remake the same tweet over and over again. cool, am i right?
-			<br><br><br>
-			<div style="text-align: center;">
-				<h3 style="color: var(--col-bright);">search for a character:</h3>
-				<input type="text" placeholder="betty" id="iput"></input><button onclick="var char = document.getElementById('iput').value.toLowerCase(); window.location.href = char != '' ? '/characters/' + char : '/characters/betty'">go</button>
-				<br><br>
-				or choose from below:	
-			</div>
-			<br><br>
+		<div style="margin: 23px; overflow-x: hidden">
+			<div class="board">
+				<h1>
+					<span style="font-weight: normal;">👥</span> character storage
+				</h1>
+				<br />
+				ahh... the page that started it all... it's so awesome...
+				<br /><br />
+				anyways, this is where i keep my <b
+					>original character information</b
+				>; now with the ability to update anytime i want, without having
+				to delete and remake the same tweet over and over again. cool,
+				am i right?
+				<br /><br /><br />
+				<div style="text-align: center;">
+					<h3 style="color: var(--col-bright);">
+						search for a character:
+					</h3>
+					<input type="text" placeholder="betty" id="iput" />
+					<button
+						onclick="var char = document.getElementById('iput').value.toLowerCase(); window.location.href = char != '' ? '/characters/' + char : '/characters/betty'"
+						>go</button
+					>
+				</div>
+				<br /><br />
+				or choose from below:
 
-
-			{
-				categories.map(a => (
-					<div class="sub-board" style="margin-bottom: 23px; width: calc(100% - 80px);">
-						<h1 style="color: var(--col-bright);">{a.name}</h1>
-						<p id="bru">{a.desc}</p>
-						<br>
-						<div class="container">
-							{
-								a.chars.map(b => (
-									<CharButton char={b.name} color={b.color} outline={b.outline}/>
-								))
-							}
+				<br /><br />
+				{categories.map((a) => console.log(a.desc))}
+				{
+					categories.map((a, b) => (
+						<div
+							class="sub-board"
+							style="margin-bottom: 23px; width: calc(100% - 80px);"
+						>
+							<h1 style="color: var(--col-bright);">{a.name}</h1>
+							<p
+								set:html={
+									a.desc
+									/*.replace(";", "")
+									.replace("&lt", ">")
+									.replace("&gt", "<")
+									.replace("&amp", "&")*/
+								}
+							/>
+							<br />
+							<div
+								style={
+									"text-align: center; max-width: " +
+									buttonsize * (columns + 1) +
+									"px; margin: auto;"
+								}
+							>
+								{a.chars.map((b) => (
+									<div style="display: inline-block;margin: 5px;">
+										<CharButton
+											size={buttonsize}
+											char={b.name}
+											color={b.color}
+											outline={b.outline}
+										/>
+									</div>
+								))}
+							</div>
 						</div>
-						<script>
-							document.getElementById("bru").innerHTML = document.getElementById("bru").textContent.replace("&lt;", "<").replace("&gt;", ">");
-						</script>
-					</div>
-				))
-			}
-			i'll add more eventually...
-
+					))
+				}
+				i'll add more eventually...
+			</div>
 		</div>
-	</div>
 	</body>
-	<Footer />
 </html>
+<Footer />

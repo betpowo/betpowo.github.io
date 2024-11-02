@@ -59,17 +59,15 @@ const { frontmatter } = Astro.props;
                     />
                 </div>
             </div>
-            <div style="height: fit-content; max-width: 95%; margin: auto;">
+            <div style="height: fit-content; max-width: 95%; margin: 23px;">
                 <slot>no info LMFAOOO</slot>
             </div>
         </div>
         <div style="margin: auto; display: flex;">
-            <button
-                style="--col-hover: var(--col-light);"
-                onclick="window.location.href = '/characters'">👥 home</button
+            <button onclick="window.location.href = '/characters'"
+                >👥 home</button
             >
             <button
-                style="--col-hover: var(--col-light);"
                 onclick="globalThis.scrollTo({ top: 0, left: 0, behavior: 'smooth' });"
                 >↑ top</button
             >
@@ -77,5 +75,6 @@ const { frontmatter } = Astro.props;
         <br />
     </body>
     <Footer />
+
 
 </html>

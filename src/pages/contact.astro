@@ -4,6 +4,28 @@ import ContactButton from "../components/ContactButton.astro";
 import Footer from "../components/Footer.astro";
 import Header from "../components/Header.astro";
 import "../styles/global.css";
+
+const links = [
+	["bluesky", "bsky.app/profile/betpowo.skruyo.dev", "bsky"],
+	["twitter", "twitter.com/betpowo", "twit"],
+	["youtube", "youtube.com/c/Betopia_", "tube"],
+	["github", "github.com/betpowo", "git"],
+	["discord", "--betpowo", "disc"],
+	["art fight", "artfight.net/~betpowo", "art"],
+	["gamebanana", "gamebanana.com/members/1830099", "banana"],
+	["game jolt", "gamejolt.com/@probablynotbetopia", "jolt"],
+	["roblox (inactive)", "roblox.com/users/1758832943/profile", "rbl"],
+	["tumblr (inactive)", "tumblr.com/betpowo", "tumb"],
+	["steam", "steamcommunity.com/id/probablynotbetopia/", "steam"],
+	["geometry dash", "gdbrowser.com/u/BetopiaGD", "gd"],
+	["newgrounds", "betopiang.newgrounds.com", "ground"],
+	["panzoid <3", "panzoid.com/users/im_a_piece_of_garbage", "panzoid"],
+];
+
+function getLink(ae = "", returnEmpty = false) {
+	if (ae.startsWith("--")) return returnEmpty ? "" : ae.replace("--", "");
+	return "https://" + ae;
+}
 ---
 
 <html lang="en">
@@ -39,73 +61,31 @@ import "../styles/global.css";
 				my real, totally not fake accounts
 				<br />
 				<br />
-				<div class="sub-board" style="max-width: 590px;">
-					<ContactButton
-						link="https://twitter.com/betpowo"
-						name="twitter"
-						image="twit"
-					/>
-					<ContactButton
-						link="https://youtube.com/c/Betopia_"
-						name="youtube"
-						image="tube"
-					/>
-					<ContactButton
-						link="https://github.com/betpowo"
-						name="github"
-						image="git"
-					/>
-					<ContactButton name="discord (betpowo)" image="disc" />
-					<ContactButton
-						link="https://bsky.app/profile/betpowo.skruyo.dev"
-						name="bluesky"
-						image="bsky"
-					/>
-					<ContactButton
-						link="https://tumblr.com/betpowo"
-						name="tumblr (inactive)"
-						image="tumb"
-					/>
-					<ContactButton
-						link="https://artfight.net/~betpowo"
-						name="art fight"
-						image="art"
-					/>
-					<ContactButton
-						link="https://gamebanana.com/members/1830099"
-						name="gamebanana"
-						image="banana"
-					/>
-					<ContactButton
-						link="https://gamejolt.com/@probablynotbetopia"
-						name="game jolt"
-						image="jolt"
-					/>
-					<ContactButton
-						link="https://betopiang.newgrounds.com"
-						name="newgrounds"
-						image="ground"
-					/>
-					<ContactButton
-						link="https://steamcommunity.com/id/probablynotbetopia/"
-						name="steam"
-						image="steam"
-					/>
-					<ContactButton
-						link="https://gdbrowser.com/u/BetopiaGD"
-						name="geometry dash"
-						image="gd"
-					/>
-					<ContactButton
-						link="https://www.roblox.com/users/1758832943/profile"
-						name="roblox (inactive)"
-						image="rbl"
-					/>
-					<ContactButton
-						link="https://www.panzoid.com/users/im_a_piece_of_garbage"
-						name="panzoid <3"
-						image="panzoid"
-					/>
+				<div class="sub-board" style=" max-width: fit-content;">
+					{
+						links.map((a) => (
+							<div style="display: flex; gap: 10px; text-align: left; align-items: center;">
+								<ContactButton
+									image={a[2]}
+									name={a[0]}
+									link={getLink(a[1], true)}
+								/>
+								<div>
+									<h2 style="color: var(--col-bright); margin: 0;">
+										{a[0]}
+									</h2>
+									<a
+										href={getLink(a[1], true)}
+										target="_blank"
+									>
+										<p style="margin: 0;">
+											{getLink(a[1])}
+										</p>
+									</a>
+								</div>
+							</div>
+						))
+					}
 				</div>
 				<br />
 				please follow them all......i need to take over the world

@@ -91,7 +91,7 @@ appearance
 
 she was meant to be unlikeable, that's why she looks so... questionable.
 
-she has <span class="black">**black**</span> hair with a heart-shaped bit floating above it<a href="#references"><sup>[1]</sup></a>, <span style="color:#4d647d;">**blue**</span> eyes and uhh... <span style="color:#ffd5aa;">**skin-colored**</span> skin, i don't know how to describe it. she wears this <span style="color:#966;">**coffee**</span> colored... "cold shoulder top" thingy with a cute drawing of a bunny sleeping on it...
+she has <span class="black">**black**</span> hair with a heart-shaped bit floating above it<a href="#references"><sup>[1]</sup></a>, <span style="color:#4d647d;">**blue**</span> eyes and uhh... <span style="color:#ffd5aa;">**skin-colored**</span> skin <i>(hispanic?)</i>, i don't know how to describe it. she wears this <span style="color:#966;">**coffee**</span> colored... "cold shoulder top" thingy with a cute drawing of a bunny sleeping on it...
 
 <i>(or is it a dog? we will never know...)</i>
 
@@ -145,11 +145,9 @@ other
 <tr>
     <td class="name">favorites</td>
     <td>
-
-<a href='https://skruyo.com' target="_blank" style="color: unset;"><ul><li id="him" >
+<a href='https://skruyo.com' target="_blank" style="color: unset; font-size: 40px;"><ul><li id="him" >
 skry &lt;3 <img src="/images/dnl.png" height="50"/>
 </li></ul></a>
-
 <script>
 var hue = 0;
 var idk = setInterval(function() {
@@ -157,8 +155,6 @@ var idk = setInterval(function() {
   document.getElementById('him').style.setProperty('color', 'hsl(' + hue + ', 100%, 80%)');
 }, 5);
 </script>
-
-
 
 - chocolate
 - coffee
@@ -199,7 +195,7 @@ references
 <ol>
 <li>
 
-https://twitter.com/betpowo/status/1798148681691996499
+["how her heart's handled" (twitter.com)](https://twitter.com/betpowo/status/1798148681691996499)
 
 </li>
 </ol>

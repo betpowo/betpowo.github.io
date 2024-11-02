@@ -1,0 +1,133 @@
+---
+import "../../styles/global.css";
+import Image from "astro/components/Image.astro";
+import Quill from "quill";
+
+const _images = import.meta.glob("/public/images/stickers/*/**.png");
+var images = [];
+
+for (var bleh in _images) {
+    images.push(bleh.replace("/images/stickers/", "").replace("/public", ""));
+}
+---
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="generator" content={Astro.generator} />
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <title>betopia's void</title>
+
+        <meta content="ask" property="og:title" />
+        <meta content="huh..?" property="og:description" />
+        <meta content="/images/stickers/betty/idiot.png" property="og:image" />
+        <meta content="#996666" data-react-helmet="true" name="theme-color" />
+    </head>
+    <body style="
+    background-color: var(--col-dark);
+    ">
+        <button
+            style="--col: var(--col-main);"
+            onclick="window.location.href = '/'"
+            >🏠 go home, it's not done yet</button
+        >
+
+        <div style="margin: 23px">
+            <div class="sub-board" style="max-width: 890px;">
+                <h1>ask</h1>
+                ask these fuckers anything you want...
+                <br /><br />
+                <div
+                    class="sub-board"
+                    style="background-color: var(--col-dark); padding: 20px; font-size: 36px;"
+                >
+                    <p style="margin:0;">
+                        to: <span
+                            style="color: #966; font-size: 48px; font-weight: bolder;"
+                            >me</span
+                        >
+                    </p>
+                </div>
+                <br />
+                <div class="board" style=" overflow-x: scroll;">
+                    <nobr>
+                        <img src="/images/stickers/betty/idiot.png" />
+                        <img src="/images/stickers/betty/idiot.png" />
+                        <img src="/images/stickers/betty/idiot.png" />
+                        <img src="/images/stickers/betty/idiot.png" />
+                        <img src="/images/stickers/betty/idiot.png" />
+                        <img src="/images/stickers/betty/idiot.png" />
+                        <img src="/images/stickers/betty/idiot.png" />
+                        <img src="/images/stickers/betty/idiot.png" />
+                        <img src="/images/stickers/betty/idiot.png" />
+                        <img src="/images/stickers/betty/idiot.png" />
+                        <img src="/images/stickers/betty/idiot.png" />
+                        <img src="/images/stickers/betty/idiot.png" />
+                        <img src="/images/stickers/betty/idiot.png" />
+                    </nobr>
+                </div>
+                <br />
+                <hr style="background-color:var(--col-dark);" />
+                <p style="float: left; margin:0;">from:</p>
+                <p style="float: right; margin:0;">name color (optional)</p>
+                <br />
+                <input
+                    type="text"
+                    style="background-color: var(--col-dark); width: 50%;"
+                    placeholder="(anonymous)"
+                />
+                <input
+                    type="color"
+                    style="--col: var(--col-dark); width: 40%; height: 2em; translate: 0px 0.75em; float: right;"
+                    value="#ffcc99"
+                />
+                <br /><br />your question / speech / whatever<a href="#rules"
+                    ><span style="color: #f36; --col: #f36; font-size: 50px"
+                        >*</span
+                    ></a
+                >!<br /><br />
+
+                <div
+                    id="editor"
+                    style="font-size: 32px; width: calc(100% - (23px * 0.5)); margin: 0; background-color: var(--col-dark);"
+                >
+                    ae
+                </div>
+                <script>
+                    const quill = new Quill(document.getElementById("editor"), {
+                        placeholder: "...",
+                    });
+                </script>
+
+                <br />
+                <button disabled style="width: 100%; --col: #c06">SUBMIT</button
+                >
+                <p style="text-align: center;">
+                    not yet! i don't have my own servers!
+                </p>
+                <br />
+                <hr style="background-color:var(--col-dark);" />
+                <div
+                    class="sub-board"
+                    id="rules"
+                    style="background-color: var(--col-dark);"
+                >
+                    <h2 style="color: var(--col-main);">
+                        <span style="color: #f36;">*</span> rules
+                    </h2>
+                    <br />yeah you gotta beware about these because there's just
+                    some things that you rlly shouldn't say or send
+
+                    <ol style="font-family: times; font-size: 40px;">
+                        <li>you may not say slurs</li>
+                        <li>or any other type of insult</li>
+                        <li>no weird questions!! pls</li>
+                    </ol>
+
+                    pls take them serious, i wrote them with a formal font
+                    too.....
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

@@ -1,14 +1,27 @@
 ---
-interface Props {
+/*interface Props {
 	link?: string;
     name?: string;
     image?: string;
     size?: string;
-}
-const { link = 'https://google.com', name = 'Google', image = 'mail', size = '100' } = Astro.props;
+}*/
+const {
+    link = "https://google.com",
+    name = "Google",
+    image = "mail",
+    size = "100",
+} = Astro.props;
 ---
+
 <a href={link} target="_blank">
-    <img class="blehh" src={'/images/socials/' + image + '.png'} alt={name + ': ' + link} title={name} width={size} style="margin: 4px;">
+    <img
+        class="blehh"
+        src={"/images/socials/" + image + ".png"}
+        alt={name + ": " + link}
+        title={name}
+        width={size}
+        style="margin: 4px;"
+    />
 </a>
 
 <style lang="scss">
@@ -16,19 +29,42 @@ const { link = 'https://google.com', name = 'Google', image = 'mail', size = '10
         animation: shake-rotate 0.2s;
         animation-iteration-count: infinite;
     }
-    
+
     // god i wish there was an easier way to do this
     @keyframes shake-rotate {
-        0% { translate: 0px 0px; rotate: 2deg}
-        10% { translate: 1px -2px }
-        20% { translate: 2px 0.5px }
-        30% { translate: -1px 1px}
-        40% { translate: 1px 0.4px }
-        50% { translate: 0px 2px }
-        60% { translate: 2px 0px }
-        70% { translate: 0px 0.2px }
-        80% { translate: 0.7px 0px }
-        90% { translate: 1px 2px }
-        100% { translate: 0px -1px }
+        0% {
+            translate: 0px 0px;
+            rotate: 2deg;
+        }
+        10% {
+            translate: 1px -2px;
+        }
+        20% {
+            translate: 2px 0.5px;
+        }
+        30% {
+            translate: -1px 1px;
+        }
+        40% {
+            translate: 1px 0.4px;
+        }
+        50% {
+            translate: 0px 2px;
+        }
+        60% {
+            translate: 2px 0px;
+        }
+        70% {
+            translate: 0px 0.2px;
+        }
+        80% {
+            translate: 0.7px 0px;
+        }
+        90% {
+            translate: 1px 2px;
+        }
+        100% {
+            translate: 0px -1px;
+        }
     }
 </style>

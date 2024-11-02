@@ -25,7 +25,7 @@ id: 'josephine'
         --header-logo-color-2: #f36;
 
         --col-bright: #d9eee5;
-        --col-light: #f795b6;
+        --col-light: #fe9693;
         --col-main: #f36;
         --col-dim: #c06;
         --col-dark: #303;
@@ -90,8 +90,6 @@ appearance
 </span>
 </a>
 </div>
-
-[design is subject to change]
 
 she has <span class="black">rose-brown</span> fluffy hair, <span style="color:#117f9a;font-weight: bold;">teal</span> eyes with weird letters in them, and somewhat pink skin, but that may be because of my art style.
 

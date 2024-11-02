@@ -48,11 +48,10 @@ import "../styles/global.css";
 			</div>
 			<br />
 			<br />
-			<span id="lame" style="color: #f36; cursor: help;"
-				>{Astro.url.href}</span
-			> isn't real. go home
+			<span id="lame" style="color: #f36; cursor: help;">this page</span> isn't
+			real. go home
 			<br /><br />
-			<div x-cloak x-show="Math.random() > 0.5;">
+			<div x-cloak x-show="Math.random() > 0.3;">
 				<a
 					href="/fun/stickers"
 					@click="document.getElementById('body').animate([{opacity: '100%'},{opacity: '0%'}], {duration:500});"
@@ -60,7 +59,14 @@ import "../styles/global.css";
 				>
 				<br /><br />
 			</div>
-			<button onclick="javascript:history.back()">🏠 go back</button>
+			<button onclick="javascript:history.back()">← go back</button>
+			<button onclick="window.location.href='/'">🏠 go home</button>
+			<script>
+				var text = document.getElementById("lame");
+				text.innerHTML = window.location.pathname;
+				if (!window.location.pathname.endsWith("/"))
+					text.innerHTML += "/";
+			</script>
 		</div>
 	</body>
 </html>

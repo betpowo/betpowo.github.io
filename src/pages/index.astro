@@ -4,6 +4,7 @@ import CharButton from "../components/CharButton.astro";
 import Footer from "../components/Footer.astro";
 import Header from "../components/Header.astro";
 import "../styles/global.css";
+const buttonsize = 150;
 ---
 
 <!-- blehhh -->
@@ -124,7 +125,8 @@ import "../styles/global.css";
 							<p style="color: #cf6">
 								💔 a lot of mentions of me hating my work
 							</p>
-							<p style="color: #9f6">
+							<p style="color: #9f6">🎇 flashing lights?</p>
+							<p style="color: #6f6">
 								🗑️ generally just a bad site
 							</p>
 						</div>
@@ -299,27 +301,29 @@ import "../styles/global.css";
 					i love character design, and i rlly want to get good at it, take
 					a look:
 					<br /><br />
-					<div class="container" style="gap: 48px;">
-						<CharButton size="130" />
-						<CharButton
-							size="130"
-							char="betpo"
-							color="#f63"
-							outline="#fffaf4"
-						/>
-						<CharButton
-							size="130"
-							char="josephine"
-							color="#f36"
-							outline="#e5f7eb"
-						/>
+					<div style="text-align: center;">
+						<div class="container" style="gap: 6px;">
+							<CharButton size={buttonsize} />
+							<CharButton
+								size={buttonsize}
+								char="betpo"
+								color="#f63"
+								outline="#fffaf4"
+							/>
+							<CharButton
+								size={buttonsize}
+								char="josephine"
+								color="#f36"
+								outline="#e5f7eb"
+							/>
+						</div>
+						<button
+							style="font-size: 32px; width: 520px; padding: 20px; border-radius: 40px;"
+							onclick="window.location.href = '/characters'"
+						>
+							👥 view all &gt;
+						</button>
 					</div>
-					<button
-						style="font-size: 36px; width: 100%; padding: 20px; border-radius: 40px;"
-						onclick="window.location.href = '/characters'"
-					>
-						👥+ and more !
-					</button>
 				</div>
 
 				<div class="board" style="grid-column: 1 / 6; grid-row: 3 / 3;">
@@ -333,7 +337,7 @@ import "../styles/global.css";
 						style="padding: 20px; font-size: 30px; border-radius: 40px;"
 						onclick="window.location.href = '/projects'"
 					>
-						📦 projects
+						📦 projects &gt;
 					</button>
 				</div>
 
@@ -345,7 +349,7 @@ import "../styles/global.css";
 						style="padding: 20px; font-size: 30px; border-radius: 40px;"
 						onclick="window.location.href = '/gallery'"
 					>
-						🖼️ gallery
+						🖼️ gallery &gt;
 					</button>
 				</div>
 
