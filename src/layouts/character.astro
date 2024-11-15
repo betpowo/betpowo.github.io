@@ -30,7 +30,7 @@ const { frontmatter } = Astro.props;
         <meta name="twitter:card" content="summary_large_image" />
     </head>
     <Header />
-    <body style="background-color: var(--col-bg);">
+    <body style="background-color: var(--col-bg);" id="body">
         <div style="margin: 23px;">
             <div style="margin: auto; text-align: left; max-width: 95%;">
                 <span
@@ -59,7 +59,10 @@ const { frontmatter } = Astro.props;
                     />
                 </div>
             </div>
-            <div style="height: fit-content; max-width: 95%; margin: 23px;">
+            <div
+                style="height: fit-content; max-width: 95%; margin: 23px;"
+                id="content"
+            >
                 <slot>no info LMFAOOO</slot>
             </div>
         </div>

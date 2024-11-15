@@ -7,9 +7,11 @@ embed: {
     color: '#ff6666'
 }
 ---
+<div style="text-align: center;">
 <img src="/images/modnameherelogo.png" alt="Mod Name Here" width="500"/><br>
 the brand new hit fnf mod.... trust me bro
 <br><br><a href="https://gamebanana.com/mods/378548" target="_blank"><button style="display: flex; align-items: center; margin: auto;"><img src="/images/socials/banana.png" width="30"/> <span style="color: #fc6;">&nbsp;gamebanana page</span></button></a>
+<br><br>
 <iframe width="480" height="270"
 src="https://www.youtube.com/embed/2Lefkg9Vkhk" 
 frameborder="0" 
@@ -21,6 +23,7 @@ style="border-radius: 30px"></iframe>
 <br>(will be updated when v2 releases)</p>
 <hr />
 <br>
+</div>
 
 # mod name here
 ...is a <a href="https://www.newgrounds.com/portal/view/770371">friday night funkin'</a> mod.

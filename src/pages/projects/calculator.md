@@ -7,10 +7,20 @@ embed: {
     color: '#ffffcc'
 }
 ---
+<style>
+    .calcimg {
+        max-width: 50vw;
+        border: 2px solid var(--col-bright);
+        border-radius: 20px;
+        margin: 2px;
+    }
+</style>
+<div style="text-align: center;">
 <img src="/images/epiccalclogo.png" alt="epic calculator" width="500"/><br>
 for your homework
 <br><br><a href="https://gdbrowser.com/103424659" target="_blank"><button style="display: flex; align-items: center; margin: auto; font-size: 60px; padding: 30px;"><img src="/images/socials/gd.png" width="80"/> <span style="color: #f90;">&nbsp;gdbrowser page</span></button></a>
 <br><a href="https://gdbrowser.com/99154604" target="_blank"><button style="display: flex; align-items: center; margin: auto;"><img src="/images/socials/gd.png" width="30"/> <span style="color: var(--col-main);">&nbsp;gdbrowser page (legacy)</span></button></a>
+</div>
 
 
 
@@ -21,10 +31,24 @@ it got famous tho
 
 <div class="sub-board">
 <h2>screenshots</h2>
-soon
+<div style="max-width: min-content; max-height: 50vw; overflow-y: scroll; border-radius: 20px;">
+
+<img class="calcimg" src="/public/images/calc/1.png">
+<img class="calcimg" src="/public/images/calc/2.png">
+<img class="calcimg" src="/public/images/calc/3.png">
+<img class="calcimg" src="/public/images/calc/4.png">
+<img class="calcimg" src="/public/images/calc/5.png">
+
+</div>
 </div>
 <br>
 <div class="sub-board">
 <h3>screenshots (legacy)</h3>
-soon
-</div>
+<div style="max-width: min-content; max-height: 50vw; overflow-y: scroll; border-radius: 20px;">
+
+<img class="calcimg" src="/public/images/calc/legacy/1.png">
+<img class="calcimg" src="/public/images/calc/legacy/2.png">
+<img class="calcimg" src="/public/images/calc/legacy/3.png">
+
+
+</div></div>

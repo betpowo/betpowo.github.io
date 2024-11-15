@@ -1,22 +1,24 @@
 ---
 interface Props {
-	char?:string;
-    data?:string;
+    char?: string;
+    data?: string;
 }
-const { char = 'betty', data = 'imgsub: "what ???", colors: ["#000000"]'} = Astro.props;
+const { char = "betty", data = 'imgsub: "what ???", colors: ["#000000"]' } =
+    Astro.props;
 ---
+
 <style>
     .sheet-container {
         padding: 15px;
         background-color: var(--col-char-bg);
         border-radius: 40px;
         margin: auto;
-        max-width: 850px;
+        max-width: 100vw;
     }
 
     .sheet-color-cont {
-  		align-items: left;
-  		justify-content: left;
+        align-items: left;
+        justify-content: left;
         text-align: left;
         background-color: var(--col-bright);
         border-radius: 45px;
@@ -36,43 +38,66 @@ const { char = 'betty', data = 'imgsub: "what ???", colors: ["#000000"]'} = Astr
         color: rgba(0, 0, 0, 0%);
     }
 
-    .sheet-colors:hover, .sheet-colors:focus {
+    .sheet-colors:hover,
+    .sheet-colors:focus {
         color: #fff;
         font-weight: bolder;
     }
 </style>
-<div id="sheet" x-data={"{ " + data + ", show_cols: false }"} style="display: flex; max-width: fit-content; justify-content: flex-start; margin: auto;">
-<div>
-    <div class="sheet-container">
+<div
+    id="sheet"
+    x-data={"{ " + data + ", show_cols: false }"}
+    style="display: flex; max-width: fit-content; justify-content: flex-start; margin: auto;"
+>
     <div>
-        <img id="burp" src={`/characters/${char.toLowerCase()}/sheet.png`} x-bind:alt="imgsub" x-bind:title="imgsub" style="max-width: 700px;"/>
-        <script>
-            document.getElementById('burp').onerror = function() {
-                document.getElementById('burp').setAttribute('src', '/characters/default-sheet.png');
-            }
-        </script>
-    </div>
-    </div>
-</div>
-<div style="margin-left: 15px;">
-    <div class="sheet-color-cont">
-        <button title="palette (click to show / hide)" class="sheet-colors" style="background-color: #c66;" x-on:click="show_cols = !show_cols">
-            <p style="margin: -15px; color: #fff;">🎨</p>
-        </button>
-        <div style="display: block;" x-show="show_cols">
-            <template x-for="col in colors">
-                <div>
-                <button class="sheet-colors"
-                x-bind:style="'border: 2px dashed #000; margin-top: 0; background-color: ' + col"
-                x-bind:alt="col"
-                x-bind:title="col"
-                x-on:click="navigator.clipboard.writeText(col)">
-                <p style="margin: -16px;">📋</p>
-                </button>
-                <br>
-                </div>
-            </template>    
+        <div class="sheet-container">
+            <div>
+                <img
+                    id="burp"
+                    src={`/characters/${char.toLowerCase()}/sheet.png`}
+                    x-bind:alt="imgsub"
+                    x-bind:title="imgsub"
+                    style="max-width: 80wh;"
+                />
+                <script>
+                    document.getElementById("burp").onerror = function () {
+                        document
+                            .getElementById("burp")
+                            .setAttribute(
+                                "src",
+                                "/characters/default-sheet.png",
+                            );
+                    };
+                </script>
+            </div>
         </div>
     </div>
-</div>
+    <div style="margin-left: 15px;">
+        <div class="sheet-color-cont">
+            <button
+                title="palette (click to show / hide)"
+                class="sheet-colors"
+                style="background-color: #c66;"
+                x-on:click="show_cols = !show_cols"
+            >
+                <p style="margin: -15px; color: #fff;">🎨</p>
+            </button>
+            <div style="display: block;" x-show="show_cols">
+                <template x-for="col in colors">
+                    <div>
+                        <button
+                            class="sheet-colors"
+                            x-bind:style="'border: 2px dashed #000; margin-top: 0; background-color: ' + col"
+                            x-bind:alt="col"
+                            x-bind:title="col"
+                            x-on:click="navigator.clipboard.writeText(col)"
+                        >
+                            <p style="margin: -16px;">📋</p>
+                        </button>
+                        <br />
+                    </div>
+                </template>
+            </div>
+        </div>
+    </div>
 </div>
