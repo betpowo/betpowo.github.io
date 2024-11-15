@@ -33,11 +33,11 @@ it got famous tho
 <h2>screenshots</h2>
 <div style="max-width: min-content; max-height: 50vw; overflow-y: scroll; border-radius: 20px;">
 
-<img class="calcimg" src="/public/images/calc/1.png">
-<img class="calcimg" src="/public/images/calc/2.png">
-<img class="calcimg" src="/public/images/calc/3.png">
-<img class="calcimg" src="/public/images/calc/4.png">
-<img class="calcimg" src="/public/images/calc/5.png">
+<img class="calcimg" src="/images/calc/1.png">
+<img class="calcimg" src="/images/calc/2.png">
+<img class="calcimg" src="/images/calc/3.png">
+<img class="calcimg" src="/images/calc/4.png">
+<img class="calcimg" src="/images/calc/5.png">
 
 </div>
 </div>
@@ -46,9 +46,9 @@ it got famous tho
 <h3>screenshots (legacy)</h3>
 <div style="max-width: min-content; max-height: 50vw; overflow-y: scroll; border-radius: 20px;">
 
-<img class="calcimg" src="/public/images/calc/legacy/1.png">
-<img class="calcimg" src="/public/images/calc/legacy/2.png">
-<img class="calcimg" src="/public/images/calc/legacy/3.png">
+<img class="calcimg" src="/images/calc/legacy/1.png">
+<img class="calcimg" src="/images/calc/legacy/2.png">
+<img class="calcimg" src="/images/calc/legacy/3.png">
 
 
 </div></div>
