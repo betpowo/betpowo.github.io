@@ -10,7 +10,12 @@ const { frontmatter } = Astro.props;
     <head>
         <meta charset="utf-8" />
         <meta name="generator" content={Astro.generator} />
-        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <link
+            id="favicon"
+            rel="icon"
+            type="image/svg+xml"
+            href="/favicon.svg"
+        />
         <title>{frontmatter.display} - betopia's basement</title>
 
         <meta
@@ -75,6 +80,15 @@ const { frontmatter } = Astro.props;
                 >↑ top</button
             >
         </div>
+        <script define:vars={{ frontmatter }}>
+            const holder = document.createElement("img");
+            holder.src = "/characters/" + frontmatter.id + "/favicon.svg";
+            holder.onload = (a) => {
+                document
+                    .getElementById("favicon")
+                    .setAttribute("href", holder.src);
+            };
+        </script>
         <br />
     </body>
     <Footer />
