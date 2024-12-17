@@ -6,10 +6,15 @@ import mdx from "@astrojs/mdx";
 export default defineConfig({
 	redirects: {
 		'/betty': '/characters/betty',
+		'/daniel': '/characters/daniel',
+
 		'/josephine': '/characters/josephine',
 		'/glib': '/characters/glib',
-		'/betpo': '/characters/betpo',
 		'/carlos': '/characters/carlos',
+		'/marco': '/characters/marco',
+		'/fish': '/characters/fish',
+		'/nori': '/characters/nori',
+		'/charles': '/characters/charles',
 	},
 	integrations: [alpine(), mdx()],
 	site: 'https://betpowo.github.io'

@@ -181,7 +181,7 @@ textarea {
     font-family: 'sillyfont';
     cursor: pointer;
 
-    transition: 0.14s cubic-bezier(0.19, 1, 0.22, 1) all;
+    transition: 0.2s cubic-bezier(0.19, 1, 0.22, 1) all;
 }
 
 input[type=color] {

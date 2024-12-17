@@ -43,7 +43,7 @@ const { frontmatter } = Astro.props;
                     >
                 </span>
                 <hr style="margin-top: 20px;" />
-                <p style="margin: 17px;">{frontmatter.desc}</p>
+                <p style="margin: 17px;" set:html={frontmatter.desc} />
             </div>
             <div
                 style="width: fit-content; height: fit-content; overflow: visible; margin: auto;"

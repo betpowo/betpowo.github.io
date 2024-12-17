@@ -234,7 +234,9 @@ const buttonsize = 150;
 						href="https://godotengine.org"
 						target="_blank"
 						style="--col: #3cf; --col-hover: #cff;">godot</a
-					>!
+					>! <sub style="color: var(--col-dim)"
+						>(i've been too lazy to learn godot these days)</sub
+					>
 					<br />
 					<br />
 					<br />
@@ -250,6 +252,13 @@ const buttonsize = 150;
 						<div
 							style="float: inline-end; width: 100%; margin: auto; position: absolute; translate: 30px 60px;"
 						>
+							<p
+								class="marquee-warning"
+								style="position: absolute; color: var(--col-main); translate: 70px 30px; opacity: 25%;"
+							>
+								TODO: remake these bouncing icons so they don't
+								use <code>&lt;marquee&gt;</code>
+							</p>
 							{
 								[
 									"godot",
@@ -364,7 +373,14 @@ const buttonsize = 150;
 						>
 					</div>
 				</div>
+				<div
+					class="board"
+					style="grid-column: 1 / 6; grid-row: 5 / 6; text-align: center;"
+				>
+					<img style="border-radius: 20px;" src="/images/css.gif" />
+				</div>
 			</div>
+			<br />
 		</body>
 		<Footer />
 	</div>

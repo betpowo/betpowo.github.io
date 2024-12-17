@@ -1,12 +1,12 @@
 ---
 // Component Imports
-import CharButton from "../../components/CharButton.astro";
-import Footer from "../../components/Footer.astro";
-import Header from "../../components/Header.astro";
-import "../../styles/global.css";
+import CharButton from "../components/CharButton.astro";
+import Footer from "../components/Footer.astro";
+import Header from "../components/Header.astro";
+import "../styles/global.css";
 
 const buttonsize = 222;
-const columns = 5;
+const columns = 4;
 const categories = [
 	{
 		name: "main characters",
@@ -18,12 +18,16 @@ const categories = [
 	},
 	{
 		name: "other characters",
-		desc: "the characters i have that i don't use a lot, and/or have little to no importance or whatever.<br>characters i have designed will also appear here i think",
+		desc: "the characters i have that i don't use a lot, and/or have little to no importance or whatever.",
 		chars: [
-			{ name: "glib", color: "#90f", outline: "#ffc" },
+			{ name: "marco", color: "#c33", outline: "#ffc" },
+			{ name: "fish", color: "#f66", outline: "#ffc" },
+			{ name: "nori", color: "#cf6", outline: "#ffc" },
+			{ name: "sprout", color: "#093", outline: "#f2ffe7" },
 			{ name: "carlos", color: "#69f", outline: "#cff" },
+			{ name: "charles", color: "#60f", outline: "#cfc" },
+			{ name: "glib", color: "#90f", outline: "#ffc" },
 			{ name: "daniel", color: "#8b56a3", outline: "#f1ffe1" },
-			{ name: "betty" },
 		],
 	},
 ];
@@ -50,6 +54,15 @@ const categories = [
 				text-align: center;
 				display: inline-block;
 			}
+
+			.square {
+				background-color: currentColor;
+				width: 1rem;
+				height: 1rem;
+				aspect-ratio: 1 / 1;
+				border-radius: 0.25rem;
+				margin-right: 0.333rem;
+			}
 		</style>
 		<title>betopia's basement</title>
 	</head>
@@ -71,8 +84,9 @@ const categories = [
 				<br /><br /><br />
 				<div style="text-align: center;">
 					<h3 style="color: var(--col-bright);">
-						search for a character:
+						search for a character id:
 					</h3>
+					(if you are lazy to scroll down)<br />
 					<input type="text" placeholder="betty" id="iput" />
 					<button
 						onclick="var char = document.getElementById('iput').value.toLowerCase(); window.location.href = char != '' ? '/characters/' + char : '/characters/betty'"
@@ -83,7 +97,6 @@ const categories = [
 				or choose from below:
 
 				<br /><br />
-				{categories.map((a) => console.log(a.desc))}
 				{
 					categories.map((a, b) => (
 						<div

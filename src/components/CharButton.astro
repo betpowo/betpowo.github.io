@@ -21,7 +21,10 @@ const {
     <object
         style={`--size: ${size - 16}px;`}
         class="bleh"
-        data={`/characters/${char.toLowerCase()}/art.svg`}></object>
+        data={`/characters/${char.toLowerCase()}/art.svg`}
+        title={char.toLowerCase()}
+        aria-label=""
+        aria-labelledby=""></object>
 </div>
 
 <style lang="scss">
@@ -29,11 +32,11 @@ const {
         aspect-ratio: 1 / 1;
         --char-color: #966;
         --hover-color: #ffc;
-        --outline-radius: 2.5px;
+        --outline-radius: 3px;
         --outline-color: var(--char-color);
         --size: 250px;
         --padding: 16px;
-        padding: 8px;
+        padding: calc((var(--padding) / 2));
         background-color: var(--col-dark);
         border-radius: 20px;
         display: flex;
@@ -62,28 +65,45 @@ const {
         text-align: center;
         transition: 0.1s filter;
         transition-timing-function: linear;
+        /*filter: drop-shadow(
+                calc(1 * var(--outline-radius)) calc(1 * var(--outline-radius))
+                    0px var(--outline-color)
+            )
+            drop-shadow(
+                calc(1 * var(--outline-radius)) calc(-1 * var(--outline-radius))
+                    0px var(--outline-color)
+            )
+            drop-shadow(
+                calc(-1 * var(--outline-radius)) calc(1 * var(--outline-radius))
+                    0px var(--outline-color)
+            )
+            drop-shadow(
+                calc(-0.4 * var(--outline-radius))
+                    calc(-0.4 * var(--outline-radius)) 0px var(--outline-color)
+            );*/
+
         filter: drop-shadow(
-                calc(2 * var(--outline-radius)) calc(2 * var(--outline-radius))
+                calc(0 * var(--outline-radius)) calc(1 * var(--outline-radius))
                     0px var(--outline-color)
             )
             drop-shadow(
-                calc(2 * var(--outline-radius)) calc(-1 * var(--outline-radius))
+                calc(0 * var(--outline-radius)) calc(-1 * var(--outline-radius))
                     0px var(--outline-color)
             )
             drop-shadow(
-                calc(-1 * var(--outline-radius)) calc(2 * var(--outline-radius))
+                calc(1 * var(--outline-radius)) calc(0 * var(--outline-radius))
                     0px var(--outline-color)
             )
             drop-shadow(
-                calc(-1 * var(--outline-radius))
-                    calc(-1 * var(--outline-radius)) 0px var(--outline-color)
+                calc(-1 * var(--outline-radius)) calc(0 * var(--outline-radius))
+                    0px var(--outline-color)
             );
     }
 
     .char-button:hover .bleh {
         animation: shake 0.5s;
         animation-iteration-count: 1;
-        --outline-radius: 4.5px;
+        --outline-radius: 6px;
         --outline-color: var(--hover-color);
     }
 
@@ -92,7 +112,10 @@ const {
         0% {
             translate: 0px 0px;
         }
-        20% {
+        3% {
+            translate: 0px 1px;
+        }
+        25% {
             translate: 0px -2px;
         }
         100% {

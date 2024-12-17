@@ -1,0 +1,188 @@
+---
+import Header from "../../components/Header.astro";
+import "../../styles/global.css";
+
+var words = [
+    "silly",
+    "daniel",
+    "sillydaniel",
+    "bleh",
+    "blehhh",
+    "betty",
+    "betopia",
+    "killme",
+    "ooughhh",
+    "meow",
+    "c",
+    "hippopotomonstrosesquippedaliophobia",
+];
+function getRandomWord() {
+    return words[
+        Math.min(Math.round(Math.random() * words.length), words.length - 1)
+    ];
+}
+
+const word = getRandomWord();
+const formatWord = word.replaceAll(" ", "").toLocaleLowerCase();
+---
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="generator" content={Astro.generator} />
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <title>betopia's wordle</title>
+
+        <meta content="fun - betopia" property="og:title" />
+        <meta content="fun!" property="og:description" />
+        <meta content="#996666" data-react-helmet="true" name="theme-color" />
+
+        <style lang="scss">
+            .container {
+                display: flex;
+                align-items: center;
+                margin: auto;
+                justify-content: center;
+                gap: 4px;
+                margin-bottom: 4px;
+            }
+
+            .wordle-block {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                background-color: #ccd;
+                color: #557;
+                border-radius: 0.4em;
+                font-size: 36px;
+                width: 2em;
+                height: 2em;
+                max-width: 2em;
+                max-height: 2em;
+                cursor: crosshair;
+            }
+        </style>
+    </head>
+    <body
+        x-data={"{rows: " +
+            Math.floor(formatWord.length * 1.25) +
+            ", columns: " +
+            formatWord.length +
+            "}"}
+    >
+        <div class="board" style="margin: 23px; text-align: center;">
+            <button @click="window.location.href = '/';" style="float: left;"
+                >🏠</button
+            >
+            <h1 style="text-align: center;">wordle but i recreated it</h1>
+            <div
+                style="background-color: aliceblue; width: fit-content; height: fit-content; margin: auto; padding: 24px; border-radius: 24px;"
+            >
+                <template x-for="i in rows">
+                    <div class="container">
+                        <template x-for="j in columns">
+                            <div
+                                class="wordle-block"
+                                x-bind:id="'wordle_block_'+i+':'+j"
+                            >
+                            </div>
+                        </template>
+                    </div>
+                </template>
+            </div>
+            <script define:vars={{ word, formatWord }}>
+                var curColumn = 1;
+                var curRow = 1;
+
+                var maxColumns = Math.floor(formatWord.length * 1.25);
+                var maxRows = formatWord.length;
+
+                function get(i, j) {
+                    return document.getElementById(
+                        "wordle_block_" + i + ":" + j,
+                    );
+                }
+                function quickBLCheck(code) {
+                    /*var str = "" + code;
+                for (const ae in blackListedIDs) {
+                    var val = blackListedIDs[ae];
+                    if (str.includes(val)) {
+                        return true;
+                    }
+                }
+                return false;*/
+
+                    return code.startsWith("Key");
+                }
+
+                var guesses = [];
+                for (let i = 1; i <= maxColumns; i++) {
+                    guesses.push([]);
+                }
+
+                function analyze(column) {
+                    for (let i = 0; i < maxRows; i++) {
+                        var correct = formatWord.split("");
+                        var letters = guesses[column - 1];
+                        var div = get(column, i + 1);
+                        var target = "#99b";
+                        var tartext = "#333";
+
+                        console.log(correct);
+                        console.log(letters);
+                        console.log(column + ":" + i);
+
+                        if (correct.includes(letters[i])) {
+                            target = "#f90";
+                            tartext = "#fec";
+                        }
+                        if (correct[i] == letters[i]) {
+                            target = "#3f9";
+                            tartext = "#069";
+                            div.style.setProperty(
+                                "box-shadow",
+                                "inset 0 0 0 3px #069, 0 0 0px 2px #cff",
+                            );
+                        }
+
+                        div.style.setProperty("background-color", target);
+                        div.style.setProperty("color", tartext);
+                    }
+                }
+
+                document.body.addEventListener("keydown", (e) => {
+                    if (curRow > maxRows && e.code.includes("Enter")) {
+                        analyze(curColumn);
+                        curRow = 1;
+                        curColumn += 1;
+                    }
+
+                    if (e.code == "Backspace") {
+                        curRow -= 1;
+                        if (curRow < 1) curRow = 1;
+                        get(curColumn, curRow).innerHTML = "";
+                        guesses[curColumn - 1].pop();
+                    } else {
+                        if (
+                            curColumn <= maxColumns &&
+                            !e.repeat &&
+                            quickBLCheck(e.code)
+                        ) {
+                            get(curColumn, curRow).innerHTML =
+                                e.key.toLocaleLowerCase();
+
+                            guesses[curColumn - 1].push(
+                                e.key.toLocaleLowerCase(),
+                            );
+                            curRow += 1;
+                        }
+                    }
+                });
+            </script>
+            <button
+                style="width: fit-content; height:fit-content;"
+                onclick="window.location.reload()">reset</button
+            >
+        </div>
+    </body>
+</html>

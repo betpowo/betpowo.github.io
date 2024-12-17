@@ -1,38 +1,39 @@
 ---
 layout: '../../layouts/character.astro'
 
-display: 'glib'
-sub: 'awesome experiment'
-desc: 'glib was an experiment; to see how different people around twitter would interpret goober woman characters like her'
-embed_color: '#9900ff'
+display: 'the great almighty fish'
+sub: 'ooooohh'
+desc: 'the great almighty fish      .    🐟'
+embed_color: '#ff6666'
 
-imgsub: 'tiny'
+imgsub: 'all hail the fish'
 colors: [
-    '#330066',
-    '#9900ff',
-    '#ff66cc',
+    '#330033',
+    '#cc3366',
+    '#ff6666',
+    '#ff9966',
     '#ffffcc',
 ]
-id: 'glib'
+id: 'fish'
 ---
 <style>
     :root {
-        --header-color: #003;
+        --header-color: #301;
         --header-logo-color-1: #ffc;
-        --header-logo-color-2: #90f;
+        --header-logo-color-2: #f66;
 
         --col-bright: #ffc;
-        --col-light: #f6c;
-        --col-main: #90f;
-        --col-dim: #609;
-        --col-dark: #303;
+        --col-light: #f96;
+        --col-main: #f66;
+        --col-dim: #c36;
+        --col-dark: #600;
 
-        --col-bg: #303;
-        --col-char-bg: #f6c;
+        --col-bg: #603;
+        --col-char-bg: #f66;
 
-        --col-link: #90f;
-        --col-link-hover: #f6c
-    }    
+        --col-link: #f66;
+        --col-link-hover: #f96
+    }
 
     td {
         background-color: var(--col-main);
@@ -46,7 +47,11 @@ id: 'glib'
     }
 </style>
 
-she comes from [this tweet](https://twitter.com/betpowo/status/1748079459830202740/)
+it's a fish! uhhmm with power! yea!
+
+he can shoot lasers and what not
+
+they do not walk. they just float in the air like if it was a normal fish in a bowl. i just forced them to stay on ground level for the referenec sheet ok
 
 <hr>
 <section id="appearance" style="text-align: left">
@@ -60,8 +65,9 @@ appearance
 </a>
 </div>
 
-she has <span class="white">**white**</span> skin and <span style="color: #90f;">**purple**</span> hair and a <span style="color: #f6c;">**pink**</span> dress. that's literally it
+idk bruh they're just a fish
 
+i think they're <span style="color: #f66">salmon???</span> colored tho? i'm not sure
 </section>
 
 <hr>
@@ -83,21 +89,21 @@ other
     <td class="name">nicknames</td>
     <td>
 
-- woman
-- lab-rat
-- glue
+- fish
 
 </td>
 </tr>
 
 <tr>
     <td class="name">pronouns</td>
-    <td>she</td>
+    <td>he, they, it</td>
 </tr>
 
 </table>
 
-- she's right behind you
-- she's best friends with [nori](/characters/nori)
+- he has god powers and shit (i think? idk he's just powerful but idk how much)
+- does not really need water to breathe, how do you think he can keep floating in the air?
+- if he were to die, yes, he would just slowly go up
+- he has killed at least <code>1</code> person
 
 </section>

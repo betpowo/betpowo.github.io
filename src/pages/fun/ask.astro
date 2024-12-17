@@ -1,7 +1,5 @@
 ---
 import "../../styles/global.css";
-import Image from "astro/components/Image.astro";
-import Quill from "quill";
 
 const _images = import.meta.glob("/public/images/stickers/*/**.png");
 var images = [];
@@ -94,9 +92,9 @@ for (var bleh in _images) {
                     ae
                 </div>
                 <script>
-                    const quill = new Quill(document.getElementById("editor"), {
+                    /*const quill = new Quill(document.getElementById("editor"), {
                         placeholder: "...",
-                    });
+                    });*/
                 </script>
 
                 <br />
