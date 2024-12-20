@@ -1,5 +1,19 @@
 {
     "from": "dec / 14 / 2023",
     "title": "christmas 2023",
-    "desc": "one of my favorite old drawings i have, i think this one still holds up to this day and i'm proud of it"
+    "desc": "one of my favorite old drawings i have, i think this one still holds up to this day and i'm proud of it",
+    "feat": [
+        {
+            "name": "betpo",
+            "color": "#f63",
+            "outline": "#fffaf4"
+        },
+        {},
+        {
+            "name": "josephine",
+            "color": "#f36",
+            "outline": "#e5f7eb"
+        }
+    ],
+    "comment": "empty data will make it default to betty! because i am cool"
 }

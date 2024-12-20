@@ -1,0 +1,34 @@
+---
+interface Props {
+    color?: string;
+}
+const { color = "#999999" } = Astro.props;
+---
+
+<style>
+    .sheet-colors {
+        margin: 8px;
+        border-radius: 100%;
+        min-width: 2.92em;
+        min-height: 2.92em;
+        max-width: 2.92em;
+        max-height: 2.92em;
+        color: rgba(0, 0, 0, 0%);
+    }
+
+    .sheet-colors:hover {
+        color: #fff;
+        font-weight: bolder;
+    }
+</style>
+<button
+    x-data="{ display: '❔' }"
+    x-on:click="navigator.clipboard.writeText(col); display = '✅';"
+    x-on:mouseover="display = '📋';"
+    class="sheet-colors"
+    x-bind:style="'border: 2px dashed #000; margin-top: 0; background-color: ' + col"
+    x-bind:alt="col"
+    x-bind:title="col"
+>
+    <p style="margin: -16px;" x-html="display"></p>
+</button>

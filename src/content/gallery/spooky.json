@@ -8,5 +8,17 @@
             "https://bsky.app/profile/betpowo.skruyo.dev/post/3l7h5ge7ekc24"
         ]
     ],
+    "feat": [
+        {
+            "name": "betpo",
+            "color": "#f63",
+            "outline": "#fffaf4"
+        },
+        {
+            "name": "josephine",
+            "color": "#f36",
+            "outline": "#e5f7eb"
+        }
+    ],
     "extension": "gif"
 }

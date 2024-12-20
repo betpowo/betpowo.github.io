@@ -126,6 +126,7 @@ other
 
 - plants
 - they have met [charles](/characters/charles) once, in relation to science stuff maybe
+- besties with [kinne](/characters/kinne) most likely
 - their favorite color: <span class="white" style="background-color: #f63">orange</span>
 
 </section>

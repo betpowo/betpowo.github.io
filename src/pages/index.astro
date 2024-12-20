@@ -127,6 +127,10 @@ const buttonsize = 150;
 							</p>
 							<p style="color: #9f6">🎇 flashing lights?</p>
 							<p style="color: #6f6">
+								💦 not family-friendly humor sometimes? i'm
+								unsure
+							</p>
+							<p style="color: #3f6">
 								🗑️ generally just a bad site
 							</p>
 						</div>
@@ -139,7 +143,13 @@ const buttonsize = 150;
 								>ok bro</button
 							>
 							<button
-								onclick="javascript:history.back()"
+								onclick="
+								if (history.length <= 1) {
+									window.close();
+									return;
+								}
+								history.back();
+								"
 								style="--col: var(--col-light); --col-hover: var(--col-dark); width: 63%;"
 								>nah i'm leavin</button
 							></nobr

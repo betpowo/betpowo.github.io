@@ -2,5 +2,13 @@
     "from": "oct / 26 / 2024",
     "title": "spooky month! (orange)",
     "desc": "nvm i got permission to show it",
-    "extension": "gif"
+    "extension": "gif",
+    "feat": [
+        {},
+        {
+            "name": "daniel",
+            "color": "#8b56a3",
+            "outline": "#f1ffe1"
+        }
+    ]
 }

@@ -11,20 +11,15 @@ const {
 ---
 
 <style>
-    .container {
+    .gallery-container {
         display: flex;
         align-items: start;
         margin: auto;
         justify-content: center;
-        max-width: fit-content;
     }
 </style>
-<div
-    class="sub-board container"
-    x-data={data}
-    style="text-align: left; width: fit-content;"
->
-    <div>
+<div class="sub-board galley-container" x-data={data} style="text-align: left;">
+    <div style="width: min-content;">
         <a href={"/images/gallery/" + name + "." + extension} target="_blank">
             <img
                 alt=""
@@ -32,8 +27,8 @@ const {
                 src={"/images/gallery/" + name + "." + extension}
                 style="
                 display: grid;
-                max-width: 400px;
-                max-height: 400px;
+                max-width: 200px;
+                max-height: 200px;
                 border-radius: 20px;
             "
             />
@@ -41,7 +36,11 @@ const {
     </div>
     <br />
     <div style="margin-left: 23px;">
-        <h2 x-text="title" style="color: var(--col-bright);"></h2>
+        <a
+            href={"/gallery/" + name}
+            style="--col: var(--col-bright); --col-hover: var(--col-light);"
+            ><h2 x-text="title" style="color: unset;"></h2></a
+        >
         <nobr style="display: flex; gap: 5px; align-items: center;">
             <span x-text="from" style="color: var(--col-light);"></span>
             {

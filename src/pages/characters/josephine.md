@@ -148,9 +148,11 @@ other
 </table>
 
 - the symbols in her eyes will light up when in an "overwhelmed" state, like being nervous or scared, not exactly when actually overwhelmed tho.
+- she is [haven](/characters/haven)'s daughter, i needed to give her some family because i thought it was cool
 - she runs a <i>teeny tiny</i> bit faster than the average human. she can also jump a bit higher. don't blame me, blame bunny stereotypes.
 - you will not believe me when i say i made this character thanks to <a href="https://store.steampowered.com/app/322170/">geometry dash</a>. <img src="/characters/josephine/fuck.png" width="30" title="josie in square game"/>
 - she's a bit shy, and doesn't talk much; doesn't mean she doesn't like you though.
+- in love with [jasmine](/characters/jasmine). she's gay for her
 - she got her eye symbols from a very important part of her life which will be explained in the future. **not now though, since the "story" isn't final.**
 
 </section>

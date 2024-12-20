@@ -149,7 +149,7 @@ a:active {
 }
 
 button {
-    box-shadow: 0px 4px 0px var(--col-dark);
+    box-shadow: 0px 4px 0px var(--col-shadow);
 }
 
 button:disabled {
@@ -170,6 +170,7 @@ details,
 textarea {
     --col: var(--col-dim);
     --col-hover: var(--col-bright);
+    --col-shadow: var(--col-dark);
 
     margin: 8px;
     border: none;

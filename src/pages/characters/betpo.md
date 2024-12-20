@@ -131,6 +131,11 @@ other
 </tr>
 
 <tr>
+    <td class="name">identity</td>
+    <td>i have no idea. but prefers to be referred as a male tho</td>
+</tr>
+
+<tr>
     <td class="name">favorites</td>
     <td>
 

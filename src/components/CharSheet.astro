@@ -1,4 +1,6 @@
 ---
+import ColorButton from "./ColorButton.astro";
+
 interface Props {
     char?: string;
     data?: string;
@@ -28,7 +30,7 @@ const { char = "betty", data = 'imgsub: "what ???", colors: ["#000000"]' } =
         bottom: 0px;
     }
 
-    .sheet-colors {
+    .sheet-color-palette {
         margin: 8px;
         border-radius: 100%;
         min-width: 2.92em;
@@ -36,12 +38,6 @@ const { char = "betty", data = 'imgsub: "what ???", colors: ["#000000"]' } =
         max-width: 2.92em;
         max-height: 2.92em;
         color: rgba(0, 0, 0, 0%);
-    }
-
-    .sheet-colors:hover,
-    .sheet-colors:focus {
-        color: #fff;
-        font-weight: bolder;
     }
 </style>
 <div
@@ -76,7 +72,7 @@ const { char = "betty", data = 'imgsub: "what ???", colors: ["#000000"]' } =
         <div class="sheet-color-cont">
             <button
                 title="palette (click to show / hide)"
-                class="sheet-colors"
+                class="sheet-color-palette"
                 style="background-color: #c66;"
                 x-on:click="show_cols = !show_cols"
             >
@@ -85,15 +81,7 @@ const { char = "betty", data = 'imgsub: "what ???", colors: ["#000000"]' } =
             <div style="display: block;" x-show="show_cols">
                 <template x-for="col in colors">
                     <div>
-                        <button
-                            class="sheet-colors"
-                            x-bind:style="'border: 2px dashed #000; margin-top: 0; background-color: ' + col"
-                            x-bind:alt="col"
-                            x-bind:title="col"
-                            x-on:click="navigator.clipboard.writeText(col)"
-                        >
-                            <p style="margin: -16px;">📋</p>
-                        </button>
+                        <ColorButton color="col" />
                         <br />
                     </div>
                 </template>
