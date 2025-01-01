@@ -92,15 +92,14 @@ var featured = data.feat || [];
                 <h2 style="text-align: center;">
                     {featured.length > 0 ? "featured characters:" : ""}
                 </h2>
-                <div class="container" style="gap: 24px">
+                <div
+                    style={"text-align: center; max-width: calc(200px * 5); margin: auto;"}
+                >
                     {
                         featured.map((b) => (
-                            <CharButton
-                                size={200}
-                                char={b.name}
-                                color={b.color}
-                                outline={b.outline}
-                            />
+                            <div style="display: inline-block;margin: 5px;">
+                                <CharButton size={200} char={b} />
+                            </div>
                         ))
                     }
                 </div>

@@ -3,16 +3,8 @@
     "title": "merry crisis (christmas 2024)",
     "desc": "it fucking sucks",
     "feat": [
-        {
-            "name": "josephine",
-            "color": "#f36",
-            "outline": "#e5f7eb"
-        },
-        {
-            "name": "betpo",
-            "color": "#f63",
-            "outline": "#fffaf4"
-        }
+        "josephine",
+        "betpo"
     ],
     "link": [
         [

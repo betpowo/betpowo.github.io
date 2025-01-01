@@ -9,16 +9,8 @@
         ]
     ],
     "feat": [
-        {
-            "name": "betpo",
-            "color": "#f63",
-            "outline": "#fffaf4"
-        },
-        {
-            "name": "josephine",
-            "color": "#f36",
-            "outline": "#e5f7eb"
-        }
+        "betpo",
+        "josephine"
     ],
     "extension": "gif"
 }

@@ -1,16 +1,26 @@
 ---
 interface Props {
     char?: string;
-    color?: string;
-    outline?: string;
     size?: number;
 }
-const {
-    char = "betty",
-    color = "#966",
-    outline = "#ffc",
-    size = 210,
-} = Astro.props;
+const { char = "betty", size = 210 } = Astro.props;
+
+var fuck = {
+    color: "#966",
+    outline: "#ffc",
+};
+try {
+    // when running on dev mode
+    fuck = await import(`../../public/characters/${char}/button.json`);
+} catch (e) {
+    // console.log(e);
+    try {
+        fuck = await import(`../../characters/${char}/button.json`);
+    } catch (e) {
+        console.warn(`/characters/${char}/button.json is missing!`);
+    }
+}
+const { color, outline } = fuck;
 ---
 
 <div

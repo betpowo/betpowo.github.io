@@ -3,12 +3,8 @@
     "title": "happy birthday daniel !!!",
     "desc": "he's so cool and awesome i love him",
     "feat": [
-        {},
-        {
-            "name": "daniel",
-            "color": "#8b56a3",
-            "outline": "#f1ffe1"
-        }
+        "betty",
+        "daniel"
     ],
     "link": [
         [

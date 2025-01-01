@@ -11,31 +11,29 @@ const categories = [
 	{
 		name: "main characters",
 		desc: 'the characters i\'ll probably put on the spotlight often, expect a lot of content with them.\n<br>\n<span style="font-size: 17px; color: var(--col-dim);">and with a lot, i mean, a <i>lot.</i> :3</span>',
-		chars: [
-			{ name: "betpo", color: "#f63", outline: "#fffaf4" },
-			{ name: "josephine", color: "#f36", outline: "#e5f7eb" },
-		],
+		chars: ["betpo", "josephine"],
 	},
 	{
 		name: "other characters",
 		desc: "the characters i have that i don't use a lot, and/or have little to no importance or whatever.",
 		chars: [
-			{ name: "marco", color: "#c33", outline: "#ffc" },
-			{ name: "fish", color: "#f66", outline: "#ffc" },
-			{ name: "kinne", color: "#ffd16d", outline: "#fffebf" },
-			{ name: "nori", color: "#cf6", outline: "#ffc" },
-			{ name: "sprout", color: "#093", outline: "#f2ffe7" },
-			{ name: "carlos", color: "#69f", outline: "#cff" },
-			{ name: "charles", color: "#60f", outline: "#cfc" },
-			{ name: "glib", color: "#90f", outline: "#ffc" },
-			{ name: "jasmine", color: "#636", outline: "#f8ffdf" },
-			{ name: "haven", color: "#c69", outline: "#e9ffcc" },
+			"marco",
+			"fish",
+			"kinne",
+			"nori",
+			"sprout",
+			"carlos",
+			"charles",
+			"glib",
+			"jasmine",
+			"haven",
+			"epiphany",
 		],
 	},
 	{
 		name: "daniel",
 		desc: "daniel",
-		chars: [{ name: "daniel", color: "#8b56a3", outline: "#f1ffe1" }],
+		chars: ["daniel"],
 	},
 ];
 ---
@@ -132,9 +130,7 @@ const categories = [
 									<div style="display: inline-block;margin: 5px;">
 										<CharButton
 											size={buttonsize}
-											char={b.name}
-											color={b.color}
-											outline={b.outline}
+											char={b}
 										/>
 									</div>
 								))}

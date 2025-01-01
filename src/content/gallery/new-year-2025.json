@@ -3,52 +3,16 @@
     "title": "new year 2025",
     "desc": "2024 was crazy. i hope next year is better. fun fact: i had this drawing done sinec dec 27 LMFAO",
     "feat": [
-        {},
-        {
-            "name": "betpo",
-            "color": "#f63",
-            "outline": "#fffaf4"
-        },
-        {
-            "name": "josephine",
-            "color": "#f36",
-            "outline": "#e5f7eb"
-        },
-        {
-            "name": "glib",
-            "color": "#90f",
-            "outline": "#ffc"
-        },
-        {
-            "name": "nori",
-            "color": "#cf6",
-            "outline": "#ffc"
-        },
-        {
-            "name": "carlos",
-            "color": "#69f",
-            "outline": "#cff"
-        },
-        {
-            "name": "marco",
-            "color": "#c33",
-            "outline": "#ffc"
-        },
-        {
-            "name": "charles",
-            "color": "#60f",
-            "outline": "#cfc"
-        },
-        {
-            "name": "fish",
-            "color": "#f66",
-            "outline": "#ffc"
-        },
-        {
-            "name": "kinne",
-            "color": "#ffd16d",
-            "outline": "#fffebf"
-        }
+        "betty",
+        "betpo",
+        "josephine",
+        "glib",
+        "nori",
+        "carlos",
+        "marco",
+        "charles",
+        "fish",
+        "kinne"
     ],
     "link": [
         [
