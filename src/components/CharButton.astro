@@ -9,12 +9,13 @@ var fuck = undefined;
 try {
     // when running on dev mode
     fuck = await import(`../../public/characters/${character}/button.json`);
-} catch (e) {
-    // console.log(e);
+} catch (_e) {
+    // console.log(_e);
     try {
         fuck = await import(`./characters/${character}/button.json`);
     } catch (e) {
         console.warn(`/characters/${character}/button.json is missing!`);
+        console.error("real error:\n" + e);
     }
 }
 const { color = "#966", outline = "#ffc" } = fuck;
