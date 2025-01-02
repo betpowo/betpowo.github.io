@@ -5,16 +5,27 @@ interface Props {
 }
 const { character = "betty", size = 210 } = Astro.props;
 
-var fuck = undefined;
+const char = Astro.props.character || "betty";
+var fuck = {
+    color: "#966",
+    outline: "#ffc",
+};
+
+console.log(
+    "=================================================================",
+);
+console.log("attempting to build fucking button for " + char);
+console.log(typeof char);
+console.log(char.toString());
 try {
     // when running on dev mode
-    fuck = await import(`../../public/characters/${character}/button.json`);
+    fuck = await import(`../../public/characters/${char}/button.json`);
 } catch (_e) {
     // console.log(_e);
     try {
-        fuck = await import(`./characters/${character}/button.json`);
+        fuck = await import(`./characters/${char}/button.json`);
     } catch (e) {
-        console.warn(`/characters/${character}/button.json is missing!`);
+        console.warn(`/characters/${char}/button.json is missing!`);
         console.error("real error:\n" + e);
     }
 }
