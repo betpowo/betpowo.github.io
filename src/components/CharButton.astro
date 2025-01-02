@@ -1,49 +1,46 @@
 ---
 interface Props {
-    char?: string;
+    character?: string;
     size?: number;
 }
-const { char = "betty", size = 210 } = Astro.props;
+const { character = "betty", size = 210 } = Astro.props;
 
-var fuck = {
-    color: "#966",
-    outline: "#ffc",
-};
+var fuck = undefined;
 try {
     // when running on dev mode
-    fuck = await import(`../../public/characters/${char}/button.json`);
+    fuck = await import(`../../public/characters/${character}/button.json`);
 } catch (e) {
     // console.log(e);
     try {
-        fuck = await import(`../../characters/${char}/button.json`);
+        fuck = await import(`./characters/${character}/button.json`);
     } catch (e) {
-        console.warn(`/characters/${char}/button.json is missing!`);
+        console.warn(`/characters/${character}/button.json is missing!`);
     }
 }
-const { color, outline } = fuck;
+const { color = "#966", outline = "#ffc" } = fuck;
 ---
 
 <div
-    class="char-button"
-    style={`--char-color: ${color}; --hover-color: ${outline}; width: ${size - 16}px; height: ${size - 16}px;`}
-    onclick={`window.location.href = "/characters/${char.toLowerCase()}"`}
+    class="character-button"
+    style={`--character-color: ${color}; --hover-color: ${outline}; width: ${size - 16}px; height: ${size - 16}px;`}
+    onclick={`window.location.href = "/characters/${character.toLowerCase()}"`}
 >
     <object
         style={`--size: ${size - 16}px;`}
         class="bleh"
-        data={`/characters/${char.toLowerCase()}/art.svg`}
-        title={char.toLowerCase()}
+        data={`/characters/${character.toLowerCase()}/art.svg`}
+        title={character.toLowerCase()}
         aria-label=""
         aria-labelledby=""></object>
 </div>
 
 <style lang="scss">
-    .char-button {
+    .character-button {
         aspect-ratio: 1 / 1;
-        --char-color: #966;
+        --character-color: #966;
         --hover-color: #ffc;
         --outline-radius: 3px;
-        --outline-color: var(--char-color);
+        --outline-color: var(--character-color);
         --size: 250px;
         --padding: 16px;
         padding: calc((var(--padding) / 2));
@@ -60,12 +57,12 @@ const { color, outline } = fuck;
         cursor: pointer;
     }
 
-    .char-button:hover {
-        background-color: var(--char-color);
+    .character-button:hover {
+        background-color: var(--character-color);
         box-shadow: inset 0 0 0 6px var(--hover-color);
     }
 
-    .char-button .bleh {
+    .character-button .bleh {
         aspect-ratio: 1 / 1;
 
         width: calc(var(--size) - var(--padding));
@@ -110,7 +107,7 @@ const { color, outline } = fuck;
             );
     }
 
-    .char-button:hover .bleh {
+    .character-button:hover .bleh {
         animation: shake 0.5s;
         animation-iteration-count: 1;
         --outline-radius: 6px;

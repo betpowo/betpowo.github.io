@@ -2,17 +2,19 @@
 import ColorButton from "./ColorButton.astro";
 
 interface Props {
-    char?: string;
+    character?: string;
     data?: string;
 }
-const { char = "betty", data = 'imgsub: "what ???", colors: ["#000000"]' } =
-    Astro.props;
+const {
+    character = "betty",
+    data = 'imgsub: "what ???", colors: ["#000000"]',
+} = Astro.props;
 ---
 
 <style>
     .sheet-container {
         padding: 15px;
-        background-color: var(--col-char-bg);
+        background-color: var(--col-character-bg);
         border-radius: 40px;
         margin: auto;
         max-width: 100vw;
@@ -50,7 +52,7 @@ const { char = "betty", data = 'imgsub: "what ???", colors: ["#000000"]' } =
             <div>
                 <img
                     id="burp"
-                    src={`/characters/${char.toLowerCase()}/sheet.png`}
+                    src={`/characters/${character.toLowerCase()}/sheet.png`}
                     x-bind:alt="imgsub"
                     x-bind:title="imgsub"
                     style="max-width: 80wh;"

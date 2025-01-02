@@ -11,10 +11,16 @@ export default defineConfig({
 		'/josephine': '/characters/josephine',
 		'/glib': '/characters/glib',
 		'/carlos': '/characters/carlos',
+
 		'/marco': '/characters/marco',
 		'/fish': '/characters/fish',
 		'/nori': '/characters/nori',
 		'/charles': '/characters/charles',
+
+		'/jasmine': '/characters/jasmine',
+		'/kinne': '/characters/kinne',
+		'/haven': '/characters/haven',
+		'/epiphany': '/characters/epiphany',
 	},
 	integrations: [alpine(), mdx()],
 	site: 'https://betpowo.github.io'
