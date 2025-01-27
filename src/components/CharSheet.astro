@@ -13,11 +13,18 @@ const {
 
 <style>
     .sheet-container {
+        display: flex;
+        max-width: fit-content;
+        justify-content: flex-start;
+        margin: auto;
+    }
+
+    .sheet {
         padding: 15px;
         background-color: var(--col-char-bg);
         border-radius: 40px;
         margin: auto;
-        max-width: 100vw;
+        max-width: 50vw;
     }
 
     .sheet-color-cont {
@@ -30,6 +37,12 @@ const {
         border: 7px solid var(--col-dim);
         left: 0px;
         bottom: 0px;
+        margin-left: -70px;
+        transition: 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) margin;
+    }
+
+    .sheet-color-cont:hover {
+        margin-left: 0px;
     }
 
     .sheet-color-palette {
@@ -45,29 +58,25 @@ const {
 <div
     id="sheet"
     x-data={"{ " + data + ", show_cols: false }"}
-    style="display: flex; max-width: fit-content; justify-content: flex-start; margin: auto;"
+    class="sheet-container"
 >
-    <div>
-        <div class="sheet-container">
-            <div>
-                <img
-                    id="burp"
-                    src={`/characters/${character.toLowerCase()}/sheet.png`}
-                    x-bind:alt="imgsub"
-                    x-bind:title="imgsub"
-                    style="max-width: 80wh;"
-                />
-                <script>
-                    document.getElementById("burp").onerror = function () {
-                        document
-                            .getElementById("burp")
-                            .setAttribute(
-                                "src",
-                                "/characters/default-sheet.png",
-                            );
-                    };
-                </script>
-            </div>
+    <div style="z-index: 100;">
+        <div style="width: fit-content;">
+            <img
+                id="burp"
+                src={`/characters/${character.toLowerCase()}/sheet.png`}
+                x-bind:alt="imgsub"
+                x-bind:title="imgsub"
+                class="sheet"
+                style="max-width: 80wh;"
+            />
+            <script>
+                document.getElementById("burp").onerror = function () {
+                    document
+                        .getElementById("burp")
+                        .setAttribute("src", "/characters/default-sheet.png");
+                };
+            </script>
         </div>
     </div>
     <div style="margin-left: 15px;">

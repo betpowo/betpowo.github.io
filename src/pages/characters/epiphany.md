@@ -143,6 +143,7 @@ other
 </table>
 
 - not rlly known by anyone in this world. idk
-- my friend jaye came up with the name . i love it
+
+- my friend [jaye](https://twitter.com/slashjaye) came up with the name . i love it
 
 </section>

@@ -104,8 +104,12 @@ var featured = data.feat || [];
                     }
                 </div>
                 <br />
-                <div class="container">
-                    see it on:
+                <h2
+                    style="text-align: center; color: var(--col-dim); margin-bottom: -15px;"
+                >
+                    see it on
+                </h2>
+                <div class="container sub-board">
                     {
                         links.map((a) => (
                             <ContactButton
@@ -122,7 +126,8 @@ var featured = data.feat || [];
                             id +
                             "." +
                             (data.extension || "png")}
-                        ><button>direct</button></a
+                        ><button style="--col: var(--col-main);">direct</button
+                        ></a
                     >
                 </div>
             </div>

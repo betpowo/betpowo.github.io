@@ -121,9 +121,13 @@ other
 </table>
 
 - uhhh uhmmm science
+
 - he is 22 years old
+
 - he once made hydrochloric acid and kept it in a jar for like, months
+
 - he does have a lab coat! i just drew him without one for their reference sheet
+
 - as stated before, he's really insecure of himself, sometimes he thinks how the hell he got to where he is cus he usually sees himself as a coward
 
 </section>

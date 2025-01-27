@@ -111,8 +111,11 @@ other
 </table>
 
 - her favorite drink is acid. straight up
+
 - she is BESTIES!!!!!!!!!!!!!!!!!!!! with [glib](/characters/glib)
+
 - yes, her name comes from "u**nori**ginal"
+
 - she's right in front of you
 
 </section>

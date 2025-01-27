@@ -136,6 +136,7 @@ other
 
 - yes you heard that right, the first betopia character canonically confirmed to not be a virgin. she gave birth to this [stupid fucking creature](/characters/josephine) that i hate <sub style="color: var(--col-dim)">(i love her dearly)</sub>
     - not even i know what [josie](/characters/josephine)'s father looks like yet
+    
 - still looks young af even on her 40s
 
 

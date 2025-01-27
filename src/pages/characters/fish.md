@@ -102,8 +102,11 @@ other
 </table>
 
 - he has god powers and shit (i think? idk he's just powerful but idk how much)
+
 - does not really need water to breathe, how do you think he can keep floating in the air?
+
 - if he were to die, yes, he would just slowly go up
-- he has killed at least <code>1</code> person
+
+- he has killed at least <h2 style="color: var(--col-main);">1</h2> person
 
 </section>

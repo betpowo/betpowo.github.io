@@ -141,8 +141,11 @@ other
 </table>
 
 - her horn broke when falling off the stairs
+
 - literally dating [josie](/characters/josephine). she's gay for her
+
 - the mispelling on her shirt is intentional
+
 - she's a **tyler, the creator** fan i think? i gotta go ask my friend
     - ok they said yes
 

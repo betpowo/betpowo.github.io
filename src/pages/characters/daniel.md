@@ -158,8 +158,11 @@ other
 </table>
 
 - %prn_sub% is cute
+
 - %prn_sub% is handsome
+
 - %prn_sub% is beautiful
+
 - i love %prn_obj%
 
 

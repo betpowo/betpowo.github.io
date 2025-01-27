@@ -149,9 +149,13 @@ other
 </table>
 
 - he does not have gender/sex, he is just a drawing but refers to himself with he/him pronouns
+
 - he is somewhat elastic, so he can sorta change height or the length of his limbs
+
 - he does not
+
 - as said before, he's not serious/mature most of the time, only when it's necessary
+
 - he can quite literally say any meme sound whenever he wants, he's like a soundboard of some sorts. it makes sense because he comes from somewhere very funny but also really weird, which will be shown later. **not now though, since the "story" isn't final.**
 
 

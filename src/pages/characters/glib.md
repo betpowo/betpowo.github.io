@@ -98,6 +98,7 @@ other
 </table>
 
 - she's right behind you
+
 - she's best friends with [nori](/characters/nori)
 
 </section>

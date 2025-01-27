@@ -137,8 +137,11 @@ other
 
 - it's pronounced <code>/kɪn/</code>
     - coming from the word "kinematic", refering to movement and shit (i am sooo good at names /s)
+
 - she isn't really female she's just a robot
+
 - kinda besties with [sprout](/characters/sprout)? idk i thought it would be cute
+
 - she hates herself for her inability to stop whatever she starts doing. i feel you man
 
 </section>
