@@ -33,6 +33,7 @@ const { color = "#966", outline = "#ffc" } = fuck;
 ---
 
 <div
+    x-data="{}"
     class="character-button"
     style={`--character-color: ${color}; --hover-color: ${outline}; width: ${size - 16}px; height: ${size - 16}px;`}
     onclick={`window.location.href = "/characters/${character.toLowerCase()}"`}

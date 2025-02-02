@@ -1,5 +1,6 @@
 ---
 // Component Imports
+import Alpine from "alpinejs";
 import CharButton from "../components/CharButton.astro";
 import Footer from "../components/Footer.astro";
 import Header from "../components/Header.astro";
@@ -18,7 +19,11 @@ for (var bleh in import.meta.glob("/public/characters/*/sheet.png")) {
 // console.log(chars);
 
 function getCharList() {
-	console.log("randomizing..");
+	// yall hate fun
+	// how do i do this in normal alpine if "i" doesnt work
+	// on CharButton for some reason???
+
+	/*console.log("randomizing..");
 	var result = [];
 	while (result.length < 3) {
 		var chosen = chars[Math.round(Math.random() * (chars.length - 1))];
@@ -26,8 +31,9 @@ function getCharList() {
 			result.push(chosen);
 		}
 	}
-	return result;
-	// return ["betty", "betpo", "josephine"];
+	return result;*/
+
+	return ["betty", "betpo", "josephine"];
 }
 ---
 
@@ -260,7 +266,28 @@ function getCharList() {
 					<img src="/images/think.png" width="450" />
 				</div>
 			</div>
-			<div class="board" style="grid-column: 1 / 4; grid-row: 2 / 2;">
+			<div
+				class="board"
+				x-data={`{
+					getCharList: () => {
+					const chars = [${chars.map((a) => {
+						return '"' + a + '"';
+					})}];
+					console.log(chars);
+					console.log("randomizing..");
+					var result = [];
+					while (result.length < 3) {
+						var chosen = chars[Math.round(Math.random() * (chars.length - 1))];
+						if (!result.includes(chosen)) {
+							result.push(chosen);
+						}
+					}
+					return result;
+					// return ["betty", "betpo", "josephine"];
+				}
+			}`}
+				style="grid-column: 1 / 4; grid-row: 2 / 2;"
+			>
 				<h1>i have characters !</h1>
 				<br />
 				i love character design, and i rlly want to get good at it, take
