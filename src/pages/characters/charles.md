@@ -46,7 +46,11 @@ id: 'charles'
         align-content: start;
     }
 
-        .white {
+    li::marker {
+        color: var(--col-main);  
+    }
+    
+    .white {
         color: var(--col-bright);
         background-color: var(--col-dark);
         padding: 3px;

@@ -25,62 +25,102 @@ pageIcons.set("contact", "📨");
         justify-content: left;
         max-width: fit-content;
     }
+
+    .warning {
+        animation: warning 0.7s cubic-bezier(0.19, 1, 0.22, 1);
+    }
+
+    .warned {
+        animation: warned-tilt 1.3s cubic-bezier(0.175, 0.885, 0.32, 1.275)
+            forwards;
+        transform-origin: 0% 0%;
+    }
+
+    @keyframes warning {
+        0% {
+            top: 100%;
+        }
+        100% {
+            top: 0%;
+        }
+    }
+
+    @keyframes warned-tilt {
+        0% {
+            rotate: 0deg;
+        }
+        40% {
+            top: 0%;
+            animation-timing-function: cubic-bezier(0.55, 0.085, 0.68, 0.53);
+        }
+        60% {
+            rotate: 45deg;
+            animation-timing-function: ease-in;
+        }
+        100% {
+            rotate: -23deg;
+            top: 175%;
+        }
+    }
 </style>
-<div
-    id="__header"
-    style="
+<div x-data="{show: false}">
+    <div
+        id="__header"
+        style="
     background-color: var(--header-color);
     border-bottom: 3px solid var(--header-logo-color-2);
     height: fit-content;
     margin-top: 0;
     top: 0;
     text-align: left;
-    z-index: 600000;
     "
->
-    <!-- one thousillion -->
-    <div style="align-items: center; display: flex; padding: 15px;">
-        <a href="/" target="_parent">
-            <div style="translate: 0px 4px;">
-                <!-- yes I KNOW ITS STUpid but this is just so i can have an easier way to control its colors -->
-                <HeaderLogo />
-            </div>
-        </a>
-        <div
-            id="kill"
-            class="container"
-            style="padding-left: 19px; display: none;"
-            x-data="{ open: false }"
-        >
-            <button
-                style="--col: var(--header-logo-color-2); font-size: 36px; width: 60px; height: 60px; margin: 0;"
-                x-on:click="open = !open;"
-            >
-                <span style="translate: 0px 15px;" x-text="open ? '↓' : '↑'"
-                ></span>
-            </button>
-            <!-- span abuse -->
+    >
+        <!-- one thousillion -->
+        <div style="align-items: center; display: flex; padding: 15px;">
+            <a href="/" target="_parent">
+                <div style="translate: 0px 4px;">
+                    <!-- yes I KNOW ITS STUpid but this is just so i can have an easier way to control its colors -->
+                    <HeaderLogo />
+                </div>
+            </a>
             <div
-                style="display:flex; font-size: 25px; padding-left: 25px; align-items: center;"
+                id="kill"
+                class="container"
+                style="padding-left: 19px; display: none;"
+                x-data="{ open: false }"
             >
-                <span
-                    id="url-icon"
-                    style="color: var(--header-logo-color-2); font-size: 40px; padding-right: 20px;"
+                <button
+                    style="--col: var(--header-logo-color-2); font-size: 36px; width: 60px; height: 60px; margin: 0;"
+                    x-on:click="open = !open;"
                 >
-                    {
-                        pageIcons.get(
-                            Astro.url.toString().split("://")[1].split("/")[1],
-                        )
-                    }
-                </span><span id="url-name" style="letter-spacing: 2px;"
-                    >home</span
+                    <span style="translate: 0px 15px;" x-text="open ? '↓' : '↑'"
+                    ></span>
+                </button>
+                <!-- span abuse -->
+                <div
+                    style="display:flex; font-size: 25px; padding-left: 25px; align-items: center;"
                 >
-            </div>
-            <div
-                id="FUCK"
-                x-show="open"
-                x-cloak
-                style="
+                    <span
+                        id="url-icon"
+                        style="color: var(--header-logo-color-2); font-size: 40px; padding-right: 20px;"
+                    >
+                        {
+                            pageIcons.get(
+                                Astro.url
+                                    .toString()
+                                    .split("://")[1]
+                                    .split("/")[1],
+                            )
+                        }
+                    </span><span id="url-name" style="letter-spacing: 2px;"
+                        >home</span
+                    >
+                </div>
+                <div
+                    id="FUCK"
+                    x-show="open"
+                    x-cloak
+                    style="
             opacity: 0%;
             width: max-content;
             max-width: 200px;
@@ -95,80 +135,178 @@ pageIcons.set("contact", "📨");
             border-top-left-radius: 0px;
             translate: -7px 50px;
             z-index: 500000;"
-            >
-                {
-                    [
-                        "characters",
-                        "projects",
-                        "gallery",
-                        "fun",
-                        "comms",
-                        "contact",
-                    ].map((a, idx) => (
-                        <a href={"/" + a}>
-                            <button
-                                title={a}
-                                class="header"
-                                style="width: 100%; margin: 2px; margin-left: 0px; text-align: left; border-radius: 25px"
-                            >
-                                {pageIcons.get(a) + " " + a}
-                            </button>
-                        </a>
-                    ))
+                >
+                    {
+                        [
+                            "characters",
+                            "projects",
+                            "gallery",
+                            "fun",
+                            "comms",
+                            "contact",
+                        ].map((a, idx) => (
+                            <a href={"/" + a}>
+                                <button
+                                    title={a}
+                                    class="header"
+                                    style="width: 100%; margin: 2px; margin-left: 0px; text-align: left; border-radius: 25px"
+                                >
+                                    {pageIcons.get(a) + " " + a}
+                                </button>
+                            </a>
+                        ))
+                    }
+                </div>
+            </div>
+            <img src="/images/qstn.png" alt="" height="69px" class="eminem" />
+        </div>
+        <script>
+            var _div = document.getElementById("FUCK");
+
+            for (const child of _div.children) {
+                child.innerHTML = child.innerHTML.replace("&amp;", "&");
+            }
+
+            var url = window.location.pathname;
+            var urls = url.split("/");
+            var urln = document.getElementById("url-name");
+
+            var urli = document.getElementById("url-icon");
+            urli.innerHTML = urli.innerHTML.replace("&amp;", "&");
+
+            if (urls[1] == "") urls[1] = "home";
+            if (urls.at(-1) == "") urls.pop();
+            urln.innerHTML = "";
+
+            console.log(urls);
+            var curUrl = "";
+            urls.map((a) => {
+                curUrl += a + "/";
+                if (a != "") {
+                    urln.innerHTML +=
+                        '<a href="' +
+                        curUrl +
+                        '"><span style="color: var(--header-logo-color-2)">' +
+                        a +
+                        " &gt; </span></a>";
                 }
+            });
+
+            var index = 0;
+            for (const child of urln.children) {
+                index += 1;
+                if (index == urls.length - 1) {
+                    var thing = child.children[0];
+                    thing.innerHTML = thing.innerHTML.replace(" &gt; ", "");
+                    if (thing) {
+                        thing.style.setProperty(
+                            "color",
+                            "var(--header-logo-color-1)",
+                        );
+                        thing.style.setProperty("font-weight", "900");
+                    }
+                }
+            }
+
+            document
+                .getElementById("kill")
+                .style.setProperty("display", "inherit");
+            _div.style.setProperty("opacity", "100%");
+        </script>
+
+        <template
+            x-init="			
+    if (new URL(document.referrer).origin == window.location.origin) {
+        show = true;
+    }
+    "
+        ></template>
+    </div>
+    <div
+        class="warning"
+        x-cloak
+        x-show="!show"
+        x-transition:leave="warned"
+        style="
+        position: fixed;
+        top: 0; left: 0;
+        z-index: 9999999;
+        background-color: var(--col-bg);
+        width: 100%; height: 100%;"
+    >
+        <div
+            style="
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 100%;
+                height: 100%;
+            "
+        >
+            <div
+                style="display: flex; justify-content: center; align-items: center;"
+            >
+                <div class="board" style="background-color: var(--col-dim);">
+                    <img
+                        src="/images/warn.png"
+                        alt="15+ only!"
+                        height="100px"
+                        style="float: right;
+                cursor:no-drop;
+                margin-left: auto;"
+                    />
+
+                    <h1 style="color: #f36">watch out bro</h1>
+                    <br />
+                    this website may contain stuff that's only suitable for <span
+                        style="color: #cff;">15+</span
+                    >
+                    year olds...
+                    <br />
+                    <br />
+                    <h2>stuff may include:</h2>
+                    <div
+                        class="sub-board"
+                        style="overflow-y: auto; margin-bottom: 30px; width: calc(100% - 80px); max-height: 130px; font-size: 28px; background-color: var(--col-dark);"
+                    >
+                        <span style="color: #f36">💢 swearing (constant)</span>
+                        <p style="color: #f66">
+                            🚺 concerning amounts of women
+                        </p>
+                        <p style="color: #f96">💞 mentions of relationships</p>
+                        <p style="color: #fc6">🏳‍🌈 mentions of lgbtq+</p>
+                        <p style="color: #ff6">🦔 carlos</p>
+                        <p style="color: #cf6">
+                            💔 a lot of mentions of me hating my work
+                        </p>
+                        <p style="color: #9f6">🎇 flashing lights?</p>
+                        <p style="color: #6f6">
+                            💦 not family-friendly humor sometimes? i'm unsure
+                        </p>
+                        <p style="color: #3f6">🗑️ generally just a bad site</p>
+                    </div>
+                    you've been warned.
+                    <br /><br />
+                    <nobr
+                        ><button
+                            @click="show = true;"
+                            style="--col: var(--col-dark); --col-hover: var(--col-main); width: 30%;"
+                            >ok bro</button
+                        >
+                        <button
+                            onclick="
+                        if (history.length <= 1) {
+                            window.close();
+                            return;
+                        }
+                        history.back();
+                        "
+                            style="--col: var(--col-light); --col-hover: var(--col-dark); width: 63%;"
+                            >nah i'm leavin</button
+                        ></nobr
+                    >
+                </div>
             </div>
         </div>
-        <img src="/images/qstn.png" alt="" height="69px" class="eminem" />
     </div>
-    <script>
-        var _div = document.getElementById("FUCK");
-
-        for (const child of _div.children) {
-            child.innerHTML = child.innerHTML.replace("&amp;", "&");
-        }
-
-        var url = window.location.pathname;
-        var urls = url.split("/");
-        var urln = document.getElementById("url-name");
-
-        var urli = document.getElementById("url-icon");
-        urli.innerHTML = urli.innerHTML.replace("&amp;", "&");
-
-        if (urls[1] == "") urls[1] = "home";
-        if (urls.at(-1) == "") urls.pop();
-        urln.innerHTML = "";
-
-        console.log(urls);
-        var curUrl = "";
-        urls.map((a) => {
-            curUrl += a + "/";
-            if (a != "") {
-                urln.innerHTML +=
-                    '<a href="' +
-                    curUrl +
-                    '"><span style="color: var(--header-logo-color-2)">' +
-                    a +
-                    " &gt; </span></a>";
-            }
-        });
-
-        var index = 0;
-        for (const child of urln.children) {
-            index += 1;
-            if (index == urls.length - 1) {
-                var thing = child.children[0];
-                thing.innerHTML = thing.innerHTML.replace(" &gt; ", "");
-                if (thing) {
-                    thing.style.setProperty(
-                        "color",
-                        "var(--header-logo-color-1)",
-                    );
-                    thing.style.setProperty("font-weight", "900");
-                }
-            }
-        }
-
-        document.getElementById("kill").style.setProperty("display", "inherit");
-        _div.style.setProperty("opacity", "100%");
-    </script>
 </div>

@@ -46,7 +46,11 @@ id: 'sprout'
         align-content: start;
     }
 
-        .white {
+    li::marker {
+        color: var(--col-dim);  
+    }
+
+    .white {
         color: var(--col-bright);
         background-color: var(--col-dark);
         padding: 3px;

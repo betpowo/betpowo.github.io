@@ -39,6 +39,10 @@ id: 'fish'
         background-color: var(--col-main);
     }
 
+    li::marker {
+        color: var(--col-dim);  
+    }
+
     td.name {
         background-color: var(--col-dark);
         color: var(--col-main);

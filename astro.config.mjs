@@ -4,6 +4,7 @@ import mdx from "@astrojs/mdx";
 
 // https://astro.build/config
 export default defineConfig({
+	output: 'server',
 	redirects: {
 		'/betty': '/characters/betty',
 		'/daniel': '/characters/daniel',
@@ -22,6 +23,11 @@ export default defineConfig({
 		'/haven': '/characters/haven',
 		'/epiphany': '/characters/epiphany',
 	},
-	integrations: [alpine(), mdx()],
+	markdown: {
+		smartypants: false
+	},
+	integrations: [alpine(), mdx({
+		extendMarkdownConfig: true
+	})],
 	site: 'https://betpowo.github.io'
 });

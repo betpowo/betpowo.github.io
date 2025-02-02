@@ -15,8 +15,10 @@ colors: [
 ]
 id: 'glib'
 ---
-<style>
-    :root {
+import CharSheet from "../../components/CharSheet.astro";
+
+<style>{
+    `:root {
         --header-color: #003;
         --header-logo-color-1: #ffc;
         --header-logo-color-2: #90f;
@@ -35,7 +37,11 @@ id: 'glib'
     }    
 
     td {
-        background-color: var(--col-main);
+        background-color: var(--col-light);
+    }
+
+    li::marker {
+        color: var(--col-main);  
     }
 
     td.name {
@@ -43,20 +49,18 @@ id: 'glib'
         color: var(--col-main);
         box-shadow: unset;
         align-content: start;
-    }
-</style>
+    }`
+}</style>
+
 
 she comes from [this tweet](https://twitter.com/betpowo/status/1748079459830202740/)
 
-<hr>
+<hr />
 <section id="appearance" style="text-align: left">
 
 <div style="background-color: var(--col-main); padding: 16px; border-radius: 15px; width: fit-content;">
 <a href="#appearance">
-<span style="font-size: 30px; color: var(--col-light)">#</span>
-<span style="font-weight: bolder; font-size: 50px; margin: 0; margin-top: 30px; color: var(--col-bright)">
-appearance
-</span>
+<span style="font-size: 30px; color: var(--col-light)">#&nbsp;</span><span style="font-weight: bolder; font-size: 50px; margin: 0; margin-top: 30px; color: var(--col-bright)">appearance</span>
 </a>
 </div>
 
@@ -64,19 +68,17 @@ she has <span class="white">**white**</span> skin and <span style="color: #90f;"
 
 </section>
 
-<hr>
+<hr />
+
 <section id="other" style="text-align: left">
 
 <div style="background-color: var(--col-main); padding: 16px; border-radius: 15px; width: fit-content;">
 <a href="#other">
-<span style="font-size: 30px; color: var(--col-light)">#</span>
-<span style="font-weight: bolder; font-size: 50px; margin: 0; margin-top: 30px; color: var(--col-bright)">
-other
-</span>
+<span style="font-size: 30px; color: var(--col-light)">#&nbsp;</span><span style="font-weight: bolder; font-size: 50px; margin: 0; margin-top: 30px; color: var(--col-bright)">other</span>
 </a>
 </div>
 
-<br>
+<br />
 <table>
 
 <tr>
@@ -101,4 +103,38 @@ other
 
 - she's best friends with [nori](/characters/nori)
 
+- as of 2025, she now has an official "human design"<sup><a href="#references">[1]</a></sup> (canon?? or not?? idk):
+    <div style="--col-char-bg: #cf6;"><CharSheet character="glib" sheetid="sheet-human" data='imgsub: "what ???", colors: [
+    "#330066",
+    "#470885",
+    "#9900ff",
+    "#ff66cc",
+    "#ffe192",
+    "#ffffcc",
+    "#663366",
+    "#ff99cc",
+    "#ffccff"]'/></div>
+    
+    <sub style="color: var(--col-main);">* she wears a friendship bracelet on her <span style="color: #cf6;">left</span> hand</sub>
+    <br/><br/>
+    - whether to draw the normal one or the human one is up to you, both are cool
+
+</section>
+
+<hr/>
+<section id="references" style="text-align: left">
+
+<div style="background-color: var(--col-main); padding: 16px; border-radius: 15px; width: fit-content;">
+<a href="#references">
+<span style="font-size: 30px; color: var(--col-light)">#&nbsp;</span><span style="font-weight: bolder; font-size: 50px; margin: 0; margin-top: 30px; color: var(--col-bright)">references</span>
+</a>
+</div>
+
+<ol>
+<li>
+
+["get real" (twitter.com)](https://twitter.com/betpowo/status/1880675578321555850)
+
+</li>
+</ol>
 </section>

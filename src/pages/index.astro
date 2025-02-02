@@ -5,10 +5,34 @@ import Footer from "../components/Footer.astro";
 import Header from "../components/Header.astro";
 import "../styles/global.css";
 const buttonsize = 150;
+const chars = [];
+// How do i do it
+for (var bleh in import.meta.glob("/public/characters/*/sheet.png")) {
+	chars.push(
+		bleh
+			.replace("/characters/", "")
+			.replace("/sheet.png", "")
+			.replace("/public", ""),
+	);
+}
+// console.log(chars);
+
+function getCharList() {
+	console.log("randomizing..");
+	var result = [];
+	while (result.length < 3) {
+		var chosen = chars[Math.round(Math.random() * (chars.length - 1))];
+		if (!result.includes(chosen)) {
+			result.push(chosen);
+		}
+	}
+	return result;
+	// return ["betty", "betpo", "josephine"];
+}
 ---
 
 <!-- blehhh -->
-<html lang="en" x-data="{show:false}">
+<html lang="en" x-data="{show: false}">
 	<head>
 		<meta charset="utf-8" />
 		<meta name="generator" content={Astro.generator} />
@@ -77,198 +101,136 @@ const buttonsize = 150;
 					margin-bottom: 24px;
 				}
 			}
+
+			.bounce-icon {
+				--speed-x: 1s;
+				--speed-y: 3s;
+				position: absolute;
+				animation:
+					var(--speed-x) bounce-x linear infinite alternate,
+					var(--speed-y) bounce-y linear infinite alternate;
+			}
+
+			@keyframes bounce-x {
+				from {
+					left: 0;
+				}
+				to {
+					left: 100%;
+				}
+			}
+			@keyframes bounce-y {
+				from {
+					top: 0;
+				}
+				to {
+					top: calc(100% - 75px);
+				}
+			}
 		</style>
 	</head>
-	<div x-show="!show">
-		<body>
-			<div style="margin: 40px;">
-				<div
-					style="display: flex; justify-content: center; align-items: center;"
-				>
-					<div
-						class="board"
-						style="background-color: var(--col-dim);"
-					>
-						<img
-							src="/images/warn.png"
-							alt="15+ only!"
-							height="100px"
-							style="float: right;
-						cursor:no-drop;
-						margin-left: auto;"
-						/>
-
-						<h1 style="color: #f36">watch out bro</h1>
-						<br />
-						this website may contain stuff that's only suitable for <span
-							style="color: #cff;">15+</span
-						>
-						year olds...
-						<br />
-						<br />
-						<h2>stuff may include:</h2>
-						<div
-							class="sub-board"
-							style="overflow-y: auto; margin-bottom: 30px; width: calc(100% - 80px); max-height: 130px; font-size: 28px; background-color: var(--col-dark);"
-						>
-							<span style="color: #f36"
-								>💢 swearing (constant)</span
-							>
-							<p style="color: #f66">
-								🚺 concerning amounts of women
-							</p>
-							<p style="color: #f96">
-								💞 mentions of relationships
-							</p>
-							<p style="color: #fc6">🏳‍🌈 mentions of lgbtq+</p>
-							<p style="color: #ff6">🦔 carlos</p>
-							<p style="color: #cf6">
-								💔 a lot of mentions of me hating my work
-							</p>
-							<p style="color: #9f6">🎇 flashing lights?</p>
-							<p style="color: #6f6">
-								💦 not family-friendly humor sometimes? i'm
-								unsure
-							</p>
-							<p style="color: #3f6">
-								🗑️ generally just a bad site
-							</p>
-						</div>
-						you've been warned.
-						<br /><br />
-						<nobr
-							><button
-								@click="show = true;"
-								style="--col: var(--col-dark); --col-hover: var(--col-main); width: 30%;"
-								>ok bro</button
-							>
-							<button
-								onclick="
-								if (history.length <= 1) {
-									window.close();
-									return;
-								}
-								history.back();
-								"
-								style="--col: var(--col-light); --col-hover: var(--col-dark); width: 63%;"
-								>nah i'm leavin</button
-							></nobr
-						>
-					</div>
-				</div>
-			</div>
-		</body>
-	</div>
-	<div x-show="show" x-cloak>
-		<Header />
-		<body>
-			<div style="margin: 23px;" class="awesome-grid">
-				<div
-					class="board"
-					style="grid-column: 1 / 4; grid-row: 1 / 1; background-color: var(--col-bright); color: var(--col-dark);"
-				>
-					<a href="/characters/betty">
-						<img
-							style="float: right;"
-							src="/images/eepy.png"
-							width="150"
-						/>
-					</a>
-					<h1>betopia</h1>
-					<br /><br />
-					<p
-						style="color:var(--col-main);
+	<Header />
+	<body>
+		<div style="margin: 23px;" class="awesome-grid">
+			<div
+				class="board"
+				style="grid-column: 1 / 4; grid-row: 1 / 1; background-color: var(--col-bright); color: var(--col-dark);"
+			>
+				<a href="/characters/betty">
+					<img
+						style="float: right;"
+						src="/images/eepy.png"
+						width="150"
+					/>
+				</a>
+				<h1>betopia</h1>
+				<br /><br />
+				<p
+					style="color:var(--col-main);
 		margin-top: -2%;
 		font-size: 78%;
 		font-weight: bolder;
 		font-family: 'Helvetica';"
-					>
-						/ bət oʊ piə / - noun
-					</p>
-					<br />
-					<li>
-						a very lazy, sleepy girl wandering around on the
-						internet
-					</li>
-					<br />
-					<li>a stupid person who doesn't deserve anything</li>
-					<br />
-					<div style="align-items: baseline;">
-						<p style="color:var(--col-main); text-align: center;">
-							visit my silly's website Now. Immediately.
-						</p>
-						<a href="https://skruyo.com" class="container">
-							<img
-								src="/images/dnl.png"
-								width="49"
-								alt="daniel"
-								loading="lazy"
-								title="daniel"
-							/>
-							<img
-								src="/images/dnl.png"
-								width="49"
-								alt="daniel"
-								loading="lazy"
-								title="daniel"
-							/>
-							<img
-								src="/images/dnl.png"
-								width="49"
-								alt="daniel"
-								loading="lazy"
-								title="daniel"
-							/>
-						</a>
-					</div>
-				</div>
-				<div
-					class="board"
-					style="grid-column: 4 / 6; grid-row: 1 / 3; overflow-x: hidden;"
 				>
-					<h1>hi !!!</h1>
-					<br />
-					my name is betty, or betopia, if you prefer.
-					<br />i mainly draw and stuff, i'm bad at it, but i still
-					have fun with it.
-					<br />
-					<br />
-					i can kinda code too... i just don't have any examples near me
-					right now, but trust me i have alot of
-					<a
-						href="https://haxeflixel.com"
-						target="_blank"
-						style="--col: #f96; --col-hover: #3f9;">haxeflixel</a
-					>
-					knowledge, and i'm currently learning <a
-						href="https://godotengine.org"
-						target="_blank"
-						style="--col: #3cf; --col-hover: #cff;">godot</a
-					>! <sub style="color: var(--col-dim)"
-						>(i've been too lazy to learn godot these days)</sub
-					>
-					<br />
-					<br />
-					<br />
-					<div
-						style="
+					/ bət oʊ piə / - noun
+				</p>
+				<br />
+				<li>
+					a very lazy, sleepy girl wandering around on the internet
+				</li>
+				<br />
+				<li>a stupid person who doesn't deserve anything</li>
+				<br />
+				<div style="align-items: baseline;">
+					<p style="color:var(--col-main); text-align: center;">
+						visit my silly's website Now. Immediately.
+					</p>
+					<a href="https://skruyo.com" class="container">
+						<img
+							src="/images/dnl.png"
+							width="49"
+							alt="daniel"
+							loading="lazy"
+							title="daniel"
+						/>
+						<img
+							src="/images/dnl.png"
+							width="49"
+							alt="daniel"
+							loading="lazy"
+							title="daniel"
+						/>
+						<img
+							src="/images/dnl.png"
+							width="49"
+							alt="daniel"
+							loading="lazy"
+							title="daniel"
+						/>
+					</a>
+				</div>
+			</div>
+			<div
+				class="board"
+				style="grid-column: 4 / 6; grid-row: 1 / 3; overflow-x: hidden;"
+			>
+				<h1>hi !!!</h1>
+				<br />
+				my name is betty, or betopia, if you prefer.
+				<br />i mainly draw and stuff, i'm bad at it, but i still have
+				fun with it.
+				<br />
+				<br />
+				i can kinda code too... i just don't have any examples near me right
+				now, but trust me i have alot of
+				<a
+					href="https://haxeflixel.com"
+					target="_blank"
+					style="--col: #f96; --col-hover: #3f9;">haxeflixel</a
+				>
+				knowledge, and i'm currently learning <a
+					href="https://godotengine.org"
+					target="_blank"
+					style="--col: #3cf; --col-hover: #cff;">godot</a
+				>! <sub style="color: var(--col-dim)"
+					>(i've been too lazy to learn godot these days)</sub
+				>
+				<br />
+				<br />
+				<br />
+				<div
+					style="
 			position: relative;
 			bottom: 0px;
 			transform: translateX(-25%);
 			max-width: 300px;
 			margin:auto;
 			"
+				>
+					<div
+						style="float: inline-end; width: 100%; margin: auto; position: absolute; translate: 30px 60px;"
 					>
-						<div
-							style="float: inline-end; width: 100%; margin: auto; position: absolute; translate: 30px 60px;"
-						>
-							<p
-								class="marquee-warning"
-								style="position: absolute; color: var(--col-main); translate: 70px 30px; opacity: 25%;"
-							>
-								TODO: remake these bouncing icons so they don't
-								use <code>&lt;marquee&gt;</code>
-							</p>
+						<div style="width: 400px; height: 200px;">
 							{
 								[
 									"godot",
@@ -277,116 +239,115 @@ const buttonsize = 150;
 									"fl",
 									"animate",
 								].map((a, idx) => (
-									<marquee
-										style="position: absolute;"
-										behavior="alternate"
-										scrollamount={(
-											(0.5 + idx * 0.3 - Math.random()) *
-											20
-										).toString()}
-										width="400"
-									>
-										<marquee
-											behavior="alternate"
-											direction="down"
-											scrollamount={(
-												(0.5 +
-													idx * 0.5 -
-													Math.random()) *
-												30
-											).toString()}
-											height="199"
-										>
-											<img
-												src={
-													"/images/icons/" +
-													a +
-													".png"
-												}
-												width="75"
-												style="pointer-events: none;"
-											/>
-										</marquee>
-									</marquee>
+									<img
+										src={"/images/icons/" + a + ".png"}
+										width="75"
+										class="bounce-icon"
+										style={
+											"pointer-events: none;" +
+											"--speed-x: " +
+											(0.1 + Math.random()) * 2 +
+											"s;" +
+											"--speed-y: " +
+											(0.1 + Math.random()) * 2 +
+											"s;"
+										}
+									/>
 								))
 							}
 						</div>
-						<img src="/images/think.png" width="450" />
 					</div>
-				</div>
-				<div class="board" style="grid-column: 1 / 4; grid-row: 2 / 2;">
-					<h1>i have characters !</h1>
-					<br />
-					i love character design, and i rlly want to get good at it, take
-					a look:
-					<br /><br />
-					<div style="text-align: center;">
-						<div class="container" style="gap: 6px;">
-							<CharButton size={buttonsize} />
-							<CharButton size={buttonsize} character="betpo" />
-							<CharButton
-								size={buttonsize}
-								character="josephine"
-							/>
-						</div>
-						<button
-							style="font-size: 32px; width: 520px; padding: 20px; border-radius: 40px;"
-							onclick="window.location.href = '/characters'"
-						>
-							👥 view all &gt;
-						</button>
-					</div>
-				</div>
-
-				<div class="board" style="grid-column: 1 / 6; grid-row: 3 / 3;">
-					<h1>i make stuff !</h1>
-					<br />
-					...when i'm not lazy.
-					<br />
-					i've got like 5 personal projects unfinished, you can see which
-					ones i have finished here:
-					<button
-						style="padding: 20px; font-size: 30px; border-radius: 40px;"
-						onclick="window.location.href = '/projects'"
-					>
-						📦 projects &gt;
-					</button>
-				</div>
-
-				<div class="board" style="grid-column: 1 / 3; grid-row: 4 / 4;">
-					<h1>everyone says i draw good ! i don't draw good !</h1>
-					<br />
-					proof:
-					<button
-						style="padding: 20px; font-size: 30px; border-radius: 40px;"
-						onclick="window.location.href = '/gallery'"
-					>
-						🖼️ gallery &gt;
-					</button>
-				</div>
-
-				<div
-					class="board"
-					style="grid-column: 3 / 6; grid-row: 4 / 4; background-color: #60f;"
-				>
-					<h1 style="color: #cff;">I LOVE MY SILLY !!!</h1>
-					<div style="text-align: center;">
-						<a href="https://skruyo.com"
-							><img alt="kiss" src="/images/kiss.gif" /></a
-						>
-					</div>
-				</div>
-				<div
-					class="board"
-					style="grid-column: 1 / 6; grid-row: 5 / 6; text-align: center;"
-				>
-					<img style="border-radius: 20px;" src="/images/css.gif" />
+					<img src="/images/think.png" width="450" />
 				</div>
 			</div>
-			<br />
-		</body>
-		<Footer />
-	</div>
+			<div class="board" style="grid-column: 1 / 4; grid-row: 2 / 2;">
+				<h1>i have characters !</h1>
+				<br />
+				i love character design, and i rlly want to get good at it, take
+				a look:
+				<br /><br />
+				<div style="text-align: center;">
+					<div class="container" style="gap: 6px;">
+						{
+							getCharList().map((a) => (
+								<CharButton size={buttonsize} character={a} />
+							))
+						}
+					</div>
+					<button
+						style="font-size: 32px; width: 520px; padding: 20px; border-radius: 40px;"
+						onclick="window.location.href = '/characters'"
+					>
+						👥 view all &RightArrow;
+					</button>
+				</div>
+			</div>
 
+			<div class="board" style="grid-column: 1 / 6; grid-row: 3 / 3;">
+				<h1>i make stuff !</h1>
+				<br />
+				...when i'm not lazy.
+				<br />
+				i've got like 5 personal projects unfinished, you can see which ones
+				i have finished here:
+				<button
+					style="padding: 20px; font-size: 30px; border-radius: 40px;"
+					onclick="window.location.href = '/projects'"
+				>
+					📦 projects &RightArrow;
+				</button>
+			</div>
 
+			<div class="board" style="grid-column: 1 / 3; grid-row: 4 / 4;">
+				<h2>i draw ! not rlly good tho</h2>
+				<br />
+				<div
+					class="sub-board"
+					style="display: flex; padding: 10px; overflow-x: scroll; width: calc(100% - 80px);"
+				>
+					{
+						[
+							"daniel.png",
+							"spooky.gif",
+							"christmas.png",
+							"funkin.png",
+						].map((a) => (
+							<img
+								src={"/images/gallery/" + a}
+								height="150"
+								style="border-radius: 20px; margin: 5px;"
+								loading="lazy"
+							/>
+						))
+					}
+				</div>
+				<button
+					style=" width: 100%; padding: 20px; font-size: 20px; border-radius: 40px;"
+					onclick="window.location.href = '/gallery'"
+				>
+					🖼️ gallery &RightArrow;
+				</button>
+			</div>
+
+			<div
+				class="board"
+				style="grid-column: 3 / 6; grid-row: 4 / 4; background-color: #60f;"
+			>
+				<h1 style="color: #cff;">I LOVE MY SILLY !!!</h1>
+				<div style="text-align: center;">
+					<a href="https://skruyo.com"
+						><img alt="kiss" src="/images/kiss.gif" /></a
+					>
+				</div>
+			</div>
+			<div
+				class="board"
+				style="grid-column: 1 / 6; grid-row: 5 / 6; text-align: center;"
+			>
+				<img style="border-radius: 20px;" src="/images/css.gif" />
+			</div>
+		</div>
+		<br />
+	</body>
+	<Footer />
 </html>

@@ -45,7 +45,10 @@ id: 'marco'
         align-content: start;
     }
 
-    
+    li::marker {
+        color: var(--col-main);  
+    }
+
     .white {
         color: var(--col-bright);
         background-color: var(--col-dark);

@@ -15,7 +15,9 @@ colors: [
 ]
 id: 'nori'
 ---
-<style>
+import CharSheet from "../../components/CharSheet.astro";
+
+<style>{`
     :root {
         --header-color: #003;
         --header-logo-color-1: #ffc;
@@ -45,7 +47,11 @@ id: 'nori'
         box-shadow: unset;
         align-content: start;
     }
-</style>
+
+    li::marker {
+        color: var(--col-dim);  
+    }
+`}</style>
 
 > "nori exists because i came up with her"
 
@@ -58,15 +64,12 @@ she's a playful individual, although kinda a bit of a brat sometimes
 
 she's somewhat toxic to other people, beware
 
-<hr>
+<hr />
 <section id="appearance" style="text-align: left">
 
 <div style="background-color: var(--col-main); padding: 16px; border-radius: 15px; width: fit-content;">
 <a href="#appearance">
-<span style="font-size: 30px; color: var(--col-light)">#</span>
-<span style="font-weight: bolder; font-size: 50px; margin: 0; margin-top: 30px; color: var(--col-dim)">
-appearance
-</span>
+<span style="font-size: 30px; color: var(--col-light)">#&nbsp;</span><span style="font-weight: bolder; font-size: 50px; margin: 0; margin-top: 30px; color: var(--col-dim)">appearance</span>
 </a>
 </div>
 
@@ -74,19 +77,16 @@ appearance
 she has uhh 2 hair things? buns? ponytails? i can't google rn <sub style="color: var(--col-dim)">(dec / 16 / 2024)</sub> they stole the fucking fiber optic cables from my wifi providers (???)
 </section>
 
-<hr>
+<hr />
 <section id="other" style="text-align: left">
 
 <div style="background-color: var(--col-main); padding: 16px; border-radius: 15px; width: fit-content;">
 <a href="#other">
-<span style="font-size: 30px; color: var(--col-light)">#</span>
-<span style="font-weight: bolder; font-size: 50px; margin: 0; margin-top: 30px; color: var(--col-dim)">
-other
-</span>
+<span style="font-size: 30px; color: var(--col-light)">#&nbsp;</span><span style="font-weight: bolder; font-size: 50px; margin: 0; margin-top: 30px; color: var(--col-dim)">other</span>
 </a>
 </div>
 
-<br>
+<br/>
 <table>
 
 <tr>
@@ -118,4 +118,39 @@ other
 
 - she's right in front of you
 
+- as of 2025, she now has an official "human design"<sup><a href="#references">[1]</a></sup> (canon?? or not?? idk):
+    <div style="--col-char-bg: #90f;"><CharSheet character="nori" sheetid="sheet-human" data='imgsub: "what ???", colors: [
+    "#333366",
+    "#666699",
+    "#9999ff",
+    "#e3ffff",
+    "#ccff66",
+    "#669999",
+    "#ff6699",
+    "#ffcc99",
+    "#bf6570",
+    "#af5a74",
+    "#a64a66"]'/></div>
+    
+    <sub style="color: var(--col-main);">* she wears a friendship bracelet on her <span style="color: #90f;">right</span> hand</sub>
+    <br/><br/>
+    - whether to draw the normal one or the human one is up to you, both are cool
+
+</section>
+<hr/>
+<section id="references" style="text-align: left">
+
+<div style="background-color: var(--col-main); padding: 16px; border-radius: 15px; width: fit-content;">
+<a href="#references">
+<span style="font-size: 30px; color: var(--col-light)">#&nbsp;</span><span style="font-weight: bolder; font-size: 50px; margin: 0; margin-top: 30px; color: var(--col-dim)">references</span>
+</a>
+</div>
+
+<ol>
+<li>
+
+["get real" (bsky.app)](https://bsky.app/profile/betpowo.skruyo.dev/post/3lfzuv2omgs2a)
+
+</li>
+</ol>
 </section>

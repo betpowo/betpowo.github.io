@@ -1,9 +1,12 @@
 ---
+export const prerender = false;
+
 import CharSheet from "../components/CharSheet.astro";
 import Footer from "../components/Footer.astro";
 import Header from "../components/Header.astro";
 import "../styles/global.css";
 const { frontmatter } = Astro.props;
+var sheetID = Astro.url.searchParams.get("sheet") || "sheet";
 ---
 
 <html lang="en">
@@ -24,7 +27,7 @@ const { frontmatter } = Astro.props;
         />
         <meta content={frontmatter.desc} property="og:description" />
         <meta
-            content={"/characters/" + frontmatter.id + "/sheet.png"}
+            content={"/characters/" + frontmatter.id + "/" + sheetID + ".png"}
             property="og:image"
         />
         <meta
