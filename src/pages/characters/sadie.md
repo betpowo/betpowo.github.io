@@ -1,38 +1,38 @@
 ---
 layout: '../../layouts/character.astro'
 
-display: 'sprout'
-sub: 'one with nature'
-desc: 'sprout is just a person. idk. they look like a bush tho'
-embed_color: '#009933'
+display: 'sadie'
+sub: 'shapey kinda thing'
+desc: "i got nothing to say about this one, other than i made her without thinking"
+embed_color: '#3300cc'
 
-imgsub: "green"
+imgsub: 'sharp as hell'
 colors: [
-    '#2b0054',
-    '#76149b',
-    '#009933',
-    '#f2ffe7',
-    '#dd9248',
+    '#000066',
+    '#3300cc',
+    '#99ffcc',
+    '#ffffcc',
+    '#cc0099',
 ]
-id: 'sprout'
+id: 'sadie'
 ---
 <style>
     :root {
-        --header-color: #003;
-        --header-logo-color-1: #f2ffe7;
-        --header-logo-color-2: #093;
+        --header-color: #006;
+        --header-logo-color-1: #9fc;
+        --header-logo-color-2: #30c;
 
-        --col-bright: #f2ffe7;
-        --col-light: #3c6;
-        --col-main: #093;
-        --col-dim: #069;
-        --col-dark: #036;
+        --col-bright: #ffc;
+        --col-light: #9fc;
+        --col-main: #c09;
+        --col-dim: #30c;
+        --col-dark: #009;
 
-        --col-bg: #033;
-        --col-char-bg: #3c6;
+        --col-bg: #006;
+        --col-char-bg: #039;
 
-        --col-link: #093;
-        --col-link-hover: #3c6
+        --col-link: #9fc;
+        --col-link-hover: #ffc
     }    
 
     td {
@@ -46,8 +46,12 @@ id: 'sprout'
         align-content: start;
     }
 
+    em, i {
+        color: var(--col-dim);
+    }
+
     li::marker {
-        color: var(--col-dim);  
+        color: var(--col-main);  
     }
 
     .white {
@@ -63,9 +67,11 @@ id: 'sprout'
         padding: 3px;
         border-radius: 5px;
     }
+
+
 </style>
 
-they like plants so much they Became the plant (i think?)
+she comes from [this tweet](https://twitter.com/betpowo/status/1840517374099021824)
 
 <hr>
 <section id="appearance" style="text-align: left">
@@ -79,13 +85,9 @@ appearance
 </a>
 </div>
 
-green hair, purple top with white shorts and purple shoes.
+as you can tell already, she does Not have an outline. its made of simple geomtric shapes which obviously doesnt fit my style but i made it work somehow.
 
-and also glasses, why not
-
-they also have purple eyes if you haven't noticed it, and also a flower and uhhh what the fuck is that on their head, it looks like a plant but i'm not sure if it is
-
-also has "vines" dropping from their hair cus it's cool okay don't judge me
+she has blue hair and mint "skin" *(is it even skin???)*, has red eyes and wears blue shirt and blue thigh-highs cus god damn i needed at least 1 character with them.   also has a tail cus why not
 
 </section>
 
@@ -105,35 +107,12 @@ other
 <table>
 
 <tr>
-    <td class="name">nicknames</td>
-    <td>
-
-(idk)
-
-</td>
-</tr>
-
-<tr>
     <td class="name">pronouns</td>
-    <td>they</td>
-</tr>
-<tr>
-    <td class="name">sexuality</td>
-    <td>asexual</td>
-</tr>
-<tr>
-    <td class="name">identity</td>
-    <td>non-binary!!</td>
+    <td>she, it</td>
 </tr>
 
 </table>
 
-- plants
-
-- they have met [charles](/characters/charles) once, in relation to science stuff maybe
-
-- besties with [kinne](/characters/kinne) most likely
-
-- their favorite color: <span class="white" style="background-color: #f63">orange</span>
+- originally made her having my brain gone auto-pilot cus god damn i am unoriginal. i hate creative block and art block and everything block ughhh
 
 </section>

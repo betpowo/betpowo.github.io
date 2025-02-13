@@ -75,9 +75,7 @@ var sheetID = Astro.url.searchParams.get("sheet") || "sheet";
             </div>
         </div>
         <div style="margin: auto; display: flex;">
-            <button onclick="window.location.href = '/characters'"
-                >👥 home</button
-            >
+            <button onclick="javascript:history.back()">← back</button>
             <button
                 onclick="globalThis.scrollTo({ top: 0, left: 0, behavior: 'smooth' });"
                 >↑ top</button

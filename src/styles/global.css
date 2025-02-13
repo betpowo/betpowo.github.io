@@ -121,32 +121,32 @@ th {
 a {
     --col: var(--col-link);
     --col-hover: var(--col-link-hover);
+    text-decoration: underline;
+    text-decoration-style: dotted;
+    text-decoration-line: underline;
+    text-decoration-thickness: 0.17em;
+    transition: 0.1s color, 0.2s font-weight;
 }
 
 a:link {
     color: var(--col);
-    font-weight: bold;
     background-color: transparent;
-    text-decoration: none;
 }
 
 a:visited {
     color: var(--col);
     background-color: transparent;
-    text-decoration: none;
 }
 
 a:hover {
     color: var(--col-hover);
     background-color: transparent;
-    text-decoration: none;
-    font-weight: bold;
+    font-weight: bolder;
 }
 
 a:active {
     color: var(--col-hover);
     background-color: transparent;
-    text-decoration: none;
 }
 
 b {

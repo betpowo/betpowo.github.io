@@ -81,7 +81,7 @@ she's not good at communication just like me
 <section id="appearance" style="text-align: left">
 
 <div style="background-color: var(--col-main); padding: 16px; border-radius: 15px; width: fit-content;">
-<a href="#appearance">
+<a style="text-decoration: none;" href="#appearance">
 <span style="font-size: 30px; color: var(--col-light)">#</span>
 <span style="font-weight: bolder; font-size: 50px; margin: 0; margin-top: 30px; color: var(--col-bright)">
 appearance
@@ -91,7 +91,7 @@ appearance
 
 she was meant to be unlikeable, that's why she looks so... questionable.
 
-she has <span class="black">**black**</span> hair with a heart-shaped bit floating above it<a href="#references"><sup>[1]</sup></a>, <span style="color:#4d647d;">**blue**</span> eyes and uhh... <span style="color:#ffd5aa;">**skin-colored**</span> skin <i>(hispanic?)</i>, i don't know how to describe it. she wears this <span style="color:#966;">**coffee**</span> colored... "cold shoulder top" thingy with a cute drawing of a bunny sleeping on it...
+she has <span class="black">**black**</span> hair with a heart-shaped bit floating above it<a style="text-decoration: none;" href="#references"><sup>[1]</sup></a>, <span style="color:#4d647d;">**blue**</span> eyes and uhh... <span style="color:#ffd5aa;">**skin-colored**</span> skin <i>(hispanic?)</i>, i don't know how to describe it. she wears this <span style="color:#966;">**coffee**</span> colored... "cold shoulder top" thingy with a cute drawing of a bunny sleeping on it...
 
 <i>(or is it a dog? we will never know...)</i>
 
@@ -107,7 +107,7 @@ no, i'm not gonna wear brown contacts either.
 <section id="other" style="text-align: left">
 
 <div style="background-color: var(--col-main); padding: 16px; border-radius: 15px; width: fit-content;">
-<a href="#other">
+<a style="text-decoration: none;" href="#other">
 <span style="font-size: 30px; color: var(--col-light)">#</span>
 <span style="font-weight: bolder; font-size: 50px; margin: 0; margin-top: 30px; color: var(--col-bright)">
 other
@@ -145,8 +145,8 @@ other
 <tr>
     <td class="name">favorites</td>
     <td>
-<a href='https://skruyo.com' target="_blank" style="color: unset; font-size: 40px;"><ul><li id="him" >
-skry &lt;3 <img src="/images/dnl.png" height="50"/>
+<a href='https://skruyo.com' target="_blank" style="color: unset; font-size: 40px;"><ul><li >
+<span id="him" >skry &lt;3</span><img src="/images/dnl.png" height="50"/>
 </li></ul></a>
 <script>
 var hue = 0;
@@ -185,7 +185,7 @@ var idk = setInterval(function() {
 <section id="references" style="text-align: left">
 
 <div style="background-color: var(--col-main); padding: 16px; border-radius: 15px; width: fit-content;">
-<a href="#references">
+<a style="text-decoration: none;" href="#references">
 <span style="font-size: 30px; color: var(--col-light)">#</span>
 <span style="font-weight: bolder; font-size: 50px; margin: 0; margin-top: 30px; color: var(--col-bright)">
 references

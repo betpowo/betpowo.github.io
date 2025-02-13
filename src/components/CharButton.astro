@@ -7,8 +7,8 @@ const { character = "betty", size = 210 } = Astro.props;
 
 const char = Astro.props.character || "betty";
 var fuck = {
-    color: "#966",
-    outline: "#ffc",
+    color: "#333",
+    outline: "#ccc",
 };
 
 /*console.log(
@@ -29,29 +29,65 @@ try {
         console.error("real error:\n" + e);
     }
 }
-const { color = "#966", outline = "#ffc" } = fuck;
+const { color = "#333", outline = "#ccc" } = fuck;
 ---
 
-<div
-    x-data="{}"
-    class="character-button"
-    style={`--character-color: ${color}; --hover-color: ${outline}; width: ${size - 16}px; height: ${size - 16}px;`}
-    onclick={`window.location.href = "/characters/${character.toLowerCase()}"`}
->
-    <object
-        style={`--size: ${size - 16}px;`}
-        class="bleh"
-        data={`/characters/${character.toLowerCase()}/art.svg`}
-        title={character.toLowerCase()}
-        aria-label=""
-        aria-labelledby=""></object>
+<div class="character-container">
+    <div
+        class="character-glow"
+        style={"--color: " + color + "; width: " + size + "px;"}
+    >
+    </div>
+    <div style="z-index: 1;">
+        <div
+            class="character-button"
+            style={`--character-color: ${color}; --hover-color: ${outline}; width: ${size - 16}px; height: ${size - 16}px;`}
+            onclick={`window.location.href = "/characters/${character.toLowerCase()}"`}
+        >
+            <img
+                style={`--size: ${size - 16}px;`}
+                class="bleh"
+                src={`/characters/${character.toLowerCase()}/art.svg`}
+                title={character.toLowerCase()}
+                onerror="this.onerror = null; this.src = `/characters/default-art.svg`"
+            />
+        </div>
+    </div>
 </div>
-
 <style lang="scss">
+    .character-container {
+        display: flex;
+        width: fit-content;
+        height: fit-content;
+    }
+
+    .character-glow {
+        --color: #333;
+        --blur: 0px;
+        --extrude: 0px;
+        aspect-ratio: 1 / 1;
+        //pointer-events: none;
+        mix-blend-mode: screen;
+        position: absolute;
+        translate: 0% 0%;
+        border-radius: 20px;
+        transition: 0.6s all;
+        transition-timing-function: cubic-bezier(0.19, 1, 0.22, 1);
+        background-color: var(--color);
+        box-shadow: 0 0 var(--blur) var(--extrude) var(--color);
+        filter: contrast(200%);
+        opacity: 50%;
+    }
+
+    .character-container:hover .character-glow {
+        --blur: 8px;
+        --extrude: 3px;
+    }
+
     .character-button {
         aspect-ratio: 1 / 1;
-        --character-color: #966;
-        --hover-color: #ffc;
+        --character-color: #333;
+        --hover-color: #ccc;
         --outline-radius: 3px;
         --outline-color: var(--character-color);
         --size: 250px;

@@ -51,7 +51,7 @@ import "../styles/global.css";
 			<span id="lame" style="color: #f36; cursor: help;">this page</span> isn't
 			real. go home
 			<br /><br />
-			<div x-cloak x-show="Math.random() > 0.3;">
+			<div x-cloak x-show="Math.random() < 0.2;">
 				<a
 					href="/fun/stickers"
 					@click="document.getElementById('body').animate([{opacity: '100%'},{opacity: '0%'}], {duration:500});"

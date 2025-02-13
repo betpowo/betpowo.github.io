@@ -83,7 +83,7 @@ id: 'haven'
 <section id="appearance" style="text-align: left">
 
 <div style="background-color: var(--col-main); padding: 16px; border-radius: 15px; width: fit-content;">
-<a href="#appearance">
+<a style="text-decoration: none;" href="#appearance">
 <span style="font-size: 30px; color: var(--col-light)">#</span>
 <span style="font-weight: bolder; font-size: 50px; margin: 0; margin-top: 30px; color: var(--col-bright)">
 appearance
@@ -101,7 +101,7 @@ just like her daughter [josephine](/characters/josephine), she has the iconic bu
 <section id="other" style="text-align: left">
 
 <div style="background-color: var(--col-main); padding: 16px; border-radius: 15px; width: fit-content;">
-<a href="#other">
+<a style="text-decoration: none;" href="#other">
 <span style="font-size: 30px; color: var(--col-light)">#</span>
 <span style="font-weight: bolder; font-size: 50px; margin: 0; margin-top: 30px; color: var(--col-bright)">
 other

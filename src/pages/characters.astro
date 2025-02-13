@@ -1,39 +1,70 @@
 ---
 // Component Imports
 import CharButton from "../components/CharButton.astro";
+import ColorButton from "../components/ColorButton.astro";
 import Footer from "../components/Footer.astro";
 import Header from "../components/Header.astro";
 import "../styles/global.css";
 
-const buttonsize = 222;
+const buttonsize = 215;
 const columns = 4;
+
+// TODO: sorting (alphabetical, hue, by batch, by category(default))
+var chars = [
+	//{ name: "unknown", batch: 0 },
+	{ name: "betty", batch: -1, category: "sona" },
+	{ name: "marco", batch: 2 },
+	{ name: "melissa", batch: 3 },
+	{ name: "fish", batch: 2 },
+	{ name: "pipit", batch: 3 },
+	{ name: "betpo", batch: 1, category: "main" },
+	{ name: "kinne", batch: 2 },
+	{ name: "stoopy", batch: 3 },
+	{ name: "nori", batch: 2 },
+	{ name: "sprout", batch: 2 },
+	{ name: "mae", batch: 3 },
+	{ name: "carlos", batch: 1 },
+	{ name: "sadie", batch: 3 },
+	{ name: "charles", batch: 2 },
+	{ name: "glib", batch: 1 },
+	{ name: "daniel", batch: 1, category: "daniel" },
+	{ name: "jasmine", batch: 3 },
+	{ name: "haven", batch: 3 },
+	{ name: "epiphany", batch: 3 },
+	{ name: "josephine", batch: 1, category: "main" },
+];
+
+function fetchByCategory(cat?: string) {
+	var res = [];
+	for (var j in chars) {
+		console.log(j);
+		var i = chars[j];
+		if (
+			(Object.hasOwn(i, "category") && i.category == cat) ||
+			(!Object.hasOwn(i, "category") && cat == undefined)
+		) {
+			res.push(i.name);
+		}
+	}
+	console.log(res);
+	return res;
+}
+
 const categories = [
 	{
 		name: "main characters",
 		desc: 'the characters i\'ll probably put on the spotlight often, expect a lot of content with them.\n<br>\n<span style="font-size: 17px; color: var(--col-dim);">and with a lot, i mean, a <i>lot.</i> :3</span>',
-		chars: ["betpo", "josephine"],
+		chars: fetchByCategory("main"),
 	},
 	{
 		name: "other characters",
 		desc: "the characters i have that i don't use a lot, and/or have little to no importance or whatever.",
-		chars: [
-			"marco",
-			"fish",
-			"kinne",
-			"nori",
-			"sprout",
-			"carlos",
-			"charles",
-			"glib",
-			"jasmine",
-			"haven",
-			"epiphany",
-		],
+		chars: fetchByCategory(),
 	},
 	{
 		name: "daniel",
 		desc: "daniel",
-		chars: ["daniel"],
+		chars: fetchByCategory("daniel"),
 	},
 ];
 ---
@@ -97,7 +128,17 @@ const categories = [
 						onclick="var char = document.getElementById('iput').value.toLowerCase(); window.location.href = char != '' ? '/characters/' + char : '/characters/betty'"
 						>go</button
 					>
-					<br /><br />or choose from below:
+					<br /><br />
+					or choose from below:
+					<br /><br />
+					<!-- soon... -->
+
+					<!-- sort by: <select>
+						<option>category</option>
+						<option>alphabetical</option>
+						<option>hue</option>
+						<option>batch</option>
+					</select> -->
 				</div>
 				<br /><br />
 				{
@@ -140,5 +181,6 @@ const categories = [
 			</div>
 		</div>
 	</body>
+
+	<Footer />
 </html>
-<Footer />

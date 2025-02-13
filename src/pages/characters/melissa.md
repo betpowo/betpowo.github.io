@@ -1,38 +1,45 @@
 ---
 layout: '../../layouts/character.astro'
 
-display: 'marco'
-sub: 'lesa go'
-desc: "marco is a tiny player character from a spanish parody game of the original super mario series (i don't own that!) that is filled with shitposts to the brim, carlos<a href='#references'><sup>[1]</sup></a> comes from this type of game too"
-embed_color: '#cc3333'
+display: 'melissa'
+sub: 'Sample Text'
+desc: "i didn't make this character! they were given to me by my friend bird, this was originaly their oc but they gave it to me for some reason"
+embed_color: '#cc3366'
 
-imgsub: 'wahu'
+imgsub: 'girlypop (what does this mean)'
 colors: [
-    '#4b005b',
-    '#cc3333',
-    '#ffcc99',
+    '#330033',
+    '#660033',
+    '#cc3366',
     '#ffffcc',
+    '#00a6a4',
+    '#333366',
+    '#c28f6b',
 ]
-id: 'marco'
+id: 'melissa'
 ---
 <style>
     :root {
-        --header-color: #200;
+        --header-color: #202;
         --header-logo-color-1: #ffc;
-        --header-logo-color-2: #c33;
+        --header-logo-color-2: #c36;
 
         --col-bright: #ffc;
-        --col-light: #f66;
-        --col-main: #c33;
+        --col-light: #f69;
+        --col-main: #c36;
         --col-dim: #603;
-        --col-dark: #301;
+        --col-dark: #303;
 
-        --col-bg: #301;
-        --col-char-bg: #f66;
+        --col-bg: #303;
+        --col-char-bg: #00a6a4;
 
-        --col-link: #c33;
-        --col-link-hover: #f66
+        --col-link: #c36;
+        --col-link-hover: #f69
     }    
+
+    em, i {
+        color: var(--col-main);
+    }
 
     td {
         background-color: var(--col-main);
@@ -66,9 +73,6 @@ id: 'marco'
 
 </style>
 
-he uhhh he jumps around
-
-<hr>
 <section id="appearance" style="text-align: left">
 
 <div style="background-color: var(--col-main); padding: 16px; border-radius: 15px; width: fit-content;">
@@ -80,7 +84,7 @@ appearance
 </a>
 </div>
 
-he has <span style="color: #c33;">**red**</span> shirt, shoes and cap with a lowercase m on it, and <span class="black">**black**</span> hair and overalls <sub style="color: #c33;">(like super mario bros. 3)</sub>, and <span class="white">**white**</span> gloves i think
+green crop top and short jeans, fishnets and red-white shoes. and also the fluffy arm warmers!!!! or whatever they're called
 
 </section>
 
@@ -103,39 +107,28 @@ other
     <td class="name">nicknames</td>
     <td>
 
-- mar
-- maro
-- mamón
+- mel
+- lisa
+
+(insane)
 
 </td>
 </tr>
 
 <tr>
     <td class="name">pronouns</td>
-    <td>he</td>
+    <td>she</td>
+</tr>
+
+<tr>
+    <td class="name">sexuality</td>
+    <td>lesbab</td>
 </tr>
 
 </table>
 
-- he doesn't do it a lot but he can jump to approximately 45 meters in the air
+- she's a rabid sweet eater
+    - > *"if she doesnt have anything sugary she will go rabid dog mode and start biting people"*
+      > - @birdcore_
 
-</section>
-<hr>
-<section id="references" style="text-align: left">
-
-<div style="background-color: var(--col-main); padding: 16px; border-radius: 15px; width: fit-content;">
-<a style="text-decoration: none;" href="#references">
-<span style="font-size: 30px; color: var(--col-light)">#</span>
-<span style="font-weight: bolder; font-size: 50px; margin: 0; margin-top: 30px; color: var(--col-bright)">
-references
-</span>
-</a>
-</div>
-<ol>
-<li>
-
-[carlos - fattest thing alive](/characters/carlos)
-
-</li>
-</ol>
 </section>
