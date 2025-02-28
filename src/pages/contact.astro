@@ -10,7 +10,7 @@ const links = [
 	["twitter", "twitter.com/betpowo", "twit"],
 	["youtube", "youtube.com/c/Betopia_", "tube"],
 	["github", "github.com/betpowo", "git"],
-	["discord", "--betpowo", "disc"],
+	["discord", "discord.gg/s5pdvMTFKY", "disc"],
 	["art fight", "artfight.net/~betpowo", "art"],
 	["straw!", "betpowo.straw.page", "straw"],
 	["gamebanana", "gamebanana.com/members/1830099", "banana"],
@@ -78,6 +78,7 @@ function getLink(ae = "", returnEmpty = false) {
 									<a
 										href={getLink(a[1], true)}
 										target="_blank"
+										style="text-decoration: none;"
 									>
 										<p style="margin: 0;">
 											{getLink(a[1])}
