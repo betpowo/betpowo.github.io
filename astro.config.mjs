@@ -7,8 +7,8 @@ export default defineConfig({
 	// output: 'server',
 	redirects: {
 		'/home': '/',
-		'/[slug]': '/characters/[slug]',
-		'/characters/characters/[...slug]': '/'
+		/*'/[slug]': '/characters/[slug]',
+		'/characters/characters/[...slug]': '/'*/
 	},
 	markdown: {
 		smartypants: false
