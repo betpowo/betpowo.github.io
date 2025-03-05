@@ -74,7 +74,7 @@ var featured = data.feat || [];
     <Header />
     <body>
         <div style="margin: 23px;">
-            <div class="board">
+            <div class="board" style="max-width: 50rem; margin: auto;">
                 <h1>{data.title}</h1>{data.from}
                 <br /><br />
                 <div class="sub-board" style="margin: auto">
@@ -88,12 +88,14 @@ var featured = data.feat || [];
                 </div>
                 <br />
                 <p set:html={data.desc} />
+                <p set:html={data.extra || ""} />
                 <br />
                 <h2 style="text-align: center;">
                     {featured.length > 0 ? "featured characters:" : ""}
                 </h2>
                 <div
-                    style={"text-align: center; max-width: calc(200px * 5); margin: auto;"}
+                    class="sub-board"
+                    style={"text-align: center; max-width: 840px; margin: auto;"}
                 >
                     {
                         featured.map((b) => (

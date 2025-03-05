@@ -1,2 +1,3 @@
+@echo off
+echo :3
 start npm run dev
-start http://localhost:4321/

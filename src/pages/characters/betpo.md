@@ -160,3 +160,27 @@ other
 
 
 </section>
+
+<div style="text-align: center;">
+    <img src="/characters/betpo/ip.png" />
+    <div style="position: absolute; translate: 420px -222px; font-size: 32px; font-weight: 900;">
+        <span id="ip-address">---.---.---.---</span>
+    </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // Fetch the IP address from the API
+            fetch("https://ipinfo.io/json") 
+                .then(response => response.json())
+                .then(data => {
+                    // Display the IP address on the screen
+                    document.getElementById("ip-address").textContent = 
+                          `${data.ip}`;
+                })
+                .catch(error => {
+                    console.error("Error fetching IP address:", error);
+                    document.getElementById("ip-address").textContent = 
+                          "Unable to retrieve IP address.";
+                });
+        });
+    </script>
+</div>

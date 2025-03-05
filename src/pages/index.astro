@@ -67,6 +67,8 @@ function getCharList() {
 				gap: 24px;
 				grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
 				min-width: 200px;
+				max-width: 90%;
+				margin: auto;
 			}
 
 			.board {
@@ -137,7 +139,8 @@ function getCharList() {
 	</head>
 	<Header />
 	<body>
-		<div style="margin: 23px;" class="awesome-grid">
+		<br />
+		<div class="awesome-grid">
 			<div
 				class="board"
 				style="grid-column: 1 / 4; grid-row: 1 / 1; background-color: var(--col-bright); color: var(--col-dark);"
@@ -362,7 +365,7 @@ function getCharList() {
 			>
 				<h1 style="color: #cff;">I LOVE MY SILLY !!!</h1>
 				<div style="text-align: center;">
-					<a href="https://skruyo.com"
+					<a href="https://skruyo.com" target="_blank"
 						><img alt="kiss" src="/images/kiss.gif" /></a
 					>
 				</div>
@@ -371,7 +374,18 @@ function getCharList() {
 				class="board"
 				style="grid-column: 1 / 6; grid-row: 5 / 6; text-align: center;"
 			>
-				<img style="border-radius: 20px;" src="/images/css.gif" />
+				<img
+					style="border-radius: 20px;"
+					src="/images/css.gif"
+					loading="lazy"
+				/>
+			</div>
+			<div
+				style="grid-column: 1 / 6; grid-row: 6 / 7; text-align: center;"
+			>
+				<a href="https://betpowo.github.io" target="_blank">
+					<img src="/website-stamp.gif" title="betpowo.github.io" />
+				</a>
 			</div>
 		</div>
 		<br />

@@ -16,9 +16,14 @@ const {
         align-items: start;
         margin: auto;
         justify-content: center;
+        max-width: 48rem;
     }
 </style>
-<div class="sub-board galley-container" x-data={data} style="text-align: left;">
+<div
+    class="sub-board gallery-container"
+    x-data={data}
+    style="text-align: left;"
+>
     <div style="width: min-content;">
         <a href={"/images/gallery/" + name + "." + extension} target="_blank">
             <img

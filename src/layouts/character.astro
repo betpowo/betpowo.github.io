@@ -17,7 +17,8 @@ var sheetID = Astro.url.searchParams.get("sheet") || "sheet";
             id="favicon"
             rel="icon"
             type="image/svg+xml"
-            href="/favicon.svg"
+            href={"/characters/" + frontmatter.id + "/favicon.svg"}
+            onerror="this.href = '/favicon.svg'"
         />
         <title>{frontmatter.display} - betopia's basement</title>
 
@@ -81,15 +82,6 @@ var sheetID = Astro.url.searchParams.get("sheet") || "sheet";
                 >↑ top</button
             >
         </div>
-        <script define:vars={{ frontmatter }}>
-            const holder = document.createElement("img");
-            holder.src = "/characters/" + frontmatter.id + "/favicon.svg";
-            holder.onload = (a) => {
-                document
-                    .getElementById("favicon")
-                    .setAttribute("href", holder.src);
-            };
-        </script>
         <br />
     </body>
     <Footer />

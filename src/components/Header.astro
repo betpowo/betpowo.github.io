@@ -198,7 +198,7 @@ pageIcons.set("blog", "💬");
             for (const child of urln.children) {
                 index += 1;
                 if (index == urls.length - 1) {
-                    var thing = child.children[0];
+                    var thing = child.firstElementChild as HTMLElement;
                     thing.innerHTML = thing.innerHTML.replace(" &gt; ", "");
                     if (thing) {
                         thing.style.setProperty(
@@ -234,6 +234,7 @@ pageIcons.set("blog", "💬");
         top: 0; left: 0;
         z-index: 9999999;
         background-color: var(--col-bg);
+        color: var(--col-bright);
         width: 100%; height: 100%;"
     >
         <div

@@ -1,0 +1,125 @@
+---
+title: "🎂 my birthday! :D"
+from: "mar / 5 / 2025"
+desc: "i'm old(er) now...ougg"
+---
+import CharButton from '../../components/CharButton.astro'
+
+<style>{`
+    .cool-yt: {
+        transition: width 1s ease-in-out;
+    }
+
+    .f-el {
+        color: #f36;
+    }
+    .f-vl {
+        color: #cf6;
+    }
+`}</style>
+
+{/*<!-- https://developers.google.com/youtube/iframe_api_reference -->*/}
+<div style="margin: auto; text-align: center;">
+    {/*<!-- 1. The <iframe> (and video player) will replace this <div> tag. -->*/}
+    <iframe id="player" width="853" height="480"
+    src="https://www.youtube.com/embed/b9bbPr2dpXA?enablejsapi=1" 
+    frameborder="0" 
+    allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
+    allowfullscreen
+    style="border-radius: 30px; border: 5px solid var(--col-dim);"></iframe>
+
+    <script>{`
+        // 2. This code loads the IFrame Player API code asynchronously.
+        var tag = document.createElement('script');
+        tag.id = 'brahhhh';
+        tag.src = "https://www.youtube.com/iframe_api";
+        var firstScriptTag = document.getElementsByTagName('script')[0];
+        firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+        // 3. This function creates an <iframe> (and YouTube player)
+        //    after the API code downloads.
+
+        var player;
+        function onYouTubeIframeAPIReady() {
+            player = new YT.Player('player', {
+                events: {
+                'onReady': onPlayerReady,
+                'onStateChange': onPlayerStateChange
+                }
+            });
+        }
+
+        // 4. The API will call this function when the video player is ready.
+        function onPlayerReady(event) {
+        // event.target.playVideo();
+        }
+
+        function onPlayerStateChange(event) {
+            if (event.data == YT.PlayerState.BUFFERING) {
+                var frames = 300;
+                var cur = 0;
+                function lerp(a, b, t) {
+                    return a + t * (b - a);
+                }
+                var time = (1 / 24);
+                setInterval(function() {
+                    if (cur > frames) return;
+
+                    cur += 1;
+                    var result = lerp(
+                        parseInt(document.getElementById('player').width), parseInt(document.getElementById('player').height), time*2);
+                    //console.log(result);
+                    document.getElementById('player').width = result;
+                }, time * 1000);
+            }
+        }
+    `}</script>
+</div>
+
+AAUHGUHGHH i need a wheelchair..  /j
+
+anyways yea, today my gift to y'all is this video, something i've never rlly
+advertised on my site at all! i hope you guys like the lil change in content
+i've been planning. although it won't be that frequent
+
+it's a lil reinstrumentation of <a href="https://www.youtube.com/watch?v=XBEz8s-0hnU" target="_blank">Itty Bitty 8-Bit</a> by the goat himself kevin. God bless kevin
+
+---
+
+## other stuff
+- some stuff was tweaked Again  .
+    - [gallery](/gallery) index has a better view which was supposed to have earlier, but didn't
+      because of a typo 
+      <sup>(i put <code>class="<b style="color: var(--col-light);">galley</b>-container"</code> instead of <code>class="<b style="color: var(--col-light);">gallery</b>-container"</code>)</sup>
+
+    - [gallery image view](/gallery/itty-bitty-8-bit) and [home page](/) now have a readable width instead of filling the whole screen
+
+- i was also originally planning to make another remix but instead of a more personal song for me, 
+  <a href="https://www.youtube.com/watch?v=WnMQlwLbec8" target="_blank" style="--col: #f6f; --col-hover: #fcf;">
+    Feliz Cumpleaños <sub style="text-decoration: none;">- Emilo Arvelo</sub>
+  </a>
+  although idk how i would do that in the first place lmao
+
+- changed the discord link in the [contact](/contact) page, so now it links to my discord server..... join..... now....
+
+<br/><br/><br/><br/>
+one more thing..
+
+<div style="margin: auto;text-align:center;">
+    
+    <a href="https://betpowo.github.io" target="_blank">
+        <img src="/website-stamp.gif" title="betpowo.github.io"/>
+    </a>
+    <br/>
+    <code class="sub-board language-html" style="display:inline-block;margin: 0; font-size: 16px;text-align: left; width: fit-content;">
+        &lt;<span class="f-el">a</span> href=<span class="f-vl">"https:{"//"}betpowo.github.io"</span> target=<span class="f-vl">"_blank"</span>&gt;
+        <br/>&nbsp;    &lt;<span class="f-el">img</span> src=<span class="f-vl">"https:{"//"}betpowo.github.io/website-stamp.gif"</span> title=<span class="f-vl">"betpowo.github.io"</span>/&gt;
+        <br/>&lt;/<span class="f-el">a</span>&gt;
+    </code>
+</div>
+
+i know no one's gonna use it, but, just for fun ok... i wanted to fit in... :&lt;
+
+<div style="display: flex; text-align: center; align-items: center; justify-content: center;">
+anyways draw me <CharButton size="50" /> its my birthyda /j/j/j/j/j//j/jj/j/j
+</div>
