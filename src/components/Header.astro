@@ -165,55 +165,57 @@ pageIcons.set("blog", "💬");
         <script>
             var _div = document.getElementById("FUCK");
 
-            for (const child of _div.children) {
-                child.innerHTML = child.innerHTML.replace("&amp;", "&");
-            }
-
-            var url = window.location.pathname;
-            var urls = url.split("/");
-            var urln = document.getElementById("url-name");
-
-            var urli = document.getElementById("url-icon");
-            urli.innerHTML = urli.innerHTML.replace("&amp;", "&");
-
-            if (urls[1] == "") urls[1] = "home";
-            if (urls.at(-1) == "") urls.pop();
-            urln.innerHTML = "";
-
-            console.log(urls);
-            var curUrl = "";
-            urls.map((a) => {
-                curUrl += a + "/";
-                if (a != "") {
-                    urln.innerHTML +=
-                        '<a href="' +
-                        curUrl +
-                        '" style="text-decoration: none;"><span style="color: var(--header-logo-color-2)">' +
-                        a +
-                        " &gt; </span></a>";
+            if (_div) {
+                for (const child of _div.children) {
+                    child.innerHTML = child.innerHTML.replace("&amp;", "&");
                 }
-            });
 
-            var index = 0;
-            for (const child of urln.children) {
-                index += 1;
-                if (index == urls.length - 1) {
-                    var thing = child.firstElementChild as HTMLElement;
-                    thing.innerHTML = thing.innerHTML.replace(" &gt; ", "");
-                    if (thing) {
-                        thing.style.setProperty(
-                            "color",
-                            "var(--header-logo-color-1)",
-                        );
-                        thing.style.setProperty("font-weight", "900");
+                var url = window.location.pathname;
+                var urls = url.split("/");
+                var urln = document.getElementById("url-name");
+
+                var urli = document.getElementById("url-icon");
+                urli.innerHTML = urli.innerHTML.replace("&amp;", "&");
+
+                if (urls[1] == "") urls[1] = "home";
+                if (urls.at(-1) == "") urls.pop();
+                urln.innerHTML = "";
+
+                //console.log(urls);
+                var curUrl = "";
+                urls.map((a) => {
+                    curUrl += a + "/";
+                    if (a != "") {
+                        urln.innerHTML +=
+                            '<a href="' +
+                            curUrl +
+                            '" style="text-decoration: none;"><span style="color: var(--header-logo-color-2)">' +
+                            a +
+                            " &gt; </span></a>";
+                    }
+                });
+
+                var index = 0;
+                for (const child of urln.children) {
+                    index += 1;
+                    if (index == urls.length - 1) {
+                        var thing = child.firstElementChild as HTMLElement;
+                        thing.innerHTML = thing.innerHTML.replace(" &gt; ", "");
+                        if (thing) {
+                            thing.style.setProperty(
+                                "color",
+                                "var(--header-logo-color-1)",
+                            );
+                            thing.style.setProperty("font-weight", "900");
+                        }
                     }
                 }
-            }
 
-            document
-                .getElementById("kill")
-                .style.setProperty("display", "inherit");
-            _div.style.setProperty("opacity", "100%");
+                document
+                    .getElementById("kill")
+                    .style.setProperty("display", "inherit");
+                _div.style.setProperty("opacity", "100%");
+            }
         </script>
 
         <template

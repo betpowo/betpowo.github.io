@@ -8,11 +8,11 @@ import "../styles/global.css";
 const buttonsize = 150;
 const chars = [];
 // How do i do it
-for (var bleh in import.meta.glob("/public/characters/*/sheet.png")) {
+for (var bleh in import.meta.glob("/public/characters/*/button.json")) {
 	chars.push(
 		bleh
 			.replace("/characters/", "")
-			.replace("/sheet.png", "")
+			.replace("/button.json", "")
 			.replace("/public", ""),
 	);
 }
@@ -276,8 +276,8 @@ function getCharList() {
 					const chars = [${chars.map((a) => {
 						return '"' + a + '"';
 					})}];
-					console.log(chars);
-					console.log("randomizing..");
+					//console.log(chars);
+					//console.log("randomizing..");
 					var result = [];
 					while (result.length < 3) {
 						var chosen = chars[Math.round(Math.random() * (chars.length - 1))];

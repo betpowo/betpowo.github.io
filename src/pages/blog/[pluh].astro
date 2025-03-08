@@ -20,7 +20,7 @@ export async function getStaticPaths() {
     // console.log(posts);
 
     return posts.map((a) => {
-        console.log(a);
+        //console.log(a);
         return {
             params: {
                 pluh: a.slug,
@@ -38,7 +38,7 @@ const { Content } = await post.render();
 
 const id = Astro.params.pluh;
 
-console.log(data);
+//console.log(data);
 ---
 
 <html lang="en">
@@ -76,7 +76,10 @@ console.log(data);
                     {data.from}
                     <h1 style="color: var(--col-light);">{data.title}</h1>
                     <hr style="background-color: var(--col-main);" />
-                    <p set:html={data.desc || "(no description provided)"} />
+                    <p
+                        set:html={data.desc || "(no description provided)"}
+                        style="margin-bottom: 0;"
+                    />
                 </div>
                 <br />
 

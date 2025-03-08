@@ -1,0 +1,154 @@
+---
+import "../../styles/global.css";
+
+const chars = [];
+//for (var bleh in import.meta.glob("/public/characters/*/button.json")) {
+for (var bleh in import.meta.glob([
+    "/src/pages/characters/*.md",
+    "/src/pages/characters/*.mdx",
+])) {
+    chars.push(
+        bleh
+            .replace(".mdx", "")
+            .replace(".md", "")
+            .replace("/src/pages/characters/", ""),
+    );
+}
+//console.log(chars);
+---
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="generator" content={Astro.generator} />
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <title>betopia is thinking...</title>
+        <style>
+            .spinner {
+                animation: rotato 10s linear infinite;
+            }
+            @keyframes rotato {
+                to {
+                    rotate: 360deg;
+                }
+            }
+        </style>
+    </head>
+    <body style="text-align: center; overflow: hidden;">
+        <div
+            style="
+		margin: 0;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		-ms-transform: translate(-50%, -50%);
+		transform: translate(-50%, -50%);
+		"
+        >
+            <div>
+                <img
+                    class="spinner"
+                    src="/characters/dice.png"
+                    title="thinking..."
+                />
+            </div>
+        </div>
+        <img
+            src="/characters/eraser.png"
+            height="40"
+            id="eraser"
+            style="position: absolute; left: -500px; bottom: 105vh;"
+        />
+        <script define:vars={{ chars }}>
+            function pick(a) {
+                return a[Math.floor(1 + Math.random() * chars.length) - 1];
+            }
+            setTimeout(
+                () => {
+                    var grah = pick(chars);
+                    //console.log(grah);
+                    window.location.pathname = "/characters/" + grah;
+                },
+                2000 + Math.random() * 3000,
+            );
+            var eraser = document.getElementById("eraser");
+            if (eraser) {
+                var delta = 1 / 48;
+                var xx,
+                    yy,
+                    rotat = 0;
+                function set(x, y, r) {
+                    xx = x;
+                    yy = y;
+                    rotat = r;
+
+                    eraser.style.left = x + "px";
+                    eraser.style.bottom = y + "px";
+                    eraser.style.rotate = r + "deg";
+                }
+                set(
+                    -500,
+                    140 + Math.random() * 400,
+                    (Math.random() - 0.5) * 2 * 180,
+                );
+                var intensityY = 200 + Math.random() * 100;
+                setTimeout(
+                    () => {
+                        console.warn("deploying The eraser.");
+                        setInterval(() => {
+                            set(
+                                xx + delta * 2000,
+                                yy + delta * intensityY,
+                                rotat + delta * 360,
+                            );
+                        }, delta * 1000);
+                    },
+                    1000 + Math.random() * 3000,
+                );
+            }
+
+            console.log(pick(chars));
+            console.log(pick(chars));
+            console.log(pick(chars));
+            console.log(pick(chars));
+            console.log(pick(chars));
+            console.log(pick(chars));
+            console.log(pick(chars));
+            console.log(pick(chars));
+            console.log(pick(chars));
+            console.log(pick(chars));
+            console.log(pick(chars));
+            console.log(pick(chars));
+            console.log(pick(chars));
+            console.log(pick(chars));
+            console.log(pick(chars));
+            console.log(pick(chars));
+            console.log(pick(chars));
+            console.log(pick(chars));
+            console.log(pick(chars));
+            console.log(pick(chars));
+            console.log(pick(chars));
+            console.log(pick(chars));
+            console.log(pick(chars));
+            console.log(pick(chars));
+            console.log(pick(chars));
+            console.log(pick(chars));
+            console.log(pick(chars));
+            console.log(pick(chars));
+            console.log(pick(chars));
+            console.log(pick(chars));
+            console.log(pick(chars));
+            console.log(pick(chars));
+            console.log(pick(chars));
+            console.log(pick(chars));
+            console.log(pick(chars));
+            console.log(pick(chars));
+            console.log(pick(chars));
+            console.log(pick(chars));
+            console.log(pick(chars));
+            console.log(pick(chars));
+            console.log(pick(chars));
+            console.log(pick(chars));
+        </script>
+    </body>
+</html>

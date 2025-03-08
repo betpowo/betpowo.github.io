@@ -2,14 +2,36 @@ import { defineConfig } from 'astro/config';
 import alpine from '@astrojs/alpinejs';
 import mdx from "@astrojs/mdx";
 
+const chars = [];
+//for (var bleh in import.meta.glob("/public/characters/*/button.json")) {
+for (var bleh in import.meta.glob([
+	"/src/pages/characters/*.md",
+	"/src/pages/characters/*.mdx",
+])) {
+	chars.push(
+		bleh
+			.replace(".mdx", "")
+			.replace(".md", "")
+			.replace("/src/pages/characters/", ""),
+	);
+}
+
+var _redirs = {
+	'/home': '/'
+};
+
+for (let i = 0; i < chars.length; i++) {
+	var char = chars[i];
+	//Object.defineProperty(_redirs, '/' + char, { value: '/characters/' + char });
+	_redirs['/' + char] = '/characters/' + char;
+}
+
+console.log(_redirs);
+
 // https://astro.build/config
 export default defineConfig({
 	// output: 'server',
-	redirects: {
-		'/home': '/',
-		/*'/[slug]': '/characters/[slug]',
-		'/characters/characters/[...slug]': '/'*/
-	},
+	redirects: _redirs,
 	markdown: {
 		smartypants: false
 	},

@@ -18,7 +18,7 @@ id: 'sadie'
 ---
 <style>
     :root {
-        --header-color: #006;
+        --header-color: #003;
         --header-logo-color-1: #9fc;
         --header-logo-color-2: #30c;
 

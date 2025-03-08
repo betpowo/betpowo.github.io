@@ -17,8 +17,13 @@ var sheetID = Astro.url.searchParams.get("sheet") || "sheet";
             id="favicon"
             rel="icon"
             type="image/svg+xml"
+            href="/favicon.svg"
+        />
+        <link
+            id="favicon"
+            rel="icon"
+            type="image/svg+xml"
             href={"/characters/" + frontmatter.id + "/favicon.svg"}
-            onerror="this.href = '/favicon.svg'"
         />
         <title>{frontmatter.display} - betopia's basement</title>
 

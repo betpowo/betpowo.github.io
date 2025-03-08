@@ -73,11 +73,15 @@ const {
                 style="max-width: 80wh;"
             />
             <script>
-                document.getElementById("burp").onerror = function () {
-                    document
-                        .getElementById("burp")
-                        .setAttribute("src", "/characters/default-sheet.png");
-                };
+                const burp = document.getElementById("burp");
+                if (burp) {
+                    burp.onerror = function () {
+                        burp.setAttribute(
+                            "src",
+                            "/characters/default-sheet.png",
+                        );
+                    };
+                }
             </script>
         </div>
     </div>

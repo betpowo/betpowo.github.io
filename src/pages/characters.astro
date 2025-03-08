@@ -37,7 +37,7 @@ var chars = [
 function fetchByCategory(cat?: string) {
 	var res = [];
 	for (var j in chars) {
-		console.log(j);
+		//console.log(j);
 		var i = chars[j];
 		if (
 			(Object.hasOwn(i, "category") && i.category == cat) ||
@@ -46,7 +46,7 @@ function fetchByCategory(cat?: string) {
 			res.push(i.name);
 		}
 	}
-	console.log(res);
+	//console.log(res);
 	return res;
 }
 
@@ -123,6 +123,9 @@ const categories = [
 						search for a character id:
 					</h3>
 					(if you are lazy to scroll down)<br />
+					<b>tip:</b>
+					<code>random</code> will pull up, well, a random character. lol<br
+					/>
 					<input type="text" placeholder="betty" id="iput" />
 					<button
 						onclick="var char = document.getElementById('iput').value.toLowerCase(); window.location.href = char != '' ? '/characters/' + char : '/characters/betty'"
