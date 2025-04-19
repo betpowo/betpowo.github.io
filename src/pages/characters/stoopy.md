@@ -13,6 +13,11 @@ colors: [
     '#f8ff8f',
     '#fafffe',
 ]
+icon_colors: [
+    "#f8ff8f",
+    "#669966",
+    "#fafffe"
+]
 id: 'stoopy'
 ---
 <style>

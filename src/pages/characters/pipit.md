@@ -15,6 +15,11 @@ colors: [
     '#ffcc00',
     '#ffffcc',
 ]
+icon_colors: [
+    "#702819",
+    "#330000",
+    "#ffffcc"
+]
 id: 'pipit'
 ---
 <style>

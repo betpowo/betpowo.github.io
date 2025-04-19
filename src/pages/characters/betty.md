@@ -101,6 +101,10 @@ she has 2 pockets on the back of her shorts, i am not gonna show them because of
 
 no, i'm not gonna wear brown contacts either.
 
+<div style="display: flex; align-items: center; justify-content: center; gap: 2rem;">
+<img src="/characters/betty/bnw.png" height="200" style="float: left;"/> she can also be monochrome if you want
+</div>
+
 </section>
 
 <hr>
@@ -145,7 +149,7 @@ other
 <tr>
     <td class="name">favorites</td>
     <td>
-<a href='https://skruyo.com' target="_blank" style="color: unset; font-size: 40px;"><ul><li >
+<a href='https://skruyo.dev' target="_blank" style="color: unset; font-size: 40px;"><ul><li >
 <span id="him" >skry &lt;3</span><img src="/images/dnl.png" height="50"/>
 </li></ul></a>
 <script>

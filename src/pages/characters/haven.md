@@ -15,6 +15,11 @@ colors: [
     '#e9ffcc',
     '#553831',
 ]
+icon_colors: [
+    "#cc6699",
+    "#2f003e",
+    "#e9ffcc"
+]
 id: 'haven'
 ---
 <style>

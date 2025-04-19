@@ -13,6 +13,11 @@ colors: [
     '#ff6633',
     '#fffaf4',
 ]
+icon_colors: [
+    '#ff6633',
+    '#2b0021',
+    '#fffaf4'
+]
 id: 'betpo'
 ---
 <style>

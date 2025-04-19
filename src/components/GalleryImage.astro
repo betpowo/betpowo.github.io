@@ -43,8 +43,9 @@ const {
     <div style="margin-left: 23px;">
         <a
             href={"/gallery/" + name}
-            style="--col: var(--col-bright); --col-hover: var(--col-light);"
-            ><h2 x-text="title" style="color: unset;"></h2></a
+            style="--col: var(--col-bright); --col-hover: var(--col-light); display: block; width: fit-content;"
+            ><h2 x-text="title" style="color: unset; width: fit-content;">
+            </h2></a
         >
         <nobr style="display: flex; gap: 5px; align-items: center;">
             <span x-text="from" style="color: var(--col-light);"></span>

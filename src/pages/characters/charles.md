@@ -14,6 +14,11 @@ colors: [
     '#ccffcc',
     '#d57563',
 ]
+icon_colors: [
+    '#6600ff',
+    '#000033',
+    '#ccffcc',
+]
 id: 'charles'
 ---
 <style>

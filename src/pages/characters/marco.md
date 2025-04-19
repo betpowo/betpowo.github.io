@@ -13,6 +13,11 @@ colors: [
     '#ffcc99',
     '#ffffcc',
 ]
+icon_colors: [
+    "#cc3333",
+    "#4b005b",
+    "#ffffcc"
+]
 id: 'marco'
 ---
 <style>

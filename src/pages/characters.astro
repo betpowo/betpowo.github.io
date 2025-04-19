@@ -6,35 +6,116 @@ import Footer from "../components/Footer.astro";
 import Header from "../components/Header.astro";
 import "../styles/global.css";
 
-const buttonsize = 215;
+const buttonsize = 180;
 const columns = 4;
 
+const nextBatch = 4; // for displaying the "new!" text
+
 // TODO: sorting (alphabetical, hue, by batch, by category(default))
-var chars = [
+// here in the array theyre sorted by hue so i dont have to lose my mind with that later
+
+// future betty here, sorting is done and i decided to do automatic hue sorting lmao
+// now theyre in order of addition
+const chars = [
 	//{ name: "unknown", batch: 0 },
-	{ name: "betty", batch: -1, category: "sona" },
-	{ name: "marco", batch: 2 },
-	{ name: "melissa", batch: 3 },
-	{ name: "fish", batch: 2 },
-	{ name: "pipit", batch: 3 },
+
 	{ name: "betpo", batch: 1, category: "main" },
-	{ name: "kinne", batch: 2 },
-	{ name: "stoopy", batch: 3 },
-	{ name: "nori", batch: 2 },
-	{ name: "sprout", batch: 2 },
-	{ name: "mae", batch: 3 },
-	{ name: "carlos", batch: 1 },
-	{ name: "sadie", batch: 3 },
-	{ name: "charles", batch: 2 },
+	{ name: "josephine", batch: 1, category: "main" },
+	{ name: "betty", batch: 0, category: "daniel" },
+
+	{ name: "carlos", batch: 1, category: "parody" },
 	{ name: "glib", batch: 1 },
 	{ name: "daniel", batch: 1, category: "daniel" },
-	{ name: "jasmine", batch: 3 },
+
+	{ name: "marco", batch: 2, category: "parody" },
+	{ name: "nori", batch: 2 },
+	{ name: "charles", batch: 2 },
+	{ name: "fish", batch: 2 },
+	{ name: "kinne", batch: 2 },
+	{ name: "sprout", batch: 2 },
+
+	{ name: "mae", batch: 3 },
+	{ name: "melissa", batch: 3, category: "adopted" },
+	{ name: "pipit", batch: 3, category: "adopted" },
+	{ name: "jasmine", batch: 3, category: "adopted" },
 	{ name: "haven", batch: 3 },
 	{ name: "epiphany", batch: 3 },
-	{ name: "josephine", batch: 1, category: "main" },
+	{ name: "sadie", batch: 3 },
+	{ name: "stoopy", batch: 3 },
+
+	{ name: "glenda", batch: 4, category: "parody" },
+	{ name: "baxter", batch: 4, category: "parody" },
+	{ name: "philip", batch: 4, category: "parody" },
+	{ name: "nancy", batch: 4, category: "parody" },
+
+	{ name: "sos", batch: 4, category: "parody" },
+	{ name: "vivi", batch: 4 },
+	{ name: "olivia", batch: 4 },
+	{ name: "johnny", batch: 4 },
+	{ name: "brook", batch: 4 },
+	{ name: "duck", batch: 4 },
+	{ name: "hoppy", batch: 4 },
+	{ name: "raine", batch: 4 },
 ];
 
-function fetchByCategory(cat?: string) {
+const categories = [
+	{
+		id: "main",
+		disp: "main",
+		sub: `the characters i'll probably put on the spotlight often,
+		expect a lot of content with them.
+		<br>
+		<span style="font-size: 0.6rem; color: var(--col-dim);">
+			and with a lot, i mean, a <i>lot.</i> :3
+		</span>`,
+		color: "#f36",
+	},
+	{
+		id: undefined, // where "others" go
+		disp: "others / misc.",
+		sub: `the characters with less importance, or without much story or stuff like that`,
+		color: "#0fc",
+	},
+	{
+		id: "adopted",
+		disp: "adopted",
+		sub: `the characters that didn't originally belong to me,
+		but they do now because the owners gave them to me because i'm cool like that.
+		they might not be added to art fight`,
+		color: "#f96",
+	},
+	{
+		id: "parody",
+		disp: "parodies",
+		sub: `the characters that actually Aren't fully original
+		and are based on other characters fom already existing media.
+		<span style="color: #cf6;">
+			they may not be canon to my actual oc world. they're made for specific projects.
+		</span> they will not be added to art fight.`,
+		color: "#cf6",
+	},
+	{
+		id: "daniel",
+		disp: "sonas",
+		sub: `the characters based on real people, please be nice to them.
+		<span style="color: #c8f;">
+			they're partially not canon to my actual oc world but i'm not sure on that lol
+		</span>`,
+		color: "#c8f",
+	},
+];
+
+function getCatData(cat?: string) {
+	if (cat === undefined || cat == "") return categories[1];
+	for (var j in categories) {
+		var i = categories[j];
+		if (Object.hasOwn(i, "id") && i.id == cat) {
+			return i;
+		}
+	}
+}
+
+/*function fetchByCategory(cat?: string) {
 	var res = [];
 	for (var j in chars) {
 		//console.log(j);
@@ -48,25 +129,7 @@ function fetchByCategory(cat?: string) {
 	}
 	//console.log(res);
 	return res;
-}
-
-const categories = [
-	{
-		name: "main characters",
-		desc: 'the characters i\'ll probably put on the spotlight often, expect a lot of content with them.\n<br>\n<span style="font-size: 17px; color: var(--col-dim);">and with a lot, i mean, a <i>lot.</i> :3</span>',
-		chars: fetchByCategory("main"),
-	},
-	{
-		name: "other characters",
-		desc: "the characters i have that i don't use a lot, and/or have little to no importance or whatever.",
-		chars: fetchByCategory(),
-	},
-	{
-		name: "daniel",
-		desc: "daniel",
-		chars: fetchByCategory("daniel"),
-	},
-];
+}*/
 ---
 
 <html lang="en">
@@ -80,7 +143,8 @@ const categories = [
 			content="the characters i own, if you wanna see them. [more info on full page]"
 			property="og:description"
 		/>
-		<meta content="/characters/betty/art.png" property="og:image" />
+		<meta content="/images/charbox.png" property="og:image" />
+		<meta name="twitter:card" content="summary_large_image" />
 		<meta content="#996666" data-react-helmet="true" name="theme-color" />
 
 		<style>
@@ -105,7 +169,13 @@ const categories = [
 	<Header />
 	<body>
 		<div style="margin: 23px; overflow-x: hidden">
-			<div class="board">
+			<div
+				class="board"
+				style={"max-width: " +
+					buttonsize * (columns + 1) +
+					"px; margin: auto;"}
+				x-data="{cat: true}"
+			>
 				<h1>
 					<span style="font-weight: normal;">👥</span> character storage
 				</h1>
@@ -134,55 +204,196 @@ const categories = [
 					<br /><br />
 					or choose from below:
 					<br /><br />
-					<!-- soon... -->
-
-					<!-- sort by: <select>
-						<option>category</option>
-						<option>alphabetical</option>
-						<option>hue</option>
-						<option>batch</option>
-					</select> -->
+					<div>
+						<span style="color: var(--col-light);">sort by </span>
+						<select id="sort-select">
+							<option selected="selected">hue</option>
+							<option>alphabetical</option>
+							<option>recent</option>
+						</select>
+						&bullet;
+						<input
+							type="checkbox"
+							checked
+							x-on:click="cat = !cat;"
+						/>
+						<span style="color: var(--col-light);"
+							>show categories</span
+						>
+					</div>
+					<br />
+					<div x-show="cat" x-transition>
+						<h3>the categories on the table:</h3>
+						<div
+							style="display: flex; gap: 24px; margin: auto; width: fit-content;"
+						>
+							{
+								categories.map((a) => (
+									<div
+										x-data="{show_desc: false}"
+										data-id={a.id}
+									>
+										<div
+											style={`
+									border-radius: 50px;
+									background-color: ${a.color};
+									padding: 8px;
+									cursor: help;
+									border: 2px solid var(--col-bright);
+									box-shadow: 0px 5px 0px var(--col-dim);
+									`}
+											x-on:mouseenter="show_desc = true;"
+											x-on:mouseleave="show_desc = false;"
+										>
+											<span style="mix-blend-mode: multiply; color: #60c;">
+												{a.disp}
+											</span>
+											<div
+												x-cloak
+												x-transition
+												x-show="show_desc"
+												style="
+												background-color: var(--col-dark);
+												box-shadow: 0px 1px 5px var(--col-light);
+												padding: 16px;
+												border-radius: 16px;
+												width: 11rem;
+												font-size: 0.75rem;
+												text-align: justify;
+												position: absolute;
+												translate: -20px 18px;
+												z-index: 9999;"
+												set:html={a.sub}
+											/>
+										</div>
+									</div>
+								))
+							}
+						</div>
+					</div>
+				</div>
+				<br />
+				<hr />
+				<br />
+				<div class="sub-board">
+					<div
+						style={"text-align: center; max-width: " +
+							(buttonsize * columns + columns * 16) +
+							"px; margin: auto;"}
+						id="char-container"
+					>
+						{
+							chars.map((a, b) => (
+								<div
+									id={"char-button-" + a.name}
+									style="display: inline-block; margin: 5px;"
+									data-sort={JSON.stringify(a)}
+									data-index={b.toString()}
+								>
+									<CharButton
+										size={buttonsize}
+										character={a.name}
+									/>
+									<div
+										x-show="cat"
+										x-transition
+										style={`
+										width: ${buttonsize}px; aspect-ratio: 1/1;
+										color: ${getCatData(a.category).color};
+										background-color: currentColor;
+										border-radius: 20px;
+										position: absolute;
+										pointer-events: none;
+										border: 0px solid currentColor;
+										translate: -0px -${buttonsize + -3}px;
+									`}
+									/>
+									<img
+										src="/characters/new-char.gif"
+										style={`
+										display: ${a.batch == nextBatch ? "block" : "none"};
+										position: absolute;
+										pointer-events: none;
+										z-index: 500;
+										translate: ${buttonsize / 2 + 16}px -${buttonsize + 6}px;
+									`}
+									/>
+								</div>
+							))
+						}
+					</div>
 				</div>
 				<br /><br />
-				{
-					categories.map((a, b) => (
-						<div
-							class="sub-board"
-							style="margin-bottom: 23px; width: calc(100% - 80px);"
-						>
-							<h1 style="color: var(--col-bright);">{a.name}</h1>
-							<p
-								set:html={
-									a.desc
-									/*.replace(";", "")
-									.replace("&lt", ">")
-									.replace("&gt", "<")
-									.replace("&amp", "&")*/
-								}
-							/>
-							<br />
-							<div
-								style={
-									"text-align: center; max-width: " +
-									(buttonsize * columns + columns * 16) +
-									"px; margin: auto;"
-								}
-							>
-								{a.chars.map((b) => (
-									<div style="display: inline-block;margin: 5px;">
-										<CharButton
-											size={buttonsize}
-											character={b}
-										/>
-									</div>
-								))}
-							</div>
-						</div>
-					))
-				}
-				i'll add more eventually...
+				<p style="text-align: center;">i'll add more eventually...</p>
 			</div>
 		</div>
+		<script>
+			var d = document.querySelector("#sort-select") as HTMLSelectElement;
+			d.addEventListener("change", (e) => {
+				var con = document.querySelector("#char-container");
+				const list = Array.from(con.children);
+				/*list.forEach((n) => {
+			con.removeChild(n);
+		});*/
+				function hex2hsv(a) {
+					var hex = /([0-9a-f]+)/g.exec(a)[1];
+					var _rgb = parseInt(hex, 16);
+					var rgb = [
+						(_rgb >> 16) & 255,
+						(_rgb >> 8) & 255,
+						(_rgb >> 0) & 255,
+					];
+					var r = rgb[0] / 255;
+					var g = rgb[1] / 255;
+					var b = rgb[2] / 255;
+
+					// https://www.30secondsofcode.org/js/s/rgb-hex-hsl-hsb-color-format-conversion/#rgb-to-hsb
+					const v = Math.max(r, g, b),
+						n = v - Math.min(r, g, b);
+					const h =
+						n === 0
+							? 0
+							: n && v === r
+								? (g - b) / n
+								: v === g
+									? 2 + (b - r) / n
+									: 4 + (r - g) / n;
+					return {
+						hue: 60 * (h < 0 ? h + 6 : h),
+						saturation: v && (n / v) * 100,
+						brightness: v * 100,
+					};
+				}
+				list.sort((_a: HTMLElement, _b: HTMLElement) => {
+					const a = JSON.parse(_a.dataset.sort);
+					const b = JSON.parse(_b.dataset.sort);
+					const ai = parseInt(_a.dataset.index);
+					const bi = parseInt(_b.dataset.index);
+					switch (d.value) {
+						case "recent":
+							return Math.sign(b.batch - a.batch + (bi - ai));
+						case "hue":
+							// SAVE ME
+							var cola = (_a.firstElementChild as HTMLElement)
+								.dataset.color;
+							var colb = (_b.firstElementChild as HTMLElement)
+								.dataset.color;
+							return Math.sign(
+								hex2hsv(cola).hue -
+									hex2hsv(colb).hue +
+									(a.name < b.name ? -1 : 1),
+							);
+						case "alphabetical":
+							if (a.name < b.name) return -1;
+							else if (a.name > b.name) return 1;
+							return 0;
+					}
+				}).forEach((n) => {
+					con.appendChild(n);
+				});
+			});
+			d.dispatchEvent(new Event("change"));
+		</script>
 	</body>
 
 	<Footer />

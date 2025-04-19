@@ -95,7 +95,8 @@ var featured = data.feat || [];
                 </h2>
                 <div
                     class="sub-board"
-                    style={"text-align: center; max-width: 840px; margin: auto;"}
+                    style={"text-align: center; max-width: 840px; margin: auto;" +
+                        (featured.length != 0 ? "" : "display: none;")}
                 >
                     {
                         featured.map((b) => (

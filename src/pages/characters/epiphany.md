@@ -15,6 +15,11 @@ colors: [
     '#ffccff',
     '#ccffff',
 ]
+icon_colors: [
+    "#ff66cc",
+    "#660066",
+    "#ccffff"  
+]
 id: 'epiphany'
 ---
 <style>

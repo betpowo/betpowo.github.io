@@ -32,7 +32,7 @@ try {
 const { color = "#333", outline = "#999" } = fuck;
 ---
 
-<div class="character-container">
+<div class="character-container" data-color={color}>
     <div
         class="character-glow"
         style={"--color: " + color + "; width: " + size + "px;"}
@@ -45,6 +45,7 @@ const { color = "#333", outline = "#999" } = fuck;
             onclick={`window.location.href = "/characters/${character.toLowerCase()}"`}
         >
             <img
+                loading="lazy"
                 style={`--size: ${size - 16}px;`}
                 class="bleh"
                 src={`/characters/${character.toLowerCase()}/art.svg`}
@@ -88,7 +89,7 @@ const { color = "#333", outline = "#999" } = fuck;
         aspect-ratio: 1 / 1;
         --character-color: #333;
         --hover-color: #ccc;
-        --outline-radius: 3px;
+        --outline-radius: 2px;
         --outline-color: var(--character-color);
         --size: 250px;
         --padding: 16px;
@@ -159,7 +160,7 @@ const { color = "#333", outline = "#999" } = fuck;
     .character-button:hover .bleh {
         animation: shake 0.5s;
         animation-iteration-count: 1;
-        --outline-radius: 6px;
+        --outline-radius: 4px;
         --outline-color: var(--hover-color);
     }
 

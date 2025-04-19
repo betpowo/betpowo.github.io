@@ -16,6 +16,11 @@ colors: [
     '#333366',
     '#c28f6b',
 ]
+icon_colors: [
+    "#cc3366",
+    "#330033",
+    "#ffffcc"
+]
 id: 'melissa'
 ---
 <style>

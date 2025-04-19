@@ -15,6 +15,11 @@ colors: [
     '#ffd999',
     '#f1ffe1'
 ]
+icon_colors: [
+    '#8b56a3',
+    '#0f0035',
+    '#f1ffe1'
+]
 id: 'daniel'
 ---
 <style>
@@ -82,10 +87,10 @@ id: 'daniel'
 
 daniel is a very silly guy who codes and plays games. %prn_sub% is one of the best people i've ever met ngl.....
 
-<h1 style="text-align: center;"><a href="https://skruyo.com" target="_blank">visit %prn_pos% site immediately</a></h1>
-<h1 style="text-align: center;"><a href="https://skruyo.com" target="_blank">visit %prn_pos% site immediately</a></h1>
-<h1 style="text-align: center;"><a href="https://skruyo.com" target="_blank">visit %prn_pos% site immediately</a></h1>
-<h1 style="text-align: center;"><a href="https://skruyo.com" target="_blank">visit %prn_pos% site immediately</a></h1>
+<h1 style="text-align: center;"><a href="https://skruyo.dev" target="_blank">visit %prn_pos% site immediately</a></h1>
+<h1 style="text-align: center;"><a href="https://skruyo.dev" target="_blank">visit %prn_pos% site immediately</a></h1>
+<h1 style="text-align: center;"><a href="https://skruyo.dev" target="_blank">visit %prn_pos% site immediately</a></h1>
+<h1 style="text-align: center;"><a href="https://skruyo.dev" target="_blank">visit %prn_pos% site immediately</a></h1>
 
 <br>
 <br>

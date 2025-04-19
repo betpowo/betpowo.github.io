@@ -16,6 +16,11 @@ colors: [
     '#1698a7',
     '#117f9a'
 ]
+icon_colors: [
+    "#ff3366",
+    "#2f003e",
+    "#d9eee5"
+]
 id: 'josephine'
 ---
 <style>
@@ -96,6 +101,12 @@ she has <span class="black">rose-brown</span> fluffy hair, <span style="color:#1
 she wears a <span style="color:#f36;font-weight: bold;">hot pink...</span> uhh... sweater looking thing; and also <span class="white">white</span> shorts with one <span style="color:#117f9a;font-weight: bold;">teal</span> stripe on each side; and has shoes.
 
 no, she's never gonna wear brown contacts.
+
+<div style="text-align: center;">
+<img src="/characters/josephine/alts.png" height="200"/><br/>
+here's some alt designs if you want
+</div>
+<br/>
 
 </section>
 

@@ -1,11 +1,12 @@
 ---
 // Component Imports
-import Footer from '../components/Footer.astro';
-import Header from '../components/Header.astro';
-import '../styles/global.css';
+import Footer from "../components/Footer.astro";
+import Header from "../components/Header.astro";
+import "../styles/global.css";
 
 const { frontmatter } = Astro.props;
 ---
+
 <!-- blehhh -->
 <html lang="en">
 	<head>
@@ -14,11 +15,18 @@ const { frontmatter } = Astro.props;
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<title>{frontmatter.display + " - betopia's projects"}</title>
 
-		<meta content={frontmatter.display + " - betopia's projects"} property="og:title" />
+		<meta
+			content={frontmatter.display + " - betopia's projects"}
+			property="og:title"
+		/>
 		<meta content={frontmatter.embed.desc} property="og:description" />
 		<meta content={frontmatter.embed.image} property="og:image" />
-		<meta content={frontmatter.embed.color} data-react-helmet="true" name="theme-color" />
-		<meta name="twitter:card" content="summary_large_image">
+		<meta
+			content={frontmatter.embed.color}
+			data-react-helmet="true"
+			name="theme-color"
+		/>
+		<meta name="twitter:card" content="summary_large_image" />
 
 		<style>
 			.container {
@@ -32,11 +40,11 @@ const { frontmatter } = Astro.props;
 	</head>
 	<Header />
 	<body>
-	<div style="margin: 23px;">
-		<div class="board">
-			<slot />
+		<div style="margin: 23px;">
+			<div class="board" style="max-width: 40rem; margin: auto;">
+				<slot />
+			</div>
 		</div>
-	</div>
 	</body>
 	<Footer />
 </html>

@@ -17,6 +17,11 @@ colors: [
     '#ff3366',
     '#660037',
 ]
+icon_colors: [
+    "#663366",
+    "#330033",
+    "#f8ffdf"
+]
 id: 'jasmine'
 ---
 <style>

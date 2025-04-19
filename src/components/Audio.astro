@@ -1,0 +1,97 @@
+---
+import "../styles/global.css";
+
+const { src = "/angry guy.mp3", loop = undefined, style = "" } = Astro.props;
+---
+
+<div class="audio" style={style}>
+    <button
+        style="aspect-ratio: 1/1; width: 2em; height: 2em; border-radius: 100%;
+        display: flex; box-shadow: none; margin: 0; color: var(--col-shadow); --col: var(--col-play);"
+    >
+        <span style="translate: 0px -0.333em;"></span>
+    </button>
+    <input
+        type="range"
+        value="0"
+        style="padding: 0px; background-cololr: var(--col-shadow); --col-hover: var(--col-shadow);"
+    />
+    <p style="margin: 0; margin-right: 10px; width: fit-content;">-:--</p>
+    <script define:vars={{ src, loop }}>
+        var div = document.scripts[document.scripts.length - 1].parentNode; // this div
+        var audio = new Audio("/audio/" + src);
+        console.log(audio);
+        var button = div.children.item(0);
+        var slide = div.children.item(1);
+        var text = div.children.item(2);
+
+        if (loop != undefined) {
+            audio.loop = loop;
+        }
+
+        var playing = false;
+
+        function formatTime(seconds) {
+            const h = Math.floor(seconds / 3600);
+            const m = Math.floor((seconds % 3600) / 60);
+            const s = Math.floor(seconds % 60);
+            return [h, m > 9 ? m : h ? "0" + m : m || "0", s > 9 ? s : "0" + s]
+                .filter((a) => a)
+                .join(":");
+        }
+
+        function bound(a, n, x) {
+            return Math.min(Math.max(a, n), x);
+        }
+
+        function updateVisual() {
+            button.firstElementChild.innerHTML = playing ? "⏸" : "▶";
+        }
+
+        function updateTime(t) {
+            text.innerHTML =
+                formatTime(t) +
+                "<span style='color: var(--col-light); font-size: 75%'> / " +
+                formatTime(audio.duration) +
+                "</span>";
+        }
+
+        function updateRange() {
+            slide.value = (audio.currentTime / audio.duration) * 100;
+        }
+
+        audio.onloadedmetadata = (e) => {
+            updateTime(0);
+            var bo = bound(audio.duration * 30, 100, 450);
+            div.children[1].style.maxWidth =
+                (div.style.maxWidth != 0
+                    ? Math.min(div.style.maxWidth, bo)
+                    : bo) + "px";
+        };
+
+        audio.onended = (e) => {
+            playing = false;
+            updateVisual();
+        };
+
+        slide.addEventListener("change", (e) => {
+            audio.currentTime = (slide.value / 100) * audio.duration;
+            updateTime(audio.currentTime);
+        });
+
+        button.addEventListener("click", (e) => {
+            playing = !playing;
+            updateVisual();
+
+            if (playing) audio.play();
+            else audio.pause();
+        });
+
+        setInterval(() => {
+            updateTime(audio.currentTime);
+            if (playing) updateRange();
+        }, 100);
+
+        updateVisual();
+    </script>
+</div>

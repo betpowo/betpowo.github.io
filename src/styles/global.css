@@ -261,8 +261,9 @@ select {
 
 select {
     border-radius: 10px;
-    padding: 4px;
+    padding: 8px;
     box-shadow: none;
+    font-smooth: always;
 }
 
 select:focus {
@@ -277,6 +278,23 @@ audio::-webkit-media-controls-panel {
 audio[controls] {
     filter: invert(100%) sepia(60%) saturate(200%) brightness(104%) contrast(115%);
     width: 500px;
+}
+
+.audio {
+    --col: var(--col-main);
+    --col-play: var(--col-bright);
+    --col-shadow: var(--col-dark);
+    background-color: var(--col);
+    color: var(--col-play);
+    box-shadow: 0px 5px 0px var(--col-shadow);
+    border-radius: 50px;
+    padding: 10px;
+    margin: 8px;
+    width: fit-content;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
 }
 
 /* width */

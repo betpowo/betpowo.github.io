@@ -14,6 +14,11 @@ colors: [
     '#f2ffe7',
     '#dd9248',
 ]
+icon_colors: [
+    "#009933",
+    "#2b0054",
+    "#f2ffe7"
+]
 id: 'sprout'
 ---
 <style>

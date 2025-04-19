@@ -1,0 +1,118 @@
+---
+title: "👥 batch 4 + site updates"
+from: "apr / 20 / 2025"
+desc: "my hands hurt, and so does my back, and my brain, and my arms, and my eyes"
+---
+import CharButton from '../../components/CharButton.astro'
+
+welp it's real, another batch of characters, this time with **8** (+16) <span style="font-size: 0.6rem;">(+4)</span>...
+
+<span style="font-size: 1.2rem; color: var(--col-light);">28</span> total new characters!!! (on this site)
+largest one yet! worked so hard on this one so u better appreciate it.... gr....
+
+---
+<br />
+
+# batch 4... 4real!
+<div style="text-align: center; max-width: 900px; gap: 12px; margin: auto;">
+    {
+        [
+            'sos', 'vivi', 'olivia', 'johnny', 'brook',
+            'duck', 'hoppy', 'raine',
+        ].map((a) => (
+            <div style="display: inline-block; margin: 5px;">
+                <CharButton
+                    character={a}
+                />
+            </div>
+        ))
+    }
+</div>
+
+there's not much to say about these fellows, they don't rlly possess any story 
+or purpose rn, they're just designs that i rlly liked.. and made them real... ok
+
+... except for these 4. yes i added these fucks to my site now cry about it  .
+<div style="text-align: center; width: fit-content; max-width: 900px; gap: 12px; margin: auto; background-image: linear-gradient(to bottom, #306, #f66); padding: 16px; border-radius: 20px; box-shadow: 0px 5px 0px var(--col-dim);">
+    <div style="display: flex; align-items:center; justify-content: center; gap: 1rem;"><a href="/projects/mod-name-here">
+        <img
+            src="/images/modnameherelogo.png"
+            width="300"
+            title="mod name here"
+            alt="mod name here"
+        />
+    </a>
+    <span>parody characters!</span>
+    </div>
+    <br/>
+    {
+        [
+            'nancy', 'baxter', 'philip', 'glenda'
+        ].map((a) => (
+            <div style="display: inline-block; margin: 5px;">
+                <CharButton
+                    size={150}
+                    character={a}
+                />
+            </div>
+        ))
+    }
+</div>
+<br/>
+
+---
+<br/>
+## [/characters/](/characters/) page updates
+
+there's not much to say about, i'll go over most of them i think:
+
+<ol style="text-align: center; display:flex; flex-direction: column; gap: 24px;">
+    <li>
+        <h2>new sorting system!</h2>
+        <div>
+            <span style="color: var(--col-light);">sort by </span>
+            <select id="sort-select">
+                <option selected="selected">hue</option>
+                <option>alphabetical</option>
+                <option>recent</option>
+            </select>
+            - really useless but who cares. it's cool
+        </div>
+    </li>
+    <li>
+        <h2>stupid ugly new tag!</h2>
+        <div style="display: inline-block; margin: auto;">
+            <div style="display: flex; gap: 24px;">
+            {
+                ['carlos', 'marco'].map((a)=>(<div style="display: flex;">
+                    <CharButton
+                        size={150}
+                        character={a}
+                    />
+                    <img
+                        src="/characters/new-char.gif"
+                        style={`
+                        position: absolute;
+                        pointer-events: none;
+                        z-index: 500;
+                        translate: ${150 / 2 + 16}px -6px;
+                    `}
+                    />
+                </div>))
+            }
+            </div>
+        </div>
+        now you know when to click...
+    </li>
+    <li>
+        <h3>ugly looking art for the discord embed!</h3>
+        <img src="/images/charbox.png" height="200"/>
+    </li>
+    <li>
+        <h2>new character category system!</h2>
+        
+        ... in the page mentioned above. i'm lazy to show it here
+    </li>
+</ol>
+
+<video controls src="/mario.mp4"/>

@@ -1,4 +1,5 @@
 ---
+import Audio from "../../components/Audio.astro";
 import "../../styles/global.css";
 import Image from "astro/components/Image.astro";
 
@@ -84,11 +85,11 @@ for (var bleh in _images) {
 			<span
 				x-bind:style='"pointer-events: none; position: absolute; border-radius: 16px; margin: 8px; padding: 12px; background-color: var(--col-dark); " + "color: " + (score >= 400 ? "#f36" : "inherit")'
 				x-html="'stickers: ' + score.toString()"></span>
-			<br /><audio
-				style="width: 100%;"
+			<br /><Audio
+				style="max-width: 500px; font-size: 10px;"
 				loop
-				controls
-				src="/audio/minigame.mp3"></audio>
+				src="minigame.mp3"
+			/>
 		</div>
 
 		<div

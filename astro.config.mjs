@@ -3,17 +3,21 @@ import alpine from '@astrojs/alpinejs';
 import mdx from "@astrojs/mdx";
 
 const chars = [];
+const exclude = ['betpo'];
 //for (var bleh in import.meta.glob("/public/characters/*/button.json")) {
 for (var bleh in import.meta.glob([
 	"/src/pages/characters/*.md",
 	"/src/pages/characters/*.mdx",
 ])) {
-	chars.push(
-		bleh
-			.replace(".mdx", "")
-			.replace(".md", "")
-			.replace("/src/pages/characters/", ""),
-	);
+	var index = bleh
+		.replace(".mdx", "")
+		.replace(".md", "")
+		.replace("/src/pages/characters/", "");
+	if (!exclude.includes(index)) {
+		chars.push(
+			index
+		);
+	}
 }
 
 var _redirs = {
@@ -26,7 +30,7 @@ for (let i = 0; i < chars.length; i++) {
 	_redirs['/' + char] = '/characters/' + char;
 }
 
-console.log(_redirs);
+// console.log(_redirs);
 
 // https://astro.build/config
 export default defineConfig({

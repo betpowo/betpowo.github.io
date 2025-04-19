@@ -15,6 +15,11 @@ colors: [
     '#e0af9d',
     '#d39279'
 ]
+icon_colors: [
+    "#66cccc",
+    "#333366",
+    "#e7f7ff"
+]
 id: 'mae'
 ---
 <style>
@@ -66,7 +71,6 @@ id: 'mae'
     }
 </style>
 
-<hr>
 <section id="appearance" style="text-align: left">
 
 <div style="background-color: var(--col-main); padding: 16px; border-radius: 15px; width: fit-content;">
@@ -87,7 +91,7 @@ their hair is naturally <span class="white">white</span>, the <span class="black
 
 as for the ears, read the beginning text below her name in big letters
 
-<hr>
+<hr/>
 <section id="other" style="text-align: left">
 
 <div style="background-color: var(--col-main); padding: 16px; border-radius: 15px; width: fit-content;">
@@ -99,7 +103,7 @@ other
 </a>
 </div>
 
-<br>
+<br/>
 <table>
 
 <tr>

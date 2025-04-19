@@ -15,6 +15,11 @@ colors: [
     '#ffd16d',
     '#fffebf',
 ]
+icon_colors: [
+    "#ffd16d",
+    "#1a0066",
+    "#fffebf"
+]
 id: 'kinne'
 ---
 <style>

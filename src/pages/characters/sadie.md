@@ -14,6 +14,11 @@ colors: [
     '#ffffcc',
     '#cc0099',
 ]
+icon_colors: [
+    "#3300cc",
+    "#000066",
+    "#99ffcc"
+]
 id: 'sadie'
 ---
 <style>

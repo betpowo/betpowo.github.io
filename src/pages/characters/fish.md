@@ -14,6 +14,11 @@ colors: [
     '#ff9966',
     '#ffffcc',
 ]
+icon_colors: [
+    "#ff6666",
+    "#330033",
+    "#ffffcc"   
+]
 id: 'fish'
 ---
 <style>
