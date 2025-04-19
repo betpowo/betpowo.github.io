@@ -109,4 +109,4 @@ id: 'nancy'
 - has had rlly bad thoughts but bottles it up.. i think
 
 - has broken inside 6 houses before getting to where **week idk** happens
-    - she was told by ████ that if they get to the right house he will reqard her with a seal plushie. she immediately folded <span style="color: var(--col-main)">(keep in mind this doesn't happen in my actual world's timeline!)</span>
+    - she was told by ████ that if they get to the right house he will reward her with a seal plushie. she immediately folded <span style="color: var(--col-main)">(keep in mind this doesn't happen in my actual world's timeline!)</span>
