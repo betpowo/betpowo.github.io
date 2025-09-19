@@ -90,6 +90,8 @@ id: 'pipit'
 
 </style>
 
+<h2 style="color: var(--col-light);"><b>todo:</b> rewrite and redesign</h2>
+
 <section id="appearance" style="text-align: left">
 
 <div style="background-color: var(--col-main); padding: 16px; border-radius: 15px; width: fit-content;">
@@ -164,5 +166,6 @@ other
 
 <blockquote class="twitter-tweet"><p lang="en" dir="ltr">reposting this, but i swear i will draw again, just give me a little more time <a href="https://t.co/or2MN4ds29">pic.twitter.com/or2MN4ds29</a></p>&mdash; bird (@birdcore_) <a href="https://twitter.com/birdcore_/status/1852029590568398969?ref_src=twsrc%5Etfw">October 31, 2024</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
+↑ that's one of "The bluds" btw
 
 </section>

@@ -1,0 +1,54 @@
+---
+title: "📏 character height revisions"
+from: "sep / 18 / 2025"
+desc: "<span style=\"font-family: 'Papyrus'; text-transform: uppercase; font-weight: 800;\">you're short now! that's my attack! nyeh heh heh!</span>"
+embed_thumbnail: "youre-short-now-lmfao"
+---
+import CharButton from '../../components/CharButton.astro'
+
+oh boy new blog post since uh... a million years
+
+ok so i was working on something <span style="font-size: 14px;">(you will see what it is soon ;3)</span> and i decided "damn..........
+the heights i established in their ref sheets are fuckin trash lmao i need to revise them" and so i did...
+
+![height comparisons, before and after](/images/height-chart-bullshit.png)
+<p style="font-size: 17px; margin: 0; font-style: italic;">(taken inside <a href="https://www.heightcomparison.com/">heightcomparison.com</a>)</p>
+<br/>
+does this even need a blog post?? is it rlly worth it???
+
+anyways here are the changes for those curious:
+
+<div style="margin: auto;">
+{
+    [
+        ['glib', 46, 78],
+        ['nori', 51, 84],
+        ['stoopy', 109, 100],
+        ['raine', 173, 172],
+        ['daniel', '???', 181],
+        ['johnny', 169, 175],
+        ['duck', 186, 218],
+        ['brook', 167, 149],
+    ].map((a) => (
+        <div style="display: flex; flex-direction: row; margin: 16px; gap: 16px; align-items: center;">
+            <CharButton
+                character={a[0]}
+                size={120}
+            />
+            <div>
+                <span style="font-size: 40px;">{a[0]}</span>
+                <br/>
+                <span style="text-decoration: line-through 2.5pt; opacity: 50%; color: var(--col-light);">{a[1]}cm</span> → <b>{a[2]}cm</b>
+            </div>
+        </div>
+    ))
+}
+</div>
+<div style="margin-left: 50pt;">
+    ↑ poor her... lmao
+</div>
+---
+so uhmm.. yea i wanted to do this for a while now actually.. lmao
+<div style="text-align: center; background-color: var(--col-light); margin: auto; width: fit-content; padding: 16px; border-radius: 20px; box-shadow: 0px 7px 0px var(--col-dim);">
+    <img src="/images/blog-embeds/youre-short-now-lmfao.png"/>
+</div>

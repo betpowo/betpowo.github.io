@@ -78,6 +78,8 @@ id: 'melissa'
 
 </style>
 
+<h2 style="color: var(--col-light);"><b>todo:</b> rewrite and redesign</h2>
+
 <section id="appearance" style="text-align: left">
 
 <div style="background-color: var(--col-main); padding: 16px; border-radius: 15px; width: fit-content;">

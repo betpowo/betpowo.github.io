@@ -56,6 +56,19 @@ const id = Astro.params.pluh;
             content={data.desc || "(no description provided)"}
             property="og:description"
         />
+        {
+            data.embed_thumbnail === undefined ? (
+                ""
+            ) : (
+                <meta
+                    content={
+                        "/images/blog-embeds/" + data.embed_thumbnail + ".png"
+                    }
+                    property="og:image"
+                />
+            )
+        }
+
         <meta name="twitter:card" content="summary_large_image" />
         <meta content="#996666" data-react-helmet="true" name="theme-color" />
         <style>
