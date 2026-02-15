@@ -3,12 +3,15 @@ interface Props {
     character?: string;
     size?: number;
 }
-const { character = "betty", size = 210 } = Astro.props;
+const { character = "betty", size = 150 } = Astro.props;
 
 const char = Astro.props.character || "betty";
 var fuck = {
-    color: "#333",
-    outline: "#999",
+    button: {
+        color: "#333",
+        outline: "#999",
+    },
+    page: undefined,
 };
 
 /*console.log(
@@ -19,7 +22,7 @@ console.log(typeof char);
 console.log(char.toString());*/
 try {
     // when running on dev mode
-    fuck = await import(`../../public/characters/${char}/button.json`);
+    fuck = await import(`../../public/characters/${char}/data.json`);
 } catch (_e) {
     // console.log(_e);
     try {
@@ -29,10 +32,41 @@ try {
         console.error("real error:\n" + e);
     }
 }
-const { color = "#333", outline = "#999" } = fuck;
+const { color = "#333", outline = "#999" } = fuck.button;
+
+var svgg: string;
+
+try {
+    // when running on dev mode
+    var _svgg = await import(`../../public/characters/${char}/button.svg?raw`);
+    svgg = _svgg.default;
+    //console.log(_svgg);
+} catch (_e) {
+    // console.log(_e);
+    try {
+        var _svgg = await import(`./characters/${char}/button.svg?raw`);
+        //console.log(_svgg);
+        svgg = _svgg.default;
+    } catch (e) {
+        svgg = `<svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="150px" height="150px" viewBox="0 0 150 150">
+    <path fill="currentColor" d="
+M 78.9 98.95
+Q 75.05 97 71.25 97.8 69.35 98.15 66.9 99.7 64.7 101.25 63.8 102.7 62.25 105.1 62.5 107.9 62.65 110.2 64 112.25 65.25 114.15 67.6 115.65 69.45 116.8 71.1 117.2 74.4 117.85 78.5 116 80.95 114.8 82.5 113.2 84.35 111.25 84.65 108.95 84.95 106.05 82.8 102.6 82.1 101.4 81.35 100.7 80.45 99.7 78.9 98.95
+M 101.8 38.65
+Q 96.75 35.85 88.1 33.95 76.25 31.45 67.4 32 59.3 32.6 51.45 35.6 42.6 39.05 38.1 44.35 35.4 47.5 34.25 51.4 33.05 55.5 34 59.3 35 63.2 38.15 66.3 41.15 69.2 45.25 70.7 51.55 73.05 61.7 72.15 63.15 72 69.95 71.1 75 70.4 78.25 70.3 79.1 70.2 79.55 70.5 80.3 70.9 80.3 71.9 80.25 72.9 79.55 73.5 78.75 74.15 76.3 74.7 71.1 75.9 68.65 79.85 67.4 81.9 67.4 84.4 67.45 86.95 68.85 88.8 70.7 91.1 75.05 92.3 80.5 93.85 86.3 93.55 92.05 93.3 97.35 91.25 102.7 89.2 107.15 85.5 111.6 81.85 114.65 77 117.35 72.7 118.15 68.75 119.4 63 117.25 56.75 115.3 51 111 46.1 106.75 41.4 101.8 38.65 Z"/>
+
+</svg>
+`;
+    }
+}
+//console.log(char);
 ---
 
-<div class="character-container" data-color={color}>
+<div
+    class="character-container"
+    data-color={color}
+    title={fuck?.page?.display ?? char}
+>
     <!--<div
         class="character-glow"
         style={"--color: " + color + "; width: " + size + "px;"}
@@ -41,23 +75,26 @@ const { color = "#333", outline = "#999" } = fuck;
     <div style="z-index: 1;">
         <div
             class="character-button"
-            style={`--character-color: ${color}; --hover-color: ${outline}; width: ${size - 16}px; height: ${size - 16}px;`}
-            onclick={`window.location.href = "/characters/${character.toLowerCase()}"`}
+            style={`--character-color: ${color}; --hover-color: ${outline}; width: ${size}px; height: ${size}px;`}
+            onclick={`navigate("/characters/${character.toLowerCase()}")`}
+            x-on:click="loading = true;"
         >
-            <img
-                loading="lazy"
-                style={`--size: ${size - 16}px;`}
-                class="bleh"
-                src={`/characters/${character.toLowerCase()}/art.svg`}
-                title={character.toLowerCase()}
-                onerror="this.onerror = null; this.src = `/characters/default-art.svg`"
+            <Fragment
+                set:html={svgg
+                    //have to do this first line cus svg definitions suck fucking ass
+                    .replaceAll("Layer", char + "_Layer")
+                    .replaceAll('width="150px"', `width="${size}px"`)
+                    .replaceAll('height="150px"', `height="${size}px"`)
+                    .replaceAll(
+                        /fill="#([0-9A-Fa-f]+)"/g,
+                        `fill="currentColor"`,
+                    )}
             />
         </div>
     </div>
 </div>
-<style lang="scss">
+<style is:inline>
     .character-container {
-        display: flex;
         width: fit-content;
         height: fit-content;
     }
@@ -70,86 +107,24 @@ const { color = "#333", outline = "#999" } = fuck;
         --outline-color: var(--character-color);
         --size: 250px;
         --padding: 16px;
-        padding: calc((var(--padding) / 2));
         background-color: var(--col-dark);
         border-radius: 20px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        transition: 0.1s all;
+        transition: 0.2s all;
         box-shadow: inset 0 0 0 0px var(--hover-color);
-        transition-timing-function: linear;
-        width: calc(var(--size) - var(--padding));
-        height: calc(var(--size) - var(--padding));
+        transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        width: var(--size);
+        overflow: hidden;
+        color: var(--col-light);
+        transform: translateY(0px);
         cursor: pointer;
     }
 
     .character-button:hover {
         background-color: var(--character-color);
-        box-shadow: inset 0 0 0 4px var(--hover-color);
-    }
-
-    .character-button .bleh {
-        aspect-ratio: 1 / 1;
-
-        width: calc(var(--size) - var(--padding));
-        height: calc(var(--size) - var(--padding));
-
-        pointer-events: none;
-        text-align: center;
-        transition: 0.1s filter;
-        transition-timing-function: linear;
-        /*filter: drop-shadow(
-                calc(1 * var(--outline-radius)) calc(1 * var(--outline-radius))
-                    0px var(--outline-color)
-            )
-            drop-shadow(
-                calc(1 * var(--outline-radius)) calc(-1 * var(--outline-radius))
-                    0px var(--outline-color)
-            )
-            drop-shadow(
-                calc(-1 * var(--outline-radius)) calc(1 * var(--outline-radius))
-                    0px var(--outline-color)
-            )
-            drop-shadow(
-                calc(-0.4 * var(--outline-radius))
-                    calc(-0.4 * var(--outline-radius)) 0px var(--outline-color)
-            );*/
-
-        filter: drop-shadow(
-                0px calc(1 * var(--outline-radius)) 0px var(--outline-color)
-            )
-            drop-shadow(
-                0px calc(-1 * var(--outline-radius)) 0px var(--outline-color)
-            )
-            drop-shadow(
-                calc(1 * var(--outline-radius)) 0px 0px var(--outline-color)
-            )
-            drop-shadow(
-                calc(-1 * var(--outline-radius)) 0px 0px var(--outline-color)
-            );
-    }
-
-    .character-button:hover .bleh {
-        animation: shake 0.5s;
-        animation-iteration-count: 1;
-        --outline-radius: 4px;
-        --outline-color: var(--hover-color);
-    }
-
-    // god i wish there was an easier way to do this
-    @keyframes shake {
-        0% {
-            translate: 0px 0px;
-        }
-        3% {
-            translate: 0px 1px;
-        }
-        25% {
-            translate: 0px -2px;
-        }
-        100% {
-            translate: 0px 0px;
-        }
+        box-shadow:
+            inset 0 0 0 3px var(--hover-color),
+            0px 5px 0px 0px var(--hover-color);
+        transform: translateY(-5px);
+        color: var(--hover-color);
     }
 </style>

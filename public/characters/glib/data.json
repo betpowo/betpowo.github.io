@@ -1,0 +1,52 @@
+{
+    "page": {
+        "color": "#9900ff",
+        "x": 140,
+        "y": 40,
+        "z": 50,
+        "tag": "...sweet like gum",
+        "egg": "tiny ass",
+        "pronouns": "she",
+        "palette": [
+            "#9900ff",
+            "#ff66cc",
+            "#ffffcc"
+        ],
+        "height": {
+            "cm": 75,
+            "offset": 0
+        },
+        "colors": {
+            "text": "#000033",
+            "bright": "#ffffcc",
+            "light": "#ff66cc",
+            "main": "#9900ff",
+            "dim": "#330099",
+            "dark": "#000033",
+            "bg": "#ffccff",
+            "tag": "#ff66cc",
+            "header": {
+                "bg": "#330099",
+                "accent": "#9900ff",
+                "main": "#ff99ff"
+            },
+            "tab": {
+                "text": "#ffffcc"
+            }
+        },
+        "iconColors": {
+            "main": "#9900ff",
+            "dark": "#000033",
+            "white": "#ffffcc"
+        },
+        "tabs": [
+            "other",
+            "gallery",
+            "references"
+        ]
+    },
+    "button": {
+        "color": "#9900ff",
+        "outline": "#ffffcc"
+    }
+}

@@ -1,0 +1,49 @@
+{
+    "page": {
+        "x": 0,
+        "y": -110,
+        "z": 1,
+        "tag": "...",
+        "egg": "fun fact: she's my first proper oc. she's special to me",
+        "pronouns": "she",
+        "palette": [
+            "#680e52",
+            "#ff3366",
+            "#ffacc3",
+            "#d9eee5",
+            "#117f9a"
+        ],
+        "height": {
+            "cm": 171,
+            "offset": 5,
+            "nudge": 5.5
+        },
+        "colors": {
+            "text": "#2f003e",
+            "bright": "#e5f7eb",
+            "light": "#ff9999",
+            "main": "#ff3366",
+            "dim": "#cc0066",
+            "dark": "#2f003e",
+            "bg": "#e5f7eb",
+            "header": {
+                "bg": "#2f003e"
+            },
+            "tab": {
+                "text": "#e5f7eb"
+            }
+        },
+        "iconColors": {
+            "main": "#ff3366",
+            "dark": "#2f003e",
+            "white": "#e5f7eb"
+        },
+        "tabs": [
+            "other"
+        ]
+    },
+    "button": {
+        "color": "#ff3366",
+        "outline": "#e5f7eb"
+    }
+}

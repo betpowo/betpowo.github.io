@@ -1,5 +1,8 @@
 ---
-
+interface Props {
+    absScale?: number;
+}
+const { absScale = 0.3 } = Astro.props;
 ---
 
 <body>
@@ -13,11 +16,13 @@
 
         <svg
             xmlns:xlink="http://www.w3.org/1999/xlink"
-            height="62.6px"
-            width="174.4px"
+            height={`${absScale * 208.5}px`}
+            width={`${absScale * 581.25}px`}
             xmlns="http://www.w3.org/2000/svg"
         >
-            <g transform="matrix(0.3, 0.0, 0.0, 0.3, 0.0, 0.0)">
+            <g
+                transform={`matrix(${absScale}, 0.0, 0.0, ${absScale}, 0.0, 0.0)`}
+            >
                 <use
                     height="208.5"
                     transform="matrix(1.0, 0.0, 0.0, 1.0, 0.0, 0.0)"

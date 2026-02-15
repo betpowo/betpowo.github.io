@@ -1,0 +1,52 @@
+{
+    "page": {
+        "x": 100,
+        "y": 160,
+        "z": 66,
+        "tag": "this oc sucks...",
+        "egg": "i'm sorrgy",
+        "pronouns": "any",
+        "palette": [
+            "#330033",
+            "#f19369",
+            "#99ffcc",
+            "#ffccff",
+            "#ffffcc"
+        ],
+        "height": {
+            "cm": 172,
+            "offset": 8,
+            "nudge": 30.5
+        },
+        "colors": {
+            "bright": "#ffffee",
+            "light": "#ffffcc",
+            "main": "#ffccff",
+            "dim": "#cc33cc",
+            "dark": "#660099",
+            "bg": "#54558a",
+            "tag": "#99ffcc",
+            "marker": "#cc33cc",
+            "header": {
+                "bg": "#ffffcc",
+                "main": "#cc33cc",
+                "accent": "#33cc66"
+            },
+            "tab": {
+                "text": "#330033"
+            }
+        },
+        "iconColors": {
+            "main": "#ffccff",
+            "dark": "#330033",
+            "white": "#ffffcc"
+        },
+        "tabs": [
+            "other"
+        ]
+    },
+    "button": {
+        "color": "#ffccff",
+        "outline": "#cc33cc"
+    }
+}

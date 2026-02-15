@@ -1,0 +1,44 @@
+{
+    "page": {
+        "x": -180,
+        "y": -20,
+        "z": 50,
+        "tag": "we're all pinecones",
+        "egg": "i think she's very pretty   . Help",
+        "pronouns": "she",
+        "palette": [
+            "#663333",
+            "#996666",
+            "#d1936d",
+            "#90f4e0",
+            "#13a372"
+        ],
+        "height": {
+            "cm": 138,
+            "offset": 10,
+            "nudge": -2.5
+        },
+        "colors": {
+            "text": "#330033",
+            "height": "#13a372",
+            "bright": "#ddffcc",
+            "light": "#90f4e0",
+            "main": "#13a372",
+            "dim": "#288585",
+            "dark": "#330033",
+            "bg": "#ddffcc",
+            "header": {
+                "bg": "#330033"
+            }
+        },
+        "iconColors": {
+            "main": "#13a372",
+            "dark": "#330033",
+            "white": "#ddffcc"
+        }
+    },
+    "button": {
+        "color": "#13a372",
+        "outline": "#ddffcc"
+    }
+}

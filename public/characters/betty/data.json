@@ -1,0 +1,45 @@
+{
+    "page": {
+        "x": -150,
+        "y": 1184,
+        "z": 17,
+        "tag": "laziest bedhead loser girl",
+        "egg": ">w<",
+        "pronouns": "she",
+        "labels": {
+            "sona": true
+        },
+        "palette": [
+            "#260630",
+            "#996666",
+            "#ffd5aa",
+            "#ffffcc",
+            "#4d647d"
+        ],
+        "height": {
+            "cm": 155,
+            "offset": 3,
+            "nudge": 0.5
+        },
+        "colors": {
+            "height": "#996666",
+            "text": "#330033",
+            "bg": "#ffffcc",
+            "header": {
+                "bg": "#330033",
+                "accent": "#ffcc99"
+            },
+            "tab": {
+                "text": "#ffffcc"
+            }
+        },
+        "tabs": [
+            "other",
+            "references"
+        ]
+    },
+    "button": {
+        "color": "#996666",
+        "outline": "#ffffcc"
+    }
+}

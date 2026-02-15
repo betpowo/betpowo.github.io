@@ -1,0 +1,48 @@
+{
+    "page": {
+        "x": -300,
+        "y": 640,
+        "z": 50,
+        "tag": "the rap god (forced)",
+        "egg": "bah",
+        "pronouns": "he",
+        "height": {
+            "cm": 125,
+            "offset": 10,
+            "nudge": -20.5
+        },
+        "labels": {
+            "parody": "pico (fnf / pico's school)"
+        },
+        "palette": [
+            "#b20069",
+            "#ff6e35",
+            "#2eaeac",
+            "#cefa71",
+            "#ffe292",
+            "#ffffcc"
+        ],
+        "colors": {
+            "text": "#330033",
+            "bright": "#ffffcc",
+            "light": "#66cc99",
+            "main": "#cefa71",
+            "dim": "#0099aa",
+            "dark": "#003399",
+            "bg": "#eef7ff",
+            "header": {
+                "bg": "#330033",
+                "accent": "#0099aa"
+            }
+        },
+        "iconColors": {
+            "main": "#cefa71",
+            "dark": "#330033",
+            "white": "#ffffcc"
+        }
+    },
+    "button": {
+        "color": "#cefa71",
+        "outline": "#0099aa"
+    }
+}

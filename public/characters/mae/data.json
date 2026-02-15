@@ -1,0 +1,47 @@
+{
+    "page": {
+        "x": 356,
+        "y": -50,
+        "z": 33,
+        "tag": "i'm letting the waves take me whereever",
+        "egg": "blub blub blub",
+        "pronouns": "she",
+        "height": {
+            "cm": 174,
+            "offset": 3,
+            "nudge": -10
+        },
+        "labels": {
+            "irrelevant": true
+        },
+        "palette": [
+            "#333366",
+            "#666699",
+            "#66cccc",
+            "#e0af9d",
+            "#e7f7ff"
+        ],
+        "colors": {
+            "height": "#666699",
+            "text": "#003366",
+            "bright": "#e7f7ff",
+            "light": "#99ffff",
+            "main": "#66cccc",
+            "dim": "#666699",
+            "dark": "#003366",
+            "bg": "#e7f7ff",
+            "header": {
+                "bg": "#003366"
+            }
+        },
+        "iconColors": {
+            "main": "#66cccc",
+            "dark": "#003366",
+            "white": "#e7f7ff"
+        }
+    },
+    "button": {
+        "color": "#66cccc",
+        "outline": "#e7f7ff"
+    }
+}

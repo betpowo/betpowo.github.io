@@ -1,3 +1,3 @@
 @echo off
 echo :3
-start npm run dev
+start npm run dev --host

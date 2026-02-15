@@ -1,0 +1,46 @@
+{
+    "page": {
+        "x": -200,
+        "y": 600,
+        "z": 0,
+        "tag": "ughhhhh",
+        "egg": "beh",
+        "pronouns": "she",
+        "height": {
+            "cm": 130,
+            "offset": -1,
+            "nudge": -10
+        },
+        "labels": {
+            "parody": "nene (fnf / pico's school)"
+        },
+        "palette": [
+            "#660066",
+            "#ff6699",
+            "#ffcc99",
+            "#ffffcc"
+        ],
+        "colors": {
+            "text": "#330066",
+            "bright": "#ffffcc",
+            "light": "#ff99cc",
+            "main": "#ff6699",
+            "dim": "#990066",
+            "dark": "#330066",
+            "bg": "#ffffcc",
+            "header": {
+                "bg": "#330066",
+                "accent": "#990066"
+            }
+        },
+        "iconColors": {
+            "main": "#ff6699",
+            "dark": "#330066",
+            "white": "#ffffcc"
+        }
+    },
+    "button": {
+        "color": "#ff6699",
+        "outline": "#ffffcc"
+    }
+}

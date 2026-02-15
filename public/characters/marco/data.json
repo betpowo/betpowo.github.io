@@ -1,0 +1,42 @@
+{
+    "page": {
+        "x": -500,
+        "y": 750,
+        "z": 0,
+        "tag": "lesa go",
+        "egg": "wahu",
+        "pronouns": "he",
+        "height": {
+            "cm": 43,
+            "offset": 1,
+            "nudge": -50.5
+        },
+        "labels": {
+            "parody": "mario (smb3)"
+        },
+        "palette": [
+            "#4b005b",
+            "#cc3333",
+            "#ffcc99",
+            "#ffffcc"
+        ],
+        "colors": {
+            "tag": "#ff6666",
+            "bright": "#ffffcc",
+            "light": "#ff6666",
+            "main": "#cc3333",
+            "dim": "#660033",
+            "dark": "#330011",
+            "bg": "#700035"
+        },
+        "iconColors": {
+            "main": "#cc3333",
+            "dark": "#4b005b",
+            "white": "#ffffcc"
+        }
+    },
+    "button": {
+        "color": "#cc3333",
+        "outline": "#ffffcc"
+    }
+}

@@ -1,0 +1,51 @@
+{
+    "page": {
+        "x": -280,
+        "y": 45,
+        "z": 100,
+        "tag": "i think you should get in shape",
+        "egg": "i made her from my concious once",
+        "pronouns": "she",
+        "palette": [
+            "#3300cc",
+            "#6633ff",
+            "#cc0099",
+            "#99ffcc",
+            "#ffffcc"
+        ],
+        "height": {
+            "cm": 111,
+            "offset": 0
+        },
+        "colors": {
+            "height": "#3300cc",
+            "bright": "#ffffcc",
+            "light": "#99ffcc",
+            "main": "#3300cc",
+            "dim": "#330099",
+            "dark": "#000066",
+            "bg": "#9876fe",
+            "tag": "#99ffcc",
+            "header": {
+                "bg": "#ffffcc",
+                "accent": "#cc0099"
+            },
+            "tab": {
+                "shadow": "#9876fe"
+            }
+        },
+        "iconColors": {
+            "main": "#3300cc",
+            "dark": "#000066",
+            "white": "#99ffcc"
+        },
+        "tabs": [
+            "other",
+            "references"
+        ]
+    },
+    "button": {
+        "color": "#3300cc",
+        "outline": "#ffffcc"
+    }
+}

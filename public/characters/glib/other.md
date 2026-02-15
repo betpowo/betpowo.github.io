@@ -1,0 +1,2 @@
+- she started as a social experiment<a class="FUCK" href="#other" x-on:click="tab = 'references'"><sup>[1]</sup></a> on twitter... but i think i got a little too attached to her, she's now her own thing!
+- she does have a somewhat official **human apperance**<a class="FUCK" href="#other" x-on:click="tab = 'references'"><sup>[2]</sup></a> but... it isn't canon. i'm sorry she can't look like this

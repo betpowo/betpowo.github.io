@@ -1,0 +1,60 @@
+---
+import "../styles/global.css";
+
+interface Props {
+    title?: string;
+    bgColor?: string;
+    onClose?: string;
+}
+const {
+    title = "window",
+    bgColor = "var(--col-main);",
+    onClose = "navigate('/');",
+} = Astro.props;
+---
+
+<div
+    style="
+    display: flex;
+    flex-flow: column;
+    width: calc(100vw - 100px); height: 82vh;
+    position: fixed;
+    left: 50%; top: 53%;
+    transform: translate(-50%, -50%);
+    border: 4px solid var(--col-dim);
+    border-radius: 20px;
+    overflow: hidden;
+    "
+>
+    <nav>
+        <div
+            style="display: flex; flex-flow: row; align-items: center; justify-content: center;"
+        >
+            <span
+                set:html={title}
+                style="display: block; width: 100%; text-align: left; padding-left: 10px;"
+            />
+
+            <button
+                x-on:click={onClose}
+                style="
+                margin: 0;
+                padding: 1px;
+                box-shadow: none;
+                --col: var(--col-bright);
+                --col-hover: #f36;
+                width: 1.5em; height: 1.5em;
+                "
+            >
+                ×
+            </button>
+        </div>
+    </nav>
+    <div
+        style={"padding: 32px; overflow: auto; background-color: " +
+            bgColor +
+            "; height: 100%;"}
+    >
+        <slot />
+    </div>
+</div>

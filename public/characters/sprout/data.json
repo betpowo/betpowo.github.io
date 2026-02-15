@@ -1,0 +1,45 @@
+{
+    "page": {
+        "x": -80,
+        "y": 85,
+        "z": 150,
+        "tag": "one with nature",
+        "egg": "huh",
+        "pronouns": "they",
+        "palette": [
+            "#76149b",
+            "#009933",
+            "#dd9248",
+            "#f2ffe7"
+        ],
+        "height": {
+            "cm": 151,
+            "offset": 5,
+            "nudge": 30.5
+        },
+        "labels": {
+            "irrelevant": true
+        },
+        "colors": {
+            "text": "#2b0054",
+            "bright": "#f2ffe7",
+            "light": "#99cc66",
+            "main": "#009933",
+            "dim": "#336699",
+            "dark": "#2b0054",
+            "bg": "#f2ffe7",
+            "header": {
+                "bg": "#2b0054"
+            }
+        },
+        "iconColors": {
+            "main": "#009933",
+            "dark": "#2b0054",
+            "white": "#f2ffe7"
+        }
+    },
+    "button": {
+        "color": "#009933",
+        "outline": "#f2ffe7"
+    }
+}

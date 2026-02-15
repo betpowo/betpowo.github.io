@@ -1,0 +1,1 @@
+it's a HYPOTHETICAL object show... i would make it if i wasn't lazy... anyways it's probably going to be written like classic bfdia type shit

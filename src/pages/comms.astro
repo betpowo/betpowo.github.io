@@ -1,124 +1,48 @@
 ---
-// Component Imports
-import CharButton from "../components/CharButton.astro";
-import ContactButton from "../components/ContactButton.astro";
-import Footer from "../components/Footer.astro";
-import Header from "../components/Header.astro";
+import Page from "../components/Page.astro";
 import "../styles/global.css";
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<meta name="generator" content={Astro.generator} />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<title>betopia's lemonade stand</title>
-
-		<meta content="🖤 commissions - betopia" property="og:title" />
-		<meta
-			content="yeah i really need to start doing these things if i wanna live. [more info on full page]"
-			property="og:description"
-		/>
-		<meta content="/images/commstuff.png" property="og:image" />
-		<meta name="twitter:card" content="summary_large_image" />
-		<meta content="#996666" data-react-helmet="true" name="theme-color" />
-
-		<style lang="scss">
-			.container {
-				display: flex;
-				align-items: baseline;
-				margin: auto;
-				justify-content: center;
-			}
-
-			.dollar {
-				background-color: #3f9;
-				color: #066;
-				padding: 7px;
-				border-radius: 7px;
-				text-align: right;
-				float: right;
-			}
-
-			.nope {
-				color: var(--col-main);
-				background-color: var(--col-dark);
-				text-decoration: line-through;
-				cursor: not-allowed;
-			}
-
-			td {
-				border-radius: 0;
-			}
-
-			.shake {
-				animation: shake 0.2s;
-				animation-iteration-count: infinite;
-			}
-
-			@keyframes shake {
-				0% {
-					translate: 0px 0px;
-				}
-				10% {
-					translate: 1px -2px;
-				}
-				20% {
-					translate: 2px 0.5px;
-				}
-				30% {
-					translate: -1px 1px;
-				}
-				40% {
-					translate: 1px 0.4px;
-				}
-				50% {
-					translate: 0px 2px;
-				}
-				60% {
-					translate: 2px 0px;
-				}
-				70% {
-					translate: 0px 0.2px;
-				}
-				80% {
-					translate: 0.7px 0px;
-				}
-				90% {
-					translate: 1px 2px;
-				}
-				100% {
-					translate: 0px -1px;
-				}
-			}
-		</style>
-	</head>
-	<body style="text-align: center;">
-		<div
-			style="
+<meta content="🖤 commissions - betopia" property="og:title" />
+<meta
+    content="yeah i really need to start doing these things if i wanna live. [more info on full page]"
+    property="og:description"
+/>
+<meta content="/images/commstuff.png" property="og:image" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta content="#996666" data-react-helmet="true" name="theme-color" />
+<Page title="betopia's lemonade stand" logo={false}>
+    <div
+        id="body"
+        style="background-color: var(--col-dark); text-align: center;"
+        x-data="{score:0}"
+    >
+        <div
+            style="
 		margin: 0;
 		position: absolute;
 		top: 50%;
 		left: 50%;
 		-ms-transform: translate(-50%, -50%);
 		transform: translate(-50%, -50%);
+		text-align: center;
 		"
-		>
-			<div>
-				<img src="/svgs/403.svg" width="500px" alt="403: forbidden" />
-			</div>
-			<br />
-			<br />
-			<span id="lame" style="color: #fc6; cursor: help;">/comms/</span> aren't
-			real yet. when i get a chance to use my bank account i will try and open
-			them. for now just wait
-			<br /><br />
-			<span id="lame" style="color: var(--col-main); font-size: 16px;"
-				>* this error isn't real, as i'm not allowed to do server stuff
-				with only github pages</span
-			><br /><br />
-			<button onclick="javascript:history.back()">← go back</button>
-			<button onclick="window.location.href='/'">🏠 go home</button>
-		</div>
-	</body>
-</html>
+        >
+            <div>
+                <img src="/svgs/403.svg" width="500px" alt="403: forbidden!" />
+            </div>
+            <br />
+            <br />
+            <span id="lame" style="color: #fc6; cursor: help;">/comms/</span> aren't
+            real yet. when i get a chance to use my bank account i will try and open
+            them. for now just wait
+            <br /><br />
+            <span id="lame" style="color: var(--col-main); font-size: 16px;"
+                >* this error isn't real, as i'm not allowed to do server stuff
+                with only github pages</span
+            ><br /><br />
+            <button onclick="javascript:history.back()">← go back</button>
+            <button onclick="navigate('/');">🏠 go home</button>
+        </div>
+    </div>
+</Page>

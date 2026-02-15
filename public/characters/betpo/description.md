@@ -1,0 +1,2 @@
+betpo is a stick figure and he likes to goof around; he will sometimes speak in audio clips (mostly memes) if he feels like it. he rarely ever gets serious and he's kind of a prankster,
+mostly doing things he finds funny (most find it annoying)

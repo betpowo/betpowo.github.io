@@ -1,0 +1,47 @@
+{
+    "page": {
+        "x": -190,
+        "y": 103,
+        "z": 200,
+        "tag": "WHAT DOES HE EVEN DO ???",
+        "egg": "p",
+        "pronouns": "he, they",
+        "palette": [
+            "#669966",
+            "#66ff66",
+            "#ffcc66",
+            "#ffe2b8",
+            "#ffffcc"
+        ],
+        "height": {
+            "cm": 142,
+            "offset": 5,
+            "nudge": 5.5
+        },
+        "labels": {
+            "irrelevant": true
+        },
+        "colors": {
+            "text": "#336666",
+            "height": "#009966",
+            "bright": "#ffffcc",
+            "light": "#ccff99",
+            "main": "#66ff66",
+            "dim": "#009966",
+            "dark": "#336666",
+            "bg": "#ffffcc",
+            "header": {
+                "bg": "#336666"
+            }
+        },
+        "iconColors": {
+            "main": "#66ff66",
+            "dark": "#336666",
+            "white": "#ffffcc"
+        }
+    },
+    "button": {
+        "color": "#66ff66",
+        "outline": "#f3ffe3"
+    }
+}

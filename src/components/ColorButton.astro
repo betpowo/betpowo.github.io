@@ -1,34 +1,42 @@
 ---
 interface Props {
     color?: string;
+    style?: string;
 }
-const { color = "#999999" } = Astro.props;
+const { color = "#999999", style = "" } = Astro.props;
 ---
 
 <style>
     .sheet-colors {
-        margin: 8px;
-        border-radius: 100%;
-        min-width: 2.92em;
-        min-height: 2.92em;
-        max-width: 2.92em;
-        max-height: 2.92em;
+        --color: #999;
+        margin: 2px;
+        border: 1px solid #000;
+        padding: 0;
+        border-radius: 0.5rem;
+        width: 100%;
+        height: 0.5rem;
         color: rgba(0, 0, 0, 0%);
+        font-size: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: var(--color);
     }
 
     .sheet-colors:hover {
         color: #fff;
         font-weight: bolder;
+        background: var(--color);
     }
 </style>
 <button
-    x-data="{ display: '❔' }"
+    x-data={"{ display: '📋', col: '" + color + "'}"}
     x-on:click="navigator.clipboard.writeText(col); display = '✅';"
     x-on:mouseover="display = '📋';"
     class="sheet-colors"
-    x-bind:style="'border: 2px dashed #000; margin-top: 0; background-color: ' + col"
+    style={"--color: " + color + "; " + style}
     x-bind:alt="col"
     x-bind:title="col"
 >
-    <p style="margin: -16px;" x-html="display"></p>
+    <p style="margin: 0px;" x-html="display"></p>
 </button>

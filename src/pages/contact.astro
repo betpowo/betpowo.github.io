@@ -1,98 +1,102 @@
 ---
-// Component Imports
-import ContactButton from "../components/ContactButton.astro";
-import Footer from "../components/Footer.astro";
-import Header from "../components/Header.astro";
 import "../styles/global.css";
-
+import Page from "../components/Page.astro";
 const links = [
 	["bluesky", "bsky.app/profile/betpowo.bsky.social", "bsky"],
+	["discord", "discord.gg/s5pdvMTFKY", "disc"],
+	["github", "github.com/betpowo", "git"],
+	["art fight", "artfight.net/~betpowo", "art"],
 	["twitter", "twitter.com/betpowo", "twit"],
 	["youtube", "youtube.com/c/Betopia_", "tube"],
-	["github", "github.com/betpowo", "git"],
-	["discord", "discord.gg/s5pdvMTFKY", "disc"],
-	["art fight", "artfight.net/~betpowo", "art"],
 	["straw!", "betpowo.straw.page", "straw"],
+	["steam", "steamcommunity.com/id/probablynotbetopia/", "steam"],
 	["gamebanana", "gamebanana.com/members/1830099", "banana"],
 	["game jolt", "gamejolt.com/@probablynotbetopia", "jolt"],
 	["roblox (inactive)", "roblox.com/users/1758832943/profile", "rbl"],
 	["tumblr (inactive)", "tumblr.com/betpowo", "tumb"],
-	["steam", "steamcommunity.com/id/probablynotbetopia/", "steam"],
 	["geometry dash", "gdbrowser.com/u/BetopiaGD", "gd"],
 	["newgrounds", "betopiang.newgrounds.com", "ground"],
 	["panzoid <3", "panzoid.com/users/im_a_piece_of_garbage", "panzoid"],
 ];
-
-function getLink(ae = "", returnEmpty = false) {
-	if (ae.startsWith("--")) return returnEmpty ? "" : ae.replace("--", "");
-	return "https://" + ae;
-}
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<meta name="generator" content={Astro.generator} />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<title>betopia's location</title>
+<meta content="contact - betopia" property="og:title" />
+<meta
+	content="go scream at me or whatever you want"
+	property="og:description"
+/>
+<meta content="/images/socials/disc.png" property="og:image" />
+<meta content="#6633ff" data-react-helmet="true" name="theme-color" />
 
-		<meta content="contact - betopia" property="og:title" />
-		<meta
-			content="go scream at me or whatever you want. [more info on full page]"
-			property="og:description"
-		/>
-		<meta content="/images/socials/disc.png" property="og:image" />
-		<meta content="#6633ff" data-react-helmet="true" name="theme-color" />
-
-		<style>
-			.container {
-				display: flex;
-				align-items: baseline;
-				margin: auto;
-				justify-content: center;
+<Page title="betopia's location" logo={false}>
+	<style>
+		.fuck {
+			gap: 24px;
+		}
+		@media screen and (max-width: 1200px) {
+			.fuck {
+				text-align: center;
+				gap: 2px;
+				max-width: 160px;
 			}
-		</style>
-	</head>
-	<Header />
-	<body>
-		<div style="margin: 23px;">
-			<div class="board" style="max-width: 40rem; margin: auto;">
-				<h1><span style="font-weight: normal;">📨</span> contact</h1>
-				<br />
-				my real, totally not fake accounts
-				<br />
-				<br />
-				<div class="sub-board" style=" max-width: fit-content;">
-					{
-						links.map((a) => (
-							<div style="display: flex; gap: 10px; text-align: left; align-items: center;">
-								<ContactButton
-									image={a[2]}
-									name={a[0]}
-									link={getLink(a[1], true)}
-								/>
-								<div>
-									<h2 style="color: var(--col-bright); margin: 0;">
-										{a[0]}
-									</h2>
-									<a
-										href={getLink(a[1], true)}
-										target="_blank"
-										style="text-decoration: none;"
-									>
-										<p style="margin: 0;">
-											{getLink(a[1])}
-										</p>
-									</a>
-								</div>
-							</div>
-						))
-					}
-				</div>
-				<br />
-				please follow them all......i need to take over the world
-			</div>
+			.ass {
+				width: 10rem;
+			}
+			.butt {
+				font-size: 30px;
+			}
+			.shit {
+				display: none !important;
+			}
+			.PENIS {
+				display: grid;
+				grid-template-columns: auto auto auto auto;
+			}
+		}
+	</style>
+	<div style="margin: 20px; max-width: 40rem; margin: auto;">
+		<p>my real, totally not fake accounts</p>
+		<div class="PENIS">
+			{
+				links.map((a) => (
+					<div
+						class="dynamic-direction fuck"
+						style="display: flex; align-items: center; margin: 24px;"
+					>
+						<button
+							onclick={
+								'window.open("' + "https://" + a[1] + '");'
+							}
+							style="padding: 0; margin: 0; box-shadow: none; background: none;"
+						>
+							<img
+								src={"/images/socials/" + a[2] + ".png"}
+								alt=""
+							/>
+						</button>
+						<div
+							style="display: flex; flex-direction: column;"
+							class="ass"
+						>
+							<h2
+								style="color: var(--col-bright); margin: 0;"
+								class="butt"
+							>
+								{a[0]}
+							</h2>
+
+							<a
+								href={"https://" + a[1]}
+								target="_blank"
+								class="shit"
+								style="text-decoration: none;"
+							>
+								<p style="margin: 0;">{a[1]}</p>
+							</a>
+						</div>
+					</div>
+				))
+			}
 		</div>
-	</body>
-	<Footer />
-</html>
+	</div>
+</Page>

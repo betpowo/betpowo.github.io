@@ -1,0 +1,19 @@
+<div style="display: flex;">
+{
+    [
+        {name: `first`, text: `her first apperance<a class="FUCK" href="#other" x-on:click="tab = 'references'"><sup>[1]</sup></a>`},
+    ].map((a) => (
+        <div style="display: flex; flex-direction: column; gap: 12px; margin: 16px;">
+            <button style="width: fit-content; margin: 0; padding: 3px;"
+            x-on:click={`window.open('/characters/'+id+'/gallery/${a.name}.png');`}>
+                <img
+                x-bind:src={`'/characters/'+id+'/gallery/${a.name}.png'`}
+                height="180"
+                style="border-radius: 8px;"
+                />
+            </button>
+            <span set:html={a.text}/>
+        </div>
+    ))
+}
+</div>

@@ -1,0 +1,52 @@
+{
+    "page": {
+        "x": 196,
+        "y": 282,
+        "z": 400,
+        "display": "super duck guy",
+        "tag": ":v",
+        "egg": "he will save us all",
+        "pronouns": "he, it",
+        "palette": [
+            "#660066",
+            "#ff3333",
+            "#ff9933",
+            "#ffffcc",
+            "#cc9999"
+        ],
+        "height": {
+            "cm": 225,
+            "offset": 7,
+            "nudge": 10
+        },
+        "labels": {
+            "irrelevant": true
+        },
+        "colors": {
+            "height": "#ff3333",
+            "text": "#330033",
+            "bright": "#ffffcc",
+            "light": "#ffcc66",
+            "main": "#ff9933",
+            "dim": "#ff3333",
+            "dark": "#330033",
+            "bg": "#ffffcc",
+            "header": {
+                "bg": "#330033",
+                "accent": "#ff3333"
+            }
+        },
+        "iconColors": {
+            "main": "#ff9933",
+            "dark": "#330033",
+            "white": "#ffffcc"
+        },
+        "tabs": [
+            "other"
+        ]
+    },
+    "button": {
+        "color": "#ff9933",
+        "outline": "#ffffcc"
+    }
+}

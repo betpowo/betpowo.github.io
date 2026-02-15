@@ -4,21 +4,23 @@
 }
 
 :root {
-    --header-color: #303;
-    --header-logo-color-1: #ffc;
-    --header-logo-color-2: #966;
-
     --col-bright: #ffc;
     --col-light: #fc9;
     --col-main: #966;
     --col-dim: #624;
     --col-dark: #303;
 
-    --col-bg: #303;
-    --col-char-bg: #966;
+    --header-bg-color: var(--col-bright);
+    --header-main-color: var(--col-main);
+    --header-accent-color: var(--col-dim);
 
-    --col-link: #fc9;
-    --col-link-hover: #ffc;
+    --col-bg: #303;
+    --col-char-bg: var(--col-main);
+
+    --col-link: var(--col-light);
+    --col-link-hover: var(--col-bright);
+
+    --col-text: var(--col-bright);
 }
 
 [x-cloak] {
@@ -26,10 +28,10 @@
 }
 
 html {
-    font-family: 'sillyfont', 'Comic Sans MS', Times;
+    font-family: 'sillyfont', 'Comic Sans MS', Comic, Times;
     font-display: swap;
     font-size: 22px;
-    color: var(--col-bright);
+    color: var(--col-text);
 }
 
 body {
@@ -38,7 +40,7 @@ body {
     padding: 0;
     min-height: 100vh;
     display: grid;
-    grid-template-rows: auto 1fr auto;
+    grid-template-rows: auto 1fr;
 }
 
 h1 {
@@ -72,6 +74,13 @@ hr {
     border: none;
     border-radius: 7px;
 }
+
+nav {
+    background-color: var(--header-bg-color);
+    color: var(--header-main-color);
+    padding: 8px;
+}
+
 
 table,
 th,
@@ -118,6 +127,23 @@ th {
     margin: auto;
 }
 
+.sub-board h1,
+.sub-board h2,
+.sub-board h3,
+.sub-board h4,
+.sub-board h5,
+.sub-board h6 {
+    color: var(--col-light);
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    margin: auto;
+    justify-content: center;
+    max-width: fit-content;
+}
+
 a {
     --col: var(--col-link);
     --col-hover: var(--col-link-hover);
@@ -155,7 +181,8 @@ b {
 }
 
 button {
-    box-shadow: 0px 4px 0px var(--col-shadow);
+    --depth: 3px;
+    box-shadow: 0px var(--depth) 0px var(--col-shadow);
 }
 
 button:disabled {
@@ -166,8 +193,8 @@ button:disabled {
 }
 
 button:active:not(:disabled) {
-    box-shadow: none;
-    translate: 0px 4px;
+    translate: 0px var(--depth);
+    box-shadow: 0px 0px 0px var(--col-shadow);
 }
 
 button,
@@ -327,4 +354,18 @@ audio[controls] {
 
 ::-webkit-scrollbar-track:hover {
     border-color: var(--col-dim);
+}
+
+::marker {
+    color: var(--col-light);
+}
+
+@media screen and (max-width: 1200px) {
+    .dynamic-direction {
+        flex-direction: column;
+    }
+
+    nav {
+        font-size: 40px;
+    }
 }

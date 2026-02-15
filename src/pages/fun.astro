@@ -1,0 +1,31 @@
+---
+import Page from "../components/Page.astro";
+---
+
+<meta content="fun - betopia" property="og:title" />
+<meta content="fun!" property="og:description" />
+<meta content="#996666" data-react-helmet="true" name="theme-color" />
+
+<Page logo={false} title="betopia's arcade">
+    <div style="background-color: var(--col-main); padding: 40px;">
+        <h1>fun</h1>
+        things i add that have 0 valuable information when i'm bored
+        <hr /><br />
+        <div class="container" style="gap: 24px;">
+            {
+                ["stickers", "wordle"].map((a) => (
+                    <div>
+                        <button
+                            onclick={"navigate('/fun/" + a + "')"}
+                            style="display: flex; flex-direction: column;"
+                        >
+                            {a}
+                        </button>
+                    </div>
+                ))
+            }
+        </div>
+        <p style="text-align: center;">more soon... (maybe not)</p>
+        <img src="/images/snoopy.png" />
+    </div>
+</Page>

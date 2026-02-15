@@ -1,0 +1,40 @@
+{
+    "page": {
+        "color": "#f8ff8f",
+        "x": 336,
+        "y": 240,
+        "z": 400,
+        "tag": "",
+        "egg": "huh",
+        "pronouns": "they, it",
+        "palette": [
+            "#669966",
+            "#66cc33",
+            "#f8ff8f"
+        ],
+        "height": {
+            "cm": 100,
+            "offset": -2
+        },
+        "colors": {
+            "bright": "#fafffe",
+            "light": "#ffffcc",
+            "main": "#f8ff8f",
+            "dim": "#66cc33",
+            "dark": "#003333",
+            "bg": "#003333",
+            "header": {
+                "bg": "#006666"
+            }
+        },
+        "iconColors": {
+            "main": "#f8ff8f",
+            "dark": "#003333",
+            "white": "#fafffe"
+        }
+    },
+    "button": {
+        "color": "#f8ff8f",
+        "outline": "#006666"
+    }
+}

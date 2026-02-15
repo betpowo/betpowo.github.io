@@ -1,0 +1,3 @@
+- he'd be the type to have *"loud = funny"* humor sometimes- actually no. that IS him he IS that type
+- despite his funny nature, he still thinks about how another would react. yea he would respect boundaries
+- he's asexual, in both senses <span style="color: #f63;">(doesn't like it, and literally can't do it)</span>

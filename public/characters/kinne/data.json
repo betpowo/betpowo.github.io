@@ -1,0 +1,51 @@
+{
+    "page": {
+        "color": "#ffd16d",
+        "x": 222,
+        "y": 36,
+        "z": 100,
+        "tag": "imperfect perfection",
+        "egg": "FUCKKKKKK",
+        "pronouns": "she, they",
+        "palette": [
+            "#541dc3",
+            "#ff6699",
+            "#66cc99",
+            "#ffd16d",
+            "#fffebf"
+        ],
+        "height": {
+            "cm": 130,
+            "offset": 0
+        },
+        "colors": {
+            "marker": "#ff6699",
+            "bright": "#fffebf",
+            "light": "#66cc99",
+            "main": "#ffd16d",
+            "dim": "#ff6699",
+            "dark": "#000033",
+            "bg": "#006677",
+            "header": {
+                "bg": "#fffebf",
+                "main": "#66cc99",
+                "accent": "#ffd16d"
+            },
+            "tab": {
+                "text": "#000033"
+            }
+        },
+        "iconColors": {
+            "main": "#ffd16d",
+            "dark": "#1a0066",
+            "white": "#fffebf"
+        },
+        "tabs": [
+            "other"
+        ]
+    },
+    "button": {
+        "color": "#ffcc66",
+        "outline": "#ffffcc"
+    }
+}

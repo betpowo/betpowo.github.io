@@ -1,0 +1,131 @@
+---
+import CharButton from "../../components/CharButton.astro";
+import Page from "../../components/Page.astro";
+var chars = [];
+
+var temp = import.meta.glob("../../../public/characters/*/data.json", {
+    eager: true,
+});
+
+var tmp2 = new Map();
+for (const k of Object.keys(temp)) {
+    var index = k.split("/").at(-2);
+    //console.log(index);
+    tmp2[index] = temp[k];
+}
+
+//console.log(tmp2);
+
+for (var k in tmp2) {
+    chars.push(k);
+}
+
+function hex2hsv(a) {
+    var hex = /([0-9a-f]+)/g.exec(a)[1];
+    var _rgb = parseInt(hex, 16);
+    var rgb = [(_rgb >> 16) & 255, (_rgb >> 8) & 255, (_rgb >> 0) & 255];
+    var r = rgb[0] / 255;
+    var g = rgb[1] / 255;
+    var b = rgb[2] / 255;
+
+    // https://www.30secondsofcode.org/js/s/rgb-hex-hsl-hsb-color-format-conversion/#rgb-to-hsb
+    const v = Math.max(r, g, b),
+        n = v - Math.min(r, g, b);
+    const h =
+        n === 0
+            ? 0
+            : n && v === r
+              ? (g - b) / n
+              : v === g
+                ? 2 + (b - r) / n
+                : 4 + (r - g) / n;
+    return {
+        hue: 60 * (h < 0 ? h + 6 : h),
+        saturation: v && (n / v) * 100,
+        brightness: v * 100,
+    };
+}
+---
+
+<meta content="characters - betopia" property="og:title" />
+<meta
+    content="the characters i own, if you wanna see them. [more info on full page]"
+    property="og:description"
+/>
+<meta content="/images/charbox.png" property="og:image" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta content="#996666" data-react-helmet="true" name="theme-color" />
+<Page title="betopia's basement" logo={false}>
+    <style>
+        @media screen and (max-width: 1200px) {
+            #bruhhh.dynamic-direction {
+                text-align: center;
+                justify-content: center;
+                gap: 48px;
+            }
+        }
+    </style>
+    <div style="background-color: var(--col-main); padding: 40px;">
+        <div style="margin: auto; max-width: 100vw;">
+            <div
+                id="bruhhh"
+                style="display: flex; justify-content: space-between; align-items: center;"
+                class="dynamic-direction"
+            >
+                <div>
+                    <h1
+                        style="display: flex; gap: 20px; align-items: center; width: fit-content;"
+                    >
+                        characters <span style="font-size: 20px;"
+                            >(low quality view)</span
+                        >
+                    </h1>
+                    look at them! my babies... they started this site...
+                </div>
+                <div style="display: flex; gap: 12px; align-items: center;">
+                    <span style="text-align: left;">search by page id:</span>
+                    <input
+                        id="text-input"
+                        type="text"
+                        placeholder="betty"
+                        style="margin: 0;"
+                    />
+                    <button
+                        style="margin: 0;"
+                        x-on:click="
+                        navigate('/characters/' + (
+                            document.getElementById('text-input').value.length > 0
+                            ? document.getElementById('text-input').value
+                            : 'betty'
+                        .toLowerCase().trim()))"
+                        >🔍</button
+                    >
+                    <button
+                        style="margin: 0;"
+                        x-on:click="navigate('/characters/random')">🎲</button
+                    >
+                    <button
+                        style="margin: 0;"
+                        x-on:click="navigate('/characters/extras')">📙</button
+                    >
+                </div>
+            </div>
+            <hr />
+            <div
+                style="margin: auto; display: flex; flex-flow: wrap row;
+                align-items: center; justify-content: center; gap: 12px;"
+            >
+                {
+                    chars
+                        .sort((a, b) => {
+                            return (
+                                hex2hsv(tmp2[a].button.color).hue -
+                                hex2hsv(tmp2[b].button.color).hue
+                            );
+                        })
+                        .map((a) => <CharButton size={150} character={a} />)
+                }
+            </div>
+        </div>
+    </div>
+</Page>

@@ -1,0 +1,49 @@
+{
+    "page": {
+        "x": -50,
+        "y": 733,
+        "z": 0,
+        "display": "stupid objects show",
+        "tag": "object shows are for babies",
+        "hide_design_label": true,
+        "egg": "2 METAL BALLS 🔥🔥🔥🗣🗣",
+        "palette": [
+            "#000000",
+            "#66cc99",
+            "#99cc99",
+            "#ffffff"
+        ],
+        "height": {
+            "cm": 717,
+            "hide": true
+        },
+        "labels": {
+            "parody": "object shows"
+        },
+        "colors": {
+            "text": "#003366",
+            "bg": "#ffffff",
+            "bright": "#ffffff",
+            "light": "#99ff66",
+            "main": "#66cc99",
+            "dim": "#336666",
+            "dark": "#003366",
+            "header": {
+                "bg": "#000000",
+                "accent": "#ffffff"
+            }
+        },
+        "iconColors": {
+            "main": "#66cc99",
+            "dark": "#000000",
+            "white": "#ffffff"
+        },
+        "tabs": [
+            "other"
+        ]
+    },
+    "button": {
+        "color": "#66cc99",
+        "outline": "#ffffff"
+    }
+}

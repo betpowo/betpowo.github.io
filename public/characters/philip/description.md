@@ -1,0 +1,2 @@
+philip is somewhat arrogant and kinda done with the world but he's getting better i guess.
+he has anger issues he's always been trying to solve, constantly being annoyed by [nancy](/characters/nancy), dealing with evil foes in his way with his Awesome gun, idk i would be fed up with this world too

@@ -1,394 +1,415 @@
 ---
 // Component Imports
-import Alpine from "alpinejs";
-import CharButton from "../components/CharButton.astro";
-import Footer from "../components/Footer.astro";
-import Header from "../components/Header.astro";
 import "../styles/global.css";
-const buttonsize = 150;
-const chars = [];
-// How do i do it
-for (var bleh in import.meta.glob("/public/characters/*/button.json")) {
-	chars.push(
-		bleh
-			.replace("/characters/", "")
-			.replace("/button.json", "")
-			.replace("/public", ""),
-	);
+import { Spa } from "astro-spa";
+import Page from "../components/Page.astro";
+import Window from "../components/Window.astro";
+import HeaderLogo from "../components/HeaderLogo.astro";
+import _package from "../../package.json";
+import CharButton from "../components/CharButton.astro";
+
+function getOptionType(a: any) {
+    switch (typeof a) {
+        case "boolean":
+            return "checkbox";
+    }
+    return "text";
 }
-// console.log(chars);
 
-function getCharList() {
-	// yall hate fun
-	// how do i do this in normal alpine if "i" doesnt work
-	// on CharButton for some reason???
-
-	/*console.log("randomizing..");
-	var result = [];
-	while (result.length < 3) {
-		var chosen = chars[Math.round(Math.random() * (chars.length - 1))];
-		if (!result.includes(chosen)) {
-			result.push(chosen);
-		}
-	}
-	return result;*/
-
-	return ["betty", "betpo", "josephine"];
-}
+const overrideFont = "Lucida Sans";
 ---
 
-<!-- blehhh -->
-<html lang="en" x-data="{show: false}">
-	<head>
-		<meta charset="utf-8" />
-		<meta name="generator" content={Astro.generator} />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<title>betopia</title>
+<meta content="betopia" property="og:title" />
+<meta content="your trash can as a human lifeform." property="og:description" />
+<meta content="/images/eepy.png" property="og:image" />
+<meta content="#996666" data-react-helmet="true" name="theme-color" />
+<Page>
+    <meta content="viewport" property="width=device-width" />
 
-		<meta content="betopia" property="og:title" />
-		<meta
-			content="your trash can as a human lifeform."
-			property="og:description"
-		/>
-		<meta content="/images/eepy.png" property="og:image" />
-		<meta content="#996666" data-react-helmet="true" name="theme-color" />
+    <style>
+        table,
+        td {
+            background: none;
+            box-shadow: none;
+            margin: 0;
+            padding: 4px;
+        }
+        td.name {
+            color: var(--col-dark);
+            font-weight: 800;
+            padding-right: 50px;
+        }
+        .f-el {
+            color: #f36;
+        }
+        .f-vl {
+            color: #cf6;
+        }
+        .about-thing {
+            background-image: linear-gradient(
+                to bottom,
+                rgb(
+                    from var(--col-light) calc(r * 1.3) calc(g * 1.3)
+                        calc(b * 1.3)
+                ),
+                var(--col-light) 45%,
+                rgb(from var(--col-light) calc(r - 8) calc(g - 16) calc(b - 8))
+                    55%,
+                var(--col-light)
+            );
+            border-radius: 20px;
+            box-shadow: 0px 4px 2px 1px var(--col-dim);
+            width: 90%;
+            margin: auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+        }
+        .about-thing h1 {
+            text-shadow: 0px 5px 5px
+                rgb(
+                    from var(--col-light) calc(r - 32) calc(g - 64) calc(b - 32)
+                );
+        }
+    </style>
+    <div x-data="{displayedWindow: null}">
+        <div>
+            {
+                [
+                    {
+                        name: "README",
+                        icon: "📄",
+                        click: "displayedWindow = 'read'",
+                        light: ".md",
+                    },
+                    {
+                        name: "about",
+                        icon: "📙",
+                        click: "displayedWindow = 'about'",
+                        light: "",
+                    },
+                    {
+                        name: "settings",
+                        icon: "⚙",
+                        click: "displayedWindow = 'settings'",
+                        light: "",
+                    },
 
-		<style lang="scss">
-			.container {
-				display: flex;
-				align-items: center;
-				margin: auto;
-				justify-content: center;
-				max-width: fit-content;
-				gap: 24px;
-			}
-			.awesome-grid {
-				display: grid;
-				gap: 24px;
-				grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-				min-width: 200px;
-				max-width: 90%;
-				margin: auto;
-			}
-
-			.board {
-				animation: 1s appear;
-				animation-fill-mode: forwards;
-				animation-timing-function: cubic-bezier(0.19, 1, 0.22, 1);
-				animation-delay: 1s;
-				opacity: 0;
-				visibility: hidden;
-			}
-
-			@for $i from 1 through 10 {
-				.board:nth-child(#{$i}n) {
-					animation-delay: #{0.3 + ($i * 0.1)}s;
-				}
-			}
-
-			@keyframes appear {
-				0% {
-					translate: 0px 30px;
-				}
-				1% {
-					opacity: 1;
-					visibility: visible;
-				}
-				100% {
-					opacity: 1;
-					visibility: visible;
-					translate: 0px 0px;
-				}
-			}
-
-			@media screen and (max-width: 1111px) {
-				.awesome-grid {
-					display: block;
-				}
-				.board {
-					margin-bottom: 24px;
-				}
-			}
-
-			.bounce-icon {
-				--speed-x: 1s;
-				--speed-y: 3s;
-				position: absolute;
-				animation:
-					var(--speed-x) bounce-x linear infinite alternate,
-					var(--speed-y) bounce-y linear infinite alternate;
-			}
-
-			@keyframes bounce-x {
-				from {
-					left: 0;
-				}
-				to {
-					left: 100%;
-				}
-			}
-			@keyframes bounce-y {
-				from {
-					top: 0;
-				}
-				to {
-					top: calc(100% - 75px);
-				}
-			}
-		</style>
-	</head>
-	<Header />
-	<body>
-		<br />
-		<div class="awesome-grid">
-			<div
-				class="board"
-				style="grid-column: 1 / 4; grid-row: 1 / 1; background-color: var(--col-bright); color: var(--col-dark);"
-			>
-				<a href="/characters/betty">
-					<img
-						style="float: right;"
-						src="/images/eepy.png"
-						width="150"
-					/>
-				</a>
-				<h1>betopia</h1>
-				<br /><br />
-				<p
-					style="color:var(--col-main);
-		margin-top: -2%;
-		font-size: 78%;
-		font-weight: bolder;
-		font-family: 'Helvetica';"
-				>
-					/ bət oʊ piə / - noun
-				</p>
-				<br />
-				<li>
-					a very lazy, sleepy girl wandering around on the internet
-				</li>
-				<br />
-				<li>a stupid person who doesn't deserve anything</li>
-				<br />
-				<div style="align-items: baseline;">
-					<p style="color:var(--col-main); text-align: center;">
-						visit my silly's website Now. Immediately.
-					</p>
-					<a href="https://skruyo.dev" class="container">
-						<img
-							src="/images/dnl.png"
-							width="49"
-							alt="daniel"
-							loading="lazy"
-							title="daniel"
-						/>
-						<img
-							src="/images/dnl.png"
-							width="49"
-							alt="daniel"
-							loading="lazy"
-							title="daniel"
-						/>
-						<img
-							src="/images/dnl.png"
-							width="49"
-							alt="daniel"
-							loading="lazy"
-							title="daniel"
-						/>
-					</a>
-				</div>
-			</div>
-			<div
-				class="board"
-				style="grid-column: 4 / 6; grid-row: 1 / 3; overflow-x: hidden;"
-			>
-				<h1>hi !!!</h1>
-				<br />
-				my name is betty, or betopia, if you prefer.
-				<br />i mainly draw and stuff, i'm bad at it, but i still have
-				fun with it.
-				<br />
-				<br />
-				i can kinda code too... i just don't have any examples near me right
-				now, but trust me i have alot of
-				<a
-					href="https://haxeflixel.com"
-					target="_blank"
-					style="--col: #f96; --col-hover: #3f9;">haxeflixel</a
-				>
-				knowledge, and i'm currently learning <a
-					href="https://godotengine.org"
-					target="_blank"
-					style="--col: #3cf; --col-hover: #cff;">godot</a
-				>! <sub style="color: var(--col-dim)"
-					>(i've been too lazy to learn godot these days)</sub
-				>
-				<br />
-				<br />
-				<br />
-				<div
-					style="
-			position: relative;
-			bottom: 0px;
-			transform: translateX(-25%);
-			max-width: 300px;
-			margin:auto;
-			"
-				>
-					<div
-						style="float: inline-end; width: 100%; margin: auto; position: absolute; translate: 30px 60px;"
-					>
-						<div style="width: 400px; height: 200px;">
-							{
-								[
-									"godot",
-									"medibang",
-									"haxeflixel",
-									"fl",
-									"animate",
-								].map((a, idx) => (
-									<img
-										src={"/images/icons/" + a + ".png"}
-										width="75"
-										class="bounce-icon"
-										style={
-											"pointer-events: none;" +
-											"--speed-x: " +
-											(0.1 + Math.random()) * 2 +
-											"s;" +
-											"--speed-y: " +
-											(0.1 + Math.random()) * 2 +
-											"s;"
-										}
-									/>
-								))
-							}
-						</div>
-					</div>
-					<img src="/images/think.png" width="450" />
-				</div>
-			</div>
-			<div
-				class="board"
-				x-data={`{
-					getCharList: () => {
-					const chars = [${chars.map((a) => {
-						return '"' + a + '"';
-					})}];
-					//console.log(chars);
-					//console.log("randomizing..");
-					var result = [];
-					while (result.length < 3) {
-						var chosen = chars[Math.round(Math.random() * (chars.length - 1))];
-						if (!result.includes(chosen)) {
-							result.push(chosen);
-						}
-					}
-					return result;
-					// return ["betty", "betpo", "josephine"];
-				}
-			}`}
-				style="grid-column: 1 / 4; grid-row: 2 / 2;"
-			>
-				<h1>i have characters !</h1>
-				<br />
-				i love character design, and i rlly want to get good at it, take
-				a look:
-				<br /><br />
-				<div style="text-align: center;">
-					<div class="container" style="gap: 6px;">
-						{
-							getCharList().map((a) => (
-								<CharButton size={buttonsize} character={a} />
-							))
-						}
-					</div>
-					<button
-						style="font-size: 32px; width: 520px; padding: 20px; border-radius: 40px;"
-						onclick="window.location.href = '/characters'"
-					>
-						👥 view all &RightArrow;
-					</button>
-				</div>
-			</div>
-
-			<div class="board" style="grid-column: 1 / 6; grid-row: 3 / 3;">
-				<h1>i make stuff !</h1>
-				<br />
-				...when i'm not lazy.
-				<br />
-				i've got like 5 personal projects unfinished, you can see which ones
-				i have finished here:
-				<button
-					style="padding: 20px; font-size: 30px; border-radius: 40px;"
-					onclick="window.location.href = '/projects'"
-				>
-					📦 projects &RightArrow;
-				</button>
-			</div>
-
-			<div class="board" style="grid-column: 1 / 3; grid-row: 4 / 4;">
-				<h2>i draw ! not rlly good tho</h2>
-				<br />
-				<div
-					class="sub-board"
-					style="display: flex; padding: 10px; overflow-x: scroll; width: calc(100% - 80px);"
-				>
-					{
-						[
-							"daniel.png",
-							"spooky.gif",
-							"christmas.png",
-							"funkin.png",
-						].map((a) => (
-							<img
-								src={"/images/gallery/" + a}
-								height="150"
-								style="border-radius: 20px; margin: 5px;"
-								loading="lazy"
-							/>
-						))
-					}
-				</div>
-				<button
-					style=" width: 100%; padding: 20px; font-size: 20px; border-radius: 40px;"
-					onclick="window.location.href = '/gallery'"
-				>
-					🖼️ gallery &RightArrow;
-				</button>
-			</div>
-
-			<div
-				class="board"
-				style="grid-column: 3 / 6; grid-row: 4 / 4; background-color: #60f;"
-			>
-				<h1 style="color: #cff;">I LOVE MY SILLY !!!</h1>
-				<div style="text-align: center;">
-					<a href="https://skruyo.dev" target="_blank"
-						><img alt="kiss" src="/images/kiss.gif" /></a
-					>
-				</div>
-			</div>
-			<div
-				class="board"
-				style="grid-column: 1 / 6; grid-row: 5 / 6; text-align: center;"
-			>
-				<img
-					style="border-radius: 20px;"
-					src="/images/css.gif"
-					loading="lazy"
-				/>
-			</div>
-			<div
-				style="grid-column: 1 / 6; grid-row: 6 / 7; text-align: center;"
-			>
-				<a href="https://betpowo.github.io" target="_blank">
-					<img src="/website-stamp.gif" title="betpowo.github.io" />
-				</a>
-			</div>
-		</div>
-		<br />
-	</body>
-	<Footer />
-</html>
+                    { name: "characters", icon: "👨‍👩‍👧‍👦" },
+                    { name: "gallery", icon: "🎨" },
+                    { name: "projects", icon: "📦" },
+                    { name: "fun", icon: "🃏" },
+                    { name: "blog", icon: "📰" },
+                    { name: "contact", icon: "📫" },
+                ].map((a) => (
+                    <button
+                        style="background: none; box-shadow: none; color: var(--col-bright); font-size: 14px; text-align: center;"
+                        x-on:click={a.click ?? `navigate('/${a.name}/')`}
+                    >
+                        <span style="font-size: 24px;">{a.icon}</span>
+                        <br />
+                        <br />
+                        {a.name}
+                        <span style="color: var(--col-light);">
+                            {a.light ?? " ↗"}
+                        </span>
+                    </button>
+                ))
+            }
+        </div>
+        <div
+            x-show="displayedWindow == 'read'"
+            x-cloak="displayedWindow != 'read'"
+        >
+            <Window
+                title="README.md"
+                bgColor="var(--col-dim)"
+                onClose="displayedWindow = null"
+            >
+                <img src="/images/warn.png" style="float: right;" />
+                <h2 style="color: #f36;">⚠ content warnings</h2>
+                this site is <i>safe for work</i>, but i feel like you should be <b
+                    style="color: #f36;">15+</b
+                > to enter.
+                <br />if you aren't then uhmm i suggest you leave!!! it
+                contains:
+                <ul>
+                    <li>constant swearing</li>
+                    <li>lots of women. i love women (and men)</li>
+                    <li>
+                        possible bright colors that might trigger sensitive
+                        people
+                    </li>
+                    <li>self-loathing</li>
+                </ul>
+                don't say i didn't warn you.
+                <hr style="background-color: var(--col-bright);" />
+                to navigate this site, you have the &hearts; at the top.
+                <br />click on it, and options will show up
+                <br /><br />exclusive to this <span
+                    style="color: var(--col-light);">index</span
+                > page, there's these icons in the desktop
+                <br /><br />
+                only <button
+                    style="--col: var(--col-light); padding: 0; margin: 0; background: none; box-shadow: none; box-shadow: none; text-decoration:wavy underline 3px;"
+                    x-on:click="displayedWindow = 'about'">about</button
+                > can be opened here because.. i'm lazy lmao
+            </Window>
+        </div>
+        <div
+            x-show="displayedWindow == 'about'"
+            x-cloak="displayedWindow != 'about'"
+        >
+            <Window title="about" onClose="displayedWindow = null">
+                <div style="margin: auto; max-width: 45rem;">
+                    <div
+                        style="
+                        --header-logo-color-1: var(--col-bright);
+                        --header-logo-color-2: var(--col-dark);
+                        z-index: 999; display: flex; justify-content: space-between; align-items: center;"
+                    >
+                        <HeaderLogo absScale={0.5} />
+                        <a href="https://betpowo.github.io" target="_blank">
+                            <img
+                                src="https://betpowo.github.io/website-stamp.gif"
+                                title="betpowo.github.io"
+                            />
+                        </a>
+                        <p style="text-align: right;">
+                            <span
+                                style="font-family: Arial, Helvetica, sans-serif;"
+                            >
+                                <b>/ bət oʊ piə /</b> &bull; noun
+                            </span><br />your trash can as a human lifeform!
+                        </p>
+                    </div>
+                    <hr />
+                    <table>
+                        <tr>
+                            <td class="name">web. version</td>
+                            <td>{_package.version}</td>
+                        </tr>
+                        <tr>
+                            <td class="name">built with</td>
+                            <td id="iHateAstro"
+                                ><a href="https://astro.build" target="_blank"
+                                    >{Astro.generator}</a
+                                > + <a
+                                    href="https://alpinejs.dev"
+                                    target="_blank">alpine.js</a
+                                > + laziness + love..!</td
+                            >
+                        </tr>
+                        <tr>
+                            <td class="name">stamp code</td>
+                            <td
+                                ><code
+                                    class="sub-board language-html"
+                                    style="display:inline-block;margin: 0; font-size: 14px;text-align: left; width: fit-content;"
+                                >
+                                    &lt;<span class="f-el">a</span> href=<span
+                                        class="f-vl"
+                                        >"https:{"//"}betpowo.github.io"</span
+                                    > target=<span class="f-vl">"_blank"</span
+                                    >&gt;
+                                    <br />&nbsp; &Tab; &lt;<span class="f-el"
+                                        >img</span
+                                    > src=<span class="f-vl"
+                                        >"https:{
+                                            "//"
+                                        }betpowo.github.io/website-stamp.gif"</span
+                                    > title=<span class="f-vl"
+                                        >"betpowo.github.io"</span
+                                    >/&gt;
+                                    <br />&lt;/<span class="f-el">a</span>&gt;
+                                </code></td
+                            >
+                        </tr>
+                    </table>
+                    <hr /><br />
+                    <h2>about the webmaster</h2>
+                    hi... i'm betty.... and i do things.... yeah.
+                    <br /><br />i am currently stuck in the living hell that is
+                    &half; of my nationality... venezuela :(
+                    <br />yeahh i'm not from the usa if you didn't know that
+                    already. either way the world sucks
+                    <br /><br />
+                    <h2>things i like to do</h2>
+                    i am passionate about making things i love! like art, coding,
+                    music (i suck at this) and maybe more...
+                    <br /><br />to make it easier to tell, i make:
+                    <br /><br />
+                    <div class="about-thing">
+                        <h1>characters</h1>
+                        <div
+                            style="display: flex; flex-flow: wrap row; justify-content: right; gap: 12px;"
+                        >
+                            {
+                                ["betty", "daniel", "betpo", "josephine"].map(
+                                    (a) => (
+                                        <CharButton size={80} character={a} />
+                                    ),
+                                )
+                            }
+                            <button
+                                style="width: 80px; height: 80px;
+                                display: flex; align-items: center; justify-content: center;
+                                margin: 0; border-radius: 20px;"
+                                onclick="navigate('/characters')"
+                                >more &rightarrow;</button
+                            >
+                        </div>
+                    </div>
+                    <br />
+                    <div
+                        class="about-thing"
+                        style="flex-direction: row-reverse;"
+                    >
+                        <h1>art</h1>
+                        <div
+                            style="display: flex; flex-flow: wrap row; align-items: right; gap: 12px;"
+                        >
+                            <button
+                                style="width: 80px; height: 80px;
+                                display: flex; align-items: center; justify-content: center;
+                                margin: 0; border-radius: 20px;"
+                                onclick="navigate('/gallery')"
+                                >more &leftarrow;</button
+                            >
+                            {
+                                [
+                                    { f: "daniel" },
+                                    { f: "funkin" },
+                                    { f: "spooky", e: "gif" },
+                                    { f: "new-year" },
+                                    { f: "sun" },
+                                ].map((a) => (
+                                    <button
+                                        style="width: min-content; height: 80px;
+                                        display: flex; align-items: center; justify-content: center;
+                                        margin: 0; padding: 0; border-radius: 20px; overflow: hidden;"
+                                        onclick={
+                                            "navigate('/gallery/" + a.f + "')"
+                                        }
+                                    >
+                                        <img
+                                            height="80"
+                                            src={
+                                                "/images/gallery/" +
+                                                a.f +
+                                                "." +
+                                                (a.e ?? "png")
+                                            }
+                                        />
+                                    </button>
+                                ))
+                            }
+                        </div>
+                    </div>
+                    <br />
+                    <div class="about-thing">
+                        <h1>projects</h1>
+                        <button
+                            style="width: 240px; height: 80px;
+                                display: flex; align-items: center; justify-content: center;
+                                margin: 0; border-radius: 20px; font-size: 30px;"
+                            onclick="navigate('/projects')"
+                            >view all &rightarrow;</button
+                        >
+                    </div>
+                    <br />and that's rlly all there is to me... i'm boring but i
+                    am creative... i am cringe but i am free... yknow
+                    <br /><br />i'll keep creating for the sake of passion and
+                    those who look up to me 🤎
+                    <br /><br />
+                    <hr /><br />
+                    <h2>what i (normally) use</h2>
+                    uhhhhhh i use these {
+                        [
+                            "animate",
+                            "haxeflixel",
+                            "godot",
+                            "fl",
+                            "krita",
+                            "medibang",
+                        ].map((a, idx) => (
+                            <img
+                                src={"/images/icons/" + a + ".png"}
+                                width="75"
+                            />
+                        ))
+                    } in that order of frequency. yeah
+                    <br /><hr /><br />
+                    <h1>
+                        I LOVE <a href="https://skruyo.dev/" target="_blank"
+                            >daniel</a
+                        > !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+                    </h1>
+                    <img src="/images/kiss.gif" />
+                    <br /><hr /><br />
+                    <img src="/images/css.gif" />
+                </div>
+            </Window>
+        </div>
+        <div
+            x-show="displayedWindow ==  'settings'"
+            x-cloak="displayedWindow != 'settings'"
+        >
+            <Window
+                title="settings <span style='color: #f36'>(local storage)</span>"
+                onClose="displayedWindow = null"
+            >
+                <div style="display: flex; flex-direction: column; gap: 48px;">
+                    {
+                        [
+                            {
+                                id: "noSpa",
+                                name: "force reload",
+                                desc: `if checked, will fully reload the page instead of smoothly transitioning to the next, if supported`,
+                                default: false,
+                            },
+                            {
+                                id: "defaultLQ",
+                                name: "low quality view as default",
+                                desc: "when going to characters page, enabling this will show a more low-end device-friendly version of the page",
+                                default: false,
+                            },
+                            {
+                                id: "sans",
+                                name: "font override",
+                                desc: `if font is hard to read, replace it with <span style="font-family: '${overrideFont}';">${overrideFont}</span> (if available) <span style="color: var(--col-light);">(requires refresh)</span>`,
+                                default: false,
+                            },
+                        ].map((a) => (
+                            <div style="display: flex; flex-direction: row; gap: 24px; align-items: center;">
+                                <input
+                                    type={getOptionType(a.default)}
+                                    style={
+                                        getOptionType(a.default) == "checkbox"
+                                            ? "scale: 3;"
+                                            : ""
+                                    }
+                                    x-bind:checked={
+                                        `localStorage.getItem('${a.id}') == 'true'` // whyyy
+                                    }
+                                    oninput={
+                                        "localStorage.setItem('" +
+                                        a.id +
+                                        "', this.type == 'checkbox' ? this.checked : this.value);"
+                                    }
+                                />
+                                <div>
+                                    <h3 style="color: var(--col-light);">
+                                        {a.name ?? a.id}
+                                    </h3>
+                                    <Fragment set:html={a.desc} />
+                                </div>
+                            </div>
+                        ))
+                    }
+                </div>
+            </Window>
+        </div>
+    </div>
+</Page>

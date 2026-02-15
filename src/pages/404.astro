@@ -1,20 +1,10 @@
 ---
+import Page from "../components/Page.astro";
 import "../styles/global.css";
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<meta name="generator" content={Astro.generator} />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<title>betopia is missing!!!</title>
-		<style>
-			[x-cloak] {
-				display: none !important;
-			}
-		</style>
-	</head>
-	<body
+<Page title="betopia is missing!" logo={false}>
+	<div
 		id="body"
 		style="background-color: var(--col-dark); text-align: center;"
 		x-data="{score:0}"
@@ -27,6 +17,7 @@ import "../styles/global.css";
 		left: 50%;
 		-ms-transform: translate(-50%, -50%);
 		transform: translate(-50%, -50%);
+		text-align: center;
 		"
 			x-data="{pats:0}"
 		>
@@ -48,25 +39,10 @@ import "../styles/global.css";
 			</div>
 			<br />
 			<br />
-			<span id="lame" style="color: #f36; cursor: help;">this page</span> isn't
-			real. go home
+			this <span style="color: #f36;">directory</span> isn't real. go home
 			<br /><br />
-			<div x-cloak x-show="Math.random() < 0.2;">
-				<a
-					href="/fun/stickers"
-					@click="document.getElementById('body').animate([{opacity: '100%'},{opacity: '0%'}], {duration:500});"
-					>do you wanna play a game instead?</a
-				>
-				<br /><br />
-			</div>
 			<button onclick="javascript:history.back()">← go back</button>
-			<button onclick="window.location.href='/'">🏠 go home</button>
-			<script>
-				var text = document.getElementById("lame");
-				text.innerHTML = window.location.pathname;
-				if (!window.location.pathname.endsWith("/"))
-					text.innerHTML += "/";
-			</script>
+			<button onclick="navigate('/');">🏠 go home</button>
 		</div>
-	</body>
-</html>
+	</div>
+</Page>

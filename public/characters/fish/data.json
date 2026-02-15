@@ -1,0 +1,44 @@
+{
+    "page": {
+        "x": -296,
+        "y": -100,
+        "z": 25,
+        "tag": "the great almighty",
+        "egg": "🐠",
+        "pronouns": "he",
+        "palette": [
+            "#cc0066",
+            "#ff6666",
+            "#ffcc66",
+            "#ffffcc"
+        ],
+        "height": {
+            "cm": 177,
+            "offset": 7,
+            "nudge": -14
+        },
+        "labels": {
+            "irrelevant": true
+        },
+        "colors": {
+            "bright": "#ffffcc",
+            "light": "#ffcc66",
+            "main": "#ff6666",
+            "dim": "#ff0066",
+            "dark": "#660033",
+            "bg": "#660033",
+            "header": {
+                "accent": "#cc0066"
+            }
+        },
+        "iconColors": {
+            "main": "#ff6666",
+            "dark": "#660033",
+            "white": "#ffffcc"
+        }
+    },
+    "button": {
+        "color": "#ff6666",
+        "outline": "#ffffcc"
+    }
+}

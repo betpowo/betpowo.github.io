@@ -1,0 +1,4 @@
+- we do not talk of the original page<br/>(i might re-add it eventually, but i'm lazy)
+- if raine were to type smth, there's a 60% chance there's an emoticon in it
+- they're pretty extroverted. althought raine hasn't seen its friends in a very long time... unfortunate
+- **raine is genderfluid.** i've fooled you all along i KNOW what raine is... hahahah

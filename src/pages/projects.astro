@@ -1,0 +1,61 @@
+---
+import Page from "../components/Page.astro";
+---
+
+<meta content="projects - betopia" property="og:title" />
+<meta
+    content="stuff that i'm trying to do for my own enjoyment."
+    property="og:description"
+/>
+<meta content="/images/qstn.png" property="og:image" />
+<meta content="#ffffff" data-react-helmet="true" name="theme-color" />
+
+<Page logo={false} title="betopia's projects">
+    <div style="background-color: var(--col-main); padding: 40px;">
+        <h1>projects</h1>
+        the things i make outside of just being an artist... they're usually big things....waow
+        <hr /><br />
+        <div class="container dynamic-direction" style="gap: 24px;">
+            <button
+                onclick="navigate('/characters')"
+                style="display: flex; flex-direction: column;"
+            >
+                <div>
+                    <img src="/images/charbox.png" alt="help me" height="180" />
+                </div>
+                <div>👨‍👩‍👧‍👦 character storage</div>
+            </button>
+            <a href="/projects/mod-name-here">
+                <img
+                    src="/images/modnameherelogo.png"
+                    height="150"
+                    title="mod name here"
+                    alt="mod name here"
+                />
+            </a>
+            <a href="/projects/calculator">
+                <img
+                    src="/images/epiccalclogo.png"
+                    height="150"
+                    title="epic calculator"
+                    alt="epic calculator"
+                />
+            </a>
+        </div>
+        <p style="text-align: center;">
+            more soon...<span
+                style="color: var(--col-main); cursor: not-allowed; font-family: 'Cascadia Code', 'Courier New', Courier, monospace;"
+                id="mystery">?</span
+            >
+        </p>
+        <script is:inline>
+            document
+                .getElementById("mystery")
+                .addEventListener("click", (e) => {
+                    if (Math.random() <= 1 / 17) {
+                        navigate("/projects/tsime");
+                    }
+                });
+        </script>
+    </div>
+</Page>

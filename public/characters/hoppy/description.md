@@ -1,0 +1,2 @@
+hoppy is literally a filler character. but i'll try to say as much as i can:
+they're playful and kind, a lil chill but not too much, enjoys his friend [sprout](/characters/sprout/)'s company. he is a loner and i want to kick him to the sun

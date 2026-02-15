@@ -1,0 +1,2 @@
+- she does have a somewhat official **human apperance**<a class="FUCK" href="#other" x-on:click="tab = 'references'"><sup>[1]</sup></a> but... it isn't canon. i'm sorry she can't look like this
+<span style="color: #6c9;">(i was actualy proud of that design... :<)</span>

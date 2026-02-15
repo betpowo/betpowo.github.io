@@ -1,0 +1,46 @@
+{
+    "page": {
+        "x": -350,
+        "y": 833,
+        "z": 0,
+        "tag": "#1 music listener",
+        "egg": "boop",
+        "pronouns": "she",
+        "height": {
+            "cm": 127,
+            "offset": 10,
+            "nudge": 60
+        },
+        "labels": {
+            "parody": "girlfriend (fnf)"
+        },
+        "palette": [
+            "#622549",
+            "#b20069",
+            "#ffb782",
+            "#f7ffee"
+        ],
+        "colors": {
+            "text": "#330033",
+            "bright": "#f7ffee",
+            "light": "#ff66cc",
+            "main": "#b20069",
+            "dim": "#660066",
+            "dark": "#330033",
+            "bg": "#f7ffee",
+            "header": {
+                "bg": "#330033",
+                "accent": "#660066"
+            }
+        },
+        "iconColors": {
+            "main": "#b20069",
+            "dark": "#330033",
+            "white": "#f7ffee"
+        }
+    },
+    "button": {
+        "color": "#b20069",
+        "outline": "#f7ffee"
+    }
+}

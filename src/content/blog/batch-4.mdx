@@ -84,25 +84,16 @@ there's not much to say about, i'll go over most of them i think:
         <div style="display: inline-block; margin: auto;">
             <div style="display: flex; gap: 24px;">
             {
-                ['carlos', 'marco'].map((a)=>(<div style="display: flex;">
+                ['carlos', 'marco'].map((a)=>(<div>
                     <CharButton
                         size={150}
                         character={a}
-                    />
-                    <img
-                        src="/characters/new-char.gif"
-                        style={`
-                        position: absolute;
-                        pointer-events: none;
-                        z-index: 500;
-                        translate: ${150 / 2 + 16}px -6px;
-                    `}
                     />
                 </div>))
             }
             </div>
         </div>
-        now you know when to click...
+        now you know when to click... or you used to know because it is now removed (it sucked)
     </li>
     <li>
         <h3>ugly looking art for the discord embed!</h3>

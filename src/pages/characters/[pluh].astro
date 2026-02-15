@@ -1,0 +1,613 @@
+---
+import type { AstroComponentFactory } from "astro/runtime/server/index.js";
+import ColorButton from "../../components/ColorButton.astro";
+import Page from "../../components/Page.astro";
+
+export async function getStaticPaths() {
+    var chars = [];
+    var temp = await import.meta.glob(
+        "../../../public/characters/*/data.json",
+        {
+            eager: true,
+        },
+    );
+
+    var tmp2 = new Map();
+    for (const k of Object.keys(temp)) {
+        var index = k.split("/").at(-2);
+        //console.log(index);
+        tmp2[index] = temp[k];
+    }
+
+    for (var k in tmp2) {
+        chars.push(k);
+    }
+
+    return chars.map((a) => {
+        return {
+            params: {
+                pluh: a,
+            },
+            props: {
+                data: tmp2[a],
+                id: a,
+            },
+        };
+    });
+}
+const { data, id } = Astro.props;
+
+var bright2 = data.page?.colors?.bright ?? "#ffffcc",
+    light2 = data.page?.colors?.light ?? "#ffcc99",
+    main2 = data.page?.colors?.main ?? "#996666",
+    dim2 = data.page?.colors?.dim ?? "#662244",
+    dark2 = data.page?.colors?.dark ?? "#330011",
+    bg2 = data.page?.colors?.bg ?? "#330011",
+    header1 = data.page?.colors?.header?.bg ?? bright2,
+    header2 = data.page?.colors?.header?.main ?? main2,
+    header3 = data.page?.colors?.header?.accent ?? dim2,
+    height2 = data.page?.colors?.height ?? light2,
+    tag2 = data.page?.colors?.tag ?? dim2,
+    text2 = data.page?.colors?.text ?? bright2,
+    extrabg2 = data.page?.colors?.tab?.bg ?? main2,
+    extralight2 = data.page?.colors?.tab?.highlight ?? bright2,
+    extradark2 = data.page?.colors?.tab?.shadow ?? dark2,
+    extratext2 = data.page?.colors?.tab?.text ?? text2,
+    marker2 = data.page?.colors?.marker ?? light2;
+
+var _desc = await import(
+    /* @vite-ignore */ "/public/characters/" + id + "/description.md"
+);
+
+const DescContent = _desc.Content;
+
+var design = await import(
+    /* @vite-ignore */ "/public/characters/" + id + "/design.mdx"
+);
+const DContent = design.Content;
+// fuckkkk
+const tabContent = new Map();
+
+for (var i in data.page.tabs) {
+    try {
+        var mdx = await import(
+            /* @vite-ignore */ "/public/characters/" +
+                id +
+                "/" +
+                data.page.tabs[i] +
+                ".md"
+        );
+        tabContent.set(data.page.tabs[i], mdx.compiledContent());
+    } catch (e) {
+        try {
+            var mdx = await import(
+                /* @vite-ignore */ "/public/characters/" +
+                    id +
+                    "/" +
+                    data.page.tabs[i] +
+                    ".mdx"
+            );
+            tabContent.set(data.page.tabs[i], mdx.Content);
+        } catch (e) {
+            console.error(e.toString());
+            tabContent.set(
+                data.page.tabs[i],
+                '<i style="color: var(--col-dim);">[ nothing to see here... ]</i>',
+            );
+        }
+    }
+}
+
+var StupidTabWorkaround = null;
+function getTabShit(a: string) {
+    var tab = tabContent.get(a);
+    StupidTabWorkaround = tab ?? undefined;
+    return typeof tab === "string";
+}
+
+function convertHeight(cm) {
+    var inches = cm / 2.54;
+    return `${Math.floor(inches / 12)}'${Math.round(inches % 12)}''`;
+}
+
+function lightness(c) {
+    var col = parseInt(c.substr(1, 6), 16);
+    var rgb = [
+        ((col >> 16) & 0xff) / 255,
+        ((col >> 8) & 0xff) / 255,
+        ((col >> 0) & 0xff) / 255,
+    ];
+    var lum = [0.2126, 0.7152, 0.0722];
+    var dot = rgb[0] * lum[0] + rgb[1] * lum[1] + rgb[2] * lum[2];
+    return dot;
+}
+
+function hex2hsv(a) {
+    var hex = /([0-9a-f]+)/g.exec(a)[1];
+    var _rgb = parseInt(hex, 16);
+    var rgb = [(_rgb >> 16) & 255, (_rgb >> 8) & 255, (_rgb >> 0) & 255];
+    var r = rgb[0] / 255;
+    var g = rgb[1] / 255;
+    var b = rgb[2] / 255;
+
+    // https://www.30secondsofcode.org/js/s/rgb-hex-hsl-hsb-color-format-conversion/#rgb-to-hsb
+    const v = Math.max(r, g, b),
+        n = v - Math.min(r, g, b);
+    const h =
+        n === 0
+            ? 0
+            : n && v === r
+              ? (g - b) / n
+              : v === g
+                ? 2 + (b - r) / n
+                : 4 + (r - g) / n;
+    return {
+        hue: 60 * (h < 0 ? h + 6 : h),
+        saturation: v && (n / v) * 100,
+        brightness: v * 100,
+    };
+}
+
+var bg2hsv = hex2hsv(bg2);
+
+function useBrightForHeight() {
+    var FUCKASSCALC = Math.abs(lightness(bright2) - lightness(bg2));
+    //console.log(FUCKASSCALC);
+    return (
+        FUCKASSCALC < lightness(bright2) &&
+        FUCKASSCALC < lightness(light2) &&
+        Math.abs(lightness(light2) - lightness(bg2)) < 0.4
+    );
+}
+
+// formerly known as categories
+var labels = new Map();
+labels.set("parody", {
+    color: "#6c9",
+    desc: `this character is <span style="color: #6c9">based on</span> an already
+    existing ip/franchise, for humorous purposes<br/>it won't appear on
+    <span style="color: #6c9">art fight</span>, and are not canon to oc lore<br/><br/>
+    this character is based on:<br/>
+    <span style="color: #6c9; font-size: 1.15rem;">${data.page?.labels?.parody ?? "undefined"}</span>`,
+});
+labels.set("sona", {
+    color: "#c8f",
+    desc: `this character may be based on someone real,
+    pls be nice, and also they're not canon to my actual oc world`,
+});
+labels.set("adopt", {
+    color: "#c99",
+    desc: `this character isn't <span style="color: #c99;">completely original</span>!
+    it belonged to someone else original, but i was given partial or all ownership of it,
+    and that's why they're here! it won't appear on
+    <span style="color: #6c9">art fight</span> though`,
+});
+labels.set("irrelevant", {
+    color: "#f69",
+    desc: `this character has <span style="color: #f69;">little to no</span>
+    importance in the main story. they uhh, mostly sit there to look pretty or smth
+    <br/><br/>idk why this is even a label, it might be insulting...
+    i'm rlly sorry ${data.page.display ?? id} i didn't mean to hurt ur feelings :<`,
+});
+---
+
+<meta
+    content={(data.page.display ?? id) +
+        " (" +
+        (data.page.pronouns ?? "???") +
+        ")"}
+    property="og:title"
+/>
+<meta content={_desc.rawContent()} property="og:description" />
+<meta content={"/characters/" + id + "/render.png"} property="og:image" />
+<!-- <meta name="twitter:card" content="summary_large_image" /> -->
+<meta
+    content={data.page?.color ?? data.button.color}
+    data-react-helmet="true"
+    name="theme-color"
+/>
+<Page
+    title={(data.page.display ?? id) + " - betopia's basement"}
+    logo={false}
+    iconColors={data.page.iconColors}
+    alpineData={"{tabs: ['" +
+        (data.page.tabs ?? []).join("', '") +
+        "'], tab: 'other', data: " +
+        JSON.stringify(data) +
+        ", id: '" +
+        id +
+        "'}"}
+>
+    {/*die*/}
+    <style
+        set:html={`
+*, :root {
+    --col-text:   ${text2};
+    --col-bright: ${bright2};
+    --col-light:  ${light2};
+    --col-main:   ${main2};
+    --col-dim:    ${dim2};
+    --col-dark:   ${dark2};
+    --col-bg:     ${bg2};
+    --header-bg-color:     ${header1};
+    --header-main-color:   ${header2};
+    --header-accent-color: ${header3};
+    --tag-color: ${tag2};
+}
+li {
+   margin-top: 16px;
+   margin-bottom: 16px;
+}
+li::marker {
+    color: ${marker2};
+}
+nav {
+    box-shadow: 
+    0px 0px 24px 12px var(--col-bg),
+    0px 0px 48px 0 var(--col-bg),
+    0px 0px 96px 0 var(--col-bg);
+}
+button.tab {
+    --col: ${extrabg2};
+    --col-hover: ${extralight2};
+    color: ${extradark2};
+    margin: 0;
+    margin-bottom: -100px;
+    margin-right: 10px;
+    font-size: 32px;
+    padding: 16px;
+    border-radius: 16px;
+    transform: translateY(-30px);
+    box-shadow: none;
+    background-image: linear-gradient(
+        to top,
+        ${extrabg2} 40%,
+        #00000000
+    );
+}`}
+    ></style>
+    <style>
+        .this-cant-be-real {
+            --depth: 0px;
+            transition:
+                0.25s cubic-bezier(0.1, 1.1, 0.25, 1.38) translate,
+                0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275) filter;
+        }
+        .this-cant-be-real:hover {
+            --depth: 10px;
+            translate: 0px -10px;
+            filter: drop-shadow(0 10px 0px var(--col-main));
+        }
+        #name-header {
+            font-size: 4.5em;
+            color: var(--col-main);
+            max-width: 23rem;
+            margin: 0;
+            margin-bottom: 30px;
+            margin-top: 10px;
+            line-height: 0.7em;
+        }
+        .opener {
+            display: flex;
+            flex-direction: row;
+            gap: 48px;
+            min-height: 28rem;
+            align-items: center;
+            justify-content: center;
+        }
+        @media screen and (max-width: 1200px) {
+            .opener {
+                flex-direction: column;
+                font-size: 150%;
+                min-height: 85vh;
+            }
+            #name-header {
+                font-size: 10vw;
+                max-width: 100%;
+            }
+        }
+    </style>
+
+    {
+        /* --------------------------------------------------------------------- */
+    }
+
+    <div
+        style="text-align: center; padding: 20px; background-color: var(--col-bg); overflow: auto hidden;"
+    >
+        <div style="max-width: 55rem; margin: auto;">
+            <div class="opener">
+                <img
+                    class="this-cant-be-real"
+                    src={"/characters/" + id + "/render.png"}
+                    style="display: inline-block;"
+                    title={data.page.egg ?? "WHO is this ?????"}
+                />
+                <div
+                    style="display: flex; flex-direction: column; text-align: left;"
+                >
+                    {
+                        data.page.labels != undefined &&
+                        Object.keys(data.page.labels).length > 0 ? (
+                            <div style="display: flex; margin-bottom: 16px;">
+                                {Object.keys(data.page.labels).map((a) => (
+                                    <div x-data="{showDesc: false}">
+                                        <div
+                                            x-on:mousedown="showDesc = true;"
+                                            x-on:mouseenter="showDesc = true;"
+                                            x-on:mouseleave="showDesc = false;"
+                                            style={`
+                                            background-color: ${labels.get(a).color};
+											box-shadow: 0px 1px 5px ${labels.get(a).color};
+                                            border: 2px solid rgb(from ${labels.get(a).color} calc(r - 64) calc(g - 96) calc(b - 32));
+											padding: 8px;
+											border-radius: 16px;
+											font-size: 0.75rem;
+                                            width: fit-content;
+                                            margin: 4px;
+                                            color: rgb(from ${labels.get(a).color} calc(r - 64) calc(g - 96) calc(b - 32));
+                                            cursor: help;
+                                        `}
+                                        >
+                                            {a}
+                                        </div>
+                                        <div
+                                            x-cloak
+                                            x-transition
+                                            x-show="showDesc"
+                                            style={`background-color: var(--col-bg);
+												box-shadow: 0px 1px 5px ${labels.get(a).color};
+                                                border: 2px solid ${labels.get(a).color};
+												padding: 16px;
+												border-radius: 16px;
+												width: 12rem;
+												font-size: 0.75rem;
+												text-align: justify;
+												position: absolute;
+												translate: -20px 3px;
+												z-index: 50;`}
+                                        >
+                                            <div style="font-size: 1.25rem; font-weight: 900;">
+                                                <div style="position: absolute;">
+                                                    <span
+                                                        style={`-webkit-text-stroke: 6px ${labels.get(a).color}; color: ${labels.get(a).color}; padding: 0;`}
+                                                    >
+                                                        {a}
+                                                    </span>
+                                                </div>
+                                                <div style="position: absolute;">
+                                                    <span style="color: var(--col-bg); padding: 0;">
+                                                        {a}
+                                                    </span>
+                                                </div>
+                                            </div>
+                                            <>
+                                                <br />
+                                                <br />
+                                            </>
+                                            <div
+                                                set:html={labels.get(a).desc}
+                                            />
+                                        </div>
+                                    </div>
+                                ))}
+                            </div>
+                        ) : (
+                            ""
+                        )
+                    }
+                    <p
+                        style="margin: 0; margin-bottom: 4px; color: var(--tag-color);"
+                    >
+                        {data.page.tag ?? "unidentified entity"}
+                    </p>
+                    <div
+                        style="display: flex; flex-direction: row; align-items: baseline; justify-content: baseline; gap: 12px;"
+                    >
+                        <h1 id="name-header">
+                            {data.page.display ?? id}
+                        </h1>
+                        {
+                            data.page.pronouns == null ? (
+                                ""
+                            ) : (
+                                <h4
+                                    style="color: var(--col-bg); font-size: 120%;
+                        background-color: var(--col-main); padding: 4px;
+                        border-radius: 8px;"
+                                >
+                                    {data.page.pronouns}
+                                </h4>
+                            )
+                        }
+                    </div>
+
+                    <div style="display: flex;">
+                        {
+                            (data.page.palette ?? [dim2, main2, light2]).map(
+                                (a) => <ColorButton color={a} />,
+                            )
+                        }
+                    </div>
+                    <div
+                        style="max-width: 25rem; margin: 0; text-align: justify;"
+                    >
+                        <DescContent />
+                    </div>
+                </div>
+            </div>
+            <br />
+            <br />
+            <section id="design">
+                <div style="margin: auto; width: 40rem; min-height: 450px;">
+                    {
+                        (data.page?.height?.hide ?? false) ? (
+                            ""
+                        ) : (
+                            <div style="float: right; margin: 12px; align-items: baseline; width: 256px; height: 450px; position: relative;">
+                                <img
+                                    src="/images/pages/characters/height-ref.png"
+                                    style={`filter: invert(50%) sepia(400%) hue-rotate(${
+                                        Math.floor((bg2hsv.hue - 30) / 12) * 12
+                                    }deg) saturate(${(100 - (bg2hsv.saturation / (1 + bg2hsv.brightness * 0.3)) * 0.07) * 2}%) brightness(${100 + bg2hsv.brightness * 0.3}%);
+                                    pointer-events: none; position: absolute; transform: translateX(-50%);`}
+                                />
+                                <img
+                                    src={"/characters/" + id + "/height.png"}
+                                    style={
+                                        "position: absolute; transform: translateX(calc(-50% + 16px + " +
+                                        (data.page.height?.nudge ?? 0) +
+                                        "px)) translateY(calc(450px + " +
+                                        (data.page.height?.offset ?? 0) +
+                                        "px - 100% + 8px)); text-align: center;"
+                                    }
+                                />
+                                <div
+                                    style={
+                                        "width: 100%; height: 4px; text-align: right; transform: translateY(calc(450px - 7px - (" +
+                                        (data.page.height?.cm ?? 0) +
+                                        "px * 2.24)));"
+                                    }
+                                >
+                                    <div style="transform: translateX(calc(256px - 100%)) translateY(-100%); position: absolute;">
+                                        <span
+                                            style={
+                                                "-webkit-text-stroke: 3px var(" +
+                                                (useBrightForHeight()
+                                                    ? "--col-bright"
+                                                    : "--col-bg") +
+                                                "); display: flex; flex-direction: column; margin: 0; font-size: 15px; font-weight: 900; color: var(--col-light); padding: 0;"
+                                            }
+                                        >
+                                            <span style="font-size: 70%;">
+                                                ({" "}
+                                                {convertHeight(
+                                                    data.page.height?.cm ?? 0,
+                                                )}
+                                                )
+                                            </span>
+                                            {data.page.height?.cm ?? 0} cm
+                                        </span>
+                                    </div>
+                                    <div style="transform: translateX(calc(256px - 100%)) translateY(-100%);position: absolute;">
+                                        <span
+                                            style={
+                                                "display: flex; flex-direction: column; margin: 0; font-size: 15px; font-weight: 900; color: " +
+                                                height2 +
+                                                "; padding: 0;"
+                                            }
+                                        >
+                                            <span style="font-size: 70%;">
+                                                ({" "}
+                                                {convertHeight(
+                                                    data.page.height?.cm ?? 0,
+                                                )}
+                                                )
+                                            </span>
+                                            {data.page.height?.cm ?? 0} cm
+                                        </span>
+                                    </div>
+                                    <hr
+                                        style={
+                                            "width: 256px; height: 6px; margin: 0; background-color: " +
+                                            height2 +
+                                            "; box-shadow: inset 0 0 0 1.5px var(" +
+                                            (useBrightForHeight()
+                                                ? "--col-bright"
+                                                : "--col-bg") +
+                                            ");" +
+                                            ";"
+                                        }
+                                    />
+                                </div>
+                            </div>
+                        )
+                    }
+                    <div style="margin-left: auto;">
+                        {
+                            data.page.hide_design_label ? (
+                                ""
+                            ) : (
+                                <h1
+                                    style="font-size: 40pt;
+                        color: var(--col-bg);
+                        background-color: var(--col-main); padding: 16px;
+                        border-radius: 20px; margin: 0; margin-bottom: 16px; width: fit-content;"
+                                >
+                                    design
+                                </h1>
+                            )
+                        }
+                        <div style="text-align: justify;">
+                            <DContent />
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <br /><br /><br />
+            {
+                tabContent.size < 1 ? (
+                    ""
+                ) : (
+                    <section id="other">
+                        <div
+                            style={`margin: auto; width: 40rem; text-align: left;
+                    padding: 20px; padding-top: 0; background-color: ${extrabg2}; border-radius: 20px;
+                    box-shadow: 0px 8px 0px ${extradark2}; color: ${extratext2};`}
+                        >
+                            <template x-for="i in tabs">
+                                <button
+                                    class="tab"
+                                    style={"color: " + extradark2 + ";"}
+                                    x-on:click="tab = i"
+                                    x-html="i"
+                                />
+                            </template>
+                            {tabContent.keys().map((a) =>
+                                getTabShit(a) ? (
+                                    <div
+                                        set:html={tabContent.get(a)}
+                                        x-show={"tab == '" + a + "'"}
+                                        x-cloak
+                                    />
+                                ) : (
+                                    <div x-show={"tab == '" + a + "'"} x-cloak>
+                                        <StupidTabWorkaround />
+                                    </div>
+                                ),
+                            )}
+                        </div>
+                    </section>
+                )
+            }
+            <br /><br /><br />
+            <!-- will eventually get to this, but i dont wanna draw all of them rn
+            <section id="spinner">
+                <div style="margin: auto; width: fit-content;">
+                    <img
+                        src="/characters/lancer-spin.gif"
+                        height="60"
+                        style="image-rendering: pixelated;"
+                    />
+                </div>
+            </section>
+            <br /><br />
+             -->
+            <div style="margin: auto; width: fit-content;">
+                <button onclick="javascript:history.back()">← back</button>
+                <button
+                    onclick="globalThis.scrollTo({ top: 0, left: 0, behavior: 'smooth' });"
+                    >↑ top</button
+                >
+            </div>
+            <br /><br /><br />
+        </div>
+    </div>
+    <!--
+        fix a bug that flashed like every character into your eyes.
+        kind alike ur memories when you die
+    -->
+    <script is:inline>
+        localStorage.removeItem("____randomChosen");
+    </script>
+</Page>

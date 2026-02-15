@@ -1,0 +1,49 @@
+{
+    "page": {
+        "color": "#ff6633",
+        "x": 90,
+        "y": -89,
+        "z": 0,
+        "tag": "absolute memelord",
+        "egg": "goob",
+        "pronouns": "he",
+        "palette": [
+            "#2b0021",
+            "#68152e",
+            "#ff6633",
+            "#fffaf4"
+        ],
+        "height": {
+            "cm": 118,
+            "offset": 2,
+            "nudge": -30
+        },
+        "colors": {
+            "bright": "#2b0021",
+            "light": "#cc0033",
+            "main": "#ff6633",
+            "dim": "#ffcc66",
+            "dark": "#fffaf4",
+            "bg": "#fffaf4",
+            "header": {
+                "bg": "#2b0021",
+                "accent": "#cc0033"
+            },
+            "tab": {
+                "text": "#fffaf4"
+            }
+        },
+        "iconColors": {
+            "main": "#ff6633",
+            "dark": "#2b0021",
+            "white": "#fffaf4"
+        },
+        "tabs": [
+            "other"
+        ]
+    },
+    "button": {
+        "color": "#ff6633",
+        "outline": "#fffaf4"
+    }
+}

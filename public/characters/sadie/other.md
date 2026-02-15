@@ -1,0 +1,1 @@
+- she's the only one i actually rlly like drawing lineless, i mean that's how she's MEANT to look, but drawing her with a normal brush is.....eugh

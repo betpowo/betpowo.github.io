@@ -1,0 +1,2 @@
+1. <a href="https://bsky.app/profile/betpowo.bsky.social/post/3lejse3sdns2j" target="_blank">bsky.app/profile/betpowo.bsky.social/post/3lejse3sdns2j</a>
+2. <a href="https://en.wikipedia.org/wiki/Moe_anthropomorphism" target="_blank">wikipedia.org/wiki/Moe_anthropomorphism</a>

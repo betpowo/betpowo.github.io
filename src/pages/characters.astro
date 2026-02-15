@@ -1,400 +1,271 @@
 ---
-// Component Imports
-import CharButton from "../components/CharButton.astro";
-import ColorButton from "../components/ColorButton.astro";
-import Footer from "../components/Footer.astro";
-import Header from "../components/Header.astro";
 import "../styles/global.css";
+import Page from "../components/Page.astro";
+import Window from "../components/Window.astro";
 
-const buttonsize = 180;
-const columns = 4;
+var chars = [];
 
-const nextBatch = 5; // for displaying the "new!" text
+var temp = import.meta.glob("../../public/characters/*/data.json", {
+    eager: true,
+});
 
-// TODO: sorting (alphabetical, hue, by batch, by category(default))
-// here in the array theyre sorted by hue so i dont have to lose my mind with that later
-
-// future betty here, sorting is done and i decided to do automatic hue sorting lmao
-// now theyre in order of addition
-const chars = [
-	//{ name: "unknown", batch: 0 },
-
-	{ name: "betpo", batch: 1, category: "main" },
-	{ name: "josephine", batch: 1, category: "main" },
-	{ name: "betty", batch: 0, category: "daniel" },
-
-	{ name: "carlos", batch: 1, category: "parody" },
-	{ name: "glib", batch: 1 },
-	{ name: "daniel", batch: 1, category: "daniel" },
-
-	{ name: "marco", batch: 2, category: "parody" },
-	{ name: "nori", batch: 2 },
-	{ name: "charles", batch: 2 },
-	{ name: "fish", batch: 2 },
-	{ name: "kinne", batch: 2 },
-	{ name: "sprout", batch: 2 },
-
-	{ name: "mae", batch: 3 },
-	{ name: "melissa", batch: 3, category: "adopted" },
-	{ name: "pipit", batch: 3, category: "adopted" },
-	{ name: "jasmine", batch: 3, category: "adopted" },
-	{ name: "haven", batch: 3 },
-	{ name: "epiphany", batch: 3 },
-	{ name: "sadie", batch: 3 },
-	{ name: "stoopy", batch: 3 },
-
-	{ name: "glenda", batch: 4, category: "parody" },
-	{ name: "baxter", batch: 4, category: "parody" },
-	{ name: "philip", batch: 4, category: "parody" },
-	{ name: "nancy", batch: 4, category: "parody" },
-
-	{ name: "sos", batch: 4, category: "parody" },
-	{ name: "vivi", batch: 4 },
-	{ name: "olivia", batch: 4 },
-	{ name: "johnny", batch: 4 },
-	{ name: "brook", batch: 4 },
-	{ name: "duck", batch: 4 },
-	{ name: "hoppy", batch: 4 },
-	{ name: "raine", batch: 4 },
-];
-
-const categories = [
-	{
-		id: "main",
-		disp: "main",
-		sub: `the characters i'll probably put on the spotlight often,
-		expect a lot of content with them.
-		<br>
-		<span style="font-size: 0.6rem; color: var(--col-dim);">
-			and with a lot, i mean, a <i>lot.</i> :3
-		</span>`,
-		color: "#f36",
-	},
-	{
-		id: undefined, // where "others" go
-		disp: "others / misc.",
-		sub: `the characters with less importance, or without much story or stuff like that`,
-		color: "#0fc",
-	},
-	{
-		id: "adopted",
-		disp: "adopted",
-		sub: `the characters that didn't originally belong to me,
-		but they do now because the owners gave them to me because i'm cool like that.
-		they might not be added to art fight`,
-		color: "#f96",
-	},
-	{
-		id: "parody",
-		disp: "parodies",
-		sub: `the characters that actually Aren't fully original
-		and are based on other characters fom already existing media.
-		<span style="color: #cf6;">
-			they may not be canon to my actual oc world. they're made for specific projects.
-		</span> they will not be added to art fight.`,
-		color: "#cf6",
-	},
-	{
-		id: "daniel",
-		disp: "sonas",
-		sub: `the characters based on real people, please be nice to them.
-		<span style="color: #c8f;">
-			they're partially not canon to my actual oc world but i'm not sure on that lol
-		</span>`,
-		color: "#c8f",
-	},
-];
-
-function getCatData(cat?: string) {
-	if (cat === undefined || cat == "") return categories[1];
-	for (var j in categories) {
-		var i = categories[j];
-		if (Object.hasOwn(i, "id") && i.id == cat) {
-			return i;
-		}
-	}
+var tmp2 = new Map();
+for (const k of Object.keys(temp)) {
+    var index = k.split("/").at(-2);
+    //console.log(index);
+    tmp2[index] = temp[k];
 }
 
-/*function fetchByCategory(cat?: string) {
-	var res = [];
-	for (var j in chars) {
-		//console.log(j);
-		var i = chars[j];
-		if (
-			(Object.hasOwn(i, "category") && i.category == cat) ||
-			(!Object.hasOwn(i, "category") && cat == undefined)
-		) {
-			res.push(i.name);
-		}
-	}
-	//console.log(res);
-	return res;
-}*/
+//console.log(tmp2);
+
+for (var k in tmp2) {
+    chars.push(k);
+    if (tmp2[k].page.height === undefined) {
+        console.warn("bro youre missing stuff (" + k + ")");
+    }
+}
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<meta name="generator" content={Astro.generator} />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<meta content="characters - betopia" property="og:title" />
+<meta
+    content="the characters i own, if you wanna see them. [more info on full page]"
+    property="og:description"
+/>
+<meta content="/images/charbox.png" property="og:image" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta content="#996666" data-react-helmet="true" name="theme-color" />
 
-		<meta content="characters - betopia" property="og:title" />
-		<meta
-			content="the characters i own, if you wanna see them. [more info on full page]"
-			property="og:description"
-		/>
-		<meta content="/images/charbox.png" property="og:image" />
-		<meta name="twitter:card" content="summary_large_image" />
-		<meta content="#996666" data-react-helmet="true" name="theme-color" />
+<Page title="betopia's basement" logo={false}>
+    <style>
+        .the-guys {
+            z-index: 0;
+        }
+        .this-cant-be-real {
+            --z: 0;
+            --depth: 0px;
+            --color1: var(#777);
+            --color2: var(#ccc);
+            transition:
+                0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275) translate,
+                0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275) filter;
+            z-index: var(--z);
+        }
+        .this-cant-be-real:hover {
+            --depth: 10px;
+            translate: 0px -10.5px;
+            filter: drop-shadow(0 var(--depth) 0px var(--color1))
+                drop-shadow(0px 0px calc(var(--depth) * 0.5) var(--color2))
+                drop-shadow(0px 0px calc(var(--depth) * 0.5) var(--color2))
+                drop-shadow(0px 0px calc(var(--depth) * 1) var(--color2));
+            z-index: 500;
+        }
+        @keyframes scroll {
+            0% {
+                transform: translateX(-25%);
+            }
+            100% {
+                transform: translateX(-50%);
+            }
+        }
 
-		<style>
-			.container {
-				align-items: center;
-				justify-content: center;
-				text-align: center;
-				display: inline-block;
-			}
+        @media screen and (max-width: 1200px) {
+            .the-guys {
+                transform: scale(70%);
+            }
+            #bruhhh.dynamic-direction {
+                text-align: center;
+                justify-content: center;
+                align-items: center;
+                gap: 48px;
+            }
+            div.bar {
+                display: none !important;
+            }
+        }
+    </style>
+    {
+        /* --------------------------------------------------------------------- */
+    }
 
-			.square {
-				background-color: currentColor;
-				width: 1rem;
-				height: 1rem;
-				aspect-ratio: 1 / 1;
-				border-radius: 0.25rem;
-				margin-right: 0.333rem;
-			}
-		</style>
-		<title>betopia's basement</title>
-	</head>
-	<Header />
-	<body>
-		<div style="margin: 23px; overflow-x: hidden">
-			<div
-				class="board"
-				style={"max-width: " +
-					buttonsize * (columns + 1) +
-					"px; margin: auto;"}
-				x-data="{cat: true}"
-			>
-				<h1>
-					<span style="font-weight: normal;">👥</span> character storage
-				</h1>
-				<br />
-				ahh... the page that started it all... it's so awesome...
-				<br /><br />
-				anyways, this is where i keep my <b
-					>original character information</b
-				>; now with the ability to update anytime i want, without having
-				to delete and remake the same tweet over and over again. cool,
-				am i right?
-				<br /><br /><br />
-				<div style="text-align: center;">
-					<h3 style="color: var(--col-bright);">
-						search for a character id:
-					</h3>
-					(if you are lazy to scroll down)<br />
-					<b>tip:</b>
-					<code>random</code> will pull up, well, a random character. lol<br
-					/>
-					<input type="text" placeholder="betty" id="iput" />
-					<button
-						onclick="var char = document.getElementById('iput').value.toLowerCase(); window.location.href = char != '' ? '/characters/' + char : '/characters/betty'"
-						>go</button
-					>
-					<br /><br />
-					or choose from below:
-					<br /><br />
-					<div>
-						<span style="color: var(--col-light);">sort by </span>
-						<select id="sort-select">
-							<option selected="selected">hue</option>
-							<option>alphabetical</option>
-							<option>recent</option>
-						</select>
-						&bullet;
-						<input
-							type="checkbox"
-							checked
-							x-on:click="cat = !cat;"
-						/>
-						<span style="color: var(--col-light);"
-							>show categories</span
-						>
-					</div>
-					<br />
-					<div x-show="cat" x-transition>
-						<h3>the categories on the table:</h3>
-						<div
-							style="display: flex; gap: 24px; margin: auto; width: fit-content;"
-						>
-							{
-								categories.map((a) => (
-									<div
-										x-data="{show_desc: false}"
-										data-id={a.id}
-									>
-										<div
-											style={`
-									border-radius: 50px;
-									background-color: ${a.color};
-									padding: 8px;
-									cursor: help;
-									border: 2px solid var(--col-bright);
-									box-shadow: 0px 5px 0px var(--col-dim);
-									`}
-											x-on:mouseenter="show_desc = true;"
-											x-on:mouseleave="show_desc = false;"
-										>
-											<span style="mix-blend-mode: multiply; color: #60c;">
-												{a.disp}
-											</span>
-											<div
-												x-cloak
-												x-transition
-												x-show="show_desc"
-												style="
-												background-color: var(--col-dark);
-												box-shadow: 0px 1px 5px var(--col-light);
-												padding: 16px;
-												border-radius: 16px;
-												width: 11rem;
-												font-size: 0.75rem;
-												text-align: justify;
-												position: absolute;
-												translate: -20px 18px;
-												z-index: 9999;"
-												set:html={a.sub}
-											/>
-										</div>
-									</div>
-								))
-							}
-						</div>
-					</div>
-				</div>
-				<br />
-				<hr />
-				<br />
-				<div class="sub-board">
-					<div
-						style={"text-align: center; max-width: " +
-							(buttonsize * columns + columns * 16) +
-							"px; margin: auto;"}
-						id="char-container"
-					>
-						{
-							chars.map((a, b) => (
-								<div
-									id={"char-button-" + a.name}
-									style="display: inline-block; margin: 5px;"
-									data-sort={JSON.stringify(a)}
-									data-index={b.toString()}
-								>
-									<CharButton
-										size={buttonsize}
-										character={a.name}
-									/>
-									<div
-										x-show="cat"
-										x-transition
-										style={`
-										width: ${buttonsize}px; aspect-ratio: 1/1;
-										color: ${getCatData(a.category).color};
-										background-color: currentColor;
-										border-radius: 20px;
-										position: absolute;
-										pointer-events: none;
-										border: 0px solid currentColor;
-										translate: -0px -${buttonsize + -3}px;
-									`}
-									/>
-									<img
-										src="/characters/new-char.gif"
-										style={`
-										display: ${a.batch == nextBatch ? "block" : "none"};
-										position: absolute;
-										pointer-events: none;
-										z-index: 500;
-										translate: ${buttonsize / 2 + 16}px -${buttonsize + 6}px;
-									`}
-									/>
-								</div>
-							))
-						}
-					</div>
-				</div>
-				<br /><br />
-				<p style="text-align: center;">i'll add more eventually...</p>
-			</div>
-		</div>
-		<script>
-			var d = document.querySelector("#sort-select") as HTMLSelectElement;
-			d.addEventListener("change", (e) => {
-				var con = document.querySelector("#char-container");
-				const list = Array.from(con.children);
-				/*list.forEach((n) => {
-			con.removeChild(n);
-		});*/
-				function hex2hsv(a) {
-					var hex = /([0-9a-f]+)/g.exec(a)[1];
-					var _rgb = parseInt(hex, 16);
-					var rgb = [
-						(_rgb >> 16) & 255,
-						(_rgb >> 8) & 255,
-						(_rgb >> 0) & 255,
-					];
-					var r = rgb[0] / 255;
-					var g = rgb[1] / 255;
-					var b = rgb[2] / 255;
+    <div
+        x-data="{showWindow: false}"
+        style="text-align: center; padding: 20px; background-color: var(--col-main);"
+    >
+        <div
+            style="display: flex; flex-direction: column; gap: 24px; height: calc(100vh - 4.5em);"
+        >
+            <div
+                id="bruhhh"
+                class="container dynamic-direction"
+                style="display: flex; width: 100%; align-items: center; justify-content: center; gap: 24px;"
+            >
+                <div style="display: flex; gap: 24px; align-items: center;">
+                    <button
+                        x-on:click="showWindow = true;"
+                        style="margin: 0; height: fit-content;">❔</button
+                    >
+                    <button
+                        x-on:click="navigate('/characters/extras/')"
+                        style="margin: 0;  height: fit-content;">📙</button
+                    >
 
-					// https://www.30secondsofcode.org/js/s/rgb-hex-hsl-hsb-color-format-conversion/#rgb-to-hsb
-					const v = Math.max(r, g, b),
-						n = v - Math.min(r, g, b);
-					const h =
-						n === 0
-							? 0
-							: n && v === r
-								? (g - b) / n
-								: v === g
-									? 2 + (b - r) / n
-									: 4 + (r - g) / n;
-					return {
-						hue: 60 * (h < 0 ? h + 6 : h),
-						saturation: v && (n / v) * 100,
-						brightness: v * 100,
-					};
-				}
-				list.sort((_a: HTMLElement, _b: HTMLElement) => {
-					const a = JSON.parse(_a.dataset.sort);
-					const b = JSON.parse(_b.dataset.sort);
-					const ai = parseInt(_a.dataset.index);
-					const bi = parseInt(_b.dataset.index);
-					switch (d.value) {
-						case "recent":
-							return Math.sign(b.batch - a.batch + (bi - ai));
-						case "hue":
-							// SAVE ME
-							var cola = (_a.firstElementChild as HTMLElement)
-								.dataset.color;
-							var colb = (_b.firstElementChild as HTMLElement)
-								.dataset.color;
-							return Math.sign(
-								hex2hsv(cola).hue -
-									hex2hsv(colb).hue +
-									(a.name < b.name ? -1 : 1),
-							);
-						case "alphabetical":
-							if (a.name < b.name) return -1;
-							else if (a.name > b.name) return 1;
-							return 0;
-					}
-				}).forEach((n) => {
-					con.appendChild(n);
-				});
-			});
-			d.dispatchEvent(new Event("change"));
-		</script>
-	</body>
+                    <div
+                        style="width: 4px; height: 40px; border-radius: 2px; background-color: var(--col-dim);"
+                    >
+                    </div>
+                    <div style="text-align: left;">
+                        <h2 style="margin: 0; padding: 0;">characters</h2>
+                        look at them! my babies... they started this site...
+                    </div>
+                </div>
+                <div
+                    class="bar"
+                    style="width: 4px; height: 50px; border-radius: 2px; background-color: var(--col-dim);"
+                >
+                </div>
+                <div
+                    style="display: flex; flex-direction: row; align-items: center; justify-content: center; gap: 8px;"
+                >
+                    <span style="text-align: left;">search by page id:</span>
+                    <input
+                        id="text-input"
+                        type="text"
+                        placeholder="betty"
+                        style="margin: 0;"
+                    />
+                    <button
+                        style="margin: 0;"
+                        x-on:click="
+                        navigate('/characters/' + (
+                            document.getElementById('text-input').value.length > 0
+                            ? document.getElementById('text-input').value
+                            : 'betty'
+                        .toLowerCase().trim()))"
+                        >🔍</button
+                    >
+                    <button
+                        style="margin: 0;"
+                        x-on:click="navigate('/characters/random')">🎲</button
+                    >
+                    <script is:inline>
+                        var txt = document.getElementById("text-input");
+                        txt.addEventListener(
+                            "drop",
+                            function (event) {
+                                if (event.dataTransfer) {
+                                    var types = event.dataTransfer.types;
+                                    if (types.indexOf("Files") !== -1) {
+                                        console.log("this is a file");
+                                        var val = event.dataTransfer
+                                            .getData("text/plain")
+                                            .split("/")
+                                            .at(-2);
+                                        txt.value = val;
+                                        event.preventDefault();
+                                    }
+                                }
+                            },
+                            false,
+                        );
+                    </script>
+                </div>
+            </div>
 
-	<Footer />
-</html>
+            <div
+                style="flex: 1; border-radius: 20px; overflow: hidden auto; border: 5px solid var(--col-dark); background: linear-gradient(to bottom, #fff, #ffebf5)"
+            >
+                <div class="the-guys" style="height: 100%; position: relative;">
+                    <div style="
+                        pointer-events: none;">
+                        <img
+                            loading="lazy"
+                            src="/images/pages/characters/stupid ahh platform.svg"
+                            style="
+                        pointer-events: none;
+                        position: absolute; top: 267px; left: 50%;
+                        transform: translateX(calc(-50% + 50px))
+                        translateY(calc(-50% + 630px)) scale(66%);
+                        "
+                        />
+                        <img
+                            loading="lazy"
+                            src="/images/pages/characters/couch.png"
+                            style="
+                        pointer-events: none;
+                        position: absolute; top: 267px; left: 50%;
+                        transform: translateX(calc(-50% - 10px))
+                        translateY(calc(-50% - 70px)) scale(66%);
+                        "
+                        />
+                        <div
+                            style="
+                            width: 400%;
+                            height: 444px;
+                        pointer-events: none;
+                        position: absolute; top: 1250px; left: 0px;
+                        background-image: url('/images/pages/characters/betty-thinking-tile.png');
+                        transform: translateX(-25%);
+                        z-index: 1; animation: 50s cubic-bezier(0.56, 0.29, 0.4, 0.74) 1s infinite alternate scroll;
+                        "
+                        >
+                        </div>
+                    </div>
+                    {
+                        chars.map((a, b) =>
+                            (tmp2[a].page.hide ?? false) ? (
+                                ""
+                            ) : (
+                                <img
+                                    data-name={a}
+                                    alt={tmp2[a].page?.display ?? a}
+                                    title={tmp2[a].page?.display ?? a}
+                                    class="this-cant-be-real"
+                                    style={`
+                                    
+                                    cursor: pointer;
+                                    position: absolute; top: 267px; left: 50%;
+                                    transform: translateX(calc(-50% + ${tmp2[a].page.x}px))
+                                    translateY(calc(-50% + ${tmp2[a].page.y}px)) scale(66%);
+                                    --color1: ${tmp2[a].button.color}; --color2: ${tmp2[a].button.outline};
+                                    --z: ${tmp2[a].page.z ?? 0};`}
+                                    src={`/characters/${a}/page.png`}
+                                    x-on:click="loading = true;"
+                                    onclick={`navigate('/characters/${a}/');`}
+                                    loading="lazy"
+                                />
+                            ),
+                        )
+                    }
+                </div>
+            </div>
+        </div>
+        <div
+            x-show="showWindow"
+            x-cloak="!showWindow"
+            style="z-index: 999999; text-align: left;"
+        >
+            <Window title="characters page" onClose="showWindow = false;">
+                <h2>navigation help</h2>
+                at the top you'll see the search bar, which really only exists if
+                <br />you prefer to type character names instead of clicking on
+                them.
+                <br />
+                <br />alternatively, if you're even lazier than that, just drag
+                their
+                <br />image into the search box! <i
+                    style="color: var(--col-light);">(desktop only)</i
+                >
+                <br /><br />
+                <h2>regarding optimization</h2>
+                i tried my hardest to make this page as lightweight as possible but...
+                nothing's working :(
+                <br />this page might not render great in low-end devices so uhh
+                watch out!
+                <br /><br />
+                for now, have a <a href="/characters/low-quality/"
+                    >low quality mode</a
+                > of this same page, with only buttons
+            </Window>
+        </div>
+    </div>
+</Page>

@@ -1,10 +1,7 @@
 ---
-// Component Imports
-import { getCollection } from "astro:content";
-import Footer from "../components/Footer.astro";
-import GalleryImage from "../components/GalleryImage.astro";
-import Header from "../components/Header.astro";
 import "../styles/global.css";
+import { getCollection } from "astro:content";
+import BlogPage from "../components/BlogPage.astro";
 
 const posts = await getCollection("blog");
 const bleh = posts.map((data) => data);
@@ -13,73 +10,34 @@ bleh.sort((a, b) => {
 });
 ---
 
-<html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <meta name="generator" content={Astro.generator} />
-        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-        <title>betopia's yapping</title>
-
-        <meta content="blog - betopia" property="og:title" />
-        <meta
-            content="screaming into the void cus i suck"
-            property="og:description"
-        />
-        <meta content="#996666" data-react-helmet="true" name="theme-color" />
-
-        <style>
-            .container {
-                display: flex;
-                align-items: baseline;
-                margin: auto;
-                justify-content: center;
-            }
-        </style>
-    </head>
-    <Header />
-    <body>
-        <div style="margin: 23px;">
-            <div class="board" style="max-width: 45rem; margin: auto;">
-                <h1><span style="font-weight: normal;">💬</span> blog</h1>
-                <br />
-                i talk about whatever here, mostly updates to the site tho . don't
-                count on it
-                <br /><br />
-                <div>
-                    {
-                        bleh.map((a) => (
-                            <div
-                                class="sub-board"
-                                style="width: unset; margin-bottom: 24px;"
-                            >
-                                <a
-                                    href={"/blog/" + a.id.replace(".mdx", "")}
-                                    style="top: 0%;"
-                                >
-                                    <button style="--col: var(--col-main); float: right; right: 100%;">
-                                        go to post &RightArrow;
-                                    </button>
-                                </a>
-                                <p style="color: var(--col-light); margin-top: 0;">
-                                    {a.data.from}
-                                </p>
-                                <div style="top: 0%;">
-                                    <h2 style="margin-right: 10px; color: var(--col-light);">
-                                        {a.data.title}
-                                    </h2>
-                                </div>
-                                <hr style="background-color: var(--col-main); width: 100%;" />
-                                <p
-                                    set:html={
-                                        a.data.desc || "(no preview provided)"
-                                    }
-                                />
-                            </div>
-                        ))
-                    }
+<BlogPage>
+    <p><h1>blogs</h1></p>
+    tiny lil updates on my tiny lil adventures
+    <hr />
+    <br />
+    {
+        /* lazy */
+        [bleh[0]].map((a) => (
+            <div class="sub-board" style="width: unset; margin-bottom: 24px;">
+                <a href={"/blog/" + a.id.replace(".mdx", "")} style="top: 0%;">
+                    <button style="--col: var(--col-main); float: right; right: 100%;">
+                        go to post &RightArrow;
+                    </button>
+                </a>
+                <p style="color: var(--col-light); margin-top: 0;">
+                    <span style="color: var(--col-bright);">
+                        <b>⭐ latest:</b>
+                    </span>{" "}
+                    {a.data.from}
+                </p>
+                <div style="top: 0%;">
+                    <h2 style="margin-right: 10px; color: var(--col-light);">
+                        {a.data.title}
+                    </h2>
                 </div>
+                <hr style="background-color: var(--col-main); width: 100%;" />
+                <p set:html={a.data.desc || "(no preview provided)"} />
             </div>
-        </div>
-    </body>
-    <Footer />
-</html>
+        ))
+    }
+</BlogPage>

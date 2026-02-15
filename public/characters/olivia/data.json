@@ -1,0 +1,43 @@
+{
+    "page": {
+        "x": -376,
+        "y": 20,
+        "z": 125,
+        "tag": "you can't rush perfection",
+        "egg": "bro has a j*b 😂😂😂🤣🤣🤣😂💯💯",
+        "pronouns": "she",
+        "palette": [
+            "#56564a",
+            "#3c690b",
+            "#93a120",
+            "#ebc69f",
+            "#f4f9cb"
+        ],
+        "height": {
+            "cm": 187,
+            "offset": 7,
+            "nudge": -8
+        },
+        "colors": {
+            "text": "#2f4033",
+            "bright": "#f4f9cb",
+            "light": "#cccc33",
+            "main": "#93a120",
+            "dim": "#669933",
+            "dark": "#2f4033",
+            "bg": "#f4f9cb",
+            "header": {
+                "bg": "#2f4033"
+            }
+        },
+        "iconColors": {
+            "main": "#93a120",
+            "dark": "#2f4033",
+            "white": "#f4f9cb"
+        }
+    },
+    "button": {
+        "color": "#93a120",
+        "outline": "#f4f9cb"
+    }
+}

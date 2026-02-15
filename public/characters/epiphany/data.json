@@ -1,0 +1,48 @@
+{
+    "page": {
+        "x": 286,
+        "y": -50,
+        "z": 25,
+        "tag": "curiosity killed the cat",
+        "egg": "meow",
+        "pronouns": "she",
+        "palette": [
+            "#cc3399",
+            "#ff66cc",
+            "#ff99ff",
+            "#ffccff",
+            "#ccffff"
+        ],
+        "height": {
+            "cm": 168,
+            "offset": 3,
+            "nudge": 3.5
+        },
+        "colors": {
+            "text": "#660066",
+            "bright": "#ccffff",
+            "light": "#ff99ff",
+            "main": "#ff66cc",
+            "dim": "#cc3399",
+            "dark": "#660066",
+            "bg": "#ccccff",
+            "tab": {
+                "text": "#ccffff"
+            }
+        },
+        "iconColors": {
+            "main": "#ff66cc",
+            "dark": "#660066",
+            "white": "#ccffff"
+        },
+        "tabs": [
+            "other",
+            "gallery",
+            "references"
+        ]
+    },
+    "button": {
+        "color": "#ff66cc",
+        "outline": "#ccffff"
+    }
+}

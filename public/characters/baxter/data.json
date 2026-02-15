@@ -1,0 +1,53 @@
+{
+    "page": {
+        "x": -450,
+        "y": 620,
+        "z": 0,
+        "tag": "the rap god",
+        "egg": "beep",
+        "pronouns": "he",
+        "height": {
+            "cm": 119,
+            "offset": 10,
+            "nudge": -2.5
+        },
+        "labels": {
+            "parody": "boyfriend (fnf)"
+        },
+        "palette": [
+            "#b20069",
+            "#2eaeac",
+            "#ffb782",
+            "#eef7ff"
+        ],
+        "colors": {
+            "text": "#4a004a",
+            "height": "#674ab8",
+            "bright": "#eef7ff",
+            "light": "#9cffd9",
+            "main": "#2eaeac",
+            "dim": "#674ab8",
+            "dark": "#4a004a",
+            "bg": "#eef7ff",
+            "header": {
+                "bg": "#4a004a",
+                "accent": "#674ab8"
+            },
+            "tab": {
+                "text": "#eef7ff"
+            }
+        },
+        "iconColors": {
+            "main": "#2eaeac",
+            "dark": "#4a004a",
+            "white": "#eef7ff"
+        },
+        "tabs": [
+            "other"
+        ]
+    },
+    "button": {
+        "color": "#2eaeac",
+        "outline": "#eef7ff"
+    }
+}

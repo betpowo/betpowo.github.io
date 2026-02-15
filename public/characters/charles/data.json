@@ -1,0 +1,45 @@
+{
+    "page": {
+        "x": 396,
+        "y": 102,
+        "z": 200,
+        "tag": "all thoughts, head full",
+        "egg": "the inner machinations of his mind are an enigma.",
+        "pronouns": "he",
+        "palette": [
+            "#000066",
+            "#6600ff",
+            "#d57563",
+            "#ccffcc"
+        ],
+        "labels": {
+            "irrelevant": true
+        },
+        "height": {
+            "cm": 175,
+            "offset": 18
+        },
+        "colors": {
+            "tag": "#cc99ff",
+            "bright": "#ccffcc",
+            "light": "#cc99ff",
+            "main": "#6600ff",
+            "dim": "#330099",
+            "dark": "#000033",
+            "bg": "#000066",
+            "header": {
+                "bg": "#000033",
+                "accent": "#cc99ff"
+            }
+        },
+        "iconColors": {
+            "main": "#6600ff",
+            "dark": "#00033",
+            "white": "#ccffcc"
+        }
+    },
+    "button": {
+        "color": "#6600ff",
+        "outline": "#ccffcc"
+    }
+}

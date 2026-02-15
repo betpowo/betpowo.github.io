@@ -1,25 +1,13 @@
 ---
+import "../../styles/global.css";
+import Page from "../../components/Page.astro";
+import { getCollection } from "astro:content";
+import { date } from "astro:schema";
 import CharButton from "../../components/CharButton.astro";
 import ContactButton from "../../components/ContactButton.astro";
-import Footer from "../../components/Footer.astro";
-import Header from "../../components/Header.astro";
-import "../../styles/global.css";
-import type { GetStaticPaths } from "astro";
-import { getCollection } from "astro:content";
 
 export async function getStaticPaths() {
-    /*return [
-        {
-            params: {
-                pluh: "sun",
-            },
-            props: { title: "uhh" },
-        },
-    ];*/
-
     const posts = await getCollection("gallery");
-    // console.log(posts);
-
     return posts.map((a) => {
         return {
             params: {
@@ -27,114 +15,129 @@ export async function getStaticPaths() {
             },
             props: {
                 data: a.data,
+                id: a.id,
             },
         };
     });
 }
 
-const { data } = Astro.props;
-const id = Astro.params.pluh;
+const { data, id } = Astro.props;
 
 var links = data.link || [];
 var featured = data.feat || [];
-//console.log(data);
 ---
 
-<html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <meta name="generator" content={Astro.generator} />
-        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-        <title>{data.title + " - betopia's museum"}</title>
+<meta content={data.title} property="og:title" />
+<meta
+    content={data.desc || "(no description provided)"}
+    property="og:description"
+/>
+<meta
+    content={"/images/gallery/" + id + "." + (data.extension || "png")}
+    property="og:image"
+/>
+<meta name="twitter:card" content="summary_large_image" />
+<meta content="#996666" data-react-helmet="true" name="theme-color" />
+<meta content="/images/gallery.png" property="og:image" />
+<meta content="#996666" data-react-helmet="true" name="theme-color" />
 
-        <meta
-            content={data.title + " - betopia's museum"}
-            property="og:title"
-        />
-        <meta
-            content={data.desc || "(no description provided)"}
-            property="og:description"
-        />
-        <meta
-            content={"/images/gallery/" + id + "." + (data.extension || "png")}
-            property="og:image"
-        />
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta content="#996666" data-react-helmet="true" name="theme-color" />
-        <style>
-            .container {
-                display: flex;
-                align-items: center;
-                margin: auto;
-                justify-content: center;
-                max-width: fit-content;
-            }
-        </style>
-    </head>
-    <Header />
-    <body>
-        <div style="margin: 23px;">
-            <div class="board" style="max-width: 50rem; margin: auto;">
-                <h1>{data.title}</h1>{data.from}
-                <br /><br />
-                <div class="sub-board" style="margin: auto">
-                    <img
-                        src={"/images/gallery/" +
-                            id +
-                            "." +
-                            (data.extension || "png")}
-                        style="border-radius: 10px; max-width: 100%;"
-                    />
-                </div>
-                <br />
-                <p set:html={data.desc} />
-                <p set:html={data.extra || ""} />
-                <br />
-                <h2 style="text-align: center;">
-                    {featured.length > 0 ? "featured characters:" : ""}
-                </h2>
-                <div
-                    class="sub-board"
-                    style={"text-align: center; max-width: 840px; margin: auto;" +
-                        (featured.length != 0 ? "" : "display: none;")}
+<Page title={(data.title ?? "unknown") + " - betopia's museum"} logo={false}>
+    <div style="background-color: var(--col-main);">
+        <div
+            style="background-color: var(--col-dark); padding: 16px; display: flex; flex-direction: row; align-items: center; gap: 24px;"
+        >
+            <button
+                onclick="navigate('../');"
+                style="font-size: 24px; width: 2.5rem; height: 2.5rem;"
+                >&uparrow;</button
+            >
+            <span
+                style="font-size: 40px; font-weight: 900; color: var(--col-light);"
+                >📂 gallery</span
+            >
+            my artworks bro
+        </div>
+        <br />
+        <div style="padding: 16px; width: 40rem; margin: auto;">
+            <div style="max-width: 100%;">
+                <span style="color: var(--col-light);">{data.from}</span>
+                <h1
+                    style="color: var(--col-bright); margin-top: 5px; margin-bottom: 20px;"
                 >
-                    {
-                        featured.map((b) => (
-                            <div style="display: inline-block;margin: 5px;">
-                                <CharButton size={200} character={b} />
+                    {data.title}
+                </h1>
+            </div>
+            <!-- thank you flexboxfroggy.com -->
+            <div style="margin: 16px;" set:html={data.desc} />
+
+            {
+                featured.length == 0 ? (
+                    ""
+                ) : (
+                    <div style="display: flex; align-items: center; flex-flow: wrap row; gap: 8px;">
+                        <span style="font-size: 32px; font-weight: 900; color: var(--col-dark);">
+                            featured:
+                        </span>
+                        {data.feat.map((a) => (
+                            <div>
+                                <CharButton character={a} size={70} />
                             </div>
-                        ))
-                    }
-                </div>
-                <br />
-                <h2
-                    style="text-align: center; color: var(--col-dim); margin-bottom: -15px;"
+                        ))}
+                    </div>
+                )
+            }
+
+            <hr />
+
+            <div style="text-align: center; margin: auto;">
+                <img
+                    src={"/images/gallery/" +
+                        id +
+                        "." +
+                        (data.extension || "png")}
+                    style="border-radius: 10px; max-width: 100%; border: 5px solid var(--col-dark);"
+                />
+            </div>
+
+            <hr />
+            <div
+                style="display: flex; align-items: center; margin: 16px; gap: 24px;"
+            >
+                <span
+                    style="text-align: center; color: var(--col-dim); font-size: 40px; font-weight: 900;"
                 >
-                    see it on
-                </h2>
-                <div class="container sub-board">
-                    {
-                        links.map((a) => (
-                            <ContactButton
-                                size="60"
-                                image={a[0]}
-                                name={a[0]}
-                                link={a[1]}
-                            />
-                        ))
-                    }
-                    <a
-                        target="_blank"
-                        href={"/images/gallery/" +
-                            id +
-                            "." +
-                            (data.extension || "png")}
-                        ><button style="--col: var(--col-main);">direct</button
-                        ></a
-                    >
-                </div>
+                    share:
+                </span>
+                <a
+                    target="_blank"
+                    href={"/images/gallery/" +
+                        id +
+                        "." +
+                        (data.extension || "png")}
+                    ><button style="margin: 0; --col: var(--col-dark);"
+                        >&nearrow; direct</button
+                    ></a
+                >
+
+                {
+                    links.map((a) => (
+                        <a
+                            target="_blank"
+                            href={a[1]}
+                            style="text-decoration: none;"
+                        >
+                            <button style="margin: 0; display: flex; align-items: center; justify-content: center;">
+                                <img
+                                    src={"/images/socials/" + a[0] + ".png"}
+                                    height="32"
+                                    style="margin-right: 10px;"
+                                />
+                                {a[0]}
+                            </button>
+                        </a>
+                    ))
+                }
             </div>
         </div>
-    </body>
-    <Footer />
-</html>
+    </div>
+</Page>

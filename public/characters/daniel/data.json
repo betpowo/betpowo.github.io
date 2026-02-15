@@ -1,0 +1,54 @@
+{
+    "page": {
+        "x": 150,
+        "y": 1214,
+        "z": 17,
+        "tag": "pro gamer",
+        "egg": "squish",
+        "pronouns": "he, she",
+        "labels": {
+            "sona": true
+        },
+        "palette": [
+            "#2c0551",
+            "#8b56a3",
+            "#ffdd99",
+            "#f1ffe1"
+        ],
+        "height": {
+            "cm": 181,
+            "offset": 10,
+            "nudge": 10.5
+        },
+        "colors": {
+            "height": "#663366",
+            "text": "#0f0035",
+            "bright": "#f1ffe1",
+            "light": "#eaa4fc",
+            "main": "#8b56a3",
+            "dim": "#663366",
+            "dark": "#0f0035",
+            "bg": "#f7e5de",
+            "header": {
+                "bg": "#0f0035",
+                "accent": "#8b56a3",
+                "main": "#eaa4fc"
+            },
+            "tab": {
+                "text": "#f7e5de"
+            }
+        },
+        "iconColors": {
+            "main": "#8b56a3",
+            "dark": "#0f0035",
+            "white": "#f1ffe1"
+        },
+        "tabs": [
+            "other"
+        ]
+    },
+    "button": {
+        "color": "#8b56a3",
+        "outline": "#f1ffe1"
+    }
+}

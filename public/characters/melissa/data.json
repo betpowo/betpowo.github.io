@@ -1,0 +1,49 @@
+{
+    "page": {
+        "x": 370,
+        "y": 693,
+        "z": 50,
+        "tag": "meet potential singer",
+        "egg": "idk what to do with many of my characters :(",
+        "pronouns": "she",
+        "height": {
+            "cm": 178,
+            "offset": 10,
+            "nudge": 0
+        },
+        "labels": {
+            "irrelevant": true,
+            "adopt": true
+        },
+        "palette": [
+            "#3e1146",
+            "#660033",
+            "#336699",
+            "#00a6a4",
+            "#c28f6b",
+            "#ffffcc"
+        ],
+        "colors": {
+            "height": "#336699",
+            "text": "#330033",
+            "bright": "#ffffcc",
+            "light": "#75f5b5",
+            "main": "#00a6a4",
+            "dim": "#336699",
+            "dark": "#330033",
+            "bg": "#ffffcc",
+            "header": {
+                "bg": "#330033"
+            }
+        },
+        "iconColors": {
+            "main": "#00a6a4",
+            "dark": "#330033",
+            "white": "#ffffcc"
+        }
+    },
+    "button": {
+        "color": "#00a6a4",
+        "outline": "#ffffcc"
+    }
+}

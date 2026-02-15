@@ -1,0 +1,120 @@
+---
+import "../styles/global.css";
+import { getCollection } from "astro:content";
+import Page from "../components/Page.astro";
+
+const posts = await getCollection("blog");
+const bleh = posts.map((data) => data);
+bleh.sort((a, b) => {
+    return Date.parse(b.data.from) - Date.parse(a.data.from);
+});
+
+interface Props {
+    title?: string;
+    desc?: string;
+}
+const { title, desc } = Astro.props;
+---
+
+<meta content={title ?? "blog - betopia"} property="og:title" />
+<meta
+    content={desc ?? "screaming into the void cus i suck"}
+    property="og:description"
+/>
+<meta content="#996666" data-react-helmet="true" name="theme-color" />
+
+<Page
+    title={(title != undefined ? title + " | " : "") + "betopia's yapping"}
+    logo={false}
+>
+    <style>
+        #postlist {
+            display: flex;
+            width: 300px;
+            height: 80vh;
+            flex-direction: column;
+            overflow: auto;
+            font-size: 18px;
+        }
+
+        @media screen and (max-width: 1200px) {
+            .dynamic-direction {
+                width: unset;
+                gap: 24px;
+            }
+            #postlist {
+                flex-direction: row;
+                height: 1.2em;
+                width: 40rem;
+                font-size: 100px;
+                align-items: center;
+                padding: 16px;
+            }
+            .pastpost {
+                min-width: fit-content;
+                font-size: 24px;
+            }
+        }
+        @media screen and not (max-width: 1200px) {
+            .stupid {
+                width: 60vw;
+            }
+        }
+    </style>
+    {
+        /* --------------------------------------------------------------------- */
+    }
+
+    <div
+        style="background-color: var(--col-main); padding: 20px; gap: 20px; display: flex; flex-direction: row; align-items: center; justify-content: center;"
+    >
+        <div class="container dynamic-direction">
+            <div
+                id="postlist"
+                style="border-radius: 20px; background-color: var(--col-dim);
+                    padding: 16px; gap: 16px;"
+            >
+                <span
+                    style="font-size: 1.3rem; margin-top: 10px; margin-bottom: -10px; min-width: fit-content;"
+                    >other posts</span
+                >
+                <hr
+                    style="display: flex; flex-direction: column; background-color: var(--col-bright); width: 100%; min-height: 7px;"
+                />
+                {
+                    bleh.map((a, b) => (
+                        <button
+                            x-on:click="loading = true;"
+                            onclick={
+                                "navigate('/blog/" +
+                                a.id.replace(".mdx", "") +
+                                "');"
+                            }
+                            class="pastpost"
+                            style="margin: 0; text-align: left; --col: var(--col-main); padding: 10px;"
+                        >
+                            <p style="font-size: 0.7em; color: var(--col-dim); margin: 0;">
+                                <span style="color: var(--col-light); font-weight: 900;">
+                                    {b == 0 ? "⭐ latest! " : ""}
+                                </span>
+                                {a.data.from}
+                            </p>
+                            <br />
+                            <p style="margin: 0; margin-top: -16pt;">
+                                {a.data.title}
+                            </p>
+                        </button>
+                    ))
+                }
+            </div>
+            <div
+                class="stupid"
+                style="max-height: 80vh;
+            overflow-y: auto; padding: 16px; margin: 16px;
+            margin-top: 0; margin-bottom: 0; border-radius: 30px;"
+            >
+                <slot>nothing :(</slot>
+            </div>
+        </div>
+    </div>
+</Page>

@@ -1,8 +1,7 @@
 ---
-import Audio from "../../components/Audio.astro";
+import Page from "../../components/Page.astro";
 import "../../styles/global.css";
-import Image from "astro/components/Image.astro";
-
+import Alpine from "alpinejs";
 const _images = import.meta.glob("/public/images/stickers/*/**.png");
 var images = [];
 
@@ -11,239 +10,185 @@ for (var bleh in _images) {
 }
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<meta name="generator" content={Astro.generator} />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<title>betopia's fridge</title>
-
-		<meta content="stickers" property="og:title" />
-		<meta content="huh..?" property="og:description" />
-		<meta content="/images/stickers/betty/idiot.png" property="og:image" />
-		<meta content="#996666" data-react-helmet="true" name="theme-color" />
-
-		<style>
-			.sticker {
-				animation: appear 1s;
-			}
-
-			@keyframes appear {
-				0%,
-				48% {
-					transform: scale(0.1);
-				}
-				49% {
-					transform: scale(1.1);
-				}
-				50%,
-				100% {
-					transform: scale(1);
-				}
-			}
-		</style>
-	</head>
-	<body
-		id="body"
-		style="
-    background-color: var(--col-dark);
-    text-align: center;
-    overflow: hidden hidden;
-    "
-		x-data="{score:0}"
+<meta content="stickers" property="og:title" />
+<meta content="huh..?" property="og:description" />
+<meta content="/images/stickers/betty/idiot.png" property="og:image" />
+<meta content="#996666" data-react-helmet="true" name="theme-color" />
+<Page
+	title="betopia's fridge"
+	logo={false}
+	alpineData="{score:0}"
+	style="overflow:hidden;"
+>
+	<style is:inline>
+		nav {
+			box-shadow: 0px 0px 3px 3px var(--col-dark);
+		}
+	</style>
+	<div
+		style="background-color: var(--col-dim); overflow: hidden; display: flex;"
 	>
-		<div style="position: absolute; width: 100%; height: 100%; z-index: 0;">
-			<span
-				id="bg-text"
-				style="pointer-events: none; position: absolute; top: calc(50% - 40px); left: 0px; width: 100%; height: 100%; text-align: center; color: var(--col-main)"
-				>loading...</span
-			>
-		</div>
-
-		<div
-			id="canvas"
-			style="cursor: cell; display: none; position: absolute; width: 100%; height: 100%; z-index: 1;"
-			@click="score += 1"
-		>
-		</div>
-
 		<div
 			id="ui"
-			style="display: none; z-index: 100; text-align: left; width: fit-content; padding-left: 8px; padding-top: 8px;"
+			style="
+			top: 0px;
+			right: 24px;
+			overflow: hidden; width: fit-content; height: fit-content; margin: 0; z-index: 5000; position: absolute;
+			display: flex; gap: 12px; align-items: center; font-size: 12px; "
 		>
-			<button @click="window.location.href = '/';">🏠</button>
 			<button
 				id="clear-button"
-				style="--col: #f36; margin-left:0px;"
+				style="--col: #f36; margin-left:0px;font-size: 16px;padding: 7px;"
 				@click="setTimeout(()=>{score = 0},500);">clear</button
 			>
 			<button
 				id="undo-button"
-				style="--col: #fc6; margin-left:0px;"
+				style="--col: #fc6; margin-left:0px;font-size: 16px;padding: 7px;"
 				@click="if (score != 0) score -= 1">undo</button
 			>
 			<span
-				x-bind:style='"pointer-events: none; position: absolute; border-radius: 16px; margin: 8px; padding: 12px; background-color: var(--col-dark); " + "color: " + (score >= 400 ? "#f36" : "inherit")'
+				x-bind:style='"border-radius: 16px; border: 2px solid var(--col-light); margin: 8px; padding: 8px; background-color: var(--col-dark); " + "color: " + (score >= 400 ? "#f36" : "inherit")'
 				x-html="'stickers: ' + score.toString()"></span>
-			<br /><Audio
-				style="max-width: 500px; font-size: 10px;"
+			<audio
+				style="max-width: 300px; max-height:30px; font-size: 10px; border: 2px solid #495c7f; border-radius: 999px;"
 				loop
-				src="minigame.mp3"
-			/>
+				src="/audio/minigame.mp3"
+				controls></audio>
 		</div>
-
+		<div
+			@click="score += 1;"
+			id="canvas"
+			style="overflow: hidden; width: 100vw; height: 100vh; margin: 0;
+			padding: 0; cursor: cell; position: absolute; top: 0px; left: 0px;"
+		>
+		</div>
 		<div
 			id="water"
 			style="position: absolute;
 		width: 100%; height: 100%; z-index: 90; pointer-events: none;
 		background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTKZglZ-RG5pkSwtCxYG_oDauZriw3WDAIZfQ&s');
 		background-size: contain; background-clip: content-box;
+		top: 0px; left: 0px;
 		translate: 0% -100%;"
 		>
 		</div>
+	</div>
+	<script define:vars={{ images }} is:inline>
+		var audio = new Audio("/audio/stix-spawn.mp3");
+		audio.volume = 0.75;
 
-		<script define:vars={{ images }}>
-			var audio = new Audio("/audio/stix-spawn.mp3");
-			audio.volume = 0.75;
+		var stixToLoad = images;
 
-			var stixToLoad = images;
-
-			function randomInt(min, max) {
-				var bleh = [];
-				for (let i = min; i < max + 1; i++) {
-					bleh.push(i);
-				}
-				bleh.sort((a, b) => 0.5 - Math.random());
-				return bleh[0];
+		function randomInt(min, max) {
+			var bleh = [];
+			for (let i = min; i < max + 1; i++) {
+				bleh.push(i);
 			}
+			bleh.sort((a, b) => 0.5 - Math.random());
+			return bleh[0];
+		}
 
-			function randomFloat(min, max) {
-				var rand = Math.random();
-				return lerp(min, max, rand);
-			}
+		function randomFloat(min, max) {
+			var rand = Math.random();
+			return lerp(min, max, rand);
+		}
 
-			function lerp(a, b, ratio) {
-				return a + ratio * (b - a);
-			}
+		function lerp(a, b, ratio) {
+			return a + ratio * (b - a);
+		}
+		var canvas = document.getElementById("canvas");
+		canvas.addEventListener("click", (e) => {
+			var img = document.createElement("img");
+			img.src = `/images/stickers/${stixToLoad[randomInt(1, stixToLoad.length) - 1]}`;
+			img.classList.add("sticker");
+			img.style.setProperty("position", "fixed");
+			img.style.setProperty("z-index", 0);
+			img.style.setProperty("pointer-events", "none");
+			img.onload = function () {
+				img.style.setProperty(
+					"left",
+					(e.x - img.naturalWidth * 0.5).toString() + "px",
+				);
+				img.style.setProperty(
+					"top",
+					(e.y - img.naturalHeight * 0.5).toString() + "px",
+				);
 
-			var canvas = document.getElementById("canvas");
-			canvas.addEventListener("click", fuck);
+				//console.log(img.naturalWidth);
 
-			canvas.onselect = canvas.ondragstart = function () {
-				return false;
+				//img.style.setProperty('translate:', e.layerX.toString() + 'px ' + e.layerY.toString() + 'px');
+
+				canvas.appendChild(img);
+
+				if (!e.shiftKey)
+					img.style.setProperty(
+						"rotate",
+						(Math.random() * 360).toString() + "deg",
+					);
+
+				// how do you do it
+				img.style.setProperty("scale", "0.3");
+				setTimeout(() => {
+					img.style.setProperty("scale", "1.15");
+					setTimeout(() => {
+						img.style.setProperty("scale", "1");
+					}, 80);
+				}, 20);
+
+				audio.currentTime = 0;
+				audio.play();
+				audio.preservesPitch = false;
+				audio.playbackRate = randomFloat(0.7, 1.3);
+				audio.volume = randomFloat(0.75, 1);
 			};
+		});
 
-			function fuck(e) {
-				var img = document.createElement("img");
-				img.src = `/images/stickers/${stixToLoad[randomInt(1, stixToLoad.length) - 1]}`;
-				img.classList.add("sticker");
+		var clearAudio = new Audio("/audio/stix-clear.mp3");
+		var undoAudio = new Audio("/audio/stix-undo.mp3");
 
-				img.style.setProperty("position", "absolute");
-
-				img.onload = function () {
-					img.style.setProperty(
-						"left",
-						(e.x - img.naturalWidth * 0.5).toString() + "px",
+		document
+			.getElementById("clear-button")
+			.addEventListener("click", (e) => {
+				clearAudio.currentTime = 0;
+				clearAudio.play();
+				clearAudio.preservesPitch = false;
+				clearAudio.playbackRate = randomFloat(0.9, 1.1);
+				document
+					.getElementById("water")
+					.animate(
+						[{ translate: "0% -100%" }, { translate: "0% 100%" }],
+						{ duration: 1000 },
 					);
-					img.style.setProperty(
-						"top",
-						(e.y - img.naturalHeight * 0.5).toString() + "px",
-					);
+				setTimeout(() => {
+					canvas.replaceChildren();
+				}, 500);
+			});
 
-					//console.log(img.naturalWidth);
-
-					//img.style.setProperty('translate:', e.layerX.toString() + 'px ' + e.layerY.toString() + 'px');
-
-					canvas.appendChild(img);
-
-					if (!e.shiftKey)
-						img.style.setProperty(
-							"rotate",
-							(Math.random() * 360).toString() + "deg",
-						);
-
+		document
+			.getElementById("undo-button")
+			.addEventListener("click", (e) => {
+				if (canvas.lastChild) {
 					// how do you do it
-					img.style.setProperty("scale", "0.3");
+					canvas.lastChild.style.setProperty(
+						"rotate",
+						randomFloat(0, 360) + "deg",
+					);
+					canvas.lastChild.style.setProperty("scale", "1.15");
 					setTimeout(() => {
-						img.style.setProperty("scale", "1.15");
+						canvas.lastChild.style.setProperty("scale", "0.3");
+						canvas.lastChild.style.setProperty(
+							"rotate",
+							randomFloat(0, 360) + "deg",
+						);
 						setTimeout(() => {
-							img.style.setProperty("scale", "1");
-						}, 80);
+							canvas.removeChild(canvas.lastChild);
+						}, 40);
 					}, 20);
-
-					audio.currentTime = 0;
-					audio.play();
-					audio.preservesPitch = false;
-					audio.playbackRate = randomFloat(0.7, 1.3);
-					audio.volume = randomFloat(0.75, 1);
-				};
-			}
-
-			var clearAudio = new Audio("/audio/stix-clear.mp3");
-			var undoAudio = new Audio("/audio/stix-undo.mp3");
-
-			document
-				.getElementById("clear-button")
-				.addEventListener("click", (e) => {
-					clearAudio.currentTime = 0;
-					clearAudio.play();
-					clearAudio.preservesPitch = false;
-					clearAudio.playbackRate = randomFloat(0.9, 1.1);
-					document
-						.getElementById("water")
-						.animate(
-							[
-								{ translate: "0% -100%" },
-								{ translate: "0% 100%" },
-							],
-							{ duration: 1000 },
-						);
-					setTimeout(() => {
-						canvas.replaceChildren();
-					}, 500);
-				});
-
-			document
-				.getElementById("undo-button")
-				.addEventListener("click", (e) => {
-					if (canvas.lastChild) {
-						canvas.removeChild(canvas.lastChild);
-						undoAudio.currentTime = 0;
-						undoAudio.play();
-						undoAudio.preservesPitch = false;
-						undoAudio.playbackRate = randomFloat(0.9, 1.4);
-					}
-				});
-
-			for (let i = 0; i < stixToLoad.length; i++) {
-				var bleh = stixToLoad[i];
-				var img = new Image();
-				img.src = `/images/stickers/${bleh}`;
-				img.onload = function () {
-					img.remove();
-					update();
-				};
-			}
-
-			var imgsLoaded = 0;
-			function update() {
-				imgsLoaded += 1;
-				document.getElementById("bg-text").innerHTML =
-					`loading... (${imgsLoaded} / ${stixToLoad.length})`;
-				if (imgsLoaded == stixToLoad.length) {
-					document.getElementById("ui").style.display = "block";
-					document.getElementById("canvas").style.display = "block";
-
-					document
-						.getElementById("body")
-						.style.setProperty(
-							"background-color",
-							"var(--col-dim)",
-						);
-					document.getElementById("bg-text").innerHTML =
-						"place stickers here...";
+					undoAudio.currentTime = 0;
+					undoAudio.play();
+					undoAudio.preservesPitch = false;
+					undoAudio.playbackRate = randomFloat(0.6, 1.4);
 				}
-			}
-		</script>
-	</body>
-</html>
+			});
+	</script>
+</Page>

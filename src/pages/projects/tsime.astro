@@ -1,0 +1,70 @@
+---
+
+---
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width" />
+        <meta name="generator" content={Astro.generator} />
+        <title>{Astro.url}</title>
+        <style>
+            [x-cloak] {
+                display: none !important;
+            }
+        </style>
+        <script is:inline>
+            /*
+            SSTV signals DO take volume into account. so unfortunately i cant just
+            decrease the volume into the baked file...unless im stupid and volume
+            just means stuff like proximity to where its being recorded. ehh.. for
+            safety reasons (me and the client) i wil play the raw file, at a low
+            volume, because they rlly dont expect it
+            */
+            var awesomeAudio = new Audio(
+                "/audio/WHY IS IT SO LOUD do not play this from the files please.wav",
+            );
+            awesomeAudio.volume = 0.1; // yikes
+        </script>
+    </head>
+    <body
+        x-data="{hideText: true}"
+        style="padding: 16px; background: #000; color: #ccc;
+        font-family: 'Cascadia Code', 'Courier New', Courier, monospace; font-size: 17px; font-weight: 400;"
+    >
+        <div
+            x-show="!localStorage.getItem('hide')"
+            x-cloak="localStorage.getItem('hide')"
+        >
+            <audio
+                style="width: 100%; filter: grayscale() invert()"
+                controls
+                src="/audio/untitled.mp3"
+                x-on:play="hideText = false"
+                onended="this.parentNode.parentNode.removeChild(this.parentNode);localStorage.setItem('hide', true);awesomeAudio.play();"
+                onloadedmetadata="if(localStorage.getItem('hide'))this.parentNode.parentNode.removeChild(this.parentNode);"
+            ></audio>
+            <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br
+            /><br /><br /><br />
+            <div x-show="!hideText" x-cloak="hideText" x-transition>
+                <br />When worlds finally
+                <br />collide with one another
+                <br />and merge together,
+                <br />
+                <br />Right in my own grounds,
+                <br />unfamiliar faces meet
+                <br />and familiar ones...
+                <br />
+                <br />It will take something
+                <br />greater than me to see them
+                <br />again in your world.
+                <br />
+                <br />...
+                <br />
+                <br />I'll see you soon.
+                <br />I cannot wait to meet you!
+                <br />Don't forget, reader.
+            </div>
+        </div>
+    </body>
+</html>

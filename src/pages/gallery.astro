@@ -1,62 +1,122 @@
 ---
-// Component Imports
-import { getCollection } from "astro:content";
-import Footer from "../components/Footer.astro";
-import GalleryImage from "../components/GalleryImage.astro";
-import Header from "../components/Header.astro";
 import "../styles/global.css";
+import Page from "../components/Page.astro";
+import { getCollection } from "astro:content";
 
 const posts = await getCollection("gallery");
-const bleh = posts.map((data) => [data.id, data.data]);
+const bleh = posts.map((data) => data);
 bleh.sort((a, b) => {
-	return Date.parse(b[1].from) - Date.parse(a[1].from);
+    return Date.parse(b.data.from) - Date.parse(a.data.from);
 });
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<meta name="generator" content={Astro.generator} />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<title>betopia's museum</title>
+<meta content="gallery - betopia" property="og:title" />
+<meta content="the hall of shame" property="og:description" />
+<meta content="/images/gallery.png" property="og:image" />
+<meta content="#996666" data-react-helmet="true" name="theme-color" />
 
-		<meta content="gallery - betopia" property="og:title" />
-		<meta content="the hall of shame" property="og:description" />
-		<meta content="/images/gallery.png" property="og:image" />
-		<meta content="#0699a2" data-react-helmet="true" name="theme-color" />
-
-		<style>
-			.container {
-				display: flex;
-				align-items: baseline;
-				margin: auto;
-				justify-content: center;
-			}
-		</style>
-	</head>
-	<Header />
-	<body>
-		<div style="margin: 23px;">
-			<div class="board" style="max-width: 50rem; margin: auto;">
-				<h1><span style="font-weight: normal;">🖼️</span> gallery</h1>
-				<br />
-				my best works of art that i like will be here. <br />
-				this is kinda like a portfolio but also not
-				<br /><br />
-
-				{
-					bleh.map((bruh) => (
-						<GalleryImage
-							link={[bruh[1].link]}
-							name={[bruh[0]]}
-							data={[JSON.stringify(bruh[1])]}
-							extension={[bruh[1].extension ?? "png"]}
-						/>
-					))
-				}
-				more soon...
-			</div>
-		</div>
-	</body>
-	<Footer />
-</html>
+<Page title="betopia's museum" logo={false}>
+    <div style="background-color: var(--col-main);">
+        <div
+            style="background-color: var(--col-dark); padding: 16px; display: flex; flex-direction: row; align-items: center; gap: 24px;"
+        >
+            <button
+                onclick="navigate('../');"
+                style="font-size: 24px; width: 2.5rem; height: 2.5rem;"
+                >&uparrow;</button
+            >
+            <span
+                style="font-size: 40px; font-weight: 900; color: var(--col-light);"
+                >📂 gallery</span
+            >
+            my artworks bro
+        </div>
+        <div
+            style="
+            margin: auto;
+            width: 75%;
+            padding: 20px;
+            display: grid;
+            align-content: center;
+            justify-content: center;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+            "
+        >
+            {
+                bleh.map((a, b) => (
+                    <button
+                        x-on:click="loading = true;"
+                        onclick={"navigate('/gallery/" + a.id + "/');"}
+                        style="
+                    margin: 10px; 
+                    --col: var(--col-dark); 
+                    --col-hover: var(--col-dim);
+                    --depth: 5px;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+                    gap: 24px;"
+                    >
+                        <div
+                            style="
+                            width: 125pt; height: 125pt; display: flex;
+                            flex-direction: column;
+                            justify-content: center;
+                            align-items: center;
+                            "
+                        >
+                            <img
+                                loading="lazy"
+                                src={
+                                    "/images/gallery/" +
+                                    a.id +
+                                    "." +
+                                    (a.data.extension ?? "png")
+                                }
+                                style="max-width: 100%; max-height: 100%; border-radius: 10px;"
+                            />
+                        </div>
+                        <span
+                            style="color: var(--col-light);"
+                            set:html={`<span style="color: var(--col-bright);">${a.id}</span><span style="color: var(--col-light);">.${a.data.extension ?? "png"}</span>`}
+                        />
+                        <span style="color: var(--col-main); font-size: 12px; margin-top: -20px;">
+                            {b == 0 ? "⭐ " : ""}
+                            {a.data.from}
+                        </span>
+                    </button>
+                ))
+            }
+        </div>
+        <div
+            x-data="{showFuck: false}"
+            style="background-color: var(--col-dark); margin: auto; margin-top: 24px;
+            width: 40rem; border-radius: 20px; padding: 24px;"
+        >
+            <div
+                style="display: flex; justify-content: space-between; align-items: center;"
+            >
+                <span style="color: #fc6; font-weight: 800; font-size: 32px;"
+                    >general art info</span
+                ><button
+                    x-on:click="showFuck=!showFuck"
+                    style="width: 6em; height: 2em; margin: 0; display: flex; align-items: center;"
+                    >👁 toggle</button
+                >
+            </div>
+            <div x-show="showFuck" x-cloak="!showFuck">
+                yea i know it all sucks, if you want to suck as well here's what
+                i normally use:
+                <ul>
+                    <li><b>software:</b> Adobe Animate 2020</li>
+                    <!-- (totally legit, trust me vro) -->
+                    <li><b>brush:</b> Windows Ink, 15px</li>
+                    <li><b>tablet:</b> Wacom Intuos (small)</li>
+                </ul>
+                ...yikes
+            </div>
+        </div>
+        <br />
+    </div>
+</Page>

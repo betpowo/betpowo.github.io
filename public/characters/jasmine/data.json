@@ -1,0 +1,49 @@
+{
+    "page": {
+        "x": -90,
+        "y": -90,
+        "z": 0,
+        "tag": "fucking awesome",
+        "egg": "tyler the crate",
+        "pronouns": "she",
+        "height": {
+            "cm": 178,
+            "offset": 10,
+            "nudge": 6.5
+        },
+        "labels": {
+            "adopt": true
+        },
+        "palette": [
+            "#660037",
+            "#663366",
+            "#3d3062",
+            "#996666",
+            "#9999cc",
+            "#f8ffdf"
+        ],
+        "colors": {
+            "text": "#330033",
+            "bright": "#f8ffdf",
+            "light": "#9366aa",
+            "main": "#663366",
+            "dim": "#4e0344",
+            "dark": "#330033",
+            "bg": "#f8ffdf",
+            "header": {
+                "bg": "#000033",
+                "main": "#cc99ff",
+                "accent": "#9366aa"
+            }
+        },
+        "iconColors": {
+            "main": "#663366",
+            "dark": "#330033",
+            "white": "#f8ffdf"
+        }
+    },
+    "button": {
+        "color": "#663366",
+        "outline": "#f8ffdf"
+    }
+}

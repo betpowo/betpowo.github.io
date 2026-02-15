@@ -1,0 +1,2 @@
+- her favorite animal is birds 🦆🐓🦃🦅🕊🦢🦜🦩🦚🦉🐦🐧🐥🐤🐣 all of them. she loves how dumb they look
+- everyone was afraid to ask her what her favorite book was. to this day, we still don't know

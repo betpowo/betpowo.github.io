@@ -1,42 +1,38 @@
 ---
-import "../../styles/global.css";
+import Page from "../../components/Page.astro";
+var chars = [];
 
-const chars = [];
-//for (var bleh in import.meta.glob("/public/characters/*/button.json")) {
-for (var bleh in import.meta.glob([
-    "/src/pages/characters/*.md",
-    "/src/pages/characters/*.mdx",
-])) {
-    chars.push(
-        bleh
-            .replace(".mdx", "")
-            .replace(".md", "")
-            .replace("/src/pages/characters/", ""),
-    );
+var temp = import.meta.glob("../../../public/characters/*/data.json", {
+    eager: true,
+});
+
+var tmp2 = new Map();
+for (const k of Object.keys(temp)) {
+    var index = k.split("/").at(-2);
+    //console.log(index);
+    tmp2[index] = temp[k];
 }
-//console.log(chars);
+
+//console.log(tmp2);
+
+for (var k in tmp2) {
+    chars.push(k);
+}
 ---
 
-<html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <meta name="generator" content={Astro.generator} />
-        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-        <title>betopia is thinking...</title>
-        <style>
-            .spinner {
-                animation: rotato 10s linear infinite;
+<Page logo={false} title="betopia is thinking...">
+    <style>
+        .spinner {
+            animation: rotato 10s linear infinite;
+        }
+        @keyframes rotato {
+            to {
+                rotate: 360deg;
             }
-            @keyframes rotato {
-                to {
-                    rotate: 360deg;
-                }
-            }
-        </style>
-    </head>
-    <body style="text-align: center; overflow: hidden;">
-        <div
-            style="
+        }
+    </style>
+    <div
+        style="
 		margin: 0;
 		position: absolute;
 		top: 50%;
@@ -44,68 +40,67 @@ for (var bleh in import.meta.glob([
 		-ms-transform: translate(-50%, -50%);
 		transform: translate(-50%, -50%);
 		"
-        >
-            <div>
-                <img
-                    class="spinner"
-                    src="/characters/dice.png"
-                    title="thinking..."
-                />
-            </div>
+    >
+        <div>
+            <img
+                class="spinner"
+                src="/characters/dice.png"
+                title="thinking..."
+            />
         </div>
-        <img
-            src="/characters/eraser.png"
-            height="40"
-            id="eraser"
-            style="position: absolute; left: -500px; bottom: 105vh;"
-        />
-        <script define:vars={{ chars }}>
-            function pick(a) {
-                return a[Math.floor(1 + Math.random() * chars.length) - 1];
-            }
+    </div>
+    <img
+        src="/characters/eraser.png"
+        height="40"
+        id="eraser"
+        style="position: absolute; left: -500px; bottom: 105vh;"
+    />
+    <script define:vars={{ chars }} is:inline>
+        function pick(a) {
+            return a[Math.floor(1 + Math.random() * chars.length) - 1];
+        }
+        if (localStorage.getItem("____randomChosen") == null) {
+            localStorage.setItem("____randomChosen", true);
             setTimeout(
                 () => {
                     var grah = pick(chars);
                     //console.log(grah);
-                    window.location.pathname = "/characters/" + grah;
+                    navigate("/characters/" + grah);
                 },
-                2000 + Math.random() * 3000,
+                2500 + Math.random() * 3000,
             );
-            var eraser = document.getElementById("eraser");
-            if (eraser) {
-                var delta = 1 / 48;
-                var xx,
-                    yy,
-                    rotat = 0;
-                function set(x, y, r) {
-                    xx = x;
-                    yy = y;
-                    rotat = r;
+        }
+        var eraser = document.getElementById("eraser");
+        if (eraser) {
+            var delta = 1 / 48;
+            var xx,
+                yy,
+                rotat = 0;
+            function set(x, y, r) {
+                xx = x;
+                yy = y;
+                rotat = r;
 
-                    eraser.style.left = x + "px";
-                    eraser.style.bottom = y + "px";
-                    eraser.style.rotate = r + "deg";
-                }
-                set(
-                    -500,
-                    140 + Math.random() * 400,
-                    (Math.random() - 0.5) * 2 * 180,
-                );
-                var intensityY = 200 + Math.random() * 100;
-                setTimeout(
-                    () => {
-                        console.warn("deploying The eraser.");
-                        setInterval(() => {
-                            set(
-                                xx + delta * 2000,
-                                yy + delta * intensityY,
-                                rotat + delta * 360,
-                            );
-                        }, delta * 1000);
-                    },
-                    1000 + Math.random() * 3000,
-                );
+                eraser.style.left = x + "px";
+                eraser.style.bottom = y + "px";
+                eraser.style.rotate = r + "deg";
             }
-        </script>
-    </body>
-</html>
+            set(
+                -500,
+                140 + Math.random() * 400,
+                (Math.random() - 0.5) * 2 * 180,
+            );
+            var intensityY = 200 + Math.random() * 100;
+            setTimeout(() => {
+                console.warn("deploying The eraser.");
+                setInterval(() => {
+                    set(
+                        xx + delta * 2000,
+                        yy + delta * intensityY,
+                        rotat + delta * 360,
+                    );
+                }, delta * 1000);
+            }, 2000);
+        }
+    </script>
+</Page>

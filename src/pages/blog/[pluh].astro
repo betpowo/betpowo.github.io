@@ -1,26 +1,12 @@
 ---
-import CharButton from "../../components/CharButton.astro";
-import ContactButton from "../../components/ContactButton.astro";
-import Footer from "../../components/Footer.astro";
-import Header from "../../components/Header.astro";
 import "../../styles/global.css";
 import { getCollection } from "astro:content";
+import BlogPage from "../../components/BlogPage.astro";
 
 export async function getStaticPaths() {
-    /*return [
-        {
-            params: {
-                pluh: "sun",
-            },
-            props: { title: "uhh" },
-        },
-    ];*/
-
     const posts = await getCollection("blog");
-    // console.log(posts);
 
     return posts.map((a) => {
-        //console.log(a);
         return {
             params: {
                 pluh: a.slug,
@@ -41,64 +27,29 @@ const id = Astro.params.pluh;
 //console.log(data);
 ---
 
-<html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <meta name="generator" content={Astro.generator} />
-        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-        <title>{data.title + " - betopia's blog"}</title>
-
+{
+    data.embed_thumbnail === undefined ? (
+        ""
+    ) : (
         <meta
-            content={data.title + " - betopia's yapping"}
-            property="og:title"
+            content={"/images/blog-embeds/" + data.embed_thumbnail + ".png"}
+            property="og:image"
         />
-        <meta
-            content={data.desc || "(no description provided)"}
-            property="og:description"
-        />
-        {
-            data.embed_thumbnail === undefined ? (
-                ""
-            ) : (
-                <meta
-                    content={
-                        "/images/blog-embeds/" + data.embed_thumbnail + ".png"
-                    }
-                    property="og:image"
-                />
-            )
-        }
+    )
+}
 
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta content="#996666" data-react-helmet="true" name="theme-color" />
-        <style>
-            .container {
-                display: flex;
-                align-items: center;
-                margin: auto;
-                justify-content: center;
-                max-width: fit-content;
-            }
-        </style>
-    </head>
-    <Header />
-    <body>
-        <div style="margin: 23px;">
-            <div class="board" style="max-width: 45rem; margin: auto;">
-                <div class="sub-board" style="margin: 0; width: unset;">
-                    {data.from}
-                    <h1 style="color: var(--col-light);">{data.title}</h1>
-                    <hr style="background-color: var(--col-main);" />
-                    <p
-                        set:html={data.desc || "(no description provided)"}
-                        style="margin-bottom: 0;"
-                    />
-                </div>
-                <br />
-
-                <Content />
-            </div>
-        </div>
-    </body>
-    <Footer />
-</html>
+<BlogPage>
+    <div style="max-width: 40rem;">
+        <p>
+            <span style="color: var(--col-light);">{data.from}</span>
+            <h1
+                style="margin-top: -10px; margin-bottom: 20px; line-height: 0.8em;"
+            >
+                {data.title}
+            </h1>
+            <span set:html={data.desc} />
+        </p>
+        <hr />
+        <Content />
+    </div>
+</BlogPage>

@@ -1,0 +1,43 @@
+<script is:inline>
+{`
+    var aaahhh = new Audio('/audio/kendrick-aaahhh.mp3');
+    function mustard(event) {
+        console.log(event);
+        var img = document.createElement("img");
+	    img.src = "/characters/duck/mustard.jpg";
+	    img.style.setProperty("position", "fixed");
+	    img.style.setProperty("pointer-events", "none");
+        img.style.setProperty("scale", 0);
+        img.style.setProperty("z-index", 9999999);
+        img.style.setProperty("left", (event.clientX) + "px");
+        img.style.setProperty("top", (event.clientY) + "px");
+	    img.onload = function () {
+            aaahhh.play();
+            img.style.setProperty("left", (event.clientX - (img.width / 2)) + "px");
+            img.style.setProperty("top", (event.clientY - (img.height / 2)) + "px");
+            img.animate(
+				[{ scale: 67 }],
+				{ duration: 3000 },
+			);
+            cutoff_sound = aaahhh;
+            setTimeout(() => {
+				navigate('/characters/');
+			}, 400);
+        }
+        document.querySelector('body').appendChild(img);
+    }
+`}
+</script>
+
+the suit is <span style="color: #f93;">orange-ish... yellow-ish...</span> idk what it is.
+<span style="cursor: pointer;" onmousedown="mustard(event);">mustard?</span>
+
+it has hints of <span style="color: #f33;">red</span>, mostly in the boots, the tiny laser
+ball thingy shooter thing&trade;, and the cape
+
+yes, he can fly with the cape, it's quite literally just a superhero why do we need
+to Apply Logic to it
+
+the right had is replaced by a spike ball...
+
+well... it's not really replaced, it can be retracted (somehow)

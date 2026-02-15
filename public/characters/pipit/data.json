@@ -1,0 +1,55 @@
+{
+    "page": {
+        "x": 230,
+        "y": 540,
+        "z": 50,
+        "tag": "mom found the yaoi",
+        "egg": "someone please get her off that shit. oh my g",
+        "pronouns": "she",
+        "height": {
+            "cm": 162,
+            "offset": 8,
+            "nudge": 10.5
+        },
+        "labels": {
+            "irrelevant": true,
+            "adopt": true
+        },
+        "palette": [
+            "#5d2d21",
+            "#a74c34",
+            "#f5ccb8",
+            "#ffcc99",
+            "#ffffcc"
+        ],
+        "colors": {
+            "height": "#7c2115",
+            "text": "#330033",
+            "bright": "#ffffcc",
+            "light": "#ffcc99",
+            "main": "#a74c34",
+            "dim": "#7c2115",
+            "dark": "#330033",
+            "bg": "#ffffdd",
+            "header": {
+                "bg": "#330033",
+                "accent": "#ffcc99"
+            },
+            "tab": {
+                "text": "#ffffcc"
+            }
+        },
+        "iconColors": {
+            "main": "#a74c34",
+            "dark": "#330033",
+            "white": "#ffffcc"
+        },
+        "tabs": [
+            "other"
+        ]
+    },
+    "button": {
+        "color": "#a74c34",
+        "outline": "#ffffcc"
+    }
+}

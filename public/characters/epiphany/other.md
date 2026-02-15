@@ -1,0 +1,4 @@
+- her name is too long i actually just call her *"epi/eppy"* lmao
+- she spawned in my eyesight once.<a class="FUCK" href="#other" x-on:click="tab = 'references'"><sup>[1]</sup></a> that's how she came to be
+- furries/anthros actually DO co-exist with humans in my oc world, she's not the only one, but have nothing to do with kemonomimi<a class="FUCK" href="#other" x-on:click="tab = 'references'"><sup>[2]</sup></a> inside the world <span style="opacity: 0.5;">(i.e. [josephine](/characters/josephine/), [mae](/characters/mae/))</span>. they're a whole separate species. don't ask how any of this happened cus i Also have genuinely no idea what i'm doing
+- she was named by my friend jaye... ily jaye /p you're awesome

@@ -1,0 +1,50 @@
+{
+    "page": {
+        "x": 0,
+        "y": 300,
+        "z": 200,
+        "tag": "the magic resides in your heart",
+        "egg": "The Orb",
+        "pronouns": "she",
+        "palette_comment": "it gets to a point",
+        "palette": [
+            "#9999ff",
+            "linear-gradient(to right, #ccffcc, #66ccff, #9999ff, #cc99ff, #ff66cc, #ff9999, #ffffcc)",
+            "#ff99ff",
+            "#99ccff",
+            "#fae2d5",
+            "#660066",
+            "#faffea"
+        ],
+        "height": {
+            "cm": 169,
+            "offset": 1,
+            "nudge": 50.5
+        },
+        "colors": {
+            "height": "#faffea",
+            "bright": "#faffea",
+            "light": "#ff99ff",
+            "main": "#9999ff",
+            "dim": "#ff66cc",
+            "dark": "#000066",
+            "bg": "#003399",
+            "header": {
+                "bg": "#faffea",
+                "accent": "#ccccff"
+            }
+        },
+        "iconColors": {
+            "main": "#9999ff",
+            "dark": "#000066",
+            "white": "#faffea"
+        },
+        "tabs": [
+            "other"
+        ]
+    },
+    "button": {
+        "color": "#9999ff",
+        "outline": "#faffea"
+    }
+}

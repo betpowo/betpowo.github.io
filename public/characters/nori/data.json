@@ -1,0 +1,50 @@
+{
+    "page": {
+        "color": "#ccff66",
+        "x": 306,
+        "y": 77,
+        "z": 150,
+        "tag": "sour like warheads...",
+        "egg": "tiny ass #2",
+        "pronouns": "she",
+        "palette": [
+            "#333366",
+            "#666699",
+            "#ccff66",
+            "#ff6699"
+        ],
+        "height": {
+            "cm": 81,
+            "offset": -4
+        },
+        "colors": {
+            "bright": "#ffffcc",
+            "light": "#66cc99",
+            "main": "#ccff66",
+            "dim": "#0066cc",
+            "dark": "#003366",
+            "bg": "#469950",
+            "tag": "#ffffcc",
+            "header": {
+                "bg": "#000033",
+                "accent": "#ffffcc"
+            },
+            "tab": {
+                "text": "#003366"
+            }
+        },
+        "iconColors": {
+            "main": "#ccff66",
+            "dark": "#333366",
+            "white": "#ffffcc"
+        },
+        "tabs": [
+            "other",
+            "references"
+        ]
+    },
+    "button": {
+        "color": "#ccff66",
+        "outline": "#333366"
+    }
+}

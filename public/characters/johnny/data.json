@@ -1,0 +1,43 @@
+{
+    "page": {
+        "x": -196,
+        "y": 272,
+        "z": 400,
+        "tag": "ultimate sigma blud",
+        "egg": "sigma!",
+        "pronouns": "he",
+        "height": {
+            "cm": 186,
+            "nudge": 40
+        },
+        "palette": [
+            "#666699",
+            "#996699",
+            "#ff3333",
+            "#66cc99",
+            "#ffff99"
+        ],
+        "colors": {
+            "text": "#330011",
+            "bright": "#ffffcc",
+            "light": "#ff6666",
+            "main": "#ff3333",
+            "dim": "#660011",
+            "dark": "#330011",
+            "bg": "#ffffcc",
+            "header": {
+                "bg": "#330011",
+                "accent": "#ffffcc"
+            }
+        },
+        "iconColors": {
+            "main": "#ff3333",
+            "dark": "#330011",
+            "white": "#ffffcc"
+        }
+    },
+    "button": {
+        "color": "#ff3333",
+        "outline": "#ffffcc"
+    }
+}

@@ -1,0 +1,43 @@
+{
+    "page": {
+        "x": -498,
+        "y": 10,
+        "z": 67,
+        "tag": "is this a safe space?",
+        "egg": "she's been thru a lot... let her rest...",
+        "pronouns": "she",
+        "palette": [
+            "#373E52",
+            "#553831",
+            "#cc6699",
+            "#ffcbbf",
+            "#e9ffcc"
+        ],
+        "height": {
+            "cm": 165,
+            "offset": 3,
+            "nudge": 5
+        },
+        "colors": {
+            "text": "#3c102a",
+            "bright": "#e9ffcc",
+            "light": "#ff99cc",
+            "main": "#cc6699",
+            "dim": "#cc3366",
+            "dark": "#3c102a",
+            "bg": "#e9ffcc",
+            "header": {
+                "bg": "#3c102a"
+            }
+        },
+        "iconColors": {
+            "main": "#cc6699",
+            "dark": "#3c102a",
+            "white": "#e9ffcc"
+        }
+    },
+    "button": {
+        "color": "#cc6699",
+        "outline": "#e9ffcc"
+    }
+}

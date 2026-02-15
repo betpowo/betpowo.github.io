@@ -1,0 +1,2 @@
+1. <a href="https://twitter.com/betpowo/status/1748079459830202740" target="_blank">twitter.com/betpowo/status/1748079459830202740</a>
+2. <a href="https://bsky.app/profile/betpowo.bsky.social/post/3lfzuv2omgs2a" target="_blank">bsky.app/profile/betpowo.bsky.social/post/3lfzuv2omgs2a</a>

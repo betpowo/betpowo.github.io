@@ -1,0 +1,42 @@
+{
+    "page": {
+        "x": -550,
+        "y": 660,
+        "z": 0,
+        "tag": "fattest thing alive",
+        "egg": "carlos",
+        "pronouns": "he",
+        "height": {
+            "cm": 39,
+            "offset": 1,
+            "nudge": -50.5
+        },
+        "labels": {
+            "parody": "sonic the hedgehog"
+        },
+        "palette": [
+            "#cc3399",
+            "#6699ff",
+            "#ccffff",
+            "#ffecb7"
+        ],
+        "colors": {
+            "tag": "#99ffff",
+            "bright": "#ccffff",
+            "light": "#99ffff",
+            "main": "#6699ff",
+            "dim": "#330099",
+            "dark": "#110033",
+            "bg": "#110033"
+        },
+        "iconColors": {
+            "main": "#6699ff",
+            "dark": "#110033",
+            "white": "#ccffff"
+        }
+    },
+    "button": {
+        "color": "#6699ff",
+        "outline": "#ccffff"
+    }
+}
