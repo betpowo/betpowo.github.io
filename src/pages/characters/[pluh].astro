@@ -3,6 +3,14 @@ import type { AstroComponentFactory } from "astro/runtime/server/index.js";
 import ColorButton from "../../components/ColorButton.astro";
 import Page from "../../components/Page.astro";
 
+async function coolImport(path: string) {
+    try {
+        return import(path);
+    } catch (e) {
+        return import(path.replaceAll("public/", ""));
+    }
+}
+
 export async function getStaticPaths() {
     var chars = [];
     var temp = await import.meta.glob(
@@ -55,14 +63,14 @@ var bright2 = data.page?.colors?.bright ?? "#ffffcc",
     extratext2 = data.page?.colors?.tab?.text ?? text2,
     marker2 = data.page?.colors?.marker ?? light2;
 
-var _desc = await import(
-    /* @vite-ignore */ "/public/characters/" + id + "/description.md"
+var _desc = await coolImport(
+    /* @vite-ignore */ "/public/characters/" + id + "/description.md",
 );
 
 const DescContent = _desc.Content;
 
-var design = await import(
-    /* @vite-ignore */ "/public/characters/" + id + "/design.mdx"
+var design = await coolImport(
+    /* @vite-ignore */ "/public/characters/" + id + "/design.mdx",
 );
 const DContent = design.Content;
 // fuckkkk
@@ -70,22 +78,22 @@ const tabContent = new Map();
 
 for (var i in data.page.tabs) {
     try {
-        var mdx = await import(
+        var mdx = await coolImport(
             /* @vite-ignore */ "/public/characters/" +
                 id +
                 "/" +
                 data.page.tabs[i] +
-                ".md"
+                ".md",
         );
         tabContent.set(data.page.tabs[i], mdx.compiledContent());
     } catch (e) {
         try {
-            var mdx = await import(
+            var mdx = await coolImport(
                 /* @vite-ignore */ "/public/characters/" +
                     id +
                     "/" +
                     data.page.tabs[i] +
-                    ".mdx"
+                    ".mdx",
             );
             tabContent.set(data.page.tabs[i], mdx.Content);
         } catch (e) {
