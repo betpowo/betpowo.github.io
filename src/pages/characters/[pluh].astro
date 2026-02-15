@@ -20,12 +20,20 @@ async function coolImport(path: string) {
 
 export async function getStaticPaths() {
     var chars = [];
-    var temp = await import.meta.glob(
-        "../../../public/characters/*/data.json",
-        {
+    var temp;
+    console.log(import.meta.env.dev);
+    if (import.meta.env.dev) {
+        temp = await import.meta.glob(
+            "../../../public/characters/*/data.json",
+            {
+                eager: true,
+            },
+        );
+    } else {
+        temp = await import.meta.glob("../../characters/*/data.json", {
             eager: true,
-        },
-    );
+        });
+    }
 
     var tmp2 = new Map();
     for (const k of Object.keys(temp)) {
