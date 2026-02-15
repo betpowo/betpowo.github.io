@@ -4,10 +4,17 @@ import ColorButton from "../../components/ColorButton.astro";
 import Page from "../../components/Page.astro";
 
 async function coolImport(path: string) {
+    const shit = path.replaceAll("/public", "../..");
     try {
-        return import(path);
+        console.warn("importing " + shit + " ...");
+        var lalala = await import(shit);
+        return lalala;
     } catch (e) {
-        return import(path.replaceAll("public/", ""));
+        console.error(shit + " failed!");
+        console.log(e);
+        console.warn("importing " + path + " ...");
+        var lalala = await import(path);
+        return lalala;
     }
 }
 

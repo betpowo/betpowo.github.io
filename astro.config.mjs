@@ -44,5 +44,11 @@ export default defineConfig({
     },
     devToolbar: {
         enabled: false
+    },
+    vite: {
+        optimizeDeps: {
+            noDiscovery: true,
+            include: ['vite-plugin-md']
+        }
     }
 });
