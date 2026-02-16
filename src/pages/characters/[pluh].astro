@@ -3,6 +3,7 @@ import type { AstroComponentFactory } from "astro/runtime/server/index.js";
 import ColorButton from "../../components/ColorButton.astro";
 import Page from "../../components/Page.astro";
 
+/*
 async function coolImport(path: string) {
     const shit = path.replaceAll("/public", "../..");
     try {
@@ -17,48 +18,71 @@ async function coolImport(path: string) {
         return lalala;
     }
 }
+*/
 
 export async function getStaticPaths() {
     var chars = [];
-    var temp;
-    console.log(import.meta.env.DEV);
+    
+    var datafiles;
     if (import.meta.env.DEV) {
-        temp = await import.meta.glob(
+        datafiles = await import.meta.glob(
             "../../../public/characters/*/data.json",
-            {
-                eager: true,
-            },
+            { eager: true }
         );
     } else {
-        temp = await import.meta.glob("../../characters/*/data.json", {
-            eager: true,
-        });
+        datafiles = await import.meta.glob(
+            "../../characters/*/data.json", // not sure if you're supposed to have ** or * so fuck it we ball
+            { eager: true }
+        )
     }
 
-    var tmp2 = new Map();
-    for (const k of Object.keys(temp)) {
-        var index = k.split("/").at(-2);
-        //console.log(index);
-        tmp2[index] = temp[k];
+
+
+    var contentfiles;
+    if (import.meta.env.DEV) {
+        contentfiles = await import.meta.glob(
+            "../../../public/characters/*/*.{md,mdx}",
+            { eager: true }
+        );
+    } else {
+        contentfiles = await import.meta.glob(
+            "../../characters/*/*.{md,mdx}",
+            { eager: true }
+        )
     }
 
-    for (var k in tmp2) {
-        chars.push(k);
+       const items = {};
+
+    const getEntry = (id) => {
+        if (!items[id]) items[id] = { data: null, content: {} };
+        return items[id]
     }
 
-    return chars.map((a) => {
+    for (const [path, file] of Object.entries(datafiles)) {
+        const id = path.split("/").at(-2)
+        getEntry(id).data = file;
+    }
+
+    for (const [path, file] of Object.entries(contentfiles)) {
+        const id = path.split("/").at(-2)
+        const fileName = path.split("/").at(-1).split(".")[0]
+        getEntry(id).content[fileName] = file;
+    }
+    
+    return Object.keys(items).map((id) => {
         return {
-            params: {
-                pluh: a,
-            },
+            params: { pluh: id },
             props: {
-                data: tmp2[a],
-                id: a,
-            },
-        };
-    });
+                id: id,
+                data: items[id].data,
+                content: items[id].content
+            }
+        }
+    })
 }
-const { data, id } = Astro.props;
+
+
+const { data, id, content } = Astro.props;
 
 var bright2 = data.page?.colors?.bright ?? "#ffffcc",
     light2 = data.page?.colors?.light ?? "#ffcc99",
@@ -77,39 +101,22 @@ var bright2 = data.page?.colors?.bright ?? "#ffffcc",
     extradark2 = data.page?.colors?.tab?.shadow ?? dark2,
     extratext2 = data.page?.colors?.tab?.text ?? text2,
     marker2 = data.page?.colors?.marker ?? light2;
-
-var _desc = await coolImport(
-    /* @vite-ignore */ "/public/characters/" + id + "/description.md",
-);
+var _desc = await content["description"]
 
 const DescContent = _desc.Content;
 
-var design = await coolImport(
-    /* @vite-ignore */ "/public/characters/" + id + "/design.mdx",
-);
+var design = await content["design"]
 const DContent = design.Content;
 // fuckkkk
 const tabContent = new Map();
 
 for (var i in data.page.tabs) {
     try {
-        var mdx = await coolImport(
-            /* @vite-ignore */ "/public/characters/" +
-                id +
-                "/" +
-                data.page.tabs[i] +
-                ".md",
-        );
+        var mdx = await content[data.page.tabs[i]]
         tabContent.set(data.page.tabs[i], mdx.compiledContent());
     } catch (e) {
         try {
-            var mdx = await coolImport(
-                /* @vite-ignore */ "/public/characters/" +
-                    id +
-                    "/" +
-                    data.page.tabs[i] +
-                    ".mdx",
-            );
+            var mdx = await content[data.page.tabs[i]]
             tabContent.set(data.page.tabs[i], mdx.Content);
         } catch (e) {
             console.error(e.toString());
@@ -160,8 +167,8 @@ function hex2hsv(a) {
         n === 0
             ? 0
             : n && v === r
-              ? (g - b) / n
-              : v === g
+            ? (g - b) / n
+            : v === g
                 ? 2 + (b - r) / n
                 : 4 + (r - g) / n;
     return {
@@ -258,8 +265,8 @@ labels.set("irrelevant", {
     --tag-color: ${tag2};
 }
 li {
-   margin-top: 16px;
-   margin-bottom: 16px;
+margin-top: 16px;
+margin-bottom: 16px;
 }
 li::marker {
     color: ${marker2};
@@ -361,11 +368,11 @@ button.tab {
                                             x-on:mouseleave="showDesc = false;"
                                             style={`
                                             background-color: ${labels.get(a).color};
-											box-shadow: 0px 1px 5px ${labels.get(a).color};
+                                            box-shadow: 0px 1px 5px ${labels.get(a).color};
                                             border: 2px solid rgb(from ${labels.get(a).color} calc(r - 64) calc(g - 96) calc(b - 32));
-											padding: 8px;
-											border-radius: 16px;
-											font-size: 0.75rem;
+                                            padding: 8px;
+                                            border-radius: 16px;
+                                            font-size: 0.75rem;
                                             width: fit-content;
                                             margin: 4px;
                                             color: rgb(from ${labels.get(a).color} calc(r - 64) calc(g - 96) calc(b - 32));
@@ -379,16 +386,16 @@ button.tab {
                                             x-transition
                                             x-show="showDesc"
                                             style={`background-color: var(--col-bg);
-												box-shadow: 0px 1px 5px ${labels.get(a).color};
+                                                box-shadow: 0px 1px 5px ${labels.get(a).color};
                                                 border: 2px solid ${labels.get(a).color};
-												padding: 16px;
-												border-radius: 16px;
-												width: 12rem;
-												font-size: 0.75rem;
-												text-align: justify;
-												position: absolute;
-												translate: -20px 3px;
-												z-index: 50;`}
+                                                padding: 16px;
+                                                border-radius: 16px;
+                                                width: 12rem;
+                                                font-size: 0.75rem;
+                                                text-align: justify;
+                                                position: absolute;
+                                                translate: -20px 3px;
+                                                z-index: 50;`}
                                         >
                                             <div style="font-size: 1.25rem; font-weight: 900;">
                                                 <div style="position: absolute;">
@@ -565,7 +572,7 @@ button.tab {
                             <DContent />
                         </div>
                     </div>
-                </div>
+                </div>  
             </section>
             <br /><br /><br />
             {
@@ -615,7 +622,7 @@ button.tab {
                 </div>
             </section>
             <br /><br />
-             -->
+            -->
             <div style="margin: auto; width: fit-content;">
                 <button onclick="javascript:history.back()">← back</button>
                 <button
