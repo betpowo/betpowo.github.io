@@ -212,13 +212,6 @@ labels.set("irrelevant", {
     <br/><br/>idk why this is even a label, it might be insulting...
     i'm rlly sorry ${data.page.display ?? id} i didn't mean to hurt ur feelings :<`,
 });
-
-function formatToDesc(d) {
-    return d
-        .replaceAll("<p>", "")
-        .replaceAll("</p>", "")
-        .replaceAll("\r\n", " ");
-}
 ---
 
 <meta
@@ -228,10 +221,7 @@ function formatToDesc(d) {
         ")"}
     property="og:title"
 />
-<meta
-    content={formatToDesc(_desc.compiledContent())}
-    property="og:description"
-/>
+<meta content={_desc.rawContent()} property="og:description" />
 <meta content={"/characters/" + id + "/render.png"} property="og:image" />
 <!-- <meta name="twitter:card" content="summary_large_image" /> -->
 <meta
