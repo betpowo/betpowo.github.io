@@ -1,2 +1,3 @@
-- her favorite animal is birds 🦆🐓🦃🦅🕊🦢🦜🦩🦚🦉🐦🐧🐥🐤🐣 all of them. she loves how dumb they look
+- she actually thinks pineapple on pizza is okay
+    - everyone she tells this to immediately hates her (not realistically, more like it ruins their perception of her)
 - everyone was afraid to ask her what her favorite book was. to this day, we still don't know

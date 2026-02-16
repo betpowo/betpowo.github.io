@@ -72,9 +72,18 @@ const overrideFont = "Lucida Sans";
                     from var(--col-light) calc(r - 32) calc(g - 64) calc(b - 32)
                 );
         }
+        .whatever-man {
+            font-size: 1vw;
+            width: 8.5em;
+        }
+        @media screen and (max-width: 1200px) {
+            .whatever-man {
+                font-size: 1.3em;
+            }
+        }
     </style>
     <div x-data="{displayedWindow: null}">
-        <div>
+        <div style="display: flex; align-items: center; flex-wrap: wrap;">
             {
                 [
                     {
@@ -87,13 +96,13 @@ const overrideFont = "Lucida Sans";
                         name: "about",
                         icon: "📙",
                         click: "displayedWindow = 'about'",
-                        light: "",
+                        light: ".exe",
                     },
                     {
                         name: "settings",
                         icon: "⚙",
                         click: "displayedWindow = 'settings'",
-                        light: "",
+                        light: ".exe",
                     },
 
                     { name: "characters", icon: "👨‍👩‍👧‍👦" },
@@ -104,10 +113,11 @@ const overrideFont = "Lucida Sans";
                     { name: "contact", icon: "📫" },
                 ].map((a) => (
                     <button
-                        style="background: none; box-shadow: none; color: var(--col-bright); font-size: 14px; text-align: center;"
+                        class="whatever-man"
+                        style="background: none; box-shadow: none; color: var(--col-bright); text-align: center;"
                         x-on:click={a.click ?? `navigate('/${a.name}/')`}
                     >
-                        <span style="font-size: 24px;">{a.icon}</span>
+                        <span style="font-size: 1.8em;">{a.icon}</span>
                         <br />
                         <br />
                         {a.name}
