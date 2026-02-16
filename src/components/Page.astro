@@ -106,6 +106,9 @@ const iconData =
             where globals go
         -->
         <script is:inline>
+            clearInterval();
+            clearTimeout();
+
             function navigate(a) {
                 if (localStorage.getItem("defaultLQ") == "true") {
                     if (a == "/characters" || a == "/characters/") {
