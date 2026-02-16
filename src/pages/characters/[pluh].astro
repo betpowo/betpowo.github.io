@@ -22,63 +22,58 @@ async function coolImport(path: string) {
 
 export async function getStaticPaths() {
     var chars = [];
-    
+
     var datafiles;
-    if (import.meta.env.DEV) {
-        datafiles = await import.meta.glob(
-            "../../../public/characters/*/data.json",
-            { eager: true }
-        );
-    } else {
-        datafiles = await import.meta.glob(
-            "../../characters/*/data.json" // not sure if you're supposed to have ** or * so fuck it we ball
-        )
-    }
-
-
+    //if (import.meta.env.DEV) {
+    datafiles = await import.meta.glob(
+        "../../../public/characters/*/data.json",
+        { eager: true },
+    );
+    //} else {
+    //    datafiles = await import.meta.glob(
+    //        "../../characters/*/data.json" // not sure if you're supposed to have ** or * so fuck it we ball
+    //    )
+    //}
 
     var contentfiles;
-    if (import.meta.env.DEV) {
-        contentfiles = await import.meta.glob(
-            "../../../public/characters/*/*.{md,mdx}",
-            { eager: true }
-        );
-    } else {
-        contentfiles = await import.meta.glob(
-            "../../characters/*/*.{md,mdx}"
-        )
-    }
+    //if (import.meta.env.DEV) {
+    contentfiles = await import.meta.glob(
+        "../../../public/characters/*/*.{md,mdx}",
+        { eager: true },
+    );
+    //} else {
+    //    contentfiles = await import.meta.glob("../../characters/*/*.{md,mdx}");
+    //}
 
-       const items = {};
+    const items = {};
 
     const getEntry = (id) => {
         if (!items[id]) items[id] = { data: null, content: {} };
-        return items[id]
-    }
+        return items[id];
+    };
 
     for (const [path, file] of Object.entries(datafiles)) {
-        const id = path.split("/").at(-2)
+        const id = path.split("/").at(-2);
         getEntry(id).data = file;
     }
 
     for (const [path, file] of Object.entries(contentfiles)) {
-        const id = path.split("/").at(-2)
-        const fileName = path.split("/").at(-1).split(".")[0]
+        const id = path.split("/").at(-2);
+        const fileName = path.split("/").at(-1).split(".")[0];
         getEntry(id).content[fileName] = file;
     }
-    
+
     return Object.keys(items).map((id) => {
         return {
             params: { pluh: id },
             props: {
                 id: id,
                 data: items[id].data,
-                content: items[id].content
-            }
-        }
-    })
+                content: items[id].content,
+            },
+        };
+    });
 }
-
 
 const { data, id, content } = Astro.props;
 
@@ -99,22 +94,22 @@ var bright2 = data.page?.colors?.bright ?? "#ffffcc",
     extradark2 = data.page?.colors?.tab?.shadow ?? dark2,
     extratext2 = data.page?.colors?.tab?.text ?? text2,
     marker2 = data.page?.colors?.marker ?? light2;
-var _desc = await content["description"]
+var _desc = await content["description"];
 
-const DescContent = _desc.Content;
+const { Content } = _desc;
 
-var design = await content["design"]
-const DContent = design.Content;
+var design = await content["design"];
+const DContent = design["Content"];
 // fuckkkk
 const tabContent = new Map();
 
 for (var i in data.page.tabs) {
     try {
-        var mdx = await content[data.page.tabs[i]]
+        var mdx = await content[data.page.tabs[i]];
         tabContent.set(data.page.tabs[i], mdx.compiledContent());
     } catch (e) {
         try {
-            var mdx = await content[data.page.tabs[i]]
+            var mdx = await content[data.page.tabs[i]];
             tabContent.set(data.page.tabs[i], mdx.Content);
         } catch (e) {
             console.error(e.toString());
@@ -165,8 +160,8 @@ function hex2hsv(a) {
         n === 0
             ? 0
             : n && v === r
-            ? (g - b) / n
-            : v === g
+              ? (g - b) / n
+              : v === g
                 ? 2 + (b - r) / n
                 : 4 + (r - g) / n;
     return {
@@ -460,7 +455,7 @@ button.tab {
                     <div
                         style="max-width: 25rem; margin: 0; text-align: justify;"
                     >
-                        <DescContent />
+                        <Content />
                     </div>
                 </div>
             </div>
@@ -570,7 +565,7 @@ button.tab {
                             <DContent />
                         </div>
                     </div>
-                </div>  
+                </div>
             </section>
             <br /><br /><br />
             {
