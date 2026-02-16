@@ -62,7 +62,7 @@ import CharButton from '../../components/CharButton.astro'
                     return a + t * (b - a);
                 }
                 var time = (1 / 24);
-                setInterval(function() {
+                interval(function() {
                     if (cur > frames) return;
 
                     cur += 1;

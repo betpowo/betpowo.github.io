@@ -87,7 +87,7 @@ const { src = "/angry guy.mp3", loop = undefined, style = "" } = Astro.props;
             else audio.pause();
         });
 
-        setInterval(() => {
+        interval(() => {
             updateTime(audio.currentTime);
             if (playing) updateRange();
         }, 100);

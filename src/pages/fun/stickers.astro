@@ -39,7 +39,7 @@ for (var bleh in _images) {
 			<button
 				id="clear-button"
 				style="--col: #f36; margin-left:0px;font-size: 16px;padding: 7px;"
-				@click="setTimeout(()=>{score = 0},500);">clear</button
+				@click="timeout(()=>{score = 0},500);">clear</button
 			>
 			<button
 				id="undo-button"
@@ -128,9 +128,9 @@ for (var bleh in _images) {
 
 				// how do you do it
 				img.style.setProperty("scale", "0.3");
-				setTimeout(() => {
+				timeout(() => {
 					img.style.setProperty("scale", "1.15");
-					setTimeout(() => {
+					timeout(() => {
 						img.style.setProperty("scale", "1");
 					}, 80);
 				}, 20);
@@ -159,7 +159,7 @@ for (var bleh in _images) {
 						[{ translate: "0% -100%" }, { translate: "0% 100%" }],
 						{ duration: 1000 },
 					);
-				setTimeout(() => {
+				timeout(() => {
 					canvas.replaceChildren();
 				}, 500);
 			});
@@ -174,13 +174,13 @@ for (var bleh in _images) {
 						randomFloat(0, 360) + "deg",
 					);
 					canvas.lastChild.style.setProperty("scale", "1.15");
-					setTimeout(() => {
+					timeout(() => {
 						canvas.lastChild.style.setProperty("scale", "0.3");
 						canvas.lastChild.style.setProperty(
 							"rotate",
 							randomFloat(0, 360) + "deg",
 						);
-						setTimeout(() => {
+						timeout(() => {
 							canvas.removeChild(canvas.lastChild);
 						}, 40);
 					}, 20);

@@ -61,7 +61,7 @@ for (var k in tmp2) {
         }
         if (localStorage.getItem("____randomChosen") == null) {
             localStorage.setItem("____randomChosen", true);
-            setTimeout(
+            timeout(
                 () => {
                     var grah = pick(chars);
                     //console.log(grah);
@@ -91,9 +91,9 @@ for (var k in tmp2) {
                 (Math.random() - 0.5) * 2 * 180,
             );
             var intensityY = 200 + Math.random() * 100;
-            setTimeout(() => {
+            timeout(() => {
                 console.warn("deploying The eraser.");
-                setInterval(() => {
+                interval(() => {
                     set(
                         xx + delta * 2000,
                         yy + delta * intensityY,

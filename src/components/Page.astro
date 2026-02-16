@@ -139,6 +139,28 @@ const iconData =
             }
 
             var cutoff_sound;
+            if (typeof intervals === "undefined") {
+                intervals = [];
+            }
+            if (typeof timeouts === "undefined") {
+                timeouts = [];
+            }
+
+            function interval(func, delay) {
+                var int = setInterval(func, delay);
+                intervals.push(int);
+                return int;
+            }
+
+            function timeout(func, delay) {
+                var int = setTimeout(() => {
+                    func();
+                    timeouts.splice(timeouts.indexOf(int), 1);
+                }, delay);
+                timeouts.push(int);
+                return int;
+            }
+
             //console.log(":tiny:");
         </script>
     </head>
@@ -274,8 +296,9 @@ const iconData =
                 cutoff_sound = undefined;
             }
 
-            clearInterval();
-            clearTimeout();
+            for (var i = 0; i < intervals.length; i++)
+                clearInterval(intervals[i]);
+            for (var i = 0; i < timeouts.length; i++) clearTimeout(timeouts[i]);
         </script>
 
         <slot />

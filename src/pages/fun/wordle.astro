@@ -51,8 +51,8 @@ import "../../styles/global.css";
                     ];
                 }
 
-                const word = getRandomWord();
-                const formatWord = word.replaceAll(" ", "").toLocaleLowerCase();
+                word = getRandomWord();
+                formatWord = word.replaceAll(" ", "").toLocaleLowerCase();
             </script>
             <button onclick="navigate('/');" style="float: left;">🏠</button>
             <h1 style="text-align: center;">wordle but i recreated it</h1>
@@ -187,7 +187,7 @@ import "../../styles/global.css";
                 function lerp(a, b, ratio) {
                     return a + ratio * (b - a);
                 }
-                setInterval(() => {
+                interval(() => {
                     for (var c = 0; c <= maxColumns; c++) {
                         colShakes[c] = lerp(colShakes[c], 0, 0.08);
                         for (var r = 0; r <= maxRows; r++) {
