@@ -31,8 +31,7 @@ export async function getStaticPaths() {
         );
     } else {
         datafiles = await import.meta.glob(
-            "../../characters/*/data.json", // not sure if you're supposed to have ** or * so fuck it we ball
-            { eager: true }
+            "../../characters/*/data.json" // not sure if you're supposed to have ** or * so fuck it we ball
         )
     }
 
@@ -46,8 +45,7 @@ export async function getStaticPaths() {
         );
     } else {
         contentfiles = await import.meta.glob(
-            "../../characters/*/*.{md,mdx}",
-            { eager: true }
+            "../../characters/*/*.{md,mdx}"
         )
     }
 
