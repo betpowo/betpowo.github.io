@@ -106,9 +106,6 @@ const iconData =
             where globals go
         -->
         <script is:inline>
-            clearInterval();
-            clearTimeout();
-
             function navigate(a) {
                 if (localStorage.getItem("defaultLQ") == "true") {
                     if (a == "/characters" || a == "/characters/") {
@@ -276,8 +273,12 @@ const iconData =
                 cutoff_sound.pause();
                 cutoff_sound = undefined;
             }
+
+            clearInterval();
+            clearTimeout();
         </script>
 
         <slot />
+        <!-- the actual page! :3 -->
     </body>
 </html>
