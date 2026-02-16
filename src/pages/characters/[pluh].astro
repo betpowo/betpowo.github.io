@@ -586,7 +586,7 @@ button.tab {
                                     x-html="i"
                                 />
                             </template>
-                            {tabContent.keys().map((a) =>
+                            {(data.page?.tabs ?? []).map((a) =>
                                 getTabShit(a) ? (
                                     <div
                                         set:html={tabContent.get(a)}
