@@ -11,9 +11,6 @@
             "offset": 3,
             "nudge": -10
         },
-        "labels": {
-            "irrelevant": true
-        },
         "palette": [
             "#333366",
             "#666699",

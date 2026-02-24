@@ -140,7 +140,7 @@ for (var k in tmp2) {
                             document.getElementById('text-input').value.length > 0
                             ? document.getElementById('text-input').value
                             : 'betty'
-                        .toLowerCase().trim()))"
+                        .toLowerCase().trim()), true)"
                         >🔍</button
                     >
                     <button
@@ -230,7 +230,7 @@ for (var k in tmp2) {
                                     --z: ${tmp2[a].page.z ?? 0};`}
                                     src={`/characters/${a}/page.png`}
                                     x-on:click="loading = true;"
-                                    onclick={`navigate('/characters/${a}/');`}
+                                    onclick={`navigate('/characters/${a}/', true);`}
                                     loading="lazy"
                                 />
                             ),

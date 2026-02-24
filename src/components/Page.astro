@@ -106,13 +106,17 @@ const iconData =
             where globals go
         -->
         <script is:inline>
-            function navigate(a) {
+            function navigate(a, forceReload) {
+                console.log(a);
+                console.log(forceReload);
+                console.log(forceReload != true);
                 if (localStorage.getItem("defaultLQ") == "true") {
                     if (a == "/characters" || a == "/characters/") {
                         a = "/characters/low-quality/";
                     }
                 }
                 if (
+                    forceReload != true && // not null or true
                     Object.keys(spa).length > 0 &&
                     localStorage.getItem("noSpa") != "true"
                 ) {

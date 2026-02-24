@@ -76,7 +76,7 @@ Q 96.75 35.85 88.1 33.95 76.25 31.45 67.4 32 59.3 32.6 51.45 35.6 42.6 39.05 38.
         <div
             class="character-button"
             style={`--character-color: ${color}; --hover-color: ${outline}; width: ${size}px; height: ${size}px;`}
-            onclick={`navigate("/characters/${character.toLowerCase()}")`}
+            onclick={`navigate("/characters/${character.toLowerCase()}", true)`}
             x-on:click="loading = true;"
         >
             <Fragment

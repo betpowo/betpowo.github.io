@@ -1,7 +1,7 @@
 {
   "name": "bet-site",
   "type": "module",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "scripts": {
     "start": "astro dev",
     "dev": "astro dev --host",
