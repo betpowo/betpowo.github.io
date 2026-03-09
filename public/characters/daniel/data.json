@@ -28,14 +28,14 @@
             "main": "#8b56a3",
             "dim": "#663366",
             "dark": "#0f0035",
-            "bg": "#f7e5de",
+            "bg": "#f7deeb",
             "header": {
                 "bg": "#0f0035",
                 "accent": "#8b56a3",
                 "main": "#eaa4fc"
             },
             "tab": {
-                "text": "#f7e5de"
+                "text": "#f7deeb"
             }
         },
         "iconColors": {

@@ -603,34 +603,23 @@ button.tab {
                     </section>
                 )
             }
-            <br /><br /><br />
-            <!-- will eventually get to this, but i dont wanna draw all of them rn
-            <section id="spinner">
-                <div style="margin: auto; width: fit-content;">
-                    <img
-                        src="/characters/lancer-spin.gif"
-                        height="60"
-                        style="image-rendering: pixelated;"
-                    />
-                </div>
-            </section>
-            <br /><br />
-            -->
-            <div style="margin: auto; width: fit-content;">
-                <button onclick="javascript:history.back()">← back</button>
-                <button
-                    onclick="globalThis.scrollTo({ top: 0, left: 0, behavior: 'smooth' });"
-                    >↑ top</button
-                >
-            </div>
-            <br /><br /><br />
+            <br />
         </div>
+        <br />
+        <div style="margin: auto; width: fit-content;">
+            <button onclick="javascript:history.back()">← back</button>
+            <button
+                onclick="globalThis.scrollTo({ top: 0, left: 0, behavior: 'smooth' });"
+                >↑ top</button
+            >
+        </div>
+        <br /><br /><br />
     </div>
-    <!--
+</Page>
+<!--
         fix a bug that flashed like every character into your eyes.
         kind alike ur memories when you die
     -->
-    <script is:inline>
-        localStorage.removeItem("____randomChosen");
-    </script>
-</Page>
+<script is:inline>
+    localStorage.removeItem("____randomChosen");
+</script>

@@ -17,6 +17,7 @@
     --col-bg: #303;
     --col-char-bg: var(--col-main);
 
+    --col-placeholder: var(--col-main);
     --col-link: var(--col-light);
     --col-link-hover: var(--col-bright);
 
@@ -245,7 +246,7 @@ details:hover {
 
 input::placeholder,
 textarea::placeholder {
-    color: var(--col-main);
+    color: var(--col-placeholder);
 }
 
 input[type=text],
