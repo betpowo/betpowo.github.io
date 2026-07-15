@@ -21,7 +21,7 @@ bleh.sort((a, b) => {
 <Page title="betopia's museum" logo={false}>
     <div style="background-color: var(--col-main);">
         <div
-            style="background-color: var(--col-dark); padding: 16px; display: flex; flex-direction: row; align-items: center; gap: 24px;"
+            style="background-color: var(--col-dark); padding: 16px; display: flex; flex-direction: row; align-items: center; gap: 24px; margin-bottom: 1em;"
         >
             <button
                 onclick="navigate('../');"
@@ -34,6 +34,64 @@ bleh.sort((a, b) => {
             >
             my artworks bro
         </div>
+        <div
+            style="display: flex; gap: 24px; align-items: center; justify-content: center;"
+        >
+            <div
+                style="background-color: var(--col-dark);
+            width: 40em; border-radius: 20px; padding: 24px; font-size: 16px;"
+            >
+                <div
+                    style="display: flex; justify-content: space-between; align-items: center;"
+                >
+                    <span
+                        style="color: #fc6; font-weight: 800; font-size: 32px;"
+                        >general art info</span
+                    >
+                </div>
+                <div>
+                    yea i know it all sucks, if you want to suck as well here's
+                    what i normally use:
+                    <ul>
+                        <li>
+                            <b>software:</b> Adobe Animate 2020 <span
+                                style="color: var(--col-main);">/ Krita</span
+                            >
+                        </li>
+                        <!-- (totally legit, trust me vro) -->
+                        <li>
+                            <b>brush:</b>
+                            <ul>
+                                <li><b>Animate:</b> 15px default</li>
+                                <li>
+                                    <b>Krita:</b> 7px leaking pen (modified)
+                                </li>
+                            </ul>
+                        </li>
+                        <li><b>tablet:</b> Wacom Intuos (small)</li>
+                    </ul>
+                    ...yikes
+                </div>
+            </div>
+
+            <div
+                style="
+                text-align: center;
+                border-radius: 16px;
+                padding: 16px;
+                background-color: var(--col-dim);
+                box-shadow: 0px 4px 0px var(--col-dark);"
+            >
+                this is me ↓↓↓↓↓ fr
+                <br /><br />
+                <video
+                    controls
+                    height="200"
+                    src="/videos/i draw for a living.mp4"
+                    style="border-radius: 8px; margin: 0;"></video>
+            </div>
+        </div>
+        <br />
         <div
             style="
             margin: auto;
@@ -91,44 +149,6 @@ bleh.sort((a, b) => {
                     </button>
                 ))
             }
-        </div>
-        <div
-            x-data="{showFuck: false}"
-            style="background-color: var(--col-dark); margin: auto; margin-top: 24px;
-            width: 40rem; border-radius: 20px; padding: 24px;"
-        >
-            <div
-                style="display: flex; justify-content: space-between; align-items: center;"
-            >
-                <span style="color: #fc6; font-weight: 800; font-size: 32px;"
-                    >general art info</span
-                ><button
-                    x-on:click="showFuck=!showFuck"
-                    style="width: 6em; height: 2em; margin: 0; display: flex; align-items: center;"
-                    >👁 toggle</button
-                >
-            </div>
-            <div x-show="showFuck" x-cloak="!showFuck">
-                yea i know it all sucks, if you want to suck as well here's what
-                i normally use:
-                <ul>
-                    <li>
-                        <b>software:</b> Adobe Animate 2020 <span
-                            style="color: var(--col-main);">/ Krita</span
-                        >
-                    </li>
-                    <!-- (totally legit, trust me vro) -->
-                    <li>
-                        <b>brush:</b>
-                        <ul>
-                            <li><b>Animate:</b> 15px default</li>
-                            <li><b>Krita:</b> 7px leaking pen (modified)</li>
-                        </ul>
-                    </li>
-                    <li><b>tablet:</b> Wacom Intuos (small)</li>
-                </ul>
-                ...yikes
-            </div>
         </div>
         <br />
     </div>

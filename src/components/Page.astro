@@ -223,7 +223,9 @@ const iconData =
                                     getPageLink(b) +
                                     "') loading = true;"
                                 }
-                                onclick={"navigate('/" + getPageLink(b) + "');"}
+                                onclick={
+                                    "navigate('/" + getPageLink(b) + "', true);"
+                                }
                                 style="
                         background-color: rgba(0.0, 0.0, 0.0, 0.0);
                         padding: 0; margin: 0;
@@ -270,7 +272,9 @@ const iconData =
                         <div>
                             <button
                                 x-on:click="showDropdown = false; loading = true;"
-                                onclick={"navigate('/" + getPage(a) + "');"}
+                                onclick={
+                                    "navigate('/" + getPage(a) + "', true);"
+                                }
                                 style="
                         background-color: rgba(0.0, 0.0, 0.0, 0.0);
                         padding: 0; margin: 0;
